@@ -29,6 +29,3 @@ http://help.devexpress.com/#Xaf/CustomDocument2579
 
 Model Editor
 http://help.devexpress.com/#Xaf/CustomDocument2582
-
-Xstract Test SQL Connection String
-Data Source=AU-BNE-SQ-007;Initial Catalog=NKD;Integrated Security=True;Pooling=False

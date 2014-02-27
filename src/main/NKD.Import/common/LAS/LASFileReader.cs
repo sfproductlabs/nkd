@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace Xstract.Import.LAS
+namespace NKD.Import.LAS
 {
     public class LASFileReader
     {

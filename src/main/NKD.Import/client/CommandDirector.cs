@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using NKD.Import;
 using NKD.Import.DataWrappers;
 using NKD.Import.FormatSpecification;
-using Xstract.Import.LAS;
+using NKD.Import.LAS;
 using System.Data.Objects.DataClasses;
 using System.Data.SqlClient;
 using System.Data;

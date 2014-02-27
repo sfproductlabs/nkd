@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("NKD.Win")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Xstract")]
+[assembly: AssemblyCompany("NakedEnterprise.Org")]
 [assembly: AssemblyProduct("NKD.Win")]
 [assembly: AssemblyCopyright("Copyright © - 2013")]
 [assembly: AssemblyTrademark("")]

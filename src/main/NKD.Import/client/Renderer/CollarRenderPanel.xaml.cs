@@ -28,7 +28,7 @@ namespace NKD.Import.Client.Renderer
 
         private void DrawStartupMessage()
         {
-            string stringToDraw = "Welcome to Xstract NKD.";
+            string stringToDraw = "Welcome to NKD.";
             LargeText gt = new LargeText(stringToDraw, 50, 10, false, false, TextAlignment.Left, 20);
             drawingCanvas.Children.Add(gt);
            

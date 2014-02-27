@@ -91,9 +91,7 @@
   <ItemGroup>
     <Compile Include="Extenders\ModelExtenders.cs" />
     <Compile Include="Package.cs" />
-    <Compile Include="Module.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Module.cs" />
     <Compile Include="Module.Designer.cs">
       <DependentUpon>Module.cs</DependentUpon>
     </Compile>

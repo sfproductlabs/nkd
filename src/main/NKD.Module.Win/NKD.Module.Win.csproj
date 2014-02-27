@@ -117,68 +117,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\UpdateConnectionStringController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\UpdateConnectionString.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Controllers\UpdateConnectionStringController.cs" />
+    <Compile Include="Controllers\UpdateConnectionString.cs" />
     <Compile Include="Controllers\UpdateConnectionString.Designer.cs">
       <DependentUpon>UpdateConnectionString.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ShowProvincesController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\ShowLocationsController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\NewProvinceController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\NewLocationController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\SendConfigController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\NewDocumentController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\SendConfig.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Controllers\ShowProvincesController.cs" />
+    <Compile Include="Controllers\ShowLocationsController.cs" />
+    <Compile Include="Controllers\NewProvinceController.cs" />
+    <Compile Include="Controllers\NewLocationController.cs" />
+    <Compile Include="Controllers\SendConfigController.cs" />
+    <Compile Include="Controllers\NewDocumentController.cs" />
+    <Compile Include="Controllers\SendConfig.cs" />
     <Compile Include="Controllers\SendConfig.Designer.cs">
       <DependentUpon>SendConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ShowDocumentsController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\UpdateConfig.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Controllers\ShowDocumentsController.cs" />
+    <Compile Include="Controllers\UpdateConfig.cs" />
     <Compile Include="Controllers\UpdateConfig.Designer.cs">
       <DependentUpon>UpdateConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\UpdateConfigController.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controllers\UpdateConfigController.cs" />
     <Compile Include="Editors\DateAndTimeEditor.cs" />
-    <Compile Include="WinGroupFooterViewController.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="WinGroupFooterViewController.cs" />
     <Compile Include="Editors\CustomFileOperationEventArgs.cs" />
     <Compile Include="Editors\DocGridListEditor.cs" />
-    <Compile Include="Editors\FileDataEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Editors\FileDataEdit.cs" />
     <Compile Include="Editors\FileEditor.cs" />
     <Compile Include="Editors\GeoDecimalEditor.cs" />
-    <Compile Include="Editors\RepositoryFileEditor.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GridControlViewController.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Editors\RepositoryFileEditor.cs" />
+    <Compile Include="GridControlViewController.cs" />
     <Compile Include="GridControlViewController.designer.cs">
       <DependentUpon>GridControlViewController.cs</DependentUpon>
     </Compile>
@@ -187,9 +155,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="WinModule.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="WinModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinModule.Designer.cs">
       <DependentUpon>WinModule.cs</DependentUpon>

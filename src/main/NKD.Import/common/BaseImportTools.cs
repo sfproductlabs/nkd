@@ -13,7 +13,7 @@ using NKD.Import.ColumnSpecs;
 using NKD.Import.DataWrappers;
 using NKD.Import.FormatSpecification;
 using NKD.Import.ImportUtils;
-using Xstract.Import.LAS;
+using NKD.Import.LAS;
 using NKD.Module.BusinessObjects;
 
 namespace NKD.Import
@@ -858,7 +858,7 @@ namespace NKD.Import
             return collars;
         }
 
-        public List<object> ImportLasFile(Xstract.Import.LAS.LASFile lasFile, string origFilename, ModelImportStatus mos, Guid currentProjectID, System.ComponentModel.BackgroundWorker backgroundWorker)
+        public List<object> ImportLasFile(NKD.Import.LAS.LASFile lasFile, string origFilename, ModelImportStatus mos, Guid currentProjectID, System.ComponentModel.BackgroundWorker backgroundWorker)
         {
             this.currentWorker = backgroundWorker;
             // get the pre holeID from the filename

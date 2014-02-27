@@ -105,7 +105,7 @@ namespace NKD.Module.Properties {
         ///-- =============================================
         ///-- Author:		Andrew Grosser
         ///-- Create date: July 2012
-        ///-- Description:	NKD - Xstract Open Database (Open source database for geology and mining)
+        ///-- Description:	NKD - NakedEnterprise.Org
         ///-- ====== [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string NKDSchema1 {
@@ -119,7 +119,7 @@ namespace NKD.Module.Properties {
         ///-- =============================================
         ///-- Author:		Andrew Grosser
         ///-- Create date: July 2012
-        ///-- Description:	NKD - Xstract Open Database (Open source database for geology and mining)
+        ///-- Description:	NKD - NakedEnterprise.Org
         ///-- ====== [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string NKDSchema1Data {

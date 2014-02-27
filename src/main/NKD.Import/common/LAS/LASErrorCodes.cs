@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Xstract.Import.LAS
+namespace NKD.Import.LAS
 {
     /// <summary>
     /// A list of error codes and descitpions associated with this application

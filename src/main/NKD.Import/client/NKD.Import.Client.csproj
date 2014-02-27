@@ -24,9 +24,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://nkd.xstractgroup.com/publish/nkd-importer/0/</InstallUrl>
-    <SupportUrl>http://nkd.xstractgroup.com</SupportUrl>
-    <ErrorReportUrl>https://github.com/xstract/nkd/issues</ErrorReportUrl>
+    <InstallUrl>http://nakedenterprise.org/publish/nkd-importer/0/</InstallUrl>
+    <SupportUrl>http://nakedenterprise.org</SupportUrl>
+    <ErrorReportUrl>https://nakedenterprise.org</ErrorReportUrl>
     <ProductName>NKD Importer</ProductName>
     <PublisherName>Xstract Mining Consultants</PublisherName>
     <SuiteName>NKD</SuiteName>

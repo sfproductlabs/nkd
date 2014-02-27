@@ -31,7 +31,7 @@ namespace NKD.Import.Client.UI
             Font fb = c1.Titles[0].Font;
             c1.Titles[0].Font = new Font(fb.FontFamily, 10, System.Drawing.FontStyle.Bold);
             // this is a small 'Watermark' in the chart area to tag the image with the Xstract name
-            c1.Titles.Add("Xstract NKD");
+            c1.Titles.Add("NakedEnterprise.Org");
             c1.Titles[1].Alignment = System.Drawing.ContentAlignment.BottomRight;
             // Set Title Docking 
             c1.Titles[1].IsDockedInsideChartArea = true;

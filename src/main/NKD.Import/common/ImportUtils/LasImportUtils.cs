@@ -6,7 +6,7 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using NKD.Module.BusinessObjects;
-using Xstract.Import.LAS;
+using NKD.Import.LAS;
 using System.Data.Objects.DataClasses;
 
 namespace NKD.Import.ImportUtils
@@ -16,7 +16,7 @@ namespace NKD.Import.ImportUtils
         public LasImportUtils() { }
 
 
-        internal List<object> ImportLASFile(Xstract.Import.LAS.LASFile lasFile, string origFilename, ModelImportStatus mos, Guid currentProject, Action<string, double> UpdateStatus)
+        internal List<object> ImportLASFile(NKD.Import.LAS.LASFile lasFile, string origFilename, ModelImportStatus mos, Guid currentProject, Action<string, double> UpdateStatus)
         {
             int li = origFilename.LastIndexOf("\\");
             string tempHoleIDa = origFilename.Substring(li);

@@ -13,7 +13,7 @@
     <ApplicationIcon>Images\xicon4.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>http://nkd.xstractgroup.com/publish/nkd/14/</PublishUrl>
+    <PublishUrl>http://NakedEnterprise.Org/publish/nkd/19/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -23,10 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <SupportUrl>http://nkd.xstractgroup.com</SupportUrl>
-    <ErrorReportUrl>https://github.com/xstract/nkd/issues</ErrorReportUrl>
+    <SupportUrl>http://NakedEnterprise.Org</SupportUrl>
+    <ErrorReportUrl>https://NakedEnterprise.Org</ErrorReportUrl>
     <ProductName>NKD Windows</ProductName>
-    <PublisherName>Xstract Mining Consultants</PublisherName>
+    <PublisherName>NakedEnterprise.Org</PublisherName>
     <SuiteName>NKD</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>

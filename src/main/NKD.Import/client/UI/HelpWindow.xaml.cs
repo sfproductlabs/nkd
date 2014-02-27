@@ -26,7 +26,7 @@ namespace NKD.Import.Client.UI
             //var filename = "PairQA.mht";
             //var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filename);
             //webBrowser1.Navigate(path);
-            Uri ui = new Uri("http://nkd.xstractgroup.com", UriKind.RelativeOrAbsolute);
+            Uri ui = new Uri("http://nakedenterprise.org", UriKind.RelativeOrAbsolute);
             webBrowser1.Navigate(ui);
             
 

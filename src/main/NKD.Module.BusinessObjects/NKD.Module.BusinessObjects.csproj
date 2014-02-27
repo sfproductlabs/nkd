@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B09F7D77-FAF0-4EFC-81A3-A241007D52F0}</ProjectGuid>
+    <ProjectGuid>{380151D5-C92F-404A-8B89-B788F574D228}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NKD.Module.BusinessObjects</RootNamespace>

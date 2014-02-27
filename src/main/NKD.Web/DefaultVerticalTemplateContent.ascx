@@ -28,7 +28,7 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="Top" width="100%">
                                 <tr>
                                     <td class="Logo">
-                                        <asp:HyperLink runat="server" NavigateUrl="http://nkd.xstractgroup.com" ID="LogoLink">
+                                        <asp:HyperLink runat="server" NavigateUrl="http://NakedEnterprise.Org" ID="LogoLink">
                                             <cc4:ThemedImageControl ID="TIC" DefaultThemeImageLocation="Images" ImageName="LogoCMYK.png" width="25px"
                                                 BorderWidth="0px" style="margin-bottom:-4px;" runat="server" /><h1 style="white-space:nowrap;display: inline;padding:5px;">NKD Server</h1>
                                         </asp:HyperLink>

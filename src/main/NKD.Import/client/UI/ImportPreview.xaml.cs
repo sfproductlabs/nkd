@@ -236,13 +236,13 @@ namespace NKD.Import.Client.UI
             //ColumnsMapped(this, new EventArgs());
         }
 
-        private static void SearchHeaderComboFor(string kv, ComboBox tmp, string dataMineMnemonic, string xstractAlias)
+        private static void SearchHeaderComboFor(string kv, ComboBox tmp, string dataMineMnemonic, string nkdAlias)
         {
             if (kv.Equals(dataMineMnemonic))
             {
                 foreach (string s in tmp.Items)
                 {
-                    if (s.StartsWith(xstractAlias))
+                    if (s.StartsWith(nkdAlias))
                     {
                         tmp.SelectedValue = s;
                     }
