@@ -5,7 +5,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:UI="clr-namespace:NKD.Import.Client.UI" 
         x:Class="NKD.Import.Client.MainWindow"
-        Title="NKD Importer - Xstract Mining Consultants" Height="1000" Width="1000" Icon="images/xicon4.ico" Loaded="myWin_Loaded">
+        Title="NKD Importer - Xstract Mining Consultants" Height="1000" Width="1000" Icon="images/ExpressApp.ico" Loaded="myWin_Loaded">
 
     <Window.CommandBindings>
 

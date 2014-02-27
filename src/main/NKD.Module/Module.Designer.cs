@@ -79,7 +79,7 @@ namespace NKD.Module
             this.AdditionalExportedTypes.Add(typeof(NKD.Module.BusinessObjects.DeliveryAdvice));
             this.AdditionalExportedTypes.Add(typeof(NKD.Module.BusinessObjects.DeliveryAdviceItem));
             this.AdditionalExportedTypes.Add(typeof(NKD.Module.BusinessObjects.Desurvey));
-            this.AdditionalExportedTypes.Add(typeof(NKD.Module.BusinessObjects.DicitonaryAssetStatus));
+            this.AdditionalExportedTypes.Add(typeof(NKD.Module.BusinessObjects.DictionaryAssetStatus));
             this.AdditionalExportedTypes.Add(typeof(NKD.Module.BusinessObjects.Dictionary));
             this.AdditionalExportedTypes.Add(typeof(NKD.Module.BusinessObjects.DictionaryAdjective));
             this.AdditionalExportedTypes.Add(typeof(NKD.Module.BusinessObjects.DictionaryAlteration));

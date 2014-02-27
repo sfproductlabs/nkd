@@ -127,16 +127,4 @@
   <data name="NKDRestore" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\restore.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="NKDSchema1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\script_schema.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
-  <data name="NKDSchema1Data" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\script.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
-  <data name="NKDSchema2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\v2.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="NKDSchema3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\v3.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
 </root>

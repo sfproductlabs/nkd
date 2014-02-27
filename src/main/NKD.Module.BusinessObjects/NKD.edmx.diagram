@@ -36,7 +36,6 @@
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.ContractAsset" Width="1.5" PointX="36.75" PointY="477.25" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DeliveryAdvice" Width="1.5" PointX="31.5" PointY="466" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DeliveryAdviceItem" Width="1.5" PointX="36.75" PointY="464.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DicitonaryAssetStatus" Width="1.5" PointX="23.25" PointY="282.375" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryDecontaminationStatus" Width="1.5" PointX="34.5" PointY="440.875" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryDeliveryAdviceReason" Width="1.5" PointX="29.25" PointY="435.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryDeviceType" Width="1.5" PointX="43.75" PointY="509.75" IsExpanded="true" />
@@ -97,7 +96,6 @@
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.CostEstimateModel" Width="1.5" PointX="34.5" PointY="464" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.Defect" Width="1.5" PointX="36" PointY="482.25" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.Desurvey" Width="1.5" PointX="50.5" PointY="426.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.Dictionary" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryAdjective" Width="1.5" PointX="21.75" PointY="287.125" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryAlteration" Width="1.5" PointX="21.75" PointY="291.5" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryAssayMethod" Width="1.5" PointX="21.75" PointY="295.5" IsExpanded="true" />
@@ -192,7 +190,6 @@
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryTexture" Width="1.5" PointX="21.75" PointY="645.625" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryUnit" Width="1.5" PointX="24" PointY="541.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryUnitType" Width="1.5" PointX="21.75" PointY="649.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryUsageAuditType" Width="1.5" PointX="21.75" PointY="654" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryWeathering" Width="1.5" PointX="21.75" PointY="657.875" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryWorkType" Width="1.5" PointX="24" PointY="513.125" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryWorkTypeClass" Width="1.5" PointX="21.75" PointY="662" IsExpanded="true" />
@@ -371,7 +368,6 @@
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_Q_AccountProductDiscount_X_Company" ManuallyRouted="false" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_Q_AccountProductDiscount_X_Experience" ManuallyRouted="false" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_Q_Asset_Q_Asset" ManuallyRouted="false" />
-        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_Q_Asset_Q_DicitonaryAssetStatus" ManuallyRouted="false" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_Q_Asset_X_DictionaryModel" ManuallyRouted="false" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_Q_Asset_X_Experience" ManuallyRouted="false" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_Q_Asset_X_Location" ManuallyRouted="false" />
@@ -832,8 +828,6 @@
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Task_X_DictionaryUnit" ManuallyRouted="false" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryUnit_X_FileData_OriginalFile" ManuallyRouted="false" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryUnitType_X_FileData_OriginalFile" ManuallyRouted="false" />
-        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType" ManuallyRouted="false" />
-        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile" ManuallyRouted="false" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryWeathering" ManuallyRouted="false" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryWeathering_X_FileData_OriginalFile" ManuallyRouted="false" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryWorkType1" ManuallyRouted="false" />
@@ -1147,7 +1141,7 @@
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_DictionaryAddressType_X_FileData" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Address_E_DictionaryAddressType" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_SupplyContractCondition_E_Supply" />
-        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.ApplicationPaymentProviderContact" Width="1.5" PointX="9.676588312572143" PointY="14.980401910366677" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.ApplicationPaymentProviderContact" Width="1.5" PointX="10.75" PointY="14.875" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ApplicationPaymentProviderContact_E_ApplicationPaymentProvider" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ApplicationPaymentProviderContact_X_Contact" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_SupplyItem_E_ApplicationPaymentProviderProduct" />
@@ -1191,6 +1185,13 @@
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ApplicationPaymentProviderProductModel_Q_SupplierModel" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_Drilling" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_ProjectPlanTask" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryAssetStatus" Width="1.5" PointX="9.18338323812158" PointY="13.303410431977087" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.Dictionary" Width="1.5" PointX="5.5636887389997431" PointY="13.18384704607718" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryUsageAuditType" Width="1.5" PointX="2.9306464749065446" PointY="6.4725095361808824" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.ApplicationContactsView" Width="1.5" PointX="8.3512929623719732" PointY="18.225001924776006" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_Q_Asset_Q_DicitonaryAssetStatus1" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType1" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

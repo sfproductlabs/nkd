@@ -14,7 +14,7 @@ namespace NKD.Module.DatabaseUpdate
 {
     public class Updater : ModuleUpdater
     {
-        public static int CurrentVersion { get { return 4; } }      
+        public static int CurrentVersion { get { return 9; } }      
         public static string DefaultConnectionString { get; set; }
         public static bool UpdateData { get; set; }
         public Updater(IObjectSpace objectSpace, Version currentDBVersion) : base(objectSpace, currentDBVersion) 
@@ -52,16 +52,16 @@ namespace NKD.Module.DatabaseUpdate
                 }
                 catch { }
             }
-            if (nkdSchemaVersion < 2)
-                foreach (var s in Properties.Resources.NKDSchema2.Split(new string[] { "GO" }, StringSplitOptions.RemoveEmptyEntries)) ExecuteNonQueryCommand(s, true);
-            if (nkdSchemaVersion < 3)
-                foreach (var s in Properties.Resources.NKDSchema3.Split(new string[] { "GO" }, StringSplitOptions.RemoveEmptyEntries)) ExecuteNonQueryCommand(s, true); //This may have errors
-            if (nkdSchemaVersion < 4)
-            {
-                ExecuteSQLFromZip("v4.schema.sql.zip");
-                if (UpdateData)
-                    ExecuteSQLFromZip("v4.data.sql.zip"); //Query too large to execute - users can do it themselves
-            }
+            //if (nkdSchemaVersion < 2)
+            //    foreach (var s in Properties.Resources.NKDSchema2.Split(new string[] { "GO" }, StringSplitOptions.RemoveEmptyEntries)) ExecuteNonQueryCommand(s, true);
+            //if (nkdSchemaVersion < 3)
+            //    foreach (var s in Properties.Resources.NKDSchema3.Split(new string[] { "GO" }, StringSplitOptions.RemoveEmptyEntries)) ExecuteNonQueryCommand(s, true); //This may have errors
+            //if (nkdSchemaVersion < 4)
+            //{
+            //    ExecuteSQLFromZip("v4.schema.sql.zip");
+            //    if (UpdateData)
+            //        ExecuteSQLFromZip("v4.data.sql.zip"); //Query too large to execute - users can do it themselves
+            //}
 
             if (nkdSchemaVersion < CurrentVersion)
                 TryReboot();

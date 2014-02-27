@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NKD.Win</RootNamespace>
     <AssemblyName>NKD.Win</AssemblyName>
-    <ApplicationIcon>Images\xicon4.ico</ApplicationIcon>
+    <ApplicationIcon>ExpressApp.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <PublishUrl>http://NakedEnterprise.Org/publish/nkd/19/</PublishUrl>
@@ -83,126 +83,167 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.ExpressApp.EF.45.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.ExpressApp.FileAttachment.Win.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.EF.45.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.EF.45.v13.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.FileAttachment.Win.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.FileAttachment.Win.v13.1.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.ExpressApp.Reports.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Reports.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Reports.Win.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Reports.Win.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Security.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Security.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Validation.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Validation.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Validation.Win.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Validation.Win.v13.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Xpo.v13.1.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Office.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Office.v13.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.RichEdit.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.RichEdit.v13.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Utils.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.BonusSkins.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Printing.v13.1.Core">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Printing.v13.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Data.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Images.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Images.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Win.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Win.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Persistent.Base.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Persistent.Base.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Persistent.BaseImpl.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Persistent.BaseImpl.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v13.1.UI, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Utils.v13.1.UI.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Xpo.v13.1.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.XtraGrid.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraGrid.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraBars.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraBars.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraEditors.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraLayout.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraLayout.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraNavBar.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraNavBar.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraPrinting.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Charts.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Charts.v13.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v13.1.Wizard, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraCharts.v13.1.Wizard.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraCharts.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.PivotGrid.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.PivotGrid.v13.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Sparkline.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Sparkline.v13.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraReports.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraReports.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraReports.v13.1.Extensions, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraReports.v13.1.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraRichEdit.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraRichEdit.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraTreeList.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraTreeList.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraVerticalGrid.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraVerticalGrid.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\deps\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\NKD.Orchard\lib\EntityFramework\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
@@ -250,8 +291,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Images\xicon4.ico" />
-    <Content Include="xicon4.ico" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -278,9 +317,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <EmbeddedResource Include="Images\LogoCMYK.ico" />
     <EmbeddedResource Include="Images\LogoCMYK.png" />
-    <Content Include="LogoCMYK.ico" />
     <Content Include="Model.xafml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -293,16 +330,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="Resources\v4.bak.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\v4.data.sql.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\v4.schema.sql.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="NKD.Win_TemporaryKey.pfx" />
+    <None Include="Resources\v9.bak.zip" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ExpressApp.ico" />
@@ -1366,7 +1395,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
-    <PublishFile Include="Images\xicon4.ico">
+    <PublishFile Include="ExpressApp.ico">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -2046,7 +2075,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
-    <PublishFile Include="xicon4.ico">
+    <PublishFile Include="ExpressApp.ico">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -2112,7 +2141,7 @@
       <Visible>False</Visible>
       <Description>NKD Package</Description>
       <Progid>NKD.nkd</Progid>
-      <DefaultIcon>xicon4.ico</DefaultIcon>
+      <DefaultIcon>ExpressApp.ico</DefaultIcon>
     </FileAssociation>
   </ItemGroup>
   <ItemGroup>

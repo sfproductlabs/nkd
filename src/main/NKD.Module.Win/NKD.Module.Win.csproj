@@ -38,52 +38,76 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.ExpressApp.EF.45.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.ExpressApp.FileAttachment.Win.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.ExpressApp.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.EF.45.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.EF.45.v13.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.FileAttachment.Win.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.FileAttachment.Win.v13.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Xpo.v13.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v13.1.Core">
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.PivotGrid.v13.1.Core.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Utils.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Utils.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Printing.v13.1.Core">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Printing.v13.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Data.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Win.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Win.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Persistent.Base.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Persistent.Base.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Persistent.BaseImpl.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Persistent.BaseImpl.v13.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Xpo.v13.1.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.XtraPrinting.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraPrinting.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraGrid.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraGrid.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraEditors.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraLayout.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraLayout.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraNavBar.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraNavBar.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraBars.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.XtraBars.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\deps\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\NKD.Orchard\lib\EntityFramework\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System">
@@ -117,36 +141,68 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\UpdateConnectionStringController.cs" />
-    <Compile Include="Controllers\UpdateConnectionString.cs" />
+    <Compile Include="Controllers\UpdateConnectionStringController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\UpdateConnectionString.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controllers\UpdateConnectionString.Designer.cs">
       <DependentUpon>UpdateConnectionString.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ShowProvincesController.cs" />
-    <Compile Include="Controllers\ShowLocationsController.cs" />
-    <Compile Include="Controllers\NewProvinceController.cs" />
-    <Compile Include="Controllers\NewLocationController.cs" />
-    <Compile Include="Controllers\SendConfigController.cs" />
-    <Compile Include="Controllers\NewDocumentController.cs" />
-    <Compile Include="Controllers\SendConfig.cs" />
+    <Compile Include="Controllers\ShowProvincesController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ShowLocationsController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\NewProvinceController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\NewLocationController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SendConfigController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\NewDocumentController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SendConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controllers\SendConfig.Designer.cs">
       <DependentUpon>SendConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ShowDocumentsController.cs" />
-    <Compile Include="Controllers\UpdateConfig.cs" />
+    <Compile Include="Controllers\ShowDocumentsController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\UpdateConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controllers\UpdateConfig.Designer.cs">
       <DependentUpon>UpdateConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\UpdateConfigController.cs" />
+    <Compile Include="Controllers\UpdateConfigController.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Editors\DateAndTimeEditor.cs" />
-    <Compile Include="WinGroupFooterViewController.cs" />
+    <Compile Include="WinGroupFooterViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Editors\CustomFileOperationEventArgs.cs" />
     <Compile Include="Editors\DocGridListEditor.cs" />
-    <Compile Include="Editors\FileDataEdit.cs" />
+    <Compile Include="Editors\FileDataEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Editors\FileEditor.cs" />
     <Compile Include="Editors\GeoDecimalEditor.cs" />
-    <Compile Include="Editors\RepositoryFileEditor.cs" />
-    <Compile Include="GridControlViewController.cs" />
+    <Compile Include="Editors\RepositoryFileEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GridControlViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GridControlViewController.designer.cs">
       <DependentUpon>GridControlViewController.cs</DependentUpon>
     </Compile>
@@ -155,7 +211,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="WinModule.cs" />
+    <Compile Include="WinModule.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinModule.Designer.cs">
       <DependentUpon>WinModule.cs</DependentUpon>

@@ -64,6 +64,7 @@
           <EntitySet Name="E_TwoStepAuthenticationData" EntityType="NKD.Module.BusinessObjects.Store.E_TwoStepAuthenticationData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_Workflow" EntityType="NKD.Module.BusinessObjects.Store.E_Workflow" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_XMLData" EntityType="NKD.Module.BusinessObjects.Store.E_XMLData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ModuleInfo" EntityType="NKD.Module.BusinessObjects.Store.ModuleInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Q_Account" EntityType="NKD.Module.BusinessObjects.Store.Q_Account" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Q_AccountDiscount" EntityType="NKD.Module.BusinessObjects.Store.Q_AccountDiscount" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Q_Asset" EntityType="NKD.Module.BusinessObjects.Store.Q_Asset" store:Type="Tables" Schema="dbo" />
@@ -74,7 +75,7 @@
           <EntitySet Name="Q_ContractAsset" EntityType="NKD.Module.BusinessObjects.Store.Q_ContractAsset" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Q_DeliveryAdvice" EntityType="NKD.Module.BusinessObjects.Store.Q_DeliveryAdvice" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Q_DeliveryAdviceItem" EntityType="NKD.Module.BusinessObjects.Store.Q_DeliveryAdviceItem" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Q_DicitonaryAssetStatus" EntityType="NKD.Module.BusinessObjects.Store.Q_DicitonaryAssetStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Q_DictionaryAssetStatus" EntityType="NKD.Module.BusinessObjects.Store.Q_DictionaryAssetStatus" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Q_DictionaryDecontaminationStatus" EntityType="NKD.Module.BusinessObjects.Store.Q_DictionaryDecontaminationStatus" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Q_DictionaryDeliveryAdviceReason" EntityType="NKD.Module.BusinessObjects.Store.Q_DictionaryDeliveryAdviceReason" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Q_DictionaryDeviceType" EntityType="NKD.Module.BusinessObjects.Store.Q_DictionaryDeviceType" store:Type="Tables" Schema="dbo" />
@@ -105,7 +106,10 @@
           <EntitySet Name="Q_WarehousePart" EntityType="NKD.Module.BusinessObjects.Store.Q_WarehousePart" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Q_WarehousePartSupplier" EntityType="NKD.Module.BusinessObjects.Store.Q_WarehousePartSupplier" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Q_WorkflowSchedule" EntityType="NKD.Module.BusinessObjects.Store.Q_WorkflowSchedule" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReportData" EntityType="NKD.Module.BusinessObjects.Store.ReportData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="NKD.Module.BusinessObjects.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Dictionary" EntityType="NKD.Module.BusinessObjects.Store.T_Dictionary" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_DictionaryUsageAuditType" EntityType="NKD.Module.BusinessObjects.Store.T_DictionaryUsageAuditType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Address" EntityType="NKD.Module.BusinessObjects.Store.X_Address" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_AssayGroup" EntityType="NKD.Module.BusinessObjects.Store.X_AssayGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_AssayGroupStandardTestResult" EntityType="NKD.Module.BusinessObjects.Store.X_AssayGroupStandardTestResult" store:Type="Tables" Schema="dbo" />
@@ -149,7 +153,6 @@
           <EntitySet Name="X_CostEstimateModel" EntityType="NKD.Module.BusinessObjects.Store.X_CostEstimateModel" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Defect" EntityType="NKD.Module.BusinessObjects.Store.X_Defect" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Desurvey" EntityType="NKD.Module.BusinessObjects.Store.X_Desurvey" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="X_Dictionary" EntityType="NKD.Module.BusinessObjects.Store.X_Dictionary" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryAdjective" EntityType="NKD.Module.BusinessObjects.Store.X_DictionaryAdjective" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryAgitationMethod" EntityType="NKD.Module.BusinessObjects.Store.X_DictionaryAgitationMethod" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryAlteration" EntityType="NKD.Module.BusinessObjects.Store.X_DictionaryAlteration" store:Type="Tables" Schema="dbo" />
@@ -251,7 +254,6 @@
           <EntitySet Name="X_DictionaryTexture" EntityType="NKD.Module.BusinessObjects.Store.X_DictionaryTexture" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryUnit" EntityType="NKD.Module.BusinessObjects.Store.X_DictionaryUnit" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryUnitType" EntityType="NKD.Module.BusinessObjects.Store.X_DictionaryUnitType" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="X_DictionaryUsageAuditType" EntityType="NKD.Module.BusinessObjects.Store.X_DictionaryUsageAuditType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryWeathering" EntityType="NKD.Module.BusinessObjects.Store.X_DictionaryWeathering" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryWorkType" EntityType="NKD.Module.BusinessObjects.Store.X_DictionaryWorkType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryWorkTypeClass" EntityType="NKD.Module.BusinessObjects.Store.X_DictionaryWorkTypeClass" store:Type="Tables" Schema="dbo" />
@@ -328,6 +330,7 @@
           <EntitySet Name="X_UsageAudit" EntityType="NKD.Module.BusinessObjects.Store.X_UsageAudit" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_UserData" EntityType="NKD.Module.BusinessObjects.Store.X_UserData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_WaterFlow" EntityType="NKD.Module.BusinessObjects.Store.X_WaterFlow" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="XPObjectType" EntityType="NKD.Module.BusinessObjects.Store.XPObjectType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DefinitionIdentityTable" EntityType="NKD.Module.BusinessObjects.Store.DefinitionIdentityTable" store:Type="Tables" store:Schema="System.Activities.DurableInstancing" store:Name="DefinitionIdentityTable">
             <DefiningQuery>SELECT 
       [DefinitionIdentityTable].[SurrogateIdentityId] AS [SurrogateIdentityId], 
@@ -469,6 +472,13 @@
       [ServiceDeploymentsTable].[ServiceName] AS [ServiceName], 
       [ServiceDeploymentsTable].[ServiceNamespace] AS [ServiceNamespace]
       FROM [System.Activities.DurableInstancing].[ServiceDeploymentsTable] AS [ServiceDeploymentsTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="E_VW_ApplicationContacts" EntityType="NKD.Module.BusinessObjects.Store.E_VW_ApplicationContacts" store:Type="Views" store:Schema="dbo" store:Name="E_VW_ApplicationContacts">
+            <DefiningQuery>SELECT 
+      [E_VW_ApplicationContacts].[ApplicationId] AS [ApplicationId], 
+      [E_VW_ApplicationContacts].[ContactID] AS [ContactID], 
+      [E_VW_ApplicationContacts].[ContactName] AS [ContactName]
+      FROM [dbo].[E_VW_ApplicationContacts] AS [E_VW_ApplicationContacts]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="E_VW_ApplicationUserRoles" EntityType="NKD.Module.BusinessObjects.Store.E_VW_ApplicationUserRoles" store:Type="Views" store:Schema="dbo" store:Name="E_VW_ApplicationUserRoles">
             <DefiningQuery>SELECT 
@@ -1592,7 +1602,7 @@
             <End Role="Q_Asset1" EntitySet="Q_Asset" />
           </AssociationSet>
           <AssociationSet Name="FK_Q_Asset_Q_DicitonaryAssetStatus" Association="NKD.Module.BusinessObjects.Store.FK_Q_Asset_Q_DicitonaryAssetStatus">
-            <End Role="Q_DicitonaryAssetStatus" EntitySet="Q_DicitonaryAssetStatus" />
+            <End Role="Q_DictionaryAssetStatus" EntitySet="Q_DictionaryAssetStatus" />
             <End Role="Q_Asset" EntitySet="Q_Asset" />
           </AssociationSet>
           <AssociationSet Name="FK_Q_Asset_X_Company" Association="NKD.Module.BusinessObjects.Store.FK_Q_Asset_X_Company">
@@ -3756,7 +3766,7 @@
             <End Role="X_TenementRelation" EntitySet="X_TenementRelation" />
           </AssociationSet>
           <AssociationSet Name="FK_X_UsageAudit_X_DictionaryUsageAuditType" Association="NKD.Module.BusinessObjects.Store.FK_X_UsageAudit_X_DictionaryUsageAuditType">
-            <End Role="X_DictionaryUsageAuditType" EntitySet="X_DictionaryUsageAuditType" />
+            <End Role="T_DictionaryUsageAuditType" EntitySet="T_DictionaryUsageAuditType" />
             <End Role="X_UsageAudit" EntitySet="X_UsageAudit" />
           </AssociationSet>
           <AssociationSet Name="FK_X_WaterFlowData_X_DictionaryFlow_Test_Type" Association="NKD.Module.BusinessObjects.Store.FK_X_WaterFlowData_X_DictionaryFlow_Test_Type">
@@ -4161,7 +4171,7 @@
           </AssociationSet>
           <AssociationSet Name="FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile" Association="NKD.Module.BusinessObjects.Store.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile">
             <End Role="X_FileData" EntitySet="X_FileData" />
-            <End Role="X_DictionaryUsageAuditType" EntitySet="X_DictionaryUsageAuditType" />
+            <End Role="T_DictionaryUsageAuditType" EntitySet="T_DictionaryUsageAuditType" />
           </AssociationSet>
           <AssociationSet Name="FK_X_X_DictionaryWeathering_X_FileData_OriginalFile" Association="NKD.Module.BusinessObjects.Store.FK_X_X_DictionaryWeathering_X_FileData_OriginalFile">
             <End Role="X_FileData" EntitySet="X_FileData" />
@@ -4504,9 +4514,9 @@
         </EntityType>
         <EntityType Name="E_ApplicationRouteParameter">
           <Key>
-            <PropertyRef Name="ApplicatoinRouteParameterID" />
+            <PropertyRef Name="ApplicationRouteParameterID" />
           </Key>
-          <Property Name="ApplicatoinRouteParameterID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationRouteParameterID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ApplicationRouteID" Type="uniqueidentifier" />
           <Property Name="RouteParameterName" Type="nvarchar" MaxLength="50" />
           <Property Name="RouteParameterValue" Type="nvarchar" MaxLength="255" />
@@ -5123,9 +5133,9 @@
         </EntityType>
         <EntityType Name="E_ProblemSolutionAssetDataAllocation">
           <Key>
-            <PropertyRef Name="ProblemSolutionAssetDataAlloctionID" />
+            <PropertyRef Name="ProblemSolutionAssetDataAllocationID" />
           </Key>
-          <Property Name="ProblemSolutionAssetDataAlloctionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProblemSolutionAssetDataAllocationID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ProblemSolutionID" Type="uniqueidentifier" />
           <Property Name="AssetDataID" Type="uniqueidentifier" />
           <Property Name="Weight" Type="numeric" Precision="38" Scale="20" />
@@ -5452,6 +5462,17 @@
           <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
           <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
+        <EntityType Name="ModuleInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Version" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="AssemblyFileName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsMain" Type="bit" />
+          <Property Name="OptimisticLockField" Type="int" />
+        </EntityType>
         <EntityType Name="Q_Account">
           <Key>
             <PropertyRef Name="AccountID" />
@@ -5476,9 +5497,9 @@
         </EntityType>
         <EntityType Name="Q_AccountDiscount">
           <Key>
-            <PropertyRef Name="AccountProductDiscountID" />
+            <PropertyRef Name="AccountDiscountID" />
           </Key>
-          <Property Name="AccountProductDiscountID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AccountDiscountID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="SourceAccountID" Type="uniqueidentifier" />
           <Property Name="ClientCompanyID" Type="uniqueidentifier" />
           <Property Name="ProviderExperienceID" Type="uniqueidentifier" />
@@ -5572,9 +5593,9 @@
         </EntityType>
         <EntityType Name="Q_AssetWarranty">
           <Key>
-            <PropertyRef Name="AssetyWarrantyID" />
+            <PropertyRef Name="AssetWarrantyID" />
           </Key>
-          <Property Name="AssetyWarrantyID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssetWarrantyID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AssetID" Type="uniqueidentifier" />
           <Property Name="ModelWarrantyID" Type="uniqueidentifier" />
           <Property Name="StartDate" Type="datetime" Nullable="false" />
@@ -5683,7 +5704,7 @@
           <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
           <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
-        <EntityType Name="Q_DicitonaryAssetStatus">
+        <EntityType Name="Q_DictionaryAssetStatus">
           <Key>
             <PropertyRef Name="AssetStatusID" />
           </Key>
@@ -6349,6 +6370,18 @@
           <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
           <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
+        <EntityType Name="ReportData">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectTypeName" Type="nvarchar" MaxLength="512" />
+          <Property Name="Content" Type="varbinary(max)" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsInplaceReport" Type="bit" />
+          <Property Name="OptimisticLockField" Type="int" />
+          <Property Name="GCRecord" Type="int" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -6358,6 +6391,44 @@
           <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="T_Dictionary">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="CodeID" />
+          </Key>
+          <Property Name="CategoryID" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="CodeID" Type="nvarchar" Nullable="false" MaxLength="16" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_DictionaryUsageAuditType">
+          <Key>
+            <PropertyRef Name="UsageAuditTypeID" />
+          </Key>
+          <Property Name="UsageAuditTypeID" Type="int" Nullable="false" />
+          <Property Name="UsageAuditTypeName" Type="nvarchar" MaxLength="16" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullDescription" Type="nvarchar(max)" />
+          <Property Name="Thumbnail" Type="varbinary(max)" />
+          <Property Name="OriginalFileDataID" Type="uniqueidentifier" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="X_Address">
           <Key>
@@ -7418,24 +7489,6 @@
           <Property Name="DesurveyID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="SurveyID" Type="uniqueidentifier" />
           <Property Name="DesurveyAlgorithmTypeID" Type="uniqueidentifier" />
-          <Property Name="Version" Type="int" Nullable="false" />
-          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
-          <Property Name="VersionCertainty" Type="int" />
-          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
-          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
-          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
-          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
-          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
-          <Property Name="VersionUpdated" Type="datetime" />
-        </EntityType>
-        <EntityType Name="X_Dictionary">
-          <Key>
-            <PropertyRef Name="CategoryID" />
-            <PropertyRef Name="CodeID" />
-          </Key>
-          <Property Name="CategoryID" Type="nvarchar" Nullable="false" MaxLength="15" />
-          <Property Name="CodeID" Type="nvarchar" Nullable="false" MaxLength="16" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
           <Property Name="VersionCertainty" Type="int" />
@@ -9752,26 +9805,6 @@
           <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
           <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
-        <EntityType Name="X_DictionaryUsageAuditType">
-          <Key>
-            <PropertyRef Name="UsageAuditTypeID" />
-          </Key>
-          <Property Name="UsageAuditTypeID" Type="int" Nullable="false" />
-          <Property Name="UsageAuditTypeName" Type="nvarchar" MaxLength="16" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" />
-          <Property Name="FullDescription" Type="nvarchar(max)" />
-          <Property Name="Thumbnail" Type="varbinary(max)" />
-          <Property Name="OriginalFileDataID" Type="uniqueidentifier" />
-          <Property Name="Version" Type="int" Nullable="false" />
-          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
-          <Property Name="VersionCertainty" Type="int" />
-          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
-          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
-          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
-          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
-          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
-          <Property Name="VersionUpdated" Type="datetime" />
-        </EntityType>
         <EntityType Name="X_DictionaryWeathering">
           <Key>
             <PropertyRef Name="WeatheringID" />
@@ -10295,7 +10328,7 @@
           <Property Name="LicensorName" Type="nvarchar" MaxLength="255" />
           <Property Name="LicenseTypeID" Type="uniqueidentifier" />
           <Property Name="LicenseType" Type="nvarchar" MaxLength="255" />
-          <Property Name="LicenseURL" Type="nvarchar" MaxLength="2048" />
+          <Property Name="LicenseURL" Type="nvarchar" />
           <Property Name="RootServerName" Type="nvarchar" MaxLength="255" />
           <Property Name="RootServerID" Type="uniqueidentifier" />
           <Property Name="ServerName" Type="nvarchar" MaxLength="255" />
@@ -11609,6 +11642,14 @@
           <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
           <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
+        <EntityType Name="XPObjectType">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="254" />
+          <Property Name="AssemblyName" Type="nvarchar" MaxLength="254" />
+        </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'NKD.System.Activities.DurableInstancing.DefinitionIdentityTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
@@ -11844,6 +11885,19 @@
           <Property Name="RelativeApplicationPath" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ServiceName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ServiceNamespace" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'NKD.dbo.E_VW_ApplicationContacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="E_VW_ApplicationContacts">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="ContactID" />
+            <PropertyRef Name="ContactName" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContactID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" Nullable="false" MaxLength="60" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'NKD.dbo.E_VW_ApplicationUserRoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -14502,10 +14556,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Q_Asset_Q_DicitonaryAssetStatus">
-          <End Role="Q_DicitonaryAssetStatus" Type="NKD.Module.BusinessObjects.Store.Q_DicitonaryAssetStatus" Multiplicity="0..1" />
+          <End Role="Q_DictionaryAssetStatus" Type="NKD.Module.BusinessObjects.Store.Q_DictionaryAssetStatus" Multiplicity="0..1" />
           <End Role="Q_Asset" Type="NKD.Module.BusinessObjects.Store.Q_Asset" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Q_DicitonaryAssetStatus">
+            <Principal Role="Q_DictionaryAssetStatus">
               <PropertyRef Name="AssetStatusID" />
             </Principal>
             <Dependent Role="Q_Asset">
@@ -20994,10 +21048,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_X_UsageAudit_X_DictionaryUsageAuditType">
-          <End Role="X_DictionaryUsageAuditType" Type="NKD.Module.BusinessObjects.Store.X_DictionaryUsageAuditType" Multiplicity="0..1" />
+          <End Role="T_DictionaryUsageAuditType" Type="NKD.Module.BusinessObjects.Store.T_DictionaryUsageAuditType" Multiplicity="0..1" />
           <End Role="X_UsageAudit" Type="NKD.Module.BusinessObjects.Store.X_UsageAudit" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="X_DictionaryUsageAuditType">
+            <Principal Role="T_DictionaryUsageAuditType">
               <PropertyRef Name="UsageAuditTypeID" />
             </Principal>
             <Dependent Role="X_UsageAudit">
@@ -22207,12 +22261,12 @@
         </Association>
         <Association Name="FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile">
           <End Role="X_FileData" Type="NKD.Module.BusinessObjects.Store.X_FileData" Multiplicity="0..1" />
-          <End Role="X_DictionaryUsageAuditType" Type="NKD.Module.BusinessObjects.Store.X_DictionaryUsageAuditType" Multiplicity="*" />
+          <End Role="T_DictionaryUsageAuditType" Type="NKD.Module.BusinessObjects.Store.T_DictionaryUsageAuditType" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="X_FileData">
               <PropertyRef Name="FileDataID" />
             </Principal>
-            <Dependent Role="X_DictionaryUsageAuditType">
+            <Dependent Role="T_DictionaryUsageAuditType">
               <PropertyRef Name="OriginalFileDataID" />
             </Dependent>
           </ReferentialConstraint>
@@ -22584,11 +22638,34 @@
           <Parameter Name="ExceptionType" Type="nvarchar" Mode="In" />
           <Parameter Name="Details" Type="ntext" Mode="In" />
         </Function>
+        <Function Name="E_FN_RecreateTempTable" ReturnType="nvarchar(max)" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tablename" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="E_SP_AzureCreateVersioningTrigger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idowner" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="idprefix" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="id" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="E_SP_AzureCreateVersioningTriggers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_AzureForEach" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_AzurePost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_AzurePrepareAfter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_AzurePrepareBefore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_CreateVersioning" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_CreateVersioningTrigger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idowner" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="idprefix" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="id" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="E_SP_CreateVersioningTriggers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_DisableVersioningTriggers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="E_SP_DropAllStoreData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="E_SP_DropAllTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="E_SP_DropEverythingForDeploy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="droptriggers" Type="bit" Mode="In" />
         </Function>
+        <Function Name="E_SP_DropVersioning" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_DropVersioningTriggers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="E_SP_GetCompanyOwner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tabletype" Type="nvarchar" Mode="In" />
           <Parameter Name="referenceID" Type="uniqueidentifier" Mode="In" />
@@ -22697,6 +22774,26 @@
         <Function Name="X_FN_CheckAffiliateContact" ReturnType="bit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="contactID" Type="uniqueidentifier" Mode="In" />
         </Function>
+        <Function Name="X_FN_CheckCompanyName" ReturnType="bit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="companyid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="companyname" Type="nvarchar" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+        </Function>
+        <Function Name="X_FN_CheckContactName" ReturnType="bit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contactid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="contactname" Type="nvarchar" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+        </Function>
+        <Function Name="X_FN_CheckContactUsername" ReturnType="bit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contactid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="contactusername" Type="nvarchar" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+        </Function>
+        <Function Name="X_FN_CheckPrivateUnique" ReturnType="bit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="privatedataid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="uniqueid" Type="nvarchar" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+        </Function>
         <Function Name="X_FN_CheckSI" ReturnType="bit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="unitid" Type="uniqueidentifier" Mode="In" />
         </Function>
@@ -22707,9 +22804,6 @@
           <Parameter Name="iterations" Type="int" Mode="In" />
         </Function>
         <Function Name="X_SP_CreateDependentForeignKeys" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="X_SP_CreateDictionaryVersioningTrigger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="nvarchar(max)" Mode="In" />
-        </Function>
         <Function Name="X_SP_CreateDictionaryViews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="X_SP_CreateDomainFilter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Str" Type="nvarchar(max)" Mode="In" />
@@ -22719,13 +22813,6 @@
           <Parameter Name="Str" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="Out" Type="nvarchar(max)" Mode="InOut" />
         </Function>
-        <Function Name="X_SP_CreateVersioning" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="X_SP_CreateVersioningOnDictionaries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="X_SP_CreateVersioningTrigger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="table" Type="nvarchar(max)" Mode="In" />
-        </Function>
-        <Function Name="X_SP_CreateVersioningTriggers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="X_SP_DisableVersioning" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="X_SP_DropAllAssays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="X_SP_DropAllGeophysics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="X_SP_DropAllModels" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -22748,8 +22835,6 @@
           <Parameter Name="guid" Type="uniqueidentifier" Mode="In" />
         </Function>
         <Function Name="X_SP_DropOldModels" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="X_SP_DropVersioning" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="X_SP_DropVersioningTriggers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="X_SP_GetAllGeophysics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="X_SP_GetAssays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="assay_group_projectid" Type="uniqueidentifier" Mode="In" />
@@ -22960,7 +23045,6 @@
         </Function>
         <Function Name="X_SP_UpdateCommoditiesInWorkTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="X_SP_UpdateDictionaryViews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="X_SP_UpdateXstractWorkTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="AssociateKeys" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="System.Activities.DurableInstancing">
           <Parameter Name="surrogateInstanceId" Type="bigint" Mode="In" />
           <Parameter Name="keysToAssociate" Type="xml" Mode="In" />
@@ -23114,6 +23198,95 @@
           <Parameter Name="instanceId" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="handleInstanceVersion" Type="bigint" Mode="In" />
         </Function>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'NKD.dbo.T_Secured' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="T_Secured">
+        <Property Name="pid" Type="uniqueidentifier" />
+        <Property Name="OwnerContactID" Type="uniqueidentifier" />
+        <Property Name="OwnerCompanyID" Type="uniqueidentifier" />
+        <Property Name="Updated" Type="datetime" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'NKD.System.Activities.DurableInstancing.SqlWorkflowInstanceStoreVersionTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="SqlWorkflowInstanceStoreVersionTable">
+        <Property Name="Major" Type="bigint" />
+        <Property Name="Minor" Type="bigint" />
+        <Property Name="Build" Type="bigint" />
+        <Property Name="Revision" Type="bigint" />
+        <Property Name="LastUpdated" Type="datetime" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value1' at parameter index 2 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value2' at parameter index 3 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value3' at parameter index 4 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value4' at parameter index 5 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value5' at parameter index 6 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value6' at parameter index 7 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value7' at parameter index 8 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value8' at parameter index 9 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value9' at parameter index 10 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value10' at parameter index 11 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value11' at parameter index 12 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value12' at parameter index 13 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value13' at parameter index 14 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value14' at parameter index 15 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value15' at parameter index 16 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value16' at parameter index 17 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value17' at parameter index 18 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value18' at parameter index 19 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value19' at parameter index 20 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value20' at parameter index 21 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value21' at parameter index 22 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value22' at parameter index 23 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value23' at parameter index 24 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value24' at parameter index 25 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value25' at parameter index 26 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value26' at parameter index 27 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value27' at parameter index 28 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value28' at parameter index 29 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value29' at parameter index 30 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value30' at parameter index 31 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value31' at parameter index 32 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value32' at parameter index 33 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
+      
+      <Function Name="InsertPromotedProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="System.Activities.DurableInstancing">
+        <Parameter Name="instanceId" Type="uniqueidentifier" Mode="In" />
+        <Parameter Name="promotionName" Type="nvarchar" Mode="In" />
+        <Parameter Name="value33" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value34" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value35" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value36" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value37" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value38" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value39" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value40" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value41" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value42" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value43" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value44" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value45" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value46" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value47" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value48" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value49" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value50" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value51" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value52" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value53" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value54" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value55" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value56" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value57" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value58" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value59" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value60" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value61" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value62" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value63" Type="varbinary(max)" Mode="In" />
+        <Parameter Name="value64" Type="varbinary(max)" Mode="In" />
+      </Function>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -23150,7 +23323,6 @@
           <EntitySet Name="ContractAssets" EntityType="NKD.Module.BusinessObjects.ContractAsset" />
           <EntitySet Name="DeliveryAdvices" EntityType="NKD.Module.BusinessObjects.DeliveryAdvice" />
           <EntitySet Name="DeliveryAdviceItems" EntityType="NKD.Module.BusinessObjects.DeliveryAdviceItem" />
-          <EntitySet Name="DicitonaryAssetStatus" EntityType="NKD.Module.BusinessObjects.DicitonaryAssetStatus" />
           <EntitySet Name="DictionaryDecontaminationStatus" EntityType="NKD.Module.BusinessObjects.DictionaryDecontaminationStatus" />
           <EntitySet Name="DictionaryDeliveryAdviceReasons" EntityType="NKD.Module.BusinessObjects.DictionaryDeliveryAdviceReason" />
           <EntitySet Name="DictionaryDeviceTypes" EntityType="NKD.Module.BusinessObjects.DictionaryDeviceType" />
@@ -23211,7 +23383,6 @@
           <EntitySet Name="CostEstimateModels" EntityType="NKD.Module.BusinessObjects.CostEstimateModel" />
           <EntitySet Name="Defects" EntityType="NKD.Module.BusinessObjects.Defect" />
           <EntitySet Name="Desurveys" EntityType="NKD.Module.BusinessObjects.Desurvey" />
-          <EntitySet Name="Dictionaries" EntityType="NKD.Module.BusinessObjects.Dictionary" />
           <EntitySet Name="DictionaryAdjectives" EntityType="NKD.Module.BusinessObjects.DictionaryAdjective" />
           <EntitySet Name="DictionaryAlterations" EntityType="NKD.Module.BusinessObjects.DictionaryAlteration" />
           <EntitySet Name="DictionaryAssayMethods" EntityType="NKD.Module.BusinessObjects.DictionaryAssayMethod" />
@@ -23306,7 +23477,6 @@
           <EntitySet Name="DictionaryTextures" EntityType="NKD.Module.BusinessObjects.DictionaryTexture" />
           <EntitySet Name="DictionaryUnits" EntityType="NKD.Module.BusinessObjects.DictionaryUnit" />
           <EntitySet Name="DictionaryUnitTypes" EntityType="NKD.Module.BusinessObjects.DictionaryUnitType" />
-          <EntitySet Name="DictionaryUsageAuditTypes" EntityType="NKD.Module.BusinessObjects.DictionaryUsageAuditType" />
           <EntitySet Name="DictionaryWeatherings" EntityType="NKD.Module.BusinessObjects.DictionaryWeathering" />
           <EntitySet Name="DictionaryWorkTypes" EntityType="NKD.Module.BusinessObjects.DictionaryWorkType" />
           <EntitySet Name="DictionaryWorkTypeClasses" EntityType="NKD.Module.BusinessObjects.DictionaryWorkTypeClass" />
@@ -23712,10 +23882,6 @@
           <AssociationSet Name="FK_Q_Asset_Q_Asset" Association="NKD.Module.BusinessObjects.FK_Q_Asset_Q_Asset">
             <End Role="Q_Asset" EntitySet="Assets" />
             <End Role="Q_Asset1" EntitySet="Assets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Q_Asset_Q_DicitonaryAssetStatus" Association="NKD.Module.BusinessObjects.FK_Q_Asset_Q_DicitonaryAssetStatus">
-            <End Role="Q_DicitonaryAssetStatus" EntitySet="DicitonaryAssetStatus" />
-            <End Role="Q_Asset" EntitySet="Assets" />
           </AssociationSet>
           <AssociationSet Name="FK_Q_Asset_X_DictionaryModel" Association="NKD.Module.BusinessObjects.FK_Q_Asset_X_DictionaryModel">
             <End Role="X_DictionaryModel" EntitySet="DictionaryModels" />
@@ -25556,14 +25722,6 @@
           <AssociationSet Name="FK_X_X_DictionaryUnitType_X_FileData_OriginalFile" Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryUnitType_X_FileData_OriginalFile">
             <End Role="X_FileData" EntitySet="FileDatas" />
             <End Role="X_DictionaryUnitType" EntitySet="DictionaryUnitTypes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_UsageAudit_X_DictionaryUsageAuditType" Association="NKD.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType">
-            <End Role="X_DictionaryUsageAuditType" EntitySet="DictionaryUsageAuditTypes" />
-            <End Role="X_UsageAudit" EntitySet="UsageAuditViews" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile" Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile">
-            <End Role="X_FileData" EntitySet="FileDatas" />
-            <End Role="X_DictionaryUsageAuditType" EntitySet="DictionaryUsageAuditTypes" />
           </AssociationSet>
           <AssociationSet Name="FK_X_LithologyData_X_DictionaryWeathering" Association="NKD.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryWeathering">
             <End Role="X_DictionaryWeathering" EntitySet="DictionaryWeatherings" />
@@ -27594,6 +27752,45 @@
             <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
             <Parameter Name="pageSize" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="ModuleInfoes" EntityType="NKD.Module.BusinessObjects.ModuleInfo" />
+          <EntitySet Name="DictionaryAssetStatus" EntityType="NKD.Module.BusinessObjects.DictionaryAssetStatus" />
+          <EntitySet Name="ReportDatas" EntityType="NKD.Module.BusinessObjects.ReportData" />
+          <EntitySet Name="Dictionaries" EntityType="NKD.Module.BusinessObjects.Dictionary" />
+          <EntitySet Name="DictionaryUsageAuditTypes" EntityType="NKD.Module.BusinessObjects.DictionaryUsageAuditType" />
+          <EntitySet Name="XPObjectTypes" EntityType="NKD.Module.BusinessObjects.XPObjectType" />
+          <EntitySet Name="ApplicationContactsViews" EntityType="NKD.Module.BusinessObjects.ApplicationContactsView" />
+          <AssociationSet Name="FK_Q_Asset_Q_DicitonaryAssetStatus1" Association="NKD.Module.BusinessObjects.FK_Q_Asset_Q_DicitonaryAssetStatus1">
+            <End Role="Q_DictionaryAssetStatus" EntitySet="DictionaryAssetStatus" />
+            <End Role="Asset" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_UsageAudit_X_DictionaryUsageAuditType1" Association="NKD.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType1">
+            <End Role="T_DictionaryUsageAuditType" EntitySet="DictionaryUsageAuditTypes" />
+            <End Role="UsageAuditView" EntitySet="UsageAuditViews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile1" Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile1">
+            <End Role="FileData" EntitySet="FileDatas" />
+            <End Role="T_DictionaryUsageAuditType" EntitySet="DictionaryUsageAuditTypes" />
+          </AssociationSet>
+          <FunctionImport Name="E_SP_AzureCreateVersioningTrigger">
+            <Parameter Name="idowner" Mode="In" Type="String" />
+            <Parameter Name="idprefix" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="E_SP_AzureCreateVersioningTriggers" />
+          <FunctionImport Name="E_SP_AzureForEach" />
+          <FunctionImport Name="E_SP_AzurePost" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_AzurePost_Result)" />
+          <FunctionImport Name="E_SP_AzurePrepareAfter" />
+          <FunctionImport Name="E_SP_AzurePrepareBefore" />
+          <FunctionImport Name="E_SP_CreateVersioning" />
+          <FunctionImport Name="E_SP_CreateVersioningTrigger">
+            <Parameter Name="idowner" Mode="In" Type="String" />
+            <Parameter Name="idprefix" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="E_SP_CreateVersioningTriggers" />
+          <FunctionImport Name="E_SP_DisableVersioningTriggers" />
+          <FunctionImport Name="E_SP_DropVersioning" />
+          <FunctionImport Name="E_SP_DropVersioningTriggers" />
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -28208,9 +28405,8 @@
         </EntityType>
         <EntityType Name="AccountDiscount">
           <Key>
-            <PropertyRef Name="AccountProductDiscountID" />
+            <PropertyRef Name="AccountDiscountID" />
           </Key>
-          <Property Name="AccountProductDiscountID" Type="Guid" Nullable="false" />
           <Property Name="SourceAccountID" Type="Guid" />
           <Property Name="ClientCompanyID" Type="Guid" />
           <Property Name="ProviderExperienceID" Type="Guid" />
@@ -28234,6 +28430,7 @@
           <NavigationProperty Name="Unit" Relationship="NKD.Module.BusinessObjects.FK_Q_AccountDiscount_X_DictionaryUnit" FromRole="Q_AccountDiscount" ToRole="X_DictionaryUnit" />
           <NavigationProperty Name="ClientCompany" Relationship="NKD.Module.BusinessObjects.FK_Q_AccountProductDiscount_X_Company" FromRole="Q_AccountDiscount" ToRole="X_Company" />
           <NavigationProperty Name="Experience" Relationship="NKD.Module.BusinessObjects.FK_Q_AccountProductDiscount_X_Experience" FromRole="Q_AccountDiscount" ToRole="X_Experience" />
+          <Property Type="Guid" Name="AccountDiscountID" Nullable="false" />
         </EntityType>
         <EntityType Name="Asset">
           <Key>
@@ -28268,7 +28465,6 @@
           <NavigationProperty Name="OwnerAccount" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_Q_Account2" FromRole="Q_Asset" ToRole="Q_Account" />
           <NavigationProperty Name="Assets" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_Q_Asset" FromRole="Q_Asset" ToRole="Q_Asset1" />
           <NavigationProperty Name="ParentAsset" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_Q_Asset" FromRole="Q_Asset1" ToRole="Q_Asset" />
-          <NavigationProperty Name="DicitonaryAssetStatus" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_Q_DicitonaryAssetStatus" FromRole="Q_Asset" ToRole="Q_DicitonaryAssetStatus" />
           <NavigationProperty Name="Model" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_X_DictionaryModel" FromRole="Q_Asset" ToRole="X_DictionaryModel" />
           <NavigationProperty Name="Experience" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_X_Experience" FromRole="Q_Asset" ToRole="X_Experience" />
           <NavigationProperty Name="Location" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_X_Location" FromRole="Q_Asset" ToRole="X_Location" />
@@ -28290,6 +28486,7 @@
           <Property Type="Guid" Name="CurrentContactID" />
           <NavigationProperty Name="CurrentCompany" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_X_Company" FromRole="Asset" ToRole="Company" />
           <NavigationProperty Name="CurrentContact" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_X_Contact" FromRole="Asset" ToRole="Contact" />
+          <NavigationProperty Name="DictionaryAssetStatus" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_Q_DicitonaryAssetStatus1" FromRole="Asset" ToRole="Q_DictionaryAssetStatus" />
         </EntityType>
         <EntityType Name="AssetAlias">
           <Key>
@@ -28335,9 +28532,8 @@
         </EntityType>
         <EntityType Name="AssetWarranty">
           <Key>
-            <PropertyRef Name="AssetyWarrantyID" />
+            <PropertyRef Name="AssetWarrantyID" />
           </Key>
-          <Property Name="AssetyWarrantyID" Type="Guid" Nullable="false" />
           <Property Name="AssetID" Type="Guid" />
           <Property Name="ModelWarrantyID" Type="Guid" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -28358,6 +28554,7 @@
           <NavigationProperty Name="WarrantyType" Relationship="NKD.Module.BusinessObjects.FK_Q_AssetWarranty_Q_DictionaryWarrantyType" FromRole="Q_AssetWarranty" ToRole="Q_DictionaryWarrantyType" />
           <NavigationProperty Name="ModelWarranty" Relationship="NKD.Module.BusinessObjects.FK_Q_AssetWarranty_Q_ModelWarranty" FromRole="Q_AssetWarranty" ToRole="Q_ModelWarranty" />
           <NavigationProperty Name="Unit" Relationship="NKD.Module.BusinessObjects.FK_Q_AssetWarranty_X_DictionaryUnit" FromRole="Q_AssetWarranty" ToRole="X_DictionaryUnit" />
+          <Property Type="Guid" Name="AssetWarrantyID" Nullable="false" />
         </EntityType>
         <EntityType Name="CompanyAccount">
           <Key>
@@ -28465,25 +28662,6 @@
           <NavigationProperty Name="DeliveryAdvice" Relationship="NKD.Module.BusinessObjects.FK_Q_DeliveryAdviceItems_Q_DeliveryAdvice" FromRole="Q_DeliveryAdviceItem" ToRole="Q_DeliveryAdvice" />
           <NavigationProperty Name="DecontaminationStatus" Relationship="NKD.Module.BusinessObjects.FK_Q_DeliveryAdviceItem_Q_DictionaryDecontaminationStatus" FromRole="Q_DeliveryAdviceItem" ToRole="Q_DictionaryDecontaminationStatus" />
           <NavigationProperty Name="Part" Relationship="NKD.Module.BusinessObjects.FK_Q_DeliveryAdviceItems_Q_DictionaryPart" FromRole="Q_DeliveryAdviceItem" ToRole="Q_DictionaryPart" />
-        </EntityType>
-        <EntityType Name="DicitonaryAssetStatus">
-          <Key>
-            <PropertyRef Name="AssetStatusID" />
-          </Key>
-          <Property Name="AssetStatusID" Type="Guid" Nullable="false" />
-          <Property Name="StandardAssetStatusName" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
-          <Property Name="CustomAssetStatusName" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="VersionAntecedentID" Type="Guid" />
-          <Property Name="VersionCertainty" Type="Int32" />
-          <Property Name="VersionWorkflowInstanceID" Type="Guid" />
-          <Property Name="VersionUpdatedBy" Type="Guid" />
-          <Property Name="VersionDeletedBy" Type="Guid" />
-          <Property Name="VersionOwnerContactID" Type="Guid" />
-          <Property Name="VersionOwnerCompanyID" Type="Guid" />
-          <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Asset" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_Q_DicitonaryAssetStatus" FromRole="Q_DicitonaryAssetStatus" ToRole="Q_Asset" />
         </EntityType>
         <EntityType Name="DictionaryDecontaminationStatus">
           <Key>
@@ -30324,24 +30502,6 @@
           <NavigationProperty Name="DesurveyAlgorithmType" Relationship="NKD.Module.BusinessObjects.FK_X_Desurvey_X_DictionaryDesurveyAlgorithmType" FromRole="X_Desurvey" ToRole="X_DictionaryDesurveyAlgorithmType" />
           <NavigationProperty Name="Survey" Relationship="NKD.Module.BusinessObjects.FK_X_Desurvey_X_Survey" FromRole="X_Desurvey" ToRole="X_Survey" />
           <NavigationProperty Name="Interpretation" Relationship="NKD.Module.BusinessObjects.FK_X_DesurveyResult_X_Desurvey" FromRole="X_Desurvey" ToRole="X_Interpretation" />
-        </EntityType>
-        <EntityType Name="Dictionary">
-          <Key>
-            <PropertyRef Name="CategoryID" />
-            <PropertyRef Name="CodeID" />
-          </Key>
-          <Property Name="CategoryID" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
-          <Property Name="CodeID" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Type="Int32" Name="Version" Nullable="false" />
-          <Property Type="Guid" Name="VersionAntecedentID" />
-          <Property Type="Int32" Name="VersionCertainty" />
-          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
-          <Property Type="Guid" Name="VersionUpdatedBy" />
-          <Property Type="Guid" Name="VersionDeletedBy" />
-          <Property Type="Guid" Name="VersionOwnerContactID" />
-          <Property Type="Guid" Name="VersionOwnerCompanyID" />
-          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="DictionaryAdjective">
           <Key>
@@ -32789,28 +32949,6 @@
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
-        <EntityType Name="DictionaryUsageAuditType">
-          <Key>
-            <PropertyRef Name="UsageAuditTypeID" />
-          </Key>
-          <Property Name="UsageAuditTypeID" Type="Int32" Nullable="false" />
-          <Property Name="UsageAuditTypeName" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="FullDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="OriginalFileDataID" Type="Guid" />
-          <NavigationProperty Name="UsageAudit" Relationship="NKD.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType" FromRole="X_DictionaryUsageAuditType" ToRole="X_UsageAudit" />
-          <NavigationProperty Name="FileData" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile" FromRole="X_DictionaryUsageAuditType" ToRole="X_FileData" />
-          <Property Type="Int32" Name="Version" Nullable="false" />
-          <Property Type="Guid" Name="VersionAntecedentID" />
-          <Property Type="Int32" Name="VersionCertainty" />
-          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
-          <Property Type="Guid" Name="VersionUpdatedBy" />
-          <Property Type="Guid" Name="VersionDeletedBy" />
-          <Property Type="Guid" Name="VersionOwnerContactID" />
-          <Property Type="Guid" Name="VersionOwnerCompanyID" />
-          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
-        </EntityType>
         <EntityType Name="DictionaryWeathering">
           <Key>
             <PropertyRef Name="WeatheringID" />
@@ -33139,7 +33277,6 @@
           <NavigationProperty Name="Texture" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryTexture_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryTexture" />
           <NavigationProperty Name="Unit" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryUnit_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryUnit" />
           <NavigationProperty Name="UnitType" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryUnitType_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryUnitType" />
-          <NavigationProperty Name="UsageAuditType" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryUsageAuditType" />
           <NavigationProperty Name="Weathering" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryWeathering_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryWeathering" />
           <NavigationProperty Name="WorkType" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryWorkType_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryWorkType" />
           <NavigationProperty Name="WorkTypeClass" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryWorkTypeClass_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryWorkTypeClass" />
@@ -33167,10 +33304,11 @@
           <NavigationProperty Name="ProblemSolutionAssetDataAllocation" Relationship="NKD.Module.BusinessObjects.FK_E_ProblemSolutionAssetDataAllocation_X_FileData" FromRole="FileData" ToRole="E_ProblemSolutionAssetDataAllocation" />
           <NavigationProperty Name="Communication" Relationship="NKD.Module.BusinessObjects.FK_X_Communication_X_FileData" FromRole="FileData" ToRole="X_Communication" />
           <NavigationProperty Name="Company" Relationship="NKD.Module.BusinessObjects.FK_X_Company_X_FileData" FromRole="FileData" ToRole="Company" />
-          <NavigationProperty Name="E_DictionaryAddressType" Relationship="NKD.Module.BusinessObjects.FK_E_DictionaryAddressType_X_FileData" FromRole="FileData" ToRole="E_DictionaryAddressType" />
-          <NavigationProperty Name="X_DictionaryModel" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModel_X_FileData" FromRole="FileData" ToRole="DictionaryModel" />
-          <NavigationProperty Name="X_DictionaryModel1" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModel_X_SecureFileData" FromRole="FileData" ToRole="DictionaryModel" />
+          <NavigationProperty Name="DictionaryAddressType" Relationship="NKD.Module.BusinessObjects.FK_E_DictionaryAddressType_X_FileData" FromRole="FileData" ToRole="E_DictionaryAddressType" />
+          <NavigationProperty Name="DictionaryModelImage" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModel_X_FileData" FromRole="FileData" ToRole="DictionaryModel" />
+          <NavigationProperty Name="DictionaryModelDownload" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModel_X_SecureFileData" FromRole="FileData" ToRole="DictionaryModel" />
           <Property Type="Int64" Name="FileLength" />
+          <NavigationProperty Name="DictionaryUsageAuditType" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile1" FromRole="FileData" ToRole="T_DictionaryUsageAuditType" />
         </EntityType>
         <EntityType Name="Geology">
           <Key>
@@ -33542,7 +33680,7 @@
           <Property Name="LicensorName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="LicenseTypeID" Type="Guid" />
           <Property Name="LicenseType" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="LicenseURL" Type="String" MaxLength="2048" Unicode="true" FixedLength="false" />
+          <Property Name="LicenseURL" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
           <Property Name="RootServerName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="RootServerID" Type="Guid" />
           <Property Name="ServerName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
@@ -35031,7 +35169,7 @@
           <Property Name="VersionOwnerContactID" Type="Guid" />
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="UsageAuditType" Relationship="NKD.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType" FromRole="X_UsageAudit" ToRole="X_DictionaryUsageAuditType" />
+          <NavigationProperty Name="T_DictionaryUsageAuditType" Relationship="NKD.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType1" FromRole="UsageAuditView" ToRole="T_DictionaryUsageAuditType" />
         </EntityType>
         <EntityType Name="UserData">
           <Key>
@@ -36601,18 +36739,6 @@
             </Principal>
             <Dependent Role="Q_Asset1">
               <PropertyRef Name="ParentAssetID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Q_Asset_Q_DicitonaryAssetStatus">
-          <End Role="Q_DicitonaryAssetStatus" Type="NKD.Module.BusinessObjects.DicitonaryAssetStatus" Multiplicity="0..1" />
-          <End Role="Q_Asset" Type="NKD.Module.BusinessObjects.Asset" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Q_DicitonaryAssetStatus">
-              <PropertyRef Name="AssetStatusID" />
-            </Principal>
-            <Dependent Role="Q_Asset">
-              <PropertyRef Name="AssetStatusID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -42136,30 +42262,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_UsageAudit_X_DictionaryUsageAuditType">
-          <End Role="X_DictionaryUsageAuditType" Type="NKD.Module.BusinessObjects.DictionaryUsageAuditType" Multiplicity="0..1" />
-          <End Role="X_UsageAudit" Type="NKD.Module.BusinessObjects.UsageAuditView" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryUsageAuditType">
-              <PropertyRef Name="UsageAuditTypeID" />
-            </Principal>
-            <Dependent Role="X_UsageAudit">
-              <PropertyRef Name="UsageAuditTypeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile">
-          <End Role="X_FileData" Type="NKD.Module.BusinessObjects.FileData" Multiplicity="0..1" />
-          <End Role="X_DictionaryUsageAuditType" Type="NKD.Module.BusinessObjects.DictionaryUsageAuditType" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_FileData">
-              <PropertyRef Name="FileDataID" />
-            </Principal>
-            <Dependent Role="X_DictionaryUsageAuditType">
-              <PropertyRef Name="OriginalFileDataID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_X_LithologyData_X_DictionaryWeathering">
           <End Role="X_DictionaryWeathering" Type="NKD.Module.BusinessObjects.DictionaryWeathering" Multiplicity="0..1" />
           <End Role="X_Lithology" Type="NKD.Module.BusinessObjects.Lithology" Multiplicity="*" />
@@ -45213,9 +45315,8 @@
         </EntityType>
         <EntityType Name="ApplicationRouteParameter">
           <Key>
-            <PropertyRef Name="ApplicatoinRouteParameterID" />
+            <PropertyRef Name="ApplicationRouteParameterID" />
           </Key>
-          <Property Type="Guid" Name="ApplicatoinRouteParameterID" Nullable="false" />
           <Property Type="Guid" Name="ApplicationRouteID" />
           <Property Type="String" Name="RouteParameterName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="RouteParameterValue" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -45229,6 +45330,7 @@
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
           <NavigationProperty Name="ApplicationRoute" Relationship="NKD.Module.BusinessObjects.FK_E_RouteParameter_E_Route" FromRole="E_ApplicationRouteParameter" ToRole="E_ApplicationRoute" />
+          <Property Type="Guid" Name="ApplicationRouteParameterID" Nullable="false" />
         </EntityType>
         <EntityType Name="AssetData">
           <Key>
@@ -45577,9 +45679,8 @@
         </EntityType>
         <EntityType Name="ProblemSolutionAssetDataAllocation">
           <Key>
-            <PropertyRef Name="ProblemSolutionAssetDataAlloctionID" />
+            <PropertyRef Name="ProblemSolutionAssetDataAllocationID" />
           </Key>
-          <Property Type="Guid" Name="ProblemSolutionAssetDataAlloctionID" Nullable="false" />
           <Property Type="Guid" Name="ProblemSolutionID" />
           <Property Type="Guid" Name="AssetDataID" />
           <Property Type="Decimal" Name="Weight" Precision="38" Scale="20" />
@@ -45599,6 +45700,7 @@
           <NavigationProperty Name="AssetData" Relationship="NKD.Module.BusinessObjects.FK_E_ProblemSolutionAssetDataAllocation_E_AssetData" FromRole="E_ProblemSolutionAssetDataAllocation" ToRole="E_AssetData" />
           <NavigationProperty Name="ProblemSolution" Relationship="NKD.Module.BusinessObjects.FK_E_ProblemSolutionAssetDataAllocation_E_ProblemSolution" FromRole="E_ProblemSolutionAssetDataAllocation" ToRole="E_ProblemSolution" />
           <NavigationProperty Name="FileData" Relationship="NKD.Module.BusinessObjects.FK_E_ProblemSolutionAssetDataAllocation_X_FileData" FromRole="E_ProblemSolutionAssetDataAllocation" ToRole="FileData" />
+          <Property Type="Guid" Name="ProblemSolutionAssetDataAllocationID" Nullable="false" />
         </EntityType>
         <EntityType Name="StatisticData">
           <Key>
@@ -47483,6 +47585,146 @@
           <Property Type="String" Name="ProductName" Nullable="true" MaxLength="60" />
           <Property Type="String" Name="SubjectName" Nullable="true" MaxLength="255" />
         </ComplexType>
+        <EntityType Name="ModuleInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Version" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AssemblyFileName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsMain" />
+          <Property Type="Int32" Name="OptimisticLockField" />
+        </EntityType>
+        <EntityType Name="DictionaryAssetStatus">
+          <Key>
+            <PropertyRef Name="AssetStatusID" />
+          </Key>
+          <Property Type="Guid" Name="AssetStatusID" Nullable="false" />
+          <Property Type="String" Name="StandardAssetStatusName" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomAssetStatusName" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="Asset" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_Q_DicitonaryAssetStatus1" FromRole="Q_DictionaryAssetStatus" ToRole="Asset" />
+        </EntityType>
+        <EntityType Name="ReportData">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Type="Int32" Name="OID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ObjectTypeName" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="Content" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsInplaceReport" />
+          <Property Type="Int32" Name="OptimisticLockField" />
+          <Property Type="Int32" Name="GCRecord" />
+        </EntityType>
+        <EntityType Name="Dictionary">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="CodeID" />
+          </Key>
+          <Property Type="String" Name="CategoryID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CodeID" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+        </EntityType>
+        <EntityType Name="DictionaryUsageAuditType">
+          <Key>
+            <PropertyRef Name="UsageAuditTypeID" />
+          </Key>
+          <Property Type="Int32" Name="UsageAuditTypeID" Nullable="false" />
+          <Property Type="String" Name="UsageAuditTypeName" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FullDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="Thumbnail" MaxLength="Max" FixedLength="false" />
+          <Property Type="Guid" Name="OriginalFileDataID" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="UsageAudit" Relationship="NKD.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType1" FromRole="T_DictionaryUsageAuditType" ToRole="UsageAuditView" />
+          <NavigationProperty Name="FileData" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile1" FromRole="T_DictionaryUsageAuditType" ToRole="FileData" />
+        </EntityType>
+        <EntityType Name="XPObjectType">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Type="Int32" Name="OID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TypeName" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AssemblyName" MaxLength="254" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ApplicationContactsView">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="ContactID" />
+            <PropertyRef Name="ContactName" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="ContactID" Nullable="false" />
+          <Property Type="String" Name="ContactName" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Q_Asset_Q_DicitonaryAssetStatus1">
+          <End Type="NKD.Module.BusinessObjects.DictionaryAssetStatus" Role="Q_DictionaryAssetStatus" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.Asset" Role="Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Q_DictionaryAssetStatus">
+              <PropertyRef Name="AssetStatusID" />
+            </Principal>
+            <Dependent Role="Asset">
+              <PropertyRef Name="AssetStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_UsageAudit_X_DictionaryUsageAuditType1">
+          <End Type="NKD.Module.BusinessObjects.DictionaryUsageAuditType" Role="T_DictionaryUsageAuditType" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.UsageAuditView" Role="UsageAuditView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_DictionaryUsageAuditType">
+              <PropertyRef Name="UsageAuditTypeID" />
+            </Principal>
+            <Dependent Role="UsageAuditView">
+              <PropertyRef Name="UsageAuditTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile1">
+          <End Type="NKD.Module.BusinessObjects.FileData" Role="FileData" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.DictionaryUsageAuditType" Role="T_DictionaryUsageAuditType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileData">
+              <PropertyRef Name="FileDataID" />
+            </Principal>
+            <Dependent Role="T_DictionaryUsageAuditType">
+              <PropertyRef Name="OriginalFileDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="E_SP_AzurePost_Result">
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="128" />
+          <Property Type="Binary" Name="UserSID" Nullable="true" MaxLength="85" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -47981,7 +48223,7 @@
           <EntitySetMapping Name="AccountDiscounts">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.AccountDiscount">
               <MappingFragment StoreEntitySet="Q_AccountDiscount">
-                <ScalarProperty Name="AccountProductDiscountID" ColumnName="AccountProductDiscountID" />
+                <ScalarProperty Name="AccountDiscountID" ColumnName="AccountDiscountID" />
                 <ScalarProperty Name="SourceAccountID" ColumnName="SourceAccountID" />
                 <ScalarProperty Name="ClientCompanyID" ColumnName="ClientCompanyID" />
                 <ScalarProperty Name="ProviderExperienceID" ColumnName="ProviderExperienceID" />
@@ -48081,7 +48323,7 @@
           <EntitySetMapping Name="AssetWarranties">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.AssetWarranty">
               <MappingFragment StoreEntitySet="Q_AssetWarranty">
-                <ScalarProperty Name="AssetyWarrantyID" ColumnName="AssetyWarrantyID" />
+                <ScalarProperty Name="AssetWarrantyID" ColumnName="AssetWarrantyID" />
                 <ScalarProperty Name="AssetID" ColumnName="AssetID" />
                 <ScalarProperty Name="ModelWarrantyID" ColumnName="ModelWarrantyID" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
@@ -48184,25 +48426,6 @@
                 <ScalarProperty Name="ReturnReferenceNumber" ColumnName="ReturnReferenceNumber" />
                 <ScalarProperty Name="ItemInstruction" ColumnName="ItemInstruction" />
                 <ScalarProperty Name="DecontaminationStatusID" ColumnName="DecontaminationStatusID" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
-                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
-                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
-                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
-                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
-                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
-                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
-                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DicitonaryAssetStatus">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.DicitonaryAssetStatus">
-              <MappingFragment StoreEntitySet="Q_DicitonaryAssetStatus">
-                <ScalarProperty Name="AssetStatusID" ColumnName="AssetStatusID" />
-                <ScalarProperty Name="StandardAssetStatusName" ColumnName="StandardAssetStatusName" />
-                <ScalarProperty Name="CustomAssetStatusName" ColumnName="CustomAssetStatusName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
                 <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
@@ -49703,24 +49926,6 @@
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dictionaries">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.Dictionary">
-              <MappingFragment StoreEntitySet="X_Dictionary">
-                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
-                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
-                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
-                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
-                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
-                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
-                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
-                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="CodeID" ColumnName="CodeID" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -51954,27 +52159,6 @@
                 <ScalarProperty Name="UnitTypeID" ColumnName="UnitTypeID" />
                 <ScalarProperty Name="StandardUnitTypeName" ColumnName="StandardUnitTypeName" />
                 <ScalarProperty Name="CustomUnitTypeName" ColumnName="CustomUnitTypeName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
-                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
-                <ScalarProperty Name="OriginalFileDataID" ColumnName="OriginalFileDataID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DictionaryUsageAuditTypes">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.DictionaryUsageAuditType">
-              <MappingFragment StoreEntitySet="X_DictionaryUsageAuditType">
-                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
-                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
-                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
-                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
-                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
-                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
-                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
-                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="UsageAuditTypeID" ColumnName="UsageAuditTypeID" />
-                <ScalarProperty Name="UsageAuditTypeName" ColumnName="UsageAuditTypeName" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
                 <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
@@ -54526,14 +54710,9 @@
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="NKD.Module.BusinessObjects.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="NKD.Module.BusinessObjects.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="X_SP_CreateDependentForeignKeys" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_CreateDependentForeignKeys" />
-          <FunctionImportMapping FunctionImportName="X_SP_CreateDictionaryVersioningTrigger" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_CreateDictionaryVersioningTrigger" />
           <FunctionImportMapping FunctionImportName="X_SP_CreateDictionaryViews" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_CreateDictionaryViews" />
           <FunctionImportMapping FunctionImportName="X_SP_CreateDomainFilter" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_CreateDomainFilter" />
           <FunctionImportMapping FunctionImportName="X_SP_CreateModelFilter" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_CreateModelFilter" />
-          <FunctionImportMapping FunctionImportName="X_SP_CreateVersioning" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_CreateVersioning" />
-          <FunctionImportMapping FunctionImportName="X_SP_CreateVersioningTrigger" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_CreateVersioningTrigger" />
-          <FunctionImportMapping FunctionImportName="X_SP_CreateVersioningTriggers" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_CreateVersioningTriggers" />
-          <FunctionImportMapping FunctionImportName="X_SP_DisableVersioning" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_DisableVersioning" />
           <FunctionImportMapping FunctionImportName="X_SP_DropAllAssays" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_DropAllAssays" />
           <FunctionImportMapping FunctionImportName="X_SP_DropAllGeophysics" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_DropAllGeophysics" />
           <FunctionImportMapping FunctionImportName="X_SP_DropAllModels" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_DropAllModels" />
@@ -54546,8 +54725,6 @@
           <FunctionImportMapping FunctionImportName="X_SP_DropGeophyiscsByFile" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_DropGeophyiscsByFile" />
           <FunctionImportMapping FunctionImportName="X_SP_DropModel" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_DropModel" />
           <FunctionImportMapping FunctionImportName="X_SP_DropOldModels" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_DropOldModels" />
-          <FunctionImportMapping FunctionImportName="X_SP_DropVersioning" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_DropVersioning" />
-          <FunctionImportMapping FunctionImportName="X_SP_DropVersioningTriggers" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_DropVersioningTriggers" />
           <FunctionImportMapping FunctionImportName="X_SP_GetAllGeophysics" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_GetAllGeophysics">
             <ResultMapping>
               <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.X_SP_GetAllGeophysics_Result">
@@ -54719,7 +54896,6 @@
           <FunctionImportMapping FunctionImportName="X_SP_SlicingTool" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_SlicingTool" />
           <FunctionImportMapping FunctionImportName="X_SP_UpdateCommoditiesInWorkTypes" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_UpdateCommoditiesInWorkTypes" />
           <FunctionImportMapping FunctionImportName="X_SP_UpdateDictionaryViews" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_UpdateDictionaryViews" />
-          <FunctionImportMapping FunctionImportName="X_SP_UpdateXstractWorkTypes" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_UpdateXstractWorkTypes" />
           <FunctionImportMapping FunctionImportName="AssociateKeys" FunctionName="NKD.Module.BusinessObjects.Store.AssociateKeys">
             <ResultMapping>
               <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.AssociateKeys_Result">
@@ -55421,7 +55597,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="X_SP_CreateVersioningOnDictionaries" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_CreateVersioningOnDictionaries" />
           <FunctionImportMapping FunctionImportName="X_SP_GetAssaysByWorkflow" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_GetAssaysByWorkflow" />
           <EntitySetMapping Name="ApplicationPaymentProviders">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.ApplicationPaymentProvider">
@@ -55589,6 +55764,7 @@
           <EntitySetMapping Name="ApplicationRouteParameters">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.ApplicationRouteParameter">
               <MappingFragment StoreEntitySet="E_ApplicationRouteParameter">
+                <ScalarProperty Name="ApplicationRouteParameterID" ColumnName="ApplicationRouteParameterID" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -55601,7 +55777,6 @@
                 <ScalarProperty Name="RouteParameterValue" ColumnName="RouteParameterValue" />
                 <ScalarProperty Name="RouteParameterName" ColumnName="RouteParameterName" />
                 <ScalarProperty Name="ApplicationRouteID" ColumnName="ApplicationRouteID" />
-                <ScalarProperty Name="ApplicatoinRouteParameterID" ColumnName="ApplicatoinRouteParameterID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -55920,6 +56095,7 @@
           <EntitySetMapping Name="ProblemSolutionAssetDataAllocations">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.ProblemSolutionAssetDataAllocation">
               <MappingFragment StoreEntitySet="E_ProblemSolutionAssetDataAllocation">
+                <ScalarProperty Name="ProblemSolutionAssetDataAllocationID" ColumnName="ProblemSolutionAssetDataAllocationID" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -55936,7 +56112,6 @@
                 <ScalarProperty Name="Weight" ColumnName="Weight" />
                 <ScalarProperty Name="AssetDataID" ColumnName="AssetDataID" />
                 <ScalarProperty Name="ProblemSolutionID" ColumnName="ProblemSolutionID" />
-                <ScalarProperty Name="ProblemSolutionAssetDataAlloctionID" ColumnName="ProblemSolutionAssetDataAlloctionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -56440,6 +56615,126 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="ModuleInfoes">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.ModuleInfo">
+              <MappingFragment StoreEntitySet="ModuleInfo">
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+                <ScalarProperty Name="AssemblyFileName" ColumnName="AssemblyFileName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictionaryAssetStatus">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.DictionaryAssetStatus">
+              <MappingFragment StoreEntitySet="Q_DictionaryAssetStatus">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CustomAssetStatusName" ColumnName="CustomAssetStatusName" />
+                <ScalarProperty Name="StandardAssetStatusName" ColumnName="StandardAssetStatusName" />
+                <ScalarProperty Name="AssetStatusID" ColumnName="AssetStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportDatas">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.ReportData">
+              <MappingFragment StoreEntitySet="ReportData">
+                <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="IsInplaceReport" ColumnName="IsInplaceReport" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ObjectTypeName" ColumnName="ObjectTypeName" />
+                <ScalarProperty Name="OID" ColumnName="OID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dictionaries">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.Dictionary">
+              <MappingFragment StoreEntitySet="T_Dictionary">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CodeID" ColumnName="CodeID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictionaryUsageAuditTypes">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.DictionaryUsageAuditType">
+              <MappingFragment StoreEntitySet="T_DictionaryUsageAuditType">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="OriginalFileDataID" ColumnName="OriginalFileDataID" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UsageAuditTypeName" ColumnName="UsageAuditTypeName" />
+                <ScalarProperty Name="UsageAuditTypeID" ColumnName="UsageAuditTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XPObjectTypes">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.XPObjectType">
+              <MappingFragment StoreEntitySet="XPObjectType">
+                <ScalarProperty Name="AssemblyName" ColumnName="AssemblyName" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="OID" ColumnName="OID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationContactsViews">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.ApplicationContactsView">
+              <MappingFragment StoreEntitySet="E_VW_ApplicationContacts">
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_AzureCreateVersioningTrigger" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_AzureCreateVersioningTrigger" />
+          <FunctionImportMapping FunctionImportName="E_SP_AzureCreateVersioningTriggers" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_AzureCreateVersioningTriggers" />
+          <FunctionImportMapping FunctionImportName="E_SP_AzureForEach" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_AzureForEach" />
+          <FunctionImportMapping FunctionImportName="E_SP_AzurePost" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_AzurePost">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_AzurePost_Result">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserSID" ColumnName="UserSID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_AzurePrepareAfter" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_AzurePrepareAfter" />
+          <FunctionImportMapping FunctionImportName="E_SP_AzurePrepareBefore" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_AzurePrepareBefore" />
+          <FunctionImportMapping FunctionImportName="E_SP_CreateVersioning" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_CreateVersioning" />
+          <FunctionImportMapping FunctionImportName="E_SP_CreateVersioningTrigger" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_CreateVersioningTrigger" />
+          <FunctionImportMapping FunctionImportName="E_SP_CreateVersioningTriggers" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_CreateVersioningTriggers" />
+          <FunctionImportMapping FunctionImportName="E_SP_DisableVersioningTriggers" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_DisableVersioningTriggers" />
+          <FunctionImportMapping FunctionImportName="E_SP_DropVersioning" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_DropVersioning" />
+          <FunctionImportMapping FunctionImportName="E_SP_DropVersioningTriggers" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_DropVersioningTriggers" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

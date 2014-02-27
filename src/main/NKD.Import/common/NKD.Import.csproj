@@ -33,12 +33,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Persistent.Base.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Persistent.Base.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\NKD.Orchard\lib\devexpress\DevExpress.Persistent.Base.v13.1.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\..\..\..\deps\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\NKD.Orchard\lib\EntityFramework\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="ImpromptuInterface">
-      <HintPath>..\..\NKD.Orchard\lib\impromptu-interface-bin\ImpromptuInterface.dll</HintPath>
+      <HintPath>..\..\NKD.Orchard\lib\impromptu\ImpromptuInterface.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

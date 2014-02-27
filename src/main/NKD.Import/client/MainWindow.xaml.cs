@@ -28,7 +28,7 @@ using NKD.Import;
 using NKD.Import.ColumnSpecs;
 using NKD.Import.DataWrappers;
 using NKD.Import.FormatSpecification;
-using Xstract.Import.LAS;
+using NKD.Import.LAS;
 
 namespace NKD.Import.Client
 {
@@ -38,7 +38,7 @@ namespace NKD.Import.Client
     public partial class MainWindow : RibbonWindow
     {
         public string titleText = "NKD Importer ";
-        public string releaseDate = "09/04/2013";
+        public string releaseDate = "27/02/2014";
         public string versionNumber = "1.0";
         // direct UI commands to processes
         CommandDirector commandDirector = new CommandDirector();

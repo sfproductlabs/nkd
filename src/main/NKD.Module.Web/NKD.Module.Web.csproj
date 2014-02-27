@@ -40,33 +40,43 @@
   <ItemGroup>
     <Reference Include="DevExpress.Printing.v13.1.Core">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Printing.v13.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Data.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Images.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Images.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Web.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.ExpressApp.Web.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Persistent.Base.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Persistent.Base.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Persistent.BaseImpl.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Persistent.BaseImpl.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Office.v13.1.Core">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Office.v13.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.RichEdit.v13.1.Core">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.RichEdit.v13.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Web.v13.1">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NKD.Orchard\lib\devexpress\DevExpress.Web.v13.1.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>False</Private>
