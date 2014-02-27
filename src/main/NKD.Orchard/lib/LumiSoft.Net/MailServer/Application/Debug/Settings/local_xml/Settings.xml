@@ -1,0 +1,155 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Settings>
+    <ErrorFile />
+    <SMTP_Threads>1000</SMTP_Threads>
+    <POP3_Threads>1000</POP3_Threads>
+    <SmartHost />
+    <SmartHostPort>25</SmartHostPort>
+    <UseSmartHost>False</UseSmartHost>
+    <Dns1 />
+    <Dns2 />
+    <LogServer>False</LogServer>
+    <LogSMTPCmds>True</LogSMTPCmds>
+    <LogPOP3Cmds>False</LogPOP3Cmds>
+    <SMTP_SessionIdleTimeOut>300</SMTP_SessionIdleTimeOut>
+    <SMTP_CommandIdleTimeOut>30</SMTP_CommandIdleTimeOut>
+    <SMTP_MaxBadCommands>8</SMTP_MaxBadCommands>
+    <POP3_SessionIdleTimeOut>300</POP3_SessionIdleTimeOut>
+    <POP3_CommandIdleTimeOut>30</POP3_CommandIdleTimeOut>
+    <POP3_MaxBadCommands>8</POP3_MaxBadCommands>
+    <MaxMessageSize>10</MaxMessageSize>
+    <MaxRecipients>100</MaxRecipients>
+    <MaxRelayThreads>100</MaxRelayThreads>
+    <RelayInterval>30</RelayInterval>
+    <RelayRetryInterval>300</RelayRetryInterval>
+    <RelayUndeliveredWarning>15</RelayUndeliveredWarning>
+    <RelayUndelivered>1</RelayUndelivered>
+    <StoreUndeliveredMessages>True</StoreUndeliveredMessages>
+    <SMTP_LogPath />
+    <POP3_LogPath />
+    <Server_LogPath />
+    <IMAP_LogPath />
+    <IMAP_SessionIdleTimeOut>1200</IMAP_SessionIdleTimeOut>
+    <IMAP_CommandIdleTimeOut>60</IMAP_CommandIdleTimeOut>
+    <IMAP_MaxBadCommands>10</IMAP_MaxBadCommands>
+    <LogIMAPCmds>True</LogIMAPCmds>
+    <IMAP_Threads>1000</IMAP_Threads>
+    <SMTP_Enabled>True</SMTP_Enabled>
+    <POP3_Enabled>True</POP3_Enabled>
+    <IMAP_Enabled>True</IMAP_Enabled>
+    <SMTP_DefaultDomain />
+    <SMTP_MaxTransactions>0</SMTP_MaxTransactions>
+    <RelayStore>c:\MailStore\</RelayStore>
+    <LogRelayCmds>True</LogRelayCmds>
+    <Relay_LogPath />
+    <SmartHostUserName />
+    <SmartHostPassword />
+    <RelayLocalIP />
+    <LogFetchPOP3Cmds>False</LogFetchPOP3Cmds>
+    <FetchPOP3_LogPath />
+    <SMTP_RequireAuth>False</SMTP_RequireAuth>
+    <Relay_SmartHost_UseSSL>false</Relay_SmartHost_UseSSL>
+    <FetchPOP3_Interval>300</FetchPOP3_Interval>
+    <SMTP_GreetingText />
+    <POP3_GreetingText />
+    <IMAP_GreetingText />
+    <ServerAuthenticationType>1</ServerAuthenticationType>
+    <ServerAuthWinDomain />
+    <FetchPop3_Enabled>True</FetchPop3_Enabled>
+    <Relay_HostName />
+    <Relay_SessionIdleTimeOut>300</Relay_SessionIdleTimeOut>
+    <SMTP_MaxConnectionsPerIP>0</SMTP_MaxConnectionsPerIP>
+    <POP3_MaxConnectionsPerIP>0</POP3_MaxConnectionsPerIP>
+    <IMAP_MaxConnectionsPerIP>0</IMAP_MaxConnectionsPerIP>
+    <SIP_Enabled>False</SIP_Enabled>
+    <Relay_MaxConnectionsPerIP>10</Relay_MaxConnectionsPerIP>
+    <SIP_MinExpires>60</SIP_MinExpires>
+    <Relay_Mode>Dns</Relay_Mode>
+    <Relay_SmartHostsBalanceMode>LoadBalance</Relay_SmartHostsBalanceMode>
+    <SIP_ProxyMode>Registrar, B2BUA</SIP_ProxyMode>
+    <LdapServer />
+    <LdapDN>CN=%user,DC=domain,DC=com</LdapDN>
+    <SettingsDate>2014-01-29T13:35:03.5272171+00:00</SettingsDate>
+  </Settings>
+  <DnsServers>
+    <IP>8.8.8.8</IP>
+  </DnsServers>
+  <SMTP_Bindings>
+    <HostName />
+    <IP>0.0.0.0</IP>
+    <Port>25</Port>
+    <SSL>None</SSL>
+  </SMTP_Bindings>
+  <Relay_Bindings>
+    <HostName>support.miningappstore.com</HostName>
+    <Protocol>TCP</Protocol>
+    <IP>0.0.0.0</IP>
+    <Port>0</Port>
+    <SSL>false</SSL>
+  </Relay_Bindings>
+  <POP3_Bindings>
+    <HostName />
+    <IP>0.0.0.0</IP>
+    <Port>110</Port>
+    <SSL>None</SSL>
+  </POP3_Bindings>
+  <IMAP_Bindings>
+    <HostName />
+    <IP>0.0.0.0</IP>
+    <Port>143</Port>
+    <SSL>None</SSL>
+  </IMAP_Bindings>
+  <IMAP_Bindings>
+    <HostName />
+    <IP>0.0.0.0</IP>
+    <Port>993</Port>
+    <SSL>SSL</SSL>
+    <SSL_Certificate>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</SSL_Certificate>
+  </IMAP_Bindings>
+  <ServerReturnMessages>
+    <MessageType>delayed_delivery_warning</MessageType>
+    <Subject>Delayed delivery notice: &lt;#message.header["Subject:"]&gt;</Subject>
+    <BodyTextRtf>{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Verdana;}{\f1\fnil\fcharset186 Verdana;}{\f2\fswiss\fcharset186{\*\fname Arial;}Arial Baltic;}{\f3\fnil\fcharset0 Microsoft Sans Serif;}}
+{\colortbl ;\red0\green64\blue128;\red255\green0\blue0;\red0\green128\blue0;}
+\viewkind4\uc1\pard\f0\fs20 This e-mail is generated by the Server(\cf1 &lt;#relay.hostname&gt;\cf0 )  to notify you, \par
+\lang1061\f1 that \lang1033\f0 your message to \cf1 &lt;#relay.to&gt;\cf0  dated \b\fs16 &lt;#message.header["Date:"]&gt;\b0  \fs20 could not be sent at the first attempt.\par
+\par
+Recipient \i &lt;#relay.to&gt;'\i0 s Server (\cf1 &lt;#relay.session_hostname&gt;\cf0 ) returned the following response: \cf2 &lt;#relay.error&gt;\cf0\par
+\par
+\par
+Please note Server will attempt to deliver this message for \b &lt;#relay.undelivered_after&gt;\b0  hours.\par
+\par
+--------\par
+\par
+Your original message is attached to this e-mail (\b data.eml\b0 )\par
+\par
+\fs16 The tracking number for this message is \cf3 &lt;#relay.session_messageid&gt;\cf0\fs20\par
+\lang1061\f2\par
+\pard\lang1033\f3\fs17\par
+}
+</BodyTextRtf>
+  </ServerReturnMessages>
+  <ServerReturnMessages>
+    <MessageType>undelivered</MessageType>
+    <Subject>Undelivered notice: &lt;#message.header["Subject:"]&gt;</Subject>
+    <BodyTextRtf>{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fswiss\fprq2\fcharset0 Verdana;}{\f1\fswiss\fprq2\fcharset186 Verdana;}{\f2\fnil\fcharset0 Verdana;}{\f3\fnil\fcharset186 Verdana;}{\f4\fswiss\fcharset0 Arial;}{\f5\fswiss\fcharset186{\*\fname Arial;}Arial Baltic;}}
+{\colortbl ;\red0\green64\blue128;\red255\green0\blue0;\red0\green128\blue0;}
+\viewkind4\uc1\pard\f0\fs20 Your message t\lang1061\f1 o \cf1\lang1033\f2 &lt;#relay.to&gt;\cf0\f0 , dated \b\fs16 &lt;#message.header["Date:"]&gt;\b0\fs20 , could not be delivered.\par
+\par
+Recipient \i &lt;#relay.to&gt;'\i0 s Server (\cf1 &lt;#relay.session_hostname&gt;\cf0 ) returned the following response: \cf2 &lt;#relay.error&gt;\cf0\par
+\par
+\par
+\b * Server will not attempt to deliver this message anymore\b0 .\par
+\par
+--------\par
+\par
+Your original message is attached to this e-mail (\b data.eml\b0 )\par
+\par
+\fs16 The tracking number for this message is \cf3 &lt;#relay.session_messageid&gt;\cf0\fs20\par
+\lang1061\f5\par
+\lang1033\f2\par
+}
+</BodyTextRtf>
+  </ServerReturnMessages>
+</NewDataSet>

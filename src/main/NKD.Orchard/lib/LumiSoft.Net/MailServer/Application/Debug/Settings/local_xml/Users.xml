@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Users>
+    <UserID>bf3d52d1-ab1c-40ba-a008-14303e19a07b</UserID>
+    <FullName>help@support.miningappstore.com</FullName>
+    <UserName>help@support.miningappstore.com</UserName>
+    <Password>help</Password>
+    <Description>help@support.miningappstore.com</Description>
+    <DomainName />
+    <Mailbox_Size>0</Mailbox_Size>
+    <Enabled>true</Enabled>
+    <Permissions>30</Permissions>
+    <CreationTime>2014-01-28T05:02:05.77547+00:00</CreationTime>
+  </Users>
+</NewDataSet>
