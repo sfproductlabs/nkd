@@ -1,0 +1,14 @@
+﻿
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+
+    Layout.Title = T("Update Model Parameters").ToString();
+}
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    <h3>@Layout.Title</h3>
+    Html.RenderPartial("ModelParametersPartial");
+}
+else {
+    Html.RenderAction("UnauthorizedRedirect");
+}

@@ -1,0 +1,45 @@
+﻿@model NKD.ViewModels.BlockModelAppendViewModel
+@using NKD.Models;
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+
+    Layout.Title = T("Append to a Block Model process start").ToString();
+}
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+     using (Html.BeginForm("AppendToModelProcessGo", "User", new { area = "NKD", Controller = "User", Action = "AppendToModelProcessGo" }, FormMethod.Post, new { id = "form1", @class = "imagePreview" }))
+    {
+              <fieldset>
+              <legend>Append to a Block Model start</legend>
+              <div class="id-label">                  
+              </div>
+              <div class="editor-label">
+                 @Html.LabelFor(x => x.BlockModelAlias)
+              </div>
+              <div class="editor-field">
+                  @Html.TextBoxFor(x => x.BlockModelAlias, new { @readonly = true })
+              </div>           
+               <div class="editor-label">
+                 @Html.LabelFor(x => x.FileName)
+              </div>
+              <div class="editor-field">
+                  @Html.TextBoxFor(x => x.FileName, new { @readonly = true })
+              </div>
+
+              <div class="editor-label">
+                  @Html.LabelFor(x => x.ColumnName)
+              </div>
+              <div class="editor-field">
+                  @Html.DropDownListFor(x => x.ColumnName, Model.FileColumnNames)
+              </div>
+                    @Html.HiddenFor(x => x.BlockModelID)
+
+                        <input type="submit" value="Append"/>
+            </fieldset>
+
+    } 
+
+}
+else {
+    Html.RenderAction("UnauthorizedRedirect");
+}

@@ -1,0 +1,84 @@
+﻿@model NKD.ViewModels.ProjectViewModel
+@using NKD.Models;
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+    bool isNew = Model.Project == default(Guid);
+    string title = T("Edit a Project").ToString();
+    if (isNew) { title = T("Create a Project").ToString(); }
+    Layout.Title = title;
+}
+
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    using (Html.BeginForm())
+    {
+          <fieldset>
+              <legend>@title</legend>
+              <div class="editor-label">
+                  @Html.LabelFor(x => x.Creator)
+              </div>
+              <div class="editor-field">
+                  @Html.DropDownListFor(x => x.Creator, Model.Creators)
+              </div>   
+               <div class="editor-label">
+                  @Html.LabelFor(x => x.Project)
+              </div>
+              @if (isNew)
+              {
+              <div class="editor-field">
+                  @Html.TextBoxFor(x => x.ProjectName)                  
+              </div>
+              } else {
+              <div class="editor-field">
+                  @Html.DropDownListFor(x => x.Project, Model.Projects)
+              </div>
+              }
+              <div class="editor-label">
+                  @Html.LabelFor(x => x.Stage)
+              </div>
+              @if (isNew)
+              {
+              <div class="editor-field">
+                  @Html.TextBoxFor(x => x.StageName)
+              </div>
+              } else {
+              <div class="editor-field">
+                  @Html.DropDownListFor(x => x.Stage, Model.Stages)
+              </div>
+              }
+              <div class="editor-label">
+                  @Html.LabelFor(x => x.Reviewer)
+              </div>
+              <div class="editor-field">
+                  @Html.DropDownListFor(x => x.Reviewer, Model.Reviewers)
+              </div>                            
+               <div class="editor-label">
+                  @Html.LabelFor(x => x.Comment)
+              </div>
+              <div class="editor-field">
+                  @Html.TextAreaFor(x => x.Comment)
+              </div>
+              @Html.HiddenFor(x => x.User)
+              @Html.ValidationSummary()
+              <input type="submit" value="Update" class="submitButtonLeft"/>
+          </fieldset>
+    }
+}
+else {
+    Html.RenderAction("UnauthorizedRedirect");
+}
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(function () {
+        $('#Project').cascade({
+            url: '@Url.Action("GetStages")',
+            paramName: 'projectID',
+            childSelect: $('#Stage')
+        });
+
+    });
+    // ]]>
+</script>
+    
+      

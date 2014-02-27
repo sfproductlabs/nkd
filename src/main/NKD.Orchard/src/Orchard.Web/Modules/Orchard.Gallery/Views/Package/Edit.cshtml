@@ -1,0 +1,134 @@
+﻿@using Orchard.Gallery.HtmlHelpers
+@model Orchard.Gallery.ViewModels.PackageViewModel
+
+@using (Script.Foot())
+{
+    <script type="text/javascript">
+    //<![CDATA[
+        var $categoriesFieldset = $('#PackageCategoryFieldset');
+
+        $(function () {
+            var $packageTypeDDL = $('#PackageType');
+            $packageTypeDDL.change(function () {
+                updateCategories($(this).val());
+            });
+            $packageTypeDDL.trigger('change');
+
+            setupSummaryDefault();
+        });
+
+        function setupSummaryDefault() {
+
+            var $summaryTextBox = $("#Summary");
+            var $descriptionTextBox = $("#Description");
+
+            var mirrorDescription = false;
+            var checkShouldMirror = function () {
+                mirrorDescription = $summaryTextBox.val() === $descriptionTextBox.val();
+            };
+
+            checkShouldMirror();
+            if (mirrorDescription) {
+                $summaryTextBox.val($descriptionTextBox.val());
+            }
+
+            $summaryTextBox.keypress(checkShouldMirror).change(checkShouldMirror);
+
+            $descriptionTextBox.keyup(function () {
+                if (!mirrorDescription) return;
+                $summaryTextBox.val($descriptionTextBox.val());
+            });
+        }
+
+        function updateCategories(selectedPackageType) {
+            var url = '@Url.Action("Categories", "PackageCategories", new { area = "Orchard.Gallery", packageType = "replaceThis" })';
+            $categoriesFieldset.hide();
+            $.getJSON(url.replace("replaceThis",selectedPackageType), null, populateCategoriesDDL);
+        }
+
+        function populateCategoriesDDL(categories) {
+            if (categories === null || categories.length === 0) {
+                return;
+            }
+            var $categoriesDDL = $('#PrimaryCategory');
+            $categoriesDDL.find('option').remove();
+            $.each(categories, function (index, value) {
+                $categoriesDDL.append('<option>' + value + '</option>');
+            });
+            $categoriesFieldset.show();
+        }
+    //]]>
+    </script>
+}
+
+@using (Html.BeginFormAntiForgeryPost(Url.Action("Edit"), FormMethod.Post)) {
+
+    @Html.LabelFor(m => m.PackageId, T("Package ID"))
+    @Html.DisplayFor(m => m.PackageId)
+    @Html.LabelFor(m => m.PackageVersion, T("Version"))
+    @Html.DisplayFor(m => m.PackageVersion)
+    @Html.HiddenFor(m => m.PackageId)
+    @Html.HiddenFor(m => m.PackageVersion)
+    @Html.HiddenFor(m => m.IsExternalPackage)
+    <fieldset>
+        @Html.LabelFor(m => m.Title, T("Title"))
+        @Html.TextBoxFor(m => m.Title)
+        @Html.ValidationMessageFor(m => m.Title)
+    </fieldset>
+    <fieldset>
+        @Html.LabelFor(m => m.Description, T("Description"))
+        @Html.TextBoxFor(m => m.Description)
+        @Html.ValidationMessageFor(m => m.Description)
+    </fieldset>
+    <fieldset>
+        @Html.LabelFor(m => m.Summary, T("Summary"))
+        @Html.TextBoxFor(m => m.Summary)
+        @Html.ValidationMessageFor(m => m.Summary)
+    </fieldset>
+    <fieldset>
+        @Html.LabelFor(m => m.Authors, T("Authors"))
+        @Html.TextBoxFor(m => m.Authors)
+        @Html.ValidationMessageFor(m => m.Authors)
+    </fieldset>
+    <fieldset>
+        @Html.LabelFor(m => m.LicenseURL, T("LicenseURL"))
+        @Html.TextBoxFor(m => m.LicenseURL)
+    </fieldset>
+    <fieldset>
+        @Html.LabelFor(m => m.Tags, T("Tags"))
+        @Html.TextBoxFor(m => m.Tags)
+    </fieldset>
+    <fieldset>
+        @Html.LabelFor(m => m.PackageTypes, T("Package Type"))
+        @Html.DropDownList("PackageType", new SelectList(Model.PackageTypes, Model.PackageType))
+    </fieldset>
+    <fieldset id="PackageCategoryFieldset">
+        <label for="PrimaryCategory">@T("Primary Category")</label>
+        @Html.DropDownList("PrimaryCategory", new SelectList(Model.PackageCategories, Model.PrimaryCategory))
+    </fieldset>
+    <fieldset>
+        @Html.LabelFor(m => m.IsLatestVersion, T("Latest Version"))
+        @Html.CheckBoxFor(m => m.IsLatestVersion)
+    </fieldset>
+   if (Model.IsExternalPackage)
+   {
+     <fieldset>
+        @Html.LabelFor(m => m.ExternalPackageUrl, T("External Package URL"))
+        @Html.TextBoxFor(m => m.ExternalPackageUrl, new { type = "url" })
+        @Html.ValidationMessageFor(m => m.ExternalPackageUrl)
+    </fieldset>
+   }
+   <fieldset>
+        @Html.LabelFor(m => m.ProjectUrl, T("Project URL"))
+        @Html.TextBoxFor(m => m.ProjectUrl)
+    </fieldset>
+    <fieldset>
+        @Html.LabelFor(m => m.RequireLicenseAcceptance, T("Require License Acceptance"))
+        @Html.CheckBoxFor(m => m.RequireLicenseAcceptance)
+    </fieldset>
+    <fieldset>
+        @Html.LabelFor(m => m.Copyright, T("Copyright"))
+        @Html.TextBoxFor(m => m.Copyright)
+    </fieldset>
+    <input type="submit" value="Update" />
+    }

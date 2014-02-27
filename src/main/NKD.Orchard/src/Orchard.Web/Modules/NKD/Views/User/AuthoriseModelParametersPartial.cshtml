@@ -1,0 +1,37 @@
+﻿@if (!AuthorizedFor(NKD.Permissions.ManageProjects)) {Html.RenderAction("UnauthorizedRedirect");}
+@Html.DevExpress().GridView(
+settings =>
+{
+    settings.Name = "gvParameters";                
+    settings.KeyFieldName = "BlockModelMetadataID";
+    settings.SettingsBehavior.AllowSort = false;
+    settings.SettingsBehavior.AllowDragDrop = false; 
+    settings.Width = Unit.Percentage(100);
+    settings.Columns.Add("Key").Visible=false;
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "ParameterName";
+        column.UnboundType = DevExpress.Data.UnboundColumnType.String;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "ParameterValue";
+        column.UnboundType = DevExpress.Data.UnboundColumnType.String;
+    });
+    settings.CustomUnboundColumnData = (sender, e) =>
+    {
+        if (e.Column.FieldName == "ParameterName")
+        {
+            var id = (Guid)e.GetListSourceFieldValue("Key");
+            e.Value = Model.Parameters[id].Item1;                
+        }
+        if (e.Column.FieldName == "ParameterValue")
+        {
+            var id = (Guid)e.GetListSourceFieldValue("Key");
+            e.Value = Model.Parameters[id].Item2;
+        }
+    };   
+    settings.Settings.ShowFilterRow = false;
+    settings.Settings.ShowGroupPanel = false;
+    settings.Settings.ShowFooter = false;
+}).Bind(Model.Parameters).GetHtml()

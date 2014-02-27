@@ -1,0 +1,15 @@
+﻿<div class="GalleryCallout">
+    <h2>Join the Community</h2>
+     @if (Request.IsAuthenticated) {
+         <p>@Html.ActionLink("My Account", "MyAccount", "Contribute")</p>
+     } else {
+        <p>@Html.ActionLink("Sign up for an account", "Register", "Account", new { area = "Orchard.Users" }, null)</p>
+     }
+</div>
+
+<div class="GalleryCallout">
+    <h2>Submit your work</h2>
+    <p>@Html.ActionLink("New Submission", "Index", "UploadPackage")</p>
+    <p>@Html.ActionLink("Register Package Id", "Index", "PackageRegistration")</p>
+    <p>@Html.ActionLink("Manage My Submissions", "MyPackages", "Contribute")</p>
+</div>

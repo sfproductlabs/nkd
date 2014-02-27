@@ -1,0 +1,63 @@
+﻿@if (!AuthorizedFor(NKD.Permissions.ManageProjects)) {Html.RenderAction("UnauthorizedRedirect");}
+@using (new TransactionScope(TransactionScopeOption.Suppress))
+{
+
+    Html.DevExpress().GridView(
+        settings =>
+        {
+            settings.Name = "gvDataBindingToLinq";
+            settings.CallbackRouteValues = new { area = "NKD", Controller = "User", Action = "ProjectListPartial" };
+            //settings.SettingsEditing.AddNewRowRouteValues = new { area = "NKD", Controller = "User", Action = "ProjectListNewPartial" };
+            //settings.SettingsEditing.UpdateRowRouteValues = new { area = "NKD", Controller = "User", Action = "InlineEditingUpdatePartial" };
+            //settings.SettingsEditing.DeleteRowRouteValues = new { area = "NKD", Controller = "User", Action = "InlineEditingDeletePartial" };
+                
+            settings.KeyFieldName = "ProjectID";
+            settings.Width = Unit.Percentage(100);
+
+            settings.Settings.ShowFilterRow = true;
+            settings.Settings.ShowGroupPanel = false;
+            settings.Settings.ShowFooter = true;
+            settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+            settings.SettingsBehavior.ConfirmDelete = true;
+
+
+            settings.Columns.Add("ProjectID").Visible = false;
+            settings.Columns.Add("ProjectName").SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            settings.Columns.Add("ProjectTaskName").Caption = "Current Stage";
+            settings.Columns.Add("CreatorName");
+            settings.Columns.Add("ReviewerName");
+            settings.Columns.Add("Comment");
+
+            settings.Columns.Add(column =>
+            {
+                column.Caption = "#";
+                column.SetDataItemTemplateContent(c =>
+                {
+                    ViewContext.Writer.Write(                         
+                        Html.ActionLink("Delete", "EditProject", new { id = DataBinder.Eval(c.DataItem, "ProjectID"), verb = "delete" }, new { onclick = "return confirm('Do you really want to delete this record?')" })                        
+                    );
+                });
+                column.SetHeaderTemplateContent(c =>
+                {
+                    ViewContext.Writer.Write(
+                        Html.ActionLink("New", "EditProject", new { id = "" }).ToHtmlString()
+                    );
+                });
+                column.Settings.AllowDragDrop = DefaultBoolean.False;
+                column.Settings.AllowSort = DefaultBoolean.False;
+                column.Width = 70;
+            });
+
+            settings.ClientSideEvents.BeginCallback = "function(s, e) { OnStartCallback(s, e); }";
+            settings.ClientSideEvents.EndCallback = "function(s, e) { OnEndCallback(s, e); }";
+
+        })
+        //.Bind(Model.Projects)
+        .BindToLINQ(string.Empty, string.Empty, (s, e) =>
+        {
+            var d = new NKD.Models.ProjectsDataContext();
+            e.QueryableSource = d.ProjectStatus;
+            e.KeyExpression = "ProjectID";
+        })
+        .GetHtml();
+}

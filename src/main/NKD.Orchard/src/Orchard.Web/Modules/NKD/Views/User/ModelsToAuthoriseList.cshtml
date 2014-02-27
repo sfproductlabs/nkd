@@ -1,0 +1,15 @@
+﻿
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+
+    Layout.Title = T("Models Awaiting Authorisation").ToString();
+}
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    <h3>@Layout.Title</h3>
+    Html.RenderPartial("ModelsToAuthoriseListPartial");
+}
+else {
+    
+    Html.RenderAction("UnauthorizedRedirect");
+}

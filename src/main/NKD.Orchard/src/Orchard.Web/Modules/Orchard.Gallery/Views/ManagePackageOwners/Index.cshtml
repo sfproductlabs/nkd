@@ -1,0 +1,63 @@
+﻿@model Orchard.Gallery.ViewModels.ManagePackageOwnersViewModel
+@{
+    Style.Require("jQueryUI_Orchard");
+}
+
+<div class="GalleryCallout">
+    <h2>Manage Owners for Package "@Model.PackageId"</h2>
+    @if (@Model.OtherOwners != null && @Model.OtherOwners.Any()) {
+    <ul>
+        <li>
+            @Model.OwnerViewingPage.UserName
+        </li>
+        @foreach (var owner in @Model.OtherOwners) {
+        <li>
+            @owner.UserName (<a href="#" onclick="RemoveOwnerFromPackage(@owner.Id, '@owner.UserName'); return false;">Remove</a>)
+        </li>
+        }
+    </ul>
+    } else {
+        <p>No other owners are associated with "@Model.PackageId".</p>
+    }
+    @using (Html.BeginFormAntiForgeryPost(Url.Action("AddNewOwner"), FormMethod.Post)) {
+        @Html.HiddenFor(m => m.PackageId)
+        <label for="newOwnerUserName">Add New Owner: </label>
+        <input type="text" id="newOwnerUserName" name="newOwnerUserName" />
+        <input type="submit" value="Add" />
+    }
+</div>
+<div id="removeUserConfirmationDialogDiv" title="Confirm Owner Removal">
+    <p>@T("Are you sure you wish to remove") "<span id="nameOfUserToRemoveSpan"></span>" @T("from this package?")</p>
+    @using(Html.BeginFormAntiForgeryPost(Url.Action("RemoveOwner"), FormMethod.Post)) {
+        @Html.HiddenFor(m => m.PackageId)
+        <input type="hidden" id="idOfUserToRemove" name="idOfUserToRemove" />
+        <input type="hidden" id="nameOfUserToRemove" name="nameOfUserToRemove" />
+        <input type="submit" value="Yes" />
+        <a href="#" onclick="CloseConfirmationDialogDiv(); return false;">No</a>
+    }
+</div>
+@using (Script.Foot())
+{
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+        var $removeUserConfirmationDialogDiv = $('#removeUserConfirmationDialogDiv');
+        $(function () {
+            $removeUserConfirmationDialogDiv.dialog({ autoOpen: false, modal: true, resizable: false });
+        });
+
+        function RemoveOwnerFromPackage(idOfUserToRemove, nameOfUserToRemove) {
+            $('#idOfUserToRemove').val(idOfUserToRemove);
+            $('#nameOfUserToRemove').val(nameOfUserToRemove);
+            $('#nameOfUserToRemoveSpan').text(nameOfUserToRemove);
+            $removeUserConfirmationDialogDiv.dialog('open');
+            return false;
+        }
+
+        function CloseConfirmationDialogDiv() {
+            $removeUserConfirmationDialogDiv.dialog('close');
+            return false;
+        }
+    //]]>
+    </script>
+}

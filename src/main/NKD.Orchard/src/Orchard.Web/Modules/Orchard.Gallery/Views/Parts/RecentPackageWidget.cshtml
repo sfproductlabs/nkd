@@ -1,0 +1,24 @@
+﻿@using Orchard.Gallery.Models.ViewModels;
+@{
+    Style.Include("Gallery.css");
+}
+
+<div>
+  <ul>
+    @foreach (RecentPackageWidgetViewModel package in Model.Packages) {
+        <li>
+            @{
+                string packageTypeName = package.PackageTypeName.ToLower();
+                string defaultIcon = String.Format("{0}/{1}/Content/Images/{2}DefaultIcon.png", WorkContext.CurrentTheme.Location, WorkContext.CurrentTheme.Id, packageTypeName);
+                string iconUrl = String.IsNullOrWhiteSpace(package.IconUrl) ? Href(defaultIcon) : package.IconUrl;
+                string logoAltText = String.Format("{0} Logo", package.PackageId);
+                string linkText = String.Format("{0} - {1}", package.PackageTitle, package.PackageVersion);
+            }
+            <img src="@iconUrl" alt="@logoAltText" title="@logoAltText" />
+            @Html.ActionLink(linkText, "DetailsForIdAndVersion", "Package",
+                 new { area = "Orchard.Gallery", packageType = package.PackageTypeSlug, packageId = package.PackageId, packageVersion = package.PackageVersion }, null)
+            <span>@package.PackageTypeName</span>
+        </li>
+    }
+  </ul>
+</div>

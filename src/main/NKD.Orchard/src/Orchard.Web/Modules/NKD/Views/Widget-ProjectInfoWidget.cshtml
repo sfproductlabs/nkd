@@ -1,0 +1,12 @@
+﻿@*@using Orchard.ContentManagement; 
+@Display(Model.Content.Items[0])*@
+@Html.Partial("User/Header")
+@{
+    Style.Require("NKDAdmin");
+
+    Layout.Title = T("Projects").ToString();
+}
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    <h3>@Layout.Title</h3>
+    Html.RenderPartial("User/ProjectListPartial");
+}

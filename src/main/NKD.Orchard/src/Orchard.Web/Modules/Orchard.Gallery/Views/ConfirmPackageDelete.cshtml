@@ -1,0 +1,53 @@
+﻿<div id="deletePackageConfirmationDialogDiv" title="Confirm Delete" style="display:none">
+    <p>
+    @T("Are you sure you wish to delete the package <span id=\"packageIdToDeleteSpan\"></span>, version <span id=\"packageVersionToDeleteSpan\"></span>?")
+    </p>
+    <p class="confirmDialogWarning">
+    @T("If you delete it, you will lose any associated downloads or reviews.")
+    </p>
+    @using (Html.BeginFormAntiForgeryPost(Url.Action("Delete", "Package", new { area = "Orchard.Gallery" }), FormMethod.Post))
+    {
+        <input type="hidden" id="packageIdToDelete" name="packageId" />
+        <input type="hidden" id="packageVersionToDelete" name="packageVersion" />
+        <input type="hidden" id="shouldRedirect" name="shouldRedirect" />
+        <input type="submit" value="Delete item anyway" />
+        <input type="button" value="Cancel" onclick="CloseDeleteConfirmationDialogDiv(); return false;" />
+    }
+</div>
+
+@using (Script.Foot())
+{
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+        var $deletePackageConfirmationDialogDiv = $('#deletePackageConfirmationDialogDiv');
+        $(function () {
+            $deletePackageConfirmationDialogDiv.dialog({ autoOpen: false, modal: true, resizable: false, width: 600 });
+        });
+
+        function DeletePackage(packageId, packageVersion, shouldRedirect) {
+            shouldRedirect = (typeof (shouldRedirect) !== "undefined") ? shouldRedirect : true;
+            $('#shouldRedirect').val(shouldRedirect);
+            $('#packageIdToDelete').val(packageId);
+            $('#packageIdToDeleteSpan').text(packageId);
+            $('#packageVersionToDelete').val(packageVersion);
+            $('#packageVersionToDeleteSpan').text(packageVersion);
+            $deletePackageConfirmationDialogDiv.dialog('open');
+            return false;
+        }
+
+        function CloseDeleteConfirmationDialogDiv() {
+            $deletePackageConfirmationDialogDiv.dialog('close');
+            return false;
+        }
+
+        $("a.deletePackageLink").click(function () {
+            var id = $(this).attr("data-package-id");
+            var version = $(this).attr("data-package-version");
+            var shouldRedirect = $(this).attr("data-should-redirect");
+            DeletePackage(id, version, shouldRedirect);
+            return false;
+        });
+    //]]>
+    </script>
+}

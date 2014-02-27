@@ -1,0 +1,43 @@
+﻿@model Orchard.Gallery.ViewModels.PackageListViewModel
+@{
+    Style.Require("jQueryUI_Orchard");
+
+    Layout.Title = Model.PackageType;
+
+    if (Model.CategorySettings.Categories.Count > 0) {
+        WorkContext.Layout.AsideFirst.Add(New.Partial(TemplateName: "CategoriesSidebar", Model: Model.CategorySettings));
+    }
+
+    WorkContext.Layout.BeforeMain.Add(New.Partial(TemplateName: "PackageSearch", Model: Model.SearchSettings));
+
+    string resultText = Model.TotalNumberOfPackages == 1 ? "result" : "results";
+}
+
+<section>
+    <header>
+        <h2><span>@Model.TotalNumberOfPackages @resultText for </span>
+        @if (!string.IsNullOrWhiteSpace(Model.SearchTerm)) {
+            <em>@Model.SearchTerm</em>
+            if (!string.IsNullOrWhiteSpace(Model.SearchTarget)) {
+                <span> in</span>
+            }
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.SearchTarget)) {
+            @Model.SearchTarget
+        }
+        </h2>
+        @if (Model.TotalNumberOfPackages > 0)
+        {
+            if (Model.EndingNumber == Model.TotalNumberOfPackages && Model.StartingNumber == 1)
+            {
+                <span class="displayResults">Displaying all results.</span>
+            }
+            else
+            {
+                <span class="displayResults">Displaying results @Model.StartingNumber - @Model.EndingNumber.</span>
+            }
+        }
+    </header>
+    @Display(Model.List)
+    @Display(Model.Pager)
+</section>

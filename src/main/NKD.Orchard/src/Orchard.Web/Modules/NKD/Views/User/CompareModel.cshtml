@@ -1,0 +1,249 @@
+﻿@model NKD.ViewModels.BlockModelCompareViewModel
+@using NKD.Models;
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+    HtmlHelper.ClientValidationEnabled = true;
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = true;
+    Layout.Title = T("Compare Block Models").ToString();
+}
+<script type="text/javascript">
+    var widgets1 = 0;
+    var widgets2 = 0;
+    function AddWidget1(value) {
+        $('#widgets1').append("<div class='dynamicInput'><select id='widget1join-" + widgets1 + "' name='widget1join-" + widgets1 + "'><option value='AND'>AND</option><option value='OR'>OR</option></select>&nbsp;<select id='widget1param-" + widgets1 + "' name='widget1param-" + widgets1 + "'></select>&nbsp;<select id='widget1cond-" + widgets1 + "' name='widget1cond-" + widgets1 + "'><option value='&gt;='>&gt;=</option><option value='&lt;='>&lt;=</option><option value='='>=</option></select>&nbsp;<input type='text' name='widget1val-" + widgets1 + "' value='" + value + "' style='width:130px;display:inline;padding:5px;'/></div>&nbsp;");
+        var params = {};
+        params["modelID"] = $('#Model1').val();
+        var w1 = $('#widget1param-' + widgets1);
+        $.getJSON('@Url.Action("GetModelParameters")', params, function (items) {
+            w1.empty();
+            $.each(items, function (index, item) {
+                w1.append(
+                    $('<option/>')
+                        .attr('value', item.Value)
+                        .text(item.Text)
+                );
+            });
+        });
+        widgets1++;
+    }
+    function AddWidget2(value) {
+        $('#widgets2').append("<div class='dynamicInput'><select id='widget2join-" + widgets2 + "' name='widget2join-" + widgets2 + "'><option value='AND'>AND</option><option value='OR'>OR</option></select>&nbsp;<select id='widget2param-" + widgets2 + "' name='widget2param-" + widgets2 + "'></select>&nbsp;<select id='widget2cond-" + widgets2 + "' name='widget2cond-" + widgets2 + "'><option value='&gt;='>&gt;=</option><option value='&lt;='>&lt;=</option><option value='='>=</option></select>&nbsp;<input type='text' name='widget2val-" + widgets2 + "' value='" + value + "' style='width:130px;display:inline;padding:5px;'/></div>&nbsp;");
+        var params = {};
+        params["modelID"] = $('#Model2').val();
+        var w2 = $('#widget2param-' + widgets2);
+        $.getJSON('@Url.Action("GetModelParameters")', params, function (items) {
+            w2.empty();
+            $.each(items, function (index, item) {
+                w2.append(
+                    $('<option/>')
+                        .attr('value', item.Value)
+                        .text(item.Text)
+                );
+            });
+        });
+        widgets2++;
+    }
+
+    function SerializeWidgets() {
+        var arr = new Array();
+        $('#widgets1').children('div').each(function () {
+            var a = new Array();
+            a.push("1");
+            $(this).children().each(function() { 
+                a.push($(this).val());
+            })
+            arr.push(a);
+        });
+        $('#widgets2').children('div').each(function () {
+            var a = new Array();
+            a.push("2");
+            $(this).children().each(function () {
+                a.push($(this).val());
+            })
+            arr.push(a);
+        });
+
+        return JSON.stringify(arr);
+    }
+</script>
+
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    using (Html.BeginForm("CompareModelResult", "User", new { area = "NKD", Controller = "User", Action = "CompareModelResult" }, FormMethod.Post, new { id = "form1", @class = "edit-form" }))
+    {
+          <fieldset>
+              <legend>Compare Block Models</legend>
+              <div class="content grid">
+                  <div class="col s1of2">
+                      <div class="editor-label">
+                          @Html.LabelFor(x => x.Model1)
+                      </div>
+                      <div class="editor-field">
+                          @Html.DropDownListFor(x => x.Model1, Model.Models)
+                      </div>
+                      <div class="editor-label">
+                          @Html.LabelFor(x => x.SelectedDomainsModel1)
+                      </div>
+                      <div class="editor-field">
+                          @Html.ListBoxFor(x => x.SelectedDomainsModel1, Model.DomainsModel1, new { @class = "SelectedDomainsModel1" })
+                      </div>
+                      <div class="editor-label padded">
+                          Filter By:
+                      </div>
+                      <div id="widgets1"></div>
+                      <div class="editor-field rightButton">
+                          <input type="button" class="generalButton" id="addFilter1" value="+" onclick="javascript: AddWidget1(0); return (false);"/>
+                      </div>
+                   </div>
+                  <div class="col s2of2 divider">
+                      <div class="editor-label">
+                          @Html.LabelFor(x => x.Model2)
+                      </div>
+                      <div class="editor-field">
+                          @Html.DropDownListFor(x => x.Model2, Model.Models)
+                      </div>
+                      <div class="editor-label">
+                          @Html.LabelFor(x => x.SelectedDomainsModel2)
+                      </div>
+                      <div class="editor-field">
+                          @Html.ListBoxFor(x => x.SelectedDomainsModel2, Model.DomainsModel2)
+                      </div>
+                      <div class="editor-label padded">
+                          Filter By:
+                      </div>
+                      <div id="widgets2"></div>
+                      <div class="editor-field rightButton">
+                          <input type="button" class="generalButton" id="addFilter2" value="+" onclick="javascript: AddWidget2(0); return (false);"/>
+                      </div>
+                  </div>
+              </div>
+               <div class="content grid">
+                    <div class="col s1of1 bordered">Required Parameters
+                  <div class="col s1of1 padded">
+                        <div class="col s1of2">
+                             <div class="editor-label">@Html.LabelFor(x=>x.GradeTonnageFieldID)</div>
+                             <div class="editor-field">@Html.DropDownListFor(x => x.GradeTonnageFieldID, Model.ParametersIntersectionBothModels, "")</div>
+                        </div>
+                        <div class="col s2of2">
+                            <div class="editor-label">@Html.LabelFor(x=>x.GradeTonnageIncrement)</div>
+                             <div class="editor-field">@Html.TextBoxFor(x => x.GradeTonnageIncrement, new { @Value = "0.1" })</div>
+                          </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="content grid" style="display:none;">
+                    <div class="col s1of1 bordered">Required Slice Parameters
+                  <div class="col s1of1 padded">
+                      <div class="col s1of1">
+                            <div class="editor-label">@Html.LabelFor(x=>x.SliceFieldID)</div>
+                            <div class="editor-field">@Html.DropDownListFor(x => x.SliceFieldID, Model.ParametersIntersectionBothModels, "")</div>
+                           <div class="editor-label">@Html.LabelFor(x=>x.SliceWidthX)</div>
+                            <div class="editor-field">@Html.TextBoxFor(x => x.SliceWidthX)</div>
+                           <div class="editor-label">@Html.LabelFor(x=>x.SliceWidthY)</div>
+                            <div class="editor-field">@Html.TextBoxFor(x => x.SliceWidthY)</div>
+                            <div class="editor-label">@Html.LabelFor(x=>x.SliceWidthZ)</div>
+                            <div class="editor-field">@Html.TextBoxFor(x => x.SliceWidthZ)</div>
+                      </div>
+                   </div>
+                 </div>
+               </div>
+               <div class="content grid">
+                  <div class="col s1of1">
+                      @Html.HiddenFor(x => x.GradeTonnageFieldName)
+                      @Html.HiddenFor(x => x.FilterString)
+                      @Html.ValidationSummary(false)
+                      <input type="submit" value="Compare" class="submitButton"/>
+                  </div>
+               </div>
+          </fieldset>
+    }
+}
+else {
+    Html.RenderAction("UnauthorizedRedirect");
+}
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(function () {
+        $('#Model1').cascade({
+            url: '@Url.Action("GetModelDomains")',
+            paramName: 'modelID',
+            childSelect: $('#SelectedDomainsModel1')
+        });
+
+    });
+
+    $(function () {
+        $('#Model2').cascade({
+            url: '@Url.Action("GetModelDomains")',
+            paramName: 'modelID',
+            childSelect: $('#SelectedDomainsModel2')
+        });
+
+    });
+
+    $(function () {
+        $('#Model1').cascade({
+            url: '@Url.Action("GetModelIntersectionParameters")',
+            paramName: 'modelID1',
+            customParamName: 'modelID2',
+            customValue: '#Model2',
+            childSelect: $('#SliceFieldID')
+        });
+
+    });
+
+    $(function () {
+        $('#Model2').cascade({
+            url: '@Url.Action("GetModelIntersectionParameters")',
+            paramName: 'modelID2',
+            customParamName: 'modelID1',
+            customValue: '#Model1',
+            childSelect: $('#SliceFieldID')
+        });
+
+    });
+
+    $(function () {
+        $('#Model1').cascade({
+            url: '@Url.Action("GetModelIntersectionParameters")',
+            paramName: 'modelID1',
+            customParamName: 'modelID2',
+            customValue: '#Model2',
+            childSelect: $('#GradeTonnageFieldID')
+        });
+    });
+
+    $(function () {
+        $('#Model2').cascade({
+            url: '@Url.Action("GetModelIntersectionParameters")',
+            paramName: 'modelID2',
+            customParamName: 'modelID1',
+            customValue: '#Model1',
+            childSelect: $('#GradeTonnageFieldID')
+        });
+
+    });
+
+    $('#form1').submit(function (e) {
+        $('#FilterString').val(SerializeWidgets());
+        $('#GradeTonnageFieldName').val($('#GradeTonnageFieldID option:selected').text());
+        $('#SliceFieldID').val($('#GradeTonnageFieldID option:selected').val());
+        //TODO:Fix client side validation - had to enforce server side - o well
+        ////e.preventDefault(); // don't submit multiple times
+        //$('#form1').valid();
+        ////return (false);
+        //var container = $(this).find("[data-valmsg-summary=true]");
+        //var list = container.find("ul li:visible");
+        //if (list.length > 0) {
+        //    return (false);
+        //}
+        //else {
+          
+        //    this.submit(); // use the native submit method of the form element
+        //}
+    });
+
+    // ]]>
+</script>
+

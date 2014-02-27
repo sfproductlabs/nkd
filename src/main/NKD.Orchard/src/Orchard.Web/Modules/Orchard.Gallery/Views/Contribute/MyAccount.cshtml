@@ -1,0 +1,12 @@
+﻿@model Orchard.Gallery.Models.Userkey
+
+<p class="welcome">@T("Welcome, <strong>{0}</strong>!", WorkContext.CurrentUser.UserName)</p>
+
+@if (Model == null) {
+  @T("You have not yet generated an access key. Click the button below to generate a key.")
+} else {
+<p>@T("Your access key is: ") @Model.AccessKey</p>
+}
+@using (Html.BeginFormAntiForgeryPost(Url.Action("Generate"), FormMethod.Post)) {
+    <input type="submit" value="Generate New Key" />
+}

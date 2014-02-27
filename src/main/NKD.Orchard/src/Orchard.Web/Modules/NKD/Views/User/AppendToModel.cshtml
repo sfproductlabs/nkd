@@ -1,0 +1,90 @@
+﻿@model NKD.ViewModels.BlockModelAppendViewModel
+@using NKD.Models;
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+
+    Layout.Title = T("Append to a Block Model").ToString();
+}
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    using (Html.BeginForm("AppendToModelProcessGo", "User", new { area = "NKD", Controller = "User", Action = "AppendToModelProcessGo" }, FormMethod.Post, new { id = "form1", @class = "imagePreview" }))
+    {
+              <fieldset>
+              <legend>Append to a Block Model</legend>
+              <div class="id-label">       
+               
+              </div>
+              <div class="editor-label">
+                 @Html.LabelFor(x => x.BlockModelAlias)
+              </div>
+              <div class="editor-field">
+                  @Html.TextBoxFor(x => x.BlockModelAlias, new { @readonly = true })
+              </div>
+              <div class="editor-label">
+                 @Html.LabelFor(x => x.Version)
+              </div>
+              <div class="editor-field">
+                  @Html.TextBoxFor(x => x.Version, new { @readonly = true })
+              </div>
+
+              <div class="editor-label">
+                  @Html.LabelFor(x => x.FileName)
+              </div>
+              <div class="editor-field">
+                  @Html.DropDownListFor(x => x.FileName, Model.FileNames)
+              </div>
+
+              <div class="editor-label" style="visibility: hidden">
+                 @Html.LabelFor(x => x.FileName)
+              </div>
+
+              @Html.HiddenFor(x => x.BlockModelID)
+
+                <div class="uploadContainer" style="visibility: hidden">
+                    @{
+                        var settings = new UploadControlSettings();
+                        settings.Name = "ucCallbacks";
+                        settings.CallbackRouteValues = new { area = "NKD", Controller = "User", Action = "AppendToModelUpload" };
+                        settings.ControlStyle.CssClass = "editorArea";
+                        settings.ShowProgressPanel = true;
+                        //settings.UploadMode = UploadControlUploadMode.Advanced;
+                        settings.ValidationSettings.Assign(NKD.Helpers.UIHelper.AppendModelValidationSettings);
+                        settings.ClientSideEvents.FileUploadComplete = "function(s,e){ if(e.callbackData == 'true') $('#responseContainer').attr('style', 'visibility:visible;'); else $('#responseContainer').attr('style', 'visibility:hidden;'); }";
+                        Html.DevExpress().UploadControl(settings).GetHtml();
+                    }
+                    <label>&nbsp;</label>
+                    <div class="editorArea text">
+                        Allowed file types: csv<br />
+                        Maximum file size: 200MB
+                    </div>
+                    <label>&nbsp;</label>
+                    <div class="editorArea">
+                        @Html.HiddenFor(x => x.BlockModelID)
+                        <input type="button" value="Upload" onclick="ucCallbacks.Upload()" />
+                    </div>
+                </div>
+
+
+                <div id="responseContainer" class="responseContainer" style="visibility:hidden;">
+                    Successfully appended model data.
+                </div>    
+            
+    
+              <div class="editor-field">
+
+
+                 <input type="submit" value="Append"/>
+
+            
+
+               
+            </div>             
+            </fieldset>
+    
+
+    } 
+
+}
+else {
+    Html.RenderAction("UnauthorizedRedirect");
+}

@@ -1,0 +1,25 @@
+﻿@if (!AuthorizedFor(NKD.Permissions.ManageProjects)) {Html.RenderAction("UnauthorizedRedirect");}
+@using (new TransactionScope(TransactionScopeOption.Suppress))
+{
+   @Html.DevExpress().Chart(
+    settings => {
+        settings.Name = "webChart";
+        settings.CallbackRouteValues = new { area = "NKD", Controller = "User", Action = "ModelPivotChartPartial" };
+        settings.EnableClientSideAPI = true;
+        settings.Legend.MaxHorizontalPercentage = 30;
+        settings.BorderOptions.Visible = false;
+        settings.Width = Unit.Pixel(830);
+        settings.Height = Unit.Pixel(300);
+        settings.ClientSideEvents.BeginCallback = "OnBeginChartCallback";
+
+        settings.SeriesDataMember = "Series";
+        //settings.SeriesTemplate.ChangeView(options.ChartType);
+        settings.SeriesTemplate.ArgumentDataMember = "Arguments";
+        settings.SeriesTemplate.ValueDataMembers[0] = "Values";
+
+        if (settings.SeriesTemplate.Label != null) {
+            settings.SeriesTemplate.Label.LineVisible = true;
+            //settings.SeriesTemplate.LabelsVisibility = options.ShowPointLabels ? DefaultBoolean.True : DefaultBoolean.False;
+        }
+    }).Bind(Model).GetHtml()
+}

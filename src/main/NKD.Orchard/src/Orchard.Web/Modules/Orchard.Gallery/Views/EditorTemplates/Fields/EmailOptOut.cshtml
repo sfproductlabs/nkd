@@ -1,0 +1,7 @@
+﻿@model Orchard.Gallery.Fields.EmailOptOutField
+<div>
+    @Html.CheckBoxFor(m => m.OptOut)
+    <label for="@Html.FieldIdFor(m => m.OptOut)" class="forcheckbox">
+        @T("User would like to opt out of receiving emails from other users")
+    </label>
+</div>

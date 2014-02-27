@@ -1,0 +1,7 @@
+﻿@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+<p>Authorized</p>
+}
+else {
+    Html.RenderAction("UnauthorizedRedirect");
+}
+;

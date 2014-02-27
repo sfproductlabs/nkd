@@ -1,0 +1,41 @@
+﻿@using Orchard.Gallery.HtmlHelpers
+
+@{
+    Style.Include("Gallery.css");
+}
+
+@using (Script.Foot())
+{
+    <script type="text/javascript">
+    //<![CDATA[
+
+        function ShowHideUploadForm(formToShow, formToHide) {
+            $('#' + formToShow).show();
+            $('#' + formToHide).hide();
+        }
+    //]]>
+    </script>
+}
+<p onclick="ShowHideUploadForm('uploadFileForm','externalPackageForm')">
+    <input id="Radio1" type="radio" name="UploadType" checked="checked" />
+    <label for="Radio1" class="optionLabel">Upload a package file from my local computer</label>
+</p>
+
+<p onclick="ShowHideUploadForm('externalPackageForm','uploadFileForm')">
+    <input id="Radio2" type="radio" name="UploadType" />
+    <label for="Radio2" class="optionLabel">Submit a Url to a package file located on my web site</label>
+</p>
+
+<div id="uploadFileForm">
+@using (Html.BeginFormAntiForgeryPost(Url.Action("Upload"), FormMethod.Post, new { enctype = "multipart/form-data" })) {
+    <p>Select file to upload: @Html.File("packageFile") </p>
+    <input type="submit" value="Upload" />
+}
+</div>
+
+<div id="externalPackageForm" style="display:none">
+@using (Html.BeginFormAntiForgeryPost(Url.Action("ExternalUrl"), FormMethod.Post)) {
+    <p>Submit a URL to a package hosted on my website: @Html.TextBox("externalPackageUrl")</p>
+    <input type="submit" value="Submit" />
+}
+</div>

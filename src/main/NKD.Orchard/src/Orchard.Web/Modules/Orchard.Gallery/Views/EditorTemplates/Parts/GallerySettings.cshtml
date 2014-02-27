@@ -1,0 +1,42 @@
+@model Orchard.Gallery.Models.GallerySettingsPart
+
+<fieldset>
+    <legend>@T("Gallery Settings")</legend>
+    <div>
+        <label class="fortextbox" for="@Html.FieldIdFor(m => m.ServiceRoot)">@T("Gallery Server Service Root")</label>
+        @Html.TextBoxFor(m => m.ServiceRoot, new { @class = "textMedium" })
+        @Html.ValidationMessage("ServiceRoot", "*")
+    </div>
+    <div>
+        <label class="fortextbox" for="@Html.FieldIdFor(m => m.FeedUrl)">@T("Gallery Feed URL")</label>
+        @Html.TextBoxFor(m => m.FeedUrl, new { @class = "textMedium" })
+        @Html.ValidationMessage("FeedUrl", "*")
+    </div>
+    <div>
+        <label class="fortextbox" for="@Html.FieldIdFor(m => m.ReportAbuseUserName)">@T("User To Report Abuse To")</label>
+        @Html.TextBoxFor(m => m.ReportAbuseUserName, new { @class = "textMedium" })
+        @Html.ValidationMessage("ReportAbuseUserName", "*")
+    </div>
+    <legend>@T("Package ID Expiration Settings")</legend>
+    <div>
+        <label class="fortextbox" for="@Html.FieldIdFor(m => m.MaxNumberOfAllowedPreregisteredPackageIds)">
+            @T("Maximum number of allowed preregistered package IDs (leave blank for unlimited)")
+        </label>
+        @Html.TextBoxFor(m => m.MaxNumberOfAllowedPreregisteredPackageIds, new { @class = "textMedium" })
+        @Html.ValidationMessage("MaxNumberOfAllowedPreregisteredPackageIds", "*")
+    </div>
+    <div>
+        <label class="fortextbox" for="@Html.FieldIdFor(m => m.NumberOfDaysUntilPreregisteredPackageIdExpires)">
+            @T("Number of days until preregistered package IDs expire (leave blank for unlimited)")
+        </label>
+        @Html.TextBoxFor(m => m.NumberOfDaysUntilPreregisteredPackageIdExpires, new { @class = "textMedium" })
+        @Html.ValidationMessage("NumberOfDaysUntilPreregisteredPackageIdExpires", "*")
+    </div>
+    <div>
+        <label class="fortextbox" for="@Html.FieldIdFor(m => m.DaysInAdvanceToWarnUserOfExpiration)">
+            @T("Days in advance to warn user of package ID expiration (leave blank to disable)")
+        </label>
+        @Html.TextBoxFor(m => m.DaysInAdvanceToWarnUserOfExpiration, new { @class = "textMedium" })
+        @Html.ValidationMessage("DaysInAdvanceToWarnUserOfExpiration", "*")
+    </div>
+</fieldset>

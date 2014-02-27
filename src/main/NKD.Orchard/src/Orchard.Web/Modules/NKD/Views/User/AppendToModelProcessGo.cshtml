@@ -1,0 +1,29 @@
+﻿@model NKD.ViewModels.BlockModelAppendViewModel
+@using NKD.Models;
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+
+    Layout.Title = T("Block Model Appending").ToString();
+}
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    using (Html.BeginForm())
+    {
+         
+        <fieldset>
+              <legend>Append to a Block Model Processing</legend><br />
+               <br /><br />
+               Model <b> @Html.DisplayTextFor(x => x.BlockModelAlias) </b> is being appended with data from <b> @Html.DisplayTextFor(x => x.FileName) </b> you will receive an email notification shortly on the progress.
+              <div class="id-label">                  
+
+              </div>
+              
+
+            </fieldset>
+
+    } 
+
+}
+else {
+    Html.RenderAction("UnauthorizedRedirect");
+}

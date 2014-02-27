@@ -1,0 +1,13 @@
+Name: NKD
+AntiForgery: disabled
+Author: Xstract
+Website: http://nkd.xstractgroup.com
+Version: 1.0
+OrchardVersion: 1.0
+Description: Shows and Manages Project Information within NKD
+Features:
+    NKD:
+        Description: Shows and Manages Project Information within NKD.
+		Category: Business
+		Dependencies: Orchard.Email, Orchard.Media, Laughlin.ErrorLog, Orchard.Users
+		Priority: -10

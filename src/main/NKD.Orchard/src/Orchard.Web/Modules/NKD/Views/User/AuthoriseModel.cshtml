@@ -1,0 +1,49 @@
+﻿@model NKD.ViewModels.BlockModelApproveViewModel
+@using NKD.Models;
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+
+    Layout.Title = T("Authorise a Block Model").ToString();
+}
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    using (Html.BeginForm("AuthoriseModel", "User", new { area = "NKD", Controller = "User", Action = "ApproveViewModel" }, FormMethod.Post, new { id = "form1", @class = "edit-form" }))
+    {
+              <fieldset>
+                    <legend>Approve a Block Model</legend>
+                    <div class="id-label">                  
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.BlockModelAlias)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(x => x.BlockModelAlias, new { @readonly = true })
+                    </div> 
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.Parameters)
+                    </div>                 
+                    <div class="editor-field">
+                        @Html.Partial("AuthoriseModelParametersPartial")
+                    </div>
+                    <div class="editorArea">
+                        @Html.HiddenFor(x => x.BlockModelID)
+                        <p>&nbsp;</p>
+                        <input name="submit" type="submit" id="authorise" value="Approve" class="submitButtonLeft"/>
+                    </div>
+                    <div class="editorArea">
+                        <input name="submit" type="submit" id="notify" value="Notify" class="submitButtonLeft"/>
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(x => x.Updates)
+                    </div>
+                    <div class="editor-field">
+                        @Html.Partial("AuthoriseModelUpdatesPartial")
+                    </div>
+            </fieldset>
+
+    } 
+
+}
+else {
+    Html.RenderAction("UnauthorizedRedirect");
+}

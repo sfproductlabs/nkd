@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F2C0AC17-210D-4AF6-B027-56899AAC6569}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Orchard.Gallery</RootNamespace>
+    <AssemblyName>Orchard.Gallery</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\nhibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Gallery.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Gallery.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\..\..\lib\lucene.net\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Http, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Microsoft.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Http.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Microsoft.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\Orchard\bin\Debug\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\aspnetmvc\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Service References\GalleryServer\Reference.datasvcmap">
+      <Generator>DataServiceClientGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Readme.txt" />
+    <Content Include="Styles\Gallery.css" />
+    <Content Include="Views\UploadPackageLogoAndScreenshots\Index.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Module.txt" />
+    <Content Include="Views\UploadPackage\Index.cshtml" />
+    <Content Include="Views\ConfirmPackageUnpublish.cshtml" />
+    <Content Include="Views\Parts\GallerySearchWidget.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
+      <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
+      <Name>Orchard.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
+      <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
+      <Name>Orchard.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contrib.Reviews\Contrib.Reviews.csproj">
+      <Project>{F72680EB-12EE-482F-93C8-2F1279E2B710}</Project>
+      <Name>Contrib.Reviews</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contrib.Taxonomies\Contrib.Taxonomies.csproj">
+      <Project>{E649EA64-D213-461B-87F7-D67035801443}</Project>
+      <Name>Contrib.Taxonomies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contrib.Voting\Contrib.Voting.csproj">
+      <Project>{4DA5F35F-E62C-4B49-B5A8-379503257B3A}</Project>
+      <Name>Contrib.Voting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Autoroute\Orchard.Autoroute.csproj">
+      <Project>{66fccd76-2761-47e3-8d11-b45d0001ddaa}</Project>
+      <Name>Orchard.Autoroute</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Media\Orchard.Media.csproj">
+      <Project>{D9A7B330-CD22-4DA1-A95A-8DE1982AD8EB}</Project>
+      <Name>Orchard.Media</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Tags\Orchard.Tags.csproj">
+      <Project>{5D0F00F0-26C9-4785-AD61-B85710C60EB0}</Project>
+      <Name>Orchard.Tags</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Users\Orchard.Users.csproj">
+      <Project>{79AED36E-ABD0-4747-93D3-8722B042454B}</Project>
+      <Name>Orchard.Users</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Widgets\Orchard.Widgets.csproj">
+      <Project>{194D3CCC-1153-474D-8176-FDE8D7D0D0BD}</Project>
+      <Name>Orchard.Widgets</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminMenu.cs" />
+    <Compile Include="Attributes\StoreLastVisitedPackageDetailsLinkAttribute.cs" />
+    <Compile Include="Drivers\GallerySearchWidgetPartDriver.cs" />
+    <Compile Include="Impl\CategoryGetter.cs" />
+    <Compile Include="Controllers\ContactOwnersController.cs" />
+    <Compile Include="Interfaces\ICategoryGetter.cs" />
+    <Compile Include="Handlers\ContactOwnersMessageAlteration.cs" />
+    <Compile Include="Drivers\EmailOptOutFieldDriver.cs" />
+    <Compile Include="Fields\EmailOptOutField.cs" />
+    <Compile Include="Handlers\PackageIdExpirationWarningMessageAlteration.cs" />
+    <Compile Include="ManagePackageIds\PackageIdExpirationCoordinator.cs" />
+    <Compile Include="ManagePackageIds\ExpiredPackageIdNotifier.cs" />
+    <Compile Include="ManagePackageIds\IPackageIdExpirationCoordinator.cs" />
+    <Compile Include="ManagePackageIds\IExpiredPackageIdMessenger.cs" />
+    <Compile Include="ManagePackageIds\IExpiredPackageIdNotifier.cs" />
+    <Compile Include="ManagePackageIds\IExpiredPackageIdTaskRunner.cs" />
+    <Compile Include="ManagePackageIds\IPackageIdInUseChecker.cs" />
+    <Compile Include="Controllers\ManagePackageIdsController.cs" />
+    <Compile Include="ManagePackageIds\ManagePackageIdsViewModel.cs" />
+    <Compile Include="ManagePackageIds\ExpiredPackageIdMessenger.cs" />
+    <Compile Include="ManagePackageIds\PackageIdInUseChecker.cs" />
+    <Compile Include="ManagePackageIds\PackageIdStatus.cs" />
+    <Compile Include="ManagePackageIds\RegisteredPackageIdExpirerTask.cs" />
+    <Compile Include="ManagePackageIds\ExpiredPackageIdTaskRunner.cs" />
+    <Compile Include="ManagePackageIds\UserkeyPackageViewModel.cs" />
+    <Compile Include="ManagePackageIds\RegisteredPackageIdGetter.cs" />
+    <Compile Include="ManagePackageIds\IRegisteredPackageIdGetter.cs" />
+    <Compile Include="Models\GallerySearchWidgetPart.cs" />
+    <Compile Include="PackageSynchronization\IPackagePartPublishingService.cs" />
+    <Compile Include="PackageSynchronization\PackagePartPublishingService.cs" />
+    <Compile Include="Drivers\GallerySummaryWidgetPartDriver.cs" />
+    <Compile Include="Drivers\RecentPackageWidgetPartDriver.cs" />
+    <Compile Include="Drivers\HighestRatedPackageWidgetPartDriver.cs" />
+    <Compile Include="Drivers\MostPopularPackageWidgetPartDriver.cs" />
+    <Compile Include="Models\GallerySummaryWidgetPart.cs" />
+    <Compile Include="Models\RecentPackageWidgetPart.cs" />
+    <Compile Include="Models\HighestRatedPackageWidgetPart.cs" />
+    <Compile Include="Models\MostPopularPackageWidgetPart.cs" />
+    <Compile Include="Models\ViewModels\RecentPackageWidgetViewModel.cs" />
+    <Compile Include="Models\ViewModels\HighestRatedPackageWidgetViewModel.cs" />
+    <Compile Include="Models\ViewModels\MostPopularPackageWidgetViewModel.cs" />
+    <Compile Include="RatingSynchronization\NonceCache.cs" />
+    <Compile Include="RatingSynchronization\INonceCache.cs" />
+    <Compile Include="Controllers\RatingsUpdateAuthorizationController.cs" />
+    <Compile Include="Impl\PackageVisitTracker.cs" />
+    <Compile Include="Interfaces\IPackageVisitTracker.cs" />
+    <Compile Include="Controllers\ReportAbuseController.cs" />
+    <Compile Include="Attributes\StoreLastVisitedPackageListAttribute.cs" />
+    <Compile Include="Exceptions\InvalidMediaFileException.cs" />
+    <Compile Include="Exceptions\InvalidPackageIconFileException.cs" />
+    <Compile Include="Exceptions\InvalidPackageScreenshotFileException.cs" />
+    <Compile Include="GalleryMessageTypes.cs" />
+    <Compile Include="Handlers\ReportAbuseMessageAlteration.cs" />
+    <Compile Include="Impl\AdminPackagePrivilegeChecker.cs" />
+    <Compile Include="Interfaces\IParameterFormatValidator.cs" />
+    <Compile Include="Impl\ParameterFormatValidator.cs" />
+    <Compile Include="Interfaces\IAdminPackagePrivilegeChecker.cs" />
+    <Compile Include="PackageSynchronization\IRecommendedVersionUpdater.cs" />
+    <Compile Include="PackageSynchronization\IPackageLogEntryService.cs" />
+    <Compile Include="PackageSynchronization\IPackagePartCreator.cs" />
+    <Compile Include="PackageSynchronization\IPackagePartDeleter.cs" />
+    <Compile Include="PackageSynchronization\IPackagePartExtendedInfoUpdater.cs" />
+    <Compile Include="PackageSynchronization\IPackagePartTagUpdater.cs" />
+    <Compile Include="PackageSynchronization\IPackagePartTaxonomyUpdater.cs" />
+    <Compile Include="PackageSynchronization\IPackagePartUpdater.cs" />
+    <Compile Include="PackageSynchronization\IScreenshotPartCreator.cs" />
+    <Compile Include="PackageSynchronization\IScreenshotPartDeleter.cs" />
+    <Compile Include="Interfaces\ITypeCaster.cs" />
+    <Compile Include="PackageSynchronization\PackageLogEntryService.cs" />
+    <Compile Include="PackageSynchronization\PackagePartCreator.cs" />
+    <Compile Include="PackageSynchronization\PackagePartDeleter.cs" />
+    <Compile Include="PackageSynchronization\PackagePartExtendedInfoUpdater.cs" />
+    <Compile Include="PackageSynchronization\PackagePartTagUpdater.cs" />
+    <Compile Include="PackageSynchronization\PackagePartTaxonomyUpdater.cs" />
+    <Compile Include="PackageSynchronization\PackagePartUpdater.cs" />
+    <Compile Include="PackageSynchronization\RecommendedVersionUpdater.cs" />
+    <Compile Include="PackageSynchronization\ScreenshotPartCreator.cs" />
+    <Compile Include="PackageSynchronization\ScreenshotPartDeleter.cs" />
+    <Compile Include="Impl\TypeCaster.cs" />
+    <Compile Include="RatingSynchronization\IRatingSynchronizer.cs" />
+    <Compile Include="RatingSynchronization\RatingSyncTask.cs" />
+    <Compile Include="RatingSynchronization\RatingSynchronizer.cs" />
+    <Compile Include="ViewModels\CategoriesSidebarViewModel.cs" />
+    <Compile Include="ViewModels\ContactOwnersViewModel.cs" />
+    <Compile Include="ViewModels\PackagePartViewModel.cs" />
+    <Compile Include="ViewModels\ReportAbuseViewModel.cs" />
+    <Compile Include="Impl\PackagePrivilegeChecker.cs" />
+    <Compile Include="Interfaces\IPackagePrivilegeChecker.cs" />
+    <Compile Include="Controllers\ManagePackageOwnersController.cs" />
+    <Compile Include="ViewModels\ManagePackageOwnersViewModel.cs" />
+    <Compile Include="Impl\GalleryPackagePublishingService.cs" />
+    <Compile Include="Interfaces\IGalleryPackagePublishingService.cs" />
+    <Compile Include="Interfaces\IPackageMediaDirectoryHelper.cs" />
+    <Compile Include="Impl\PackageMediaDirectoryHelper.cs" />
+    <Compile Include="Controllers\ContributeController.cs" />
+    <Compile Include="Drivers\ScreenshotPartDriver.cs" />
+    <Compile Include="Exceptions\PackageScreenshotUploadFailedException.cs" />
+    <Compile Include="Handlers\ScreenshotPartHandler.cs" />
+    <Compile Include="HtmlHelpers\InvalidClassHelper.cs" />
+    <Compile Include="HttpUnauthorizedAccessToPackageResult.cs" />
+    <Compile Include="Impl\GalleryScreenshotService.cs" />
+    <Compile Include="Impl\PackageScreenshotUploader.cs" />
+    <Compile Include="Impl\ScreenshotPartMapper.cs" />
+    <Compile Include="Exceptions\UploadMediaFileFailedException.cs" />
+    <Compile Include="Interfaces\IGalleryScreenshotService.cs" />
+    <Compile Include="Interfaces\IPackageScreenshotDeleter.cs" />
+    <Compile Include="Interfaces\IPackageScreenshotUploader.cs" />
+    <Compile Include="Impl\PackageScreenshotValidator.cs" />
+    <Compile Include="Interfaces\IPackageScreenshotValidator.cs" />
+    <Compile Include="Impl\PackageIconUploader.cs" />
+    <Compile Include="Exceptions\PackageIconUploadFailedException.cs" />
+    <Compile Include="Impl\PackageIconValidator.cs" />
+    <Compile Include="Impl\UserPackageAuthorizer.cs" />
+    <Compile Include="Interfaces\IPackageIconUploader.cs" />
+    <Compile Include="Interfaces\IPackageIconValidator.cs" />
+    <Compile Include="Interfaces\IScreenshotPartMapper.cs" />
+    <Compile Include="Interfaces\IUserPackageAuthorizer.cs" />
+    <Compile Include="Controllers\NewSubmissionFinalizerController.cs" />
+    <Compile Include="Impl\ServiceUriBuilder.cs" />
+    <Compile Include="Interfaces\IServiceUriBuilder.cs" />
+    <Compile Include="Impl\PackageScreenshotDeleter.cs" />
+    <Compile Include="Models\ScreenshotPart.cs" />
+    <Compile Include="Models\ScreenshotPartRecord.cs" />
+    <Compile Include="ViewModels\PackageListViewModel.cs" />
+    <Compile Include="ViewModels\PackageLogoAndScreenshotsViewModel.cs" />
+    <Compile Include="Controllers\UploadPackageLogoAndScreenshotsController.cs" />
+    <Compile Include="Drivers\GallerySettingsPartDriver.cs" />
+    <Compile Include="Drivers\PackageSearchDriver.cs" />
+    <Compile Include="Extensions\HttpResponseMessageExtensions.cs" />
+    <Compile Include="Controllers\PackageCategoriesController.cs" />
+    <Compile Include="Exceptions\PackageCreationException.cs" />
+    <Compile Include="Controllers\PackagesController.cs" />
+    <Compile Include="Controllers\PackageController.cs" />
+    <Compile Include="Controllers\PackageAuthenticationController.cs" />
+    <Compile Include="Controllers\UploadPackageController.cs" />
+    <Compile Include="Exceptions\UserDoesNotHaveAccessToPackageException.cs" />
+    <Compile Include="Extensions\HttpClientExtensions.cs" />
+    <Compile Include="Handlers\GalleryFeatureHandler.cs" />
+    <Compile Include="Handlers\GallerySettingsPartHandler.cs" />
+    <Compile Include="Handlers\UserEventHandler.cs" />
+    <Compile Include="Handlers\UserMessagesAlteration.cs" />
+    <Compile Include="HtmlHelpers\ButtonHelpers.cs" />
+    <Compile Include="HtmlHelpers\FileHelper.cs" />
+    <Compile Include="Exceptions\AccessKeyDoesNotExistException.cs" />
+    <Compile Include="Impl\GalleryPackageService.cs" />
+    <Compile Include="Interfaces\IPackageViewModelMapper.cs" />
+    <Compile Include="Impl\PackageViewModelMapper.cs" />
+    <Compile Include="Interfaces\IGalleryPackageService.cs" />
+    <Compile Include="Impl\LastSynchronizedDate.cs" />
+    <Compile Include="Impl\PackagePartMapper.cs" />
+    <Compile Include="Impl\UserkeyService.cs" />
+    <Compile Include="Interfaces\IPackagePartMapper.cs" />
+    <Compile Include="Interfaces\IPackageService.cs" />
+    <Compile Include="Impl\PackageService.cs" />
+    <Compile Include="Drivers\PackagePartDriver.cs" />
+    <Compile Include="Extensions\UrlHelperExtensions.cs" />
+    <Compile Include="Handlers\PackagePartHandler.cs" />
+    <Compile Include="Interfaces\IUserkeyPackageService.cs" />
+    <Compile Include="Interfaces\IUserkeyService.cs" />
+    <Compile Include="Impl\UserkeyPackageService.cs" />
+    <Compile Include="MainMenu.cs" />
+    <Compile Include="Migrations.cs" />
+    <Compile Include="Models\GallerySettingsPart.cs" />
+    <Compile Include="Models\GallerySettingsPartRecord.cs" />
+    <Compile Include="Models\PackagePart.cs" />
+    <Compile Include="Models\PackagePartRecord.cs" />
+    <Compile Include="Models\PackageSearchPart.cs" />
+    <Compile Include="Models\ServiceConstants.cs" />
+    <Compile Include="Models\Userkey.cs" />
+    <Compile Include="Models\UserkeyPackage.cs" />
+    <Compile Include="Models\ViewModels\MyPackagesViewModel.cs" />
+    <Compile Include="Permissions.cs" />
+    <Compile Include="Routes.cs" />
+    <Compile Include="Interfaces\IODataContext.cs" />
+    <Compile Include="Interfaces\ILastSynchronizedDate.cs" />
+    <Compile Include="PackageSynchronization\IPackageSynchronizer.cs" />
+    <Compile Include="Impl\ODataContext.cs" />
+    <Compile Include="Security\PackageAuthorizationEventHandler.cs" />
+    <Compile Include="Service References\GalleryServer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.datasvcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MissingSettingsBanner.cs" />
+    <Compile Include="PackageSynchronization\PackageSynchronizer.cs" />
+    <Compile Include="PackageSynchronization\PackageSyncTask.cs" />
+    <Compile Include="Services\ThreadSafeActionBase.cs" />
+    <Compile Include="ViewModels\PackageViewModel.cs" />
+    <Compile Include="ViewModels\ScreenshotViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Placement.info">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Service References\GalleryServer\service.edmx" />
+    <Content Include="Views\Package\Details.cshtml" />
+    <Content Include="Styles\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Contribute\Index.cshtml" />
+    <Content Include="Views\Contribute\MyAccount.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\Gallery.Package.Fields.cshtml" />
+    <Content Include="Views\PackageAdmin\Create.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Package\Edit.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\GallerySettings.cshtml" />
+    <Content Include="Views\PackageAdmin\Item.cshtml" />
+    <Content Include="Views\PackageAdmin\List.cshtml" />
+    <Content Include="Views\Parts\Packages.Package.List.cshtml" />
+    <Content Include="Views\Parts\Packages.Package.DisplayDetail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ServiceReferenceMetadataStorage Include="Service References\GalleryServer\">
+      <Type>datasvcmap</Type>
+    </ServiceReferenceMetadataStorage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Localization\en-US\orchard.module.po" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PackageSearch.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Packages\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ManagePackageOwners\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ReportAbuse\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ConfirmPackageDelete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ConfirmPackageIdDelete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\EditorTemplates\Fields\EmailOptOut.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts\MostPopularPackageWidget.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts\HighestRatedPackageWidget.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts\RecentPackageWidget.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts\GallerySummaryWidget.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" DependsOnTargets="AfterBuildCompiler">
+    <PropertyGroup>
+      <AreasManifestDir>$(ProjectDir)\..\Manifests</AreasManifestDir>
+    </PropertyGroup>
+    <!-- If this is an area child project, uncomment the following line:
+    <CreateAreaManifest AreaName="$(AssemblyName)" AreaType="Child" AreaPath="$(ProjectDir)" ManifestPath="$(AreasManifestDir)" ContentFiles="@(Content)" />
+    -->
+    <!-- If this is an area parent project, uncomment the following lines:
+    <CreateAreaManifest AreaName="$(AssemblyName)" AreaType="Parent" AreaPath="$(ProjectDir)" ManifestPath="$(AreasManifestDir)" ContentFiles="@(Content)" />
+    <CopyAreaManifests ManifestPath="$(AreasManifestDir)" CrossCopy="false" RenameViews="true" />
+    -->
+  </Target>
+  <Target Name="AfterBuildCompiler" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>45979</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://orchard.codeplex.com</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

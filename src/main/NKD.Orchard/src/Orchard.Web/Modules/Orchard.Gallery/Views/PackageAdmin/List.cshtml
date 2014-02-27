@@ -1,0 +1,13 @@
+﻿@if (Model.ContentItems.Items.Count > 0) {
+using (Html.BeginFormAntiForgeryPost()) {
+
+
+<fieldset class="contentItems bulk-items">
+  @Display(Model.ContentItems)
+</fieldset>
+}
+}
+else
+{
+<p>@T("There are currently no Packages in the Gallery.")</p>
+}

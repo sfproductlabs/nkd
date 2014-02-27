@@ -1,0 +1,51 @@
+﻿<div id="unpublishPackageConfirmationDialogDiv" title="Confirm Unpublish" style="display:none">
+    <p>
+    @T("Are you sure you wish to unpublish the package <span id=\"packageIdToUnpublishSpan\"></span>, version <span id=\"packageVersionToUnpublishSpan\"></span>?")
+    </p>
+    <p>
+    @T("If you unpublish this item, users will no longer be able to view or download it. Download counts and reviews are retained, however.")
+    </p>
+    <p>
+    @T("The item can still be downloaded from the feed, in case a dependent package requires it. If you want to remove the item from the feed, delete it instead.")
+    </p>
+    @using (Html.BeginFormAntiForgeryPost(Url.Action("Unpublish", "Package", new { area = "Orchard.Gallery" }), FormMethod.Post)) {
+        <input type="hidden" id="packageIdToUnpublish" name="packageId" />
+        <input type="hidden" id="packageVersionToUnpublish" name="packageVersion" />
+        <input type="submit" value="Unpublish" />
+        <input type="button" value="Cancel" onclick="CloseConfirmationDialogDiv(); return false;" />
+    }
+</div>
+
+@using (Script.Foot())
+{
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+        var $unpublishPackageConfirmationDialogDiv = $('#unpublishPackageConfirmationDialogDiv');
+        $(function () {
+            $unpublishPackageConfirmationDialogDiv.dialog({ autoOpen: false, modal: true, resizable: false, width: 600 });
+        });
+
+        function UnpublishPackage(packageId, packageVersion) {
+            $('#packageIdToUnpublish').val(packageId);
+            $('#packageIdToUnpublishSpan').text(packageId);
+            $('#packageVersionToUnpublish').val(packageVersion);
+            $('#packageVersionToUnpublishSpan').text(packageVersion);
+            $unpublishPackageConfirmationDialogDiv.dialog('open');
+            return false;
+        }
+
+        function CloseConfirmationDialogDiv() {
+            $unpublishPackageConfirmationDialogDiv.dialog('close');
+            return false;
+        }
+
+        $("a.unpublishPackageLink").click(function () {
+            var id = $(this).attr("data-package-id");
+            var version = $(this).attr("data-package-version");
+            UnpublishPackage(id, version);
+            return false;
+        });
+    //]]>
+    </script>
+}

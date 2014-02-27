@@ -1,0 +1,40 @@
+﻿@model IEnumerable
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+
+    Layout.Title = T("Block Model Pivot").ToString();
+}
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    <h3>@Layout.Title</h3>
+    <script type="text/javascript">
+        //<![CDATA[
+        var isNeedUpdateChart = false;
+
+        //$(document).ready(function () {
+        //    PrepareShowPointLabelStyles();
+
+        //    $("#ChartType").change(function (){
+        //        PrepareShowPointLabelStyles();
+        //    });
+        //});
+        function OnBeforePivotGridCallback(s, e) {
+            isNeedUpdateChart = true;
+        }
+        function UpdateChart(s, e) {
+            if(isNeedUpdateChart) {
+                webChart.PerformCallback(); 
+                isNeedUpdateChart = false;
+            }
+        }
+        function OnBeginChartCallback(s, e) {
+            pivotGrid.FillStateObject(e.customArgs);
+        }
+        // ]]>
+    </script>
+    Html.RenderPartial("ModelPivotPartial");
+    Html.RenderPartial("ModelPivotChartPartial", Model);
+}
+else {
+    Html.RenderAction("UnauthorizedRedirect");
+}

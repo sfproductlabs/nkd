@@ -1,0 +1,14 @@
+﻿
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+
+    Layout.Title = T("Block Model Projects").ToString();
+}
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    <h3>@Layout.Title</h3>
+    Html.RenderPartial("ProjectListPartial");
+}
+else {
+    Html.RenderAction("UnauthorizedRedirect");
+}

@@ -1,0 +1,11 @@
+﻿<div>
+  <div>
+    @LinkExtensions.ActionLink(Html, string.Format("{0} - {1}", Model.ContentPart.PackageID, Model.ContentPart.PackageVersion),
+        "Details",
+        "Package",
+        new { area = "Orchard.Gallery", packageSlug = Model.ContentPart.Slug },
+        null
+    )
+  </div>
+  <div>Summary: @Model.ContentPart.Summary</div>
+</div>

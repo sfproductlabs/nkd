@@ -1,0 +1,218 @@
+@using Orchard.Gallery.HtmlHelpers
+@model Orchard.Gallery.ViewModels.PackageLogoAndScreenshotsViewModel
+
+@{
+    Style.Require("jQueryUI_Orchard");
+}
+
+<h2>Add Project Icon and Screenshots</h2>
+<h3>Current Icon</h3>
+@Html.ValidationSummary()
+@{
+    var iconLinkText = string.Empty;
+}
+<div class="@Model.PackageType.ToLower()">
+@if (!string.IsNullOrWhiteSpace(Model.IconUrl))
+{
+    <p><img src="@Model.IconUrl" alt="Package Icon" class="thumbnail" /></p>
+    iconLinkText = "Change Icon";
+}
+else
+{
+    <p><strong>No Icon Selected</strong></p>
+    iconLinkText = "Add Icon";
+}
+    <p><a id="addIconLink" href="#">@iconLinkText</a></p>
+</div>
+<hr />
+<h3>Package Screenshots</h3>
+<div>
+    <p><a id="addScreenshotLink" href="#">Add a Screenshot</a></p>
+    <ul>
+    @foreach (var screenshotViewModel in Model.Screenshots)
+    {
+        <li>
+            <div>
+                <p><img src="@screenshotViewModel.Uri" alt="@screenshotViewModel.Caption" /></p>
+                <p>@screenshotViewModel.Caption</p>
+                <p><a onclick="deleteScreenshot(@screenshotViewModel.Id); return false;" href="#">Remove</a></p>
+            </div>
+        </li>
+    }
+    </ul>
+</div>
+<div>
+@using (Html.BeginFormAntiForgeryPost(Url.Action("FinalizeSubmission", "NewSubmissionFinalizer"), FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.PackageId)
+    @Html.HiddenFor(m => m.PackageVersion)
+    <input type="submit" value="Finish" />
+}
+</div>
+
+<div id="addScreenshotDialogDiv" title="Add Package Screenshot" style="display: none">
+    <p>
+        <input id="UploadLocalScreenshotRadioButton" type="radio" name="ScreenshotUploadType" checked="checked" value="LocalScreenshot" />
+        <label for="UploadLocalScreenshotRadioButton">Upload from Computer</label>
+    </p>
+    <p>
+        <input id="UploadExternalScreenshotRadioButton" type="radio" name="ScreenshotUploadType" value="ExternalScreenshot" />
+        <label for="UploadExternalScreenshotRadioButton">Upload from external URL</label>
+    </p>
+
+    <div id="uploadLocalScreenshotForm" style="display:none" class="uploadScreenshotForm">
+        @using (Html.BeginFormAntiForgeryPost(Url.Action("UploadLocalPackageScreenshot"), FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(m => m.PackageId)
+            @Html.HiddenFor(m => m.PackageVersion)
+        <p>Select file to upload:
+            @Html.File("screenshotFile")
+        </p>
+        <p>Caption: @Html.TextBox("caption")</p>
+        <input type="submit" value="Upload" />
+        }
+    </div>
+
+    <div id="uploadExternalScreenshotForm" style="display:none" class="uploadScreenshotForm">
+    @using (Html.BeginFormAntiForgeryPost(Url.Action("UploadExternalPackageScreenshot"), FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.PackageId)
+        @Html.HiddenFor(m => m.PackageVersion)
+
+        <p>Submit a URL to a screenshot hosted externally: @Html.TextBox("externalScreenshotUrl")</p>
+        <p>Caption: @Html.TextBox("caption")</p>
+        <input type="submit" value="Submit" />
+    }
+    </div>
+    <div>
+        <a id="closeScreenshotDialogLink" href="#">Cancel</a>
+    </div>
+</div>
+
+<div id="addIconDialogDiv" title="Add Package Icon" style="display: none">
+    <p>
+        <input id="UploadLocalIconRadioButton" type="radio" name="IconUploadType" checked="checked" value="LocalIcon" />
+        <label for="UploadLocalIconRadioButton">Upload from Computer</label>
+    </p>
+    <p>
+        <input id="UploadExternalIconRadioButton" type="radio" name="IconUploadType" value="ExternalIcon" />
+        <label for="UploadExternalIconRadioButton">Upload from external URL</label>
+    </p>
+
+    <div id="uploadLocalIconForm" style="display:none" class="uploadIconForm">
+        @using (Html.BeginFormAntiForgeryPost(Url.Action("UploadLocalPackageIcon"), FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(m => m.PackageId)
+            @Html.HiddenFor(m => m.PackageVersion)
+        <p>Select file to upload:
+            @Html.File("iconFile")
+        </p>
+        <input type="submit" value="Upload" />
+        }
+    </div>
+
+    <div id="uploadExternalIconForm" style="display:none" class="uploadIconForm">
+    @using (Html.BeginFormAntiForgeryPost(Url.Action("UploadExternalPackageIcon"), FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.PackageId)
+        @Html.HiddenFor(m => m.PackageVersion)
+        <p>Submit a URL to an icon hosted on my website: @Html.TextBox("externalIconUrl")</p>
+        <input type="submit" value="Submit" />
+    }
+    </div>
+    <div>
+        <a id="closeIconDialogLink" href="#">Cancel</a>
+    </div>
+</div>
+
+<div id="deleteScreenshotDialogDiv" title="Delete Screenshot" style="display: none">
+    <p>Are you sure that you want to delete the selected screenshot?</p>
+    @using (Html.BeginFormAntiForgeryPost(Url.Action("DeleteScreenshot"), FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.PackageId)
+        @Html.HiddenFor(m => m.PackageVersion)
+        <input type="hidden" id="idOfScreenshotToDelete" name="idOfScreenshotToDelete" />
+        <input type="submit" value="Yes" />
+        <a id="deleteScreenshotCancelLink" href="#">No</a>
+    }
+</div>
+
+@using (Script.Foot())
+{
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+        // Screenshots
+        var $screenshotUploadTypeRadioButtons = $("input[name='ScreenshotUploadType']");
+        var $screenshotFileInput = $('#screenshotFile');
+        var $deleteScreenshotDialogDiv = $('#deleteScreenshotDialogDiv');
+
+        $(function () {
+            $('#addScreenshotLink').click(openScreenshotDialog);
+            $('#closeScreenshotDialogLink').click(closeScreenshotDialog);
+            $('#deleteScreenshotCancelLink').click(closeDeleteScreenshotDialog);
+            $screenshotUploadTypeRadioButtons.click(ToggleScreenshotFormDisplay);
+            $screenshotUploadTypeRadioButtons.first().trigger('click');
+            $('#addScreenshotDialogDiv').dialog({ autoOpen: false, modal: true });
+            $deleteScreenshotDialogDiv.dialog({ autoOpen: false, modal: true });
+        });
+
+        function deleteScreenshot(screenshotId) {
+            $('#idOfScreenshotToDelete').val(screenshotId);
+            $deleteScreenshotDialogDiv.dialog('open');
+            return false;
+        }
+
+        function openScreenshotDialog() {
+            $('#externalScreenshotUrl').val('');
+            $iconFileInput.val('');
+            $('#addScreenshotDialogDiv').dialog('open');
+            return false;
+        }
+
+        function closeScreenshotDialog() {
+            $('#addScreenshotDialogDiv').dialog('close');
+            return false;
+        }
+
+        function closeDeleteScreenshotDialog() {
+            $deleteScreenshotDialogDiv.dialog('close');
+            return false;
+        }
+
+        function ToggleScreenshotFormDisplay() {
+            $('.uploadScreenshotForm').hide();
+            $('#upload' + $screenshotUploadTypeRadioButtons.filter(':checked').first().val() + 'Form').show();
+        }
+
+        // Icons
+        var $iconUploadTypeRadioButtons = $("input[name='IconUploadType']");
+        var $iconFileInput = $('#iconFile');
+
+        $(function () {
+            $('#addIconLink').click(openIconDialog);
+            $('#closeIconDialogLink').click(closeIconDialog);
+            $iconUploadTypeRadioButtons.click(ToggleIconFormDisplay);
+            $iconUploadTypeRadioButtons.first().trigger('click');
+            $('#addIconDialogDiv').dialog({ autoOpen: false, modal: true });
+        });
+
+        function openIconDialog() {
+            $('#externalIconUrl').val('');
+            $iconFileInput.val('');
+            $('#addIconDialogDiv').dialog('open');
+            return false;
+        }
+
+        function closeIconDialog() {
+            $('#addIconDialogDiv').dialog('close');
+            return false;
+        }
+
+        function ToggleIconFormDisplay() {
+            $('.uploadIconForm').hide();
+            $('#upload' + $iconUploadTypeRadioButtons.filter(':checked').first().val() + 'Form').show();
+        }
+    //]]>
+    </script>
+}

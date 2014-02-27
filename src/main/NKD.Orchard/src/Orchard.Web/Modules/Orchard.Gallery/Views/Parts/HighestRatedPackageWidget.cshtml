@@ -1,0 +1,16 @@
+﻿@using Orchard.Gallery.Models.ViewModels;
+@{
+    Style.Include("Gallery.css");
+}
+
+<div>
+    <ul>
+    @foreach (HighestRatedPackageWidgetViewModel package in Model.Packages) {
+        <li>
+            @Html.ActionLink(package.PackageId, "DetailsForId", "Package",
+                    new { area = "Orchard.Gallery", packageType = package.PackageType, packageId = package.PackageId }, null)
+            (Average: @package.AverageRating | Ratings: @package.NumberOfRatings)
+        </li>
+    }
+    </ul>
+</div>

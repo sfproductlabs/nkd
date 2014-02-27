@@ -1,0 +1,10 @@
+﻿@if (!AuthorizedFor(NKD.Permissions.ManageProjects)) {Html.RenderAction("UnauthorizedRedirect");}
+@using (new TransactionScope(TransactionScopeOption.Suppress))
+{
+    Html.DevExpress().PivotGrid(NKD.Controllers.UserController.ModelPivotSettings()).BindToOLAP(
+        //"provider=MSOLAP;data source=\"http://demos.devexpress.com/Services/OLAP/msmdpump.dll\";initial catalog=\"Adventure Works DW Standard Edition\";cube name=\"Adventure Works\""
+        NKD.Controllers.UserController.OLAP_XSTRING
+     ).GetHtml();
+
+}
+ 

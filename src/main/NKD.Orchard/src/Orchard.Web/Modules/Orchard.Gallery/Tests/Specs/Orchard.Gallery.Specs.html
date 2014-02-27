@@ -1,0 +1,636 @@
+<html>
+<head>
+  <title>Machine.Specifications Report</title>
+  <style type="text/css">body {
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: .9em;
+}
+
+.count {
+  color: lightgrey;
+}
+
+.failure, .notimplemented, .ignored {
+  color: red;
+  font-weight: bold;
+  display: inline;
+}
+
+.notimplemented {
+  color: orange;
+}
+
+.ignored {
+  color: gold;
+}
+
+p.exception_type {
+  color: black;
+  font-weight: bold;
+  display: inline;
+}
+
+pre.exception_message {
+  border-style: dashed;
+  border-color: #FF828D;
+  border-width: thin;
+  background-color: #FFD2CF;
+  white-space: pre-wrap; /* CSS2.1 compliant */
+  white-space: -moz-pre-wrap; /* Mozilla-based browsers */
+  white-space: o-pre-wrap; /* Opera 7+ */
+  padding: 1em;
+}
+
+hr {
+  color: lightgrey;
+  border: 1px solid lightgrey;
+  height: 1px;
+}
+
+ul.prev-next {
+  padding: 0;
+  margin: 0;
+  font-size: 2em;
+  }
+  
+.spec ul.prev-next {
+  float: right;
+  right: 30%;
+  position: absolute;
+  margin-top: -1em;
+  }
+
+ul.prev-next li {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+ul.prev-next li a {
+  color: lightgrey;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 .3em;
+  border: 1px solid lightgrey;
+}
+
+ul.prev-next li.failure a {
+  border-color: red;
+}
+
+ul.prev-next li.notimplemented a {
+  border-color: orange;
+}
+
+ul.prev-next li.ignored a {
+  border-color: gold;
+}
+
+ul.prev-next li.failure a:hover {
+  background-color: red;
+  color: #fff;
+}
+
+ul.prev-next li.notimplemented a:hover {
+  background-color: orange;
+  color: #000;
+}
+
+ul.prev-next li.ignored a:hover {
+  background-color: gold;
+  color: #000;
+}
+
+ul.prev-next li.back a:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+div.supplement {
+  display: none;
+}
+  
+@media print {
+  ul.prev-next {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+  <ul class="prev-next">
+  </ul>
+<h1>
+    Orchard.Gallery.Specs
+</h1>
+<h2 class="count">
+  3 concerns,
+  22 contexts,
+  42 specifications
+</h2>
+
+  <hr/>
+  <hr/>
+<h2 class="concern">
+  Manage Package Ids specifications
+</h2>
+<h3 class="count">
+  5 contexts, 5 specifications
+</h3><h3 class="context">
+  When current user has no access key
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="1">Should throw exception</span>
+
+
+
+
+
+<script type="text/javascript">
+  function toggleVisibility(id, description)
+  {
+    var section = document.getElementById(id);
+    var link = document.getElementById(id + "_link");
+
+    if (section.style.display == "block")
+    {
+      section.style.display = "none";
+      link.innerHTML = "Show " + description;
+    } else
+    {
+      section.style.display = "block";
+      link.innerHTML = "Hide " + description;
+    }
+  };
+</script> 
+
+          </li>
+        </ul><h3 class="context">
+  When package Id exists in feed
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="3">Should return true</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When package Id exists in Orchard
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="2">Should return true</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When package Id is not used anywhere
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="5">Should be false</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When package Id is used on an unfinished submission
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="4">Should return true</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h2 class="concern">
+  Package Id Expiration specifications
+</h2>
+<h3 class="count">
+  10 contexts, 26 specifications
+</h3><h3 class="context">
+  When deleter throws an exception
+</h3>
+<h4 class="count">
+  3 specifications
+</h4><ul><li class="spec"><span id="18">Should log the exception</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="19">Should not update the last package expiration check time</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="20">Should not rethrow</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When expiration is not enabled
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="15">Should not try to expire package ids</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When it has already run today
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="14">Should not try to expire package ids</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When it has not run for today and expiration is enabled
+</h3>
+<h4 class="count">
+  2 specifications
+</h4><ul><li class="spec"><span id="16">Should try to expire package ids</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="17">Should set last package expiration check time to now</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When task has never been run before
+</h3>
+<h4 class="count">
+  2 specifications
+</h4><ul><li class="spec"><span id="12">Should set last package expiration check time to 2AM today</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="13">Should not try to expire package ids</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When userkey package does not have a registered date
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="21">Should not process the package</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When userkey package is expired and is not on the feed
+</h3>
+<h4 class="count">
+  4 specifications
+</h4><ul><li class="spec"><span id="22">Should delete unfinished packages</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="23">Should delete userkey package</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="24">Should log message</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="25">Should not notify user if package id is about to expire</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When userkey package is expired and on the feed
+</h3>
+<h4 class="count">
+  4 specifications
+</h4><ul><li class="spec"><span id="30">Should notify user if package id is about to expire</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="31">Should not delete unfinished packages</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="32">Should not delete userkey package</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="33">Should not log message</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When userkey package is not expired and not on the feed
+</h3>
+<h4 class="count">
+  4 specifications
+</h4><ul><li class="spec"><span id="26">Should notify user if package id is about to expire</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="27">Should not delete unfinished packages</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="28">Should not delete userkey package</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="29">Should not log message</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When userkey package is not expired and on the feed
+</h3>
+<h4 class="count">
+  4 specifications
+</h4><ul><li class="spec"><span id="34">Should notify user if package id is about to expire</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="35">Should not delete unfinished packages</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="36">Should not delete userkey package</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="37">Should not log message</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h2 class="concern">
+  Package Id Expiration Notification specifications
+</h2>
+<h3 class="count">
+  7 contexts, 11 specifications
+</h3><h3 class="context">
+  When package id is at warning date and is not on feed
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="39">Should send warning message to user</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When package id is at warning date and is on feed
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="40">Should not send warning message to user</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When package id is not at warning date and is not on feed
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="41">Should not send warning message to user</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When package id is not at warning date and is on feed
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="42">Should not send warning message to user</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When site is not configured to send warnings
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="38">Should not send message</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When user of userkey does not exist
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><span id="6">Should not send a message</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When user of userkey exists
+</h3>
+<h4 class="count">
+  5 specifications
+</h4><ul><li class="spec"><span id="7">Should send an expiration warning email message</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="8">Should include username in message</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="9">Should include sitename in message</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="10">Should include package id in message</span>
+
+
+
+
+
+ 
+
+          </li><li class="spec"><span id="11">Should include expiration date in message</span>
+
+
+
+
+
+ 
+
+          </li>
+        </ul>
+    <hr/>
+</body>
+</html>

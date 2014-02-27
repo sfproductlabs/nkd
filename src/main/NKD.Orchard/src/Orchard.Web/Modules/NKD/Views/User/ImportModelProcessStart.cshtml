@@ -1,0 +1,27 @@
+﻿@model NKD.ViewModels.BlockModelViewModel
+@using NKD.Models;
+@Html.Partial("Header")
+@{
+    Style.Require("NKDAdmin");
+
+    Layout.Title = T("Block Model Importing").ToString();
+}
+
+@if (AuthorizedFor(NKD.Permissions.ManageProjects)) {
+    using (Html.BeginForm())
+    {
+          <fieldset>
+              <legend>Import a Block Model Processing</legend>
+              <br /><br />
+               Import of model <b>@Html.DisplayTextFor(x => x.Alias) </b>has begun using the file <b>@Html.DisplayTextFor(x => x.FileName)</b>. 
+               <br />
+              You will recieve an email on completion. Please note that large models may take some time to import.<br />
+              
+
+          </fieldset>
+    }
+}
+else
+{
+    Html.RenderAction("UnauthorizedRedirect");
+}

@@ -1,0 +1,21 @@
+﻿@model Orchard.Gallery.Models.PackagePart
+
+<fieldset>
+    @Html.LabelFor(m => m.PackageID, T("Package ID"))
+    @Html.TextBoxFor(m => m.PackageID)
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.PackageVersion, T("Package Version"))
+    @Html.TextBoxFor(m => m.PackageVersion)
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.Description, T("Description"))
+    @Html.TextAreaFor(m => m.Description, 5, 60, null)
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.Summary, T("Summary"))
+    @Html.TextAreaFor(m => m.Summary, 2, 40, null)
+</fieldset>

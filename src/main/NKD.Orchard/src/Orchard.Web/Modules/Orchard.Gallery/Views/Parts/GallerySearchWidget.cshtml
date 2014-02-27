@@ -1,0 +1,27 @@
+﻿@using System.Collections.Generic;
+@using System.Linq;
+
+@{
+    Style.Include("Gallery.css");
+
+    IEnumerable<string> packageTypes = Model.PackageTypes;
+}
+
+<div>
+    @using (Html.BeginForm("Search", "Packages", new { area = "Orchard.Gallery" }, FormMethod.Get)) {
+        <div id="search">
+            <input type="text" name="searchTerm" id="searchTerm" value="" style="display:inline" />
+            @if (packageTypes.Count() > 1) {
+                <select name="packageType" id="packageType">
+                @foreach (var packageType in packageTypes)
+                {
+                    <option>@packageType</option>
+                }
+                </select>
+            } else {
+                <input type="hidden" name="packageType" id="packageType" value="@packageTypes.First()" />
+            }
+            <input type="submit" value="Search"/>
+        </div>
+    }
+</div>

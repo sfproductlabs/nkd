@@ -1,0 +1,19 @@
+﻿.optionLabel 
+{
+    display:inline;
+}
+
+article.widget {
+    margin: 30px 0;
+    padding: 10px;
+}
+
+article.widget header {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+article.widget ul li {
+    padding: 5px 0;
+}

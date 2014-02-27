@@ -1,0 +1,12 @@
+Name: Orchard.Gallery
+AntiForgery: enabled
+Author: NimblePros
+Website: http://orchardgallery.codeplex.com/
+Version: 0.8.0
+OrchardVersion: 0.8.0
+Description: Gallery website for Orchard modules and themes
+Features:
+    Orchard.Gallery:
+        Description: Gallery website for Orchard modules and themes.
+        Category: Packaging
+        Dependencies: Contrib.Profile, Contrib.Reviews, Contrib.Taxonomies, Orchard.Email, Orchard.Search, Orchard.Tags, Orchard.Users, Lucene

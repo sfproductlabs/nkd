@@ -1,0 +1,33 @@
+﻿<Placement>
+  <!-- available display shapes -->
+    <!-- Parts_Package -->
+    <!-- Parts_Packages_Package_List -->
+    <!-- Parts_Packages_Package_DisplayDetail -->
+    <!-- Parts_PackageIcon -->
+    <!-- Parts_PackageLink -->
+    <!-- Parts_PackageActions -->
+    <!-- Parts_PackageOwnerActions -->
+    <!-- Parts_PackageAuthor -->
+    <!-- Parts_PackageSummary -->
+    <!-- Parts_PackageDownloads -->
+
+  <!-- edit "shapes" -->
+  <Place Parts_PackageSearch="Content" />
+  <Place Parts_MostPopularPackageWidget="Content" />
+  <Place Parts_HighestRatedPackageWidget="Content" />
+  <Place Parts_RecentPackageWidget="Content" />
+  <Place Parts_GallerySummaryWidget="Content" />
+  <Place Parts_GallerySearchWidget="Content" />
+
+  <Match ContentType="Package">
+    <Match DisplayType="Details">
+        <Place Parts_Packages_Package_DisplayDetail="Content:2" />
+    </Match>
+    <Match DisplayType="Summary">
+        <Place Parts_Packages_Package_List="Content:2" />
+    </Match>
+  </Match>
+
+  <Place Parts_GallerySettings_Edit="Content:10"/>
+  <Place Fields_EmailOptOut_Edit="Content:10"/>
+</Placement>

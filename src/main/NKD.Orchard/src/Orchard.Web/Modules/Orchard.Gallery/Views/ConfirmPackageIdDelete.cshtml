@@ -1,0 +1,49 @@
+﻿@{
+    Style.Require("jQueryUI_Orchard");
+}
+<div id="deletePackageIdConfirmationDialogDiv" title="Confirm Deletion" style="display:none">
+    <p>@T("Are you sure you wish to delete the registered Package ID") '<span id="confirmDeletePackageIdSpan"></span>'?</p>
+    @using (Html.BeginFormAntiForgeryPost(Url.Action("DeletePackageIdRegistration", "ManagePackageIds", new { area = "Orchard.Gallery" }), FormMethod.Post))
+    {
+        <input type="hidden" id="packageId" name="packageId" />
+        <input type="submit" value="Yes" id="confirmDeletePackageIdButton" />
+        <input type="button" value="No" id="cancelDeletePackageIdButton" />
+    }
+</div>
+
+@using (Script.Foot())
+{
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+        var $deletePackageIdConfirmationDialogDiv = $('#deletePackageIdConfirmationDialogDiv');
+
+        function OpenDeletePackageIdConfirmationDialog(packageId) {
+            $('#packageId').val(packageId);
+            $('#confirmDeletePackageIdSpan').text(packageId);
+            $deletePackageIdConfirmationDialogDiv.dialog('open');
+            return false;
+        }
+
+        function CloseDeletePackageConfirmationDialog() {
+            $deletePackageIdConfirmationDialogDiv.dialog('close');
+            return false;
+        }
+
+        $(function () {
+            $deletePackageIdConfirmationDialogDiv.dialog({ autoOpen: false, modal: true, resizable: false });
+
+            $('#cancelDeletePackageIdButton').click(function () {
+                CloseDeletePackageConfirmationDialog();
+                return false;
+            });
+
+            $("a.deletePackageIdLink").click(function () {
+                var packageId = $(this).attr("data-package-id");
+                OpenDeletePackageIdConfirmationDialog(packageId);
+                return false;
+            });
+        });
+    //]]>
+    </script>
+}

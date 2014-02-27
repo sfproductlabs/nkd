@@ -1,0 +1,6 @@
+﻿@using Orchard.Mvc.Html;
+
+@using (Html.BeginFormAntiForgeryPost(Url.Action("Index", "PackageSearch", new { area = "Orchard.Gallery"}), FormMethod.Post)) {
+    <input type="text" name="searchTerm" value="" style="display:inline;float:left" />
+    <input type="submit" value="Search" style="display:inline" />
+}

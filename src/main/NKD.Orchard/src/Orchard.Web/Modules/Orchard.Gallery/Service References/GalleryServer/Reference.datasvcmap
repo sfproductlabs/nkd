@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8ca87372-ec3f-47f2-9a64-bd61c9d28560" xmlns="urn:schemas-microsoft-com:xml-dataservicemap">
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/GalleryServer/FeedService.svc/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="a4fb48d1-69da-445c-8172-af7e9a9d9aef" SourceId="1" SourceUrl="http://localhost/GalleryServer/FeedService.svc/" />
+  </Metadata>
+  <Extensions />
+</ReferenceGroup>

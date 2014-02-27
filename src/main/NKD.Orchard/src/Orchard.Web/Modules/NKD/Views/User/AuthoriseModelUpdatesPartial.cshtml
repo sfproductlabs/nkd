@@ -1,0 +1,16 @@
+﻿@if (!AuthorizedFor(NKD.Permissions.ManageProjects)) {Html.RenderAction("UnauthorizedRedirect");}
+@Html.DevExpress().GridView(
+settings =>
+{
+    settings.Name = "gvUpdates";
+    settings.KeyFieldName = "ID";
+    settings.SettingsBehavior.AllowSort = false;
+    settings.SettingsBehavior.AllowDragDrop = false;
+    settings.Width = Unit.Percentage(100);
+    settings.Columns.Add("ID").Visible=false;
+    settings.Columns.Add("StatusString").Caption = "Status";
+    settings.Columns.Add("Occurred");
+    settings.Settings.ShowFilterRow = false;
+    settings.Settings.ShowGroupPanel = false;
+    settings.Settings.ShowFooter = false;
+}).Bind(Model.Updates).GetHtml()

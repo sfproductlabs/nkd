@@ -1,0 +1,53 @@
+﻿@model NKD.ViewModels.BlockModelCompareViewModel
+@if (!AuthorizedFor(NKD.Permissions.ManageProjects)) {Html.RenderAction("UnauthorizedRedirect");}
+@{
+ReportViewerSettings settings = new ReportViewerSettings();
+settings.Name = "ReportViewer1";
+settings.Report = Model.Report;
+settings.CallbackRouteValues = new { area = "NKD", Controller = "User", Action = "CompareModelResultPartial",
+    ReportID = (uint)NKD.Reports.AllReports.ReportType.CompareModel, 
+    Model1 = Model.Model1,
+    Model1Name = Model.Model1Name,
+    Model2 = Model.Model2,
+    Model2Name = Model.Model2Name,
+    SelectedDomainsModel1 = Model.SelectedDomainsModel1,
+    SelectedDomainsModel1Compact = Model.SelectedDomainsModel1Compact,
+    SelectedDomainsModel2 = Model.SelectedDomainsModel2,
+    SelectedDomainsModel2Compact = Model.SelectedDomainsModel2Compact,
+    ReportName = "Compare Models",
+    GradeTonnageIncrement = Model.GradeTonnageIncrement,
+    GradeTonnageFieldID = Model.GradeTonnageFieldID,
+    GradeTonnageFieldName = Model.GradeTonnageFieldName,
+    SliceFieldID = Model.SliceFieldID,
+    SliceFilterFieldID = Model.SliceFilterFieldID,
+    SliceWidthX = Model.SliceWidthX,
+    SliceWidthY = Model.SliceWidthY,
+    SliceWidthZ = Model.SliceWidthZ,
+    FilterString = Model.FilterString,
+    ReportExecutedByUserName = Model.ReportExecutedByUserName 
+};
+settings.ExportRouteValues = new { area = "NKD", Controller = "User", Action = "ReportViewerExportTo", 
+    ReportID = (uint)NKD.Reports.AllReports.ReportType.CompareModel,
+    Model1 = Model.Model1,
+    Model1Name = Model.Model1Name,
+    Model2 = Model.Model2,
+    Model2Name = Model.Model2Name,
+    SelectedDomainsModel1 = Model.SelectedDomainsModel1,
+    SelectedDomainsModel1Compact = Model.SelectedDomainsModel1Compact,
+    SelectedDomainsModel2 = Model.SelectedDomainsModel2,
+    SelectedDomainsModel2Compact = Model.SelectedDomainsModel2Compact,
+    ReportName = "Compare Models",
+    GradeTonnageIncrement = Model.GradeTonnageIncrement,
+    GradeTonnageFieldID = Model.GradeTonnageFieldID,
+    GradeTonnageFieldName = Model.GradeTonnageFieldName,
+    SliceFieldID = Model.SliceFieldID,
+    SliceFilterFieldID = Model.SliceFilterFieldID,
+    SliceWidthX = Model.SliceWidthX,
+    SliceWidthY = Model.SliceWidthY,
+    SliceWidthZ = Model.SliceWidthZ,
+    FilterString = Model.FilterString,
+    ReportExecutedByUserName = Model.ReportExecutedByUserName
+};
+Html.DevExpress().ReportViewer(settings).GetHtml();
+
+}

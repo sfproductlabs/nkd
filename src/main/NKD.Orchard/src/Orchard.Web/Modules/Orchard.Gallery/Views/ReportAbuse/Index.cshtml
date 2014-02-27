@@ -1,0 +1,14 @@
+﻿@model Orchard.Gallery.ViewModels.ReportAbuseViewModel
+<div class="GalleryCallout">
+    <h2>Report Abuse</h2>
+    <p>Submit an abuse report for Package "@Model.PackageId", version "@Model.PackageVersion".</p>
+    @using (Html.BeginFormAntiForgeryPost(Url.Action("SendAbuseReport"), FormMethod.Post)) {
+        @Html.HiddenFor(m => m.PackageId)
+        @Html.HiddenFor(m => m.PackageVersion)
+        <div>
+            <label for="reportBody">Body</label>
+            <textarea id="reportBody" name="reportBody" rows="5" cols="30"></textarea><br />
+        </div>
+        <input type="submit" value="Send Report" />
+    }
+</div>
