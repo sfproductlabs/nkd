@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{71315D65-FCEF-43D4-B659-F6E50EF8A9DD}</ProjectGuid>
+    <ProjectGuid>{233623A5-0CA3-45CD-801F-DAEA668200AD}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NKD.Workflow</RootNamespace>

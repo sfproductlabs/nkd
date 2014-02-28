@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4814C95D-0008-495A-B627-E3FEDA2FB1A4}</ProjectGuid>
+    <ProjectGuid>{EA0BA44D-BFA4-4665-B080-EB12B2757C23}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NKD.Import</RootNamespace>
