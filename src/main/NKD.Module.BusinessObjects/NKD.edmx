@@ -26741,7 +26741,6 @@
           </FunctionImport>
           <FunctionImport Name="X_SP_UpdateCommoditiesInWorkTypes" />
           <FunctionImport Name="X_SP_UpdateDictionaryViews" />
-          <FunctionImport Name="X_SP_UpdateXstractWorkTypes" />
           <FunctionImport Name="AssociateKeys" ReturnType="Collection(NKD.Module.BusinessObjects.AssociateKeys_Result)">
             <Parameter Name="surrogateInstanceId" Mode="In" Type="Int64" />
             <Parameter Name="keysToAssociate" Mode="In" Type="String" />
