@@ -1,6 +1,0 @@
-﻿<Placement>
-    <!-- widget and edit shapes just get default placement -->
-    <!-- edit "shapes" -->
-    <Place Parts_NKD_Projects="Content:3"/>
-    <Place Parts_NKD_Projects_Edit="Content:5"/>
-</Placement>

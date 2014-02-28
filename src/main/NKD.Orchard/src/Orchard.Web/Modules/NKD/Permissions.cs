@@ -4,15 +4,15 @@ using Orchard.Security.Permissions;
 
 namespace NKD {
     public class Permissions : IPermissionProvider {
-        public static readonly Permission ManageProjects = new Permission { Description = "Managing Projects", Name = "ManageProjects" };
-        public static readonly Permission ManageOwnProjects = new Permission { Description = "Manage Own Projects", Name = "ManageOwnProjects", ImpliedBy = new[] { ManageProjects } };
+        public static readonly Permission Management = new Permission { Description = "Management", Name = "Management" };
+        public static readonly Permission Lead = new Permission { Description = "Lead", Name = "Lead", ImpliedBy = new[] { Management } };
 
         public virtual Feature Feature { get; set; }
 
         public IEnumerable<Permission> GetPermissions() {
             return new[] {
-                ManageProjects,
-                ManageOwnProjects
+                Management,
+                Lead
             };
         }
 
@@ -20,18 +20,18 @@ namespace NKD {
             return new[] {
                 new PermissionStereotype {
                     Name = "Administrator",
-                    Permissions = new[] {ManageProjects}
+                    Permissions = new[] {Management}
                 },
                 new PermissionStereotype {
                     Name = "Editor",
-                    Permissions = new[] {ManageProjects}
+                    Permissions = new[] {Management}
                 },
                 new PermissionStereotype {
                     Name = "Moderator",
                 },
                 new PermissionStereotype {
                     Name = "Author",
-                    Permissions = new[] {ManageOwnProjects}
+                    Permissions = new[] {Lead}
                 },
                 new PermissionStereotype {
                     Name = "Contributor",

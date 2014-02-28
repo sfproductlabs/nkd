@@ -33,25 +33,13 @@ namespace NKD.Helpers
                 _taskManager.CreateTask(Services.EmailScheduledTaskHandler.TASK_TYPE_EMAIL, DateTime.UtcNow, contentItem);
         }
 
-        public static void ProcessModelAsync(this IScheduledTaskManager _taskManager, ContentItem contentItem)
-        {
-            var tasks = _taskManager.GetTasks(Services.ProcessModelScheduledTaskHandler.TASK_TYPE_PROCESS_MODEL);
-            if (tasks == null || tasks.Count() < 100)
-                _taskManager.CreateTask(Services.ProcessModelScheduledTaskHandler.TASK_TYPE_PROCESS_MODEL, DateTime.UtcNow, contentItem);
-        }
-
+       
         public static void ProcessAsync(this ShellTask taskInfo)
         {
             ConcurrentTaskService.ProcessAsync(taskInfo);
         }
 
-        public static void AppendModelAsync(this IScheduledTaskManager _taskManager, ContentItem contentItem)
-        {
-            var tasks = _taskManager.GetTasks(Services.AppendModelScheduledTaskHandler.TASK_TYPE_APPEND_MODEL);
-            if (tasks == null || tasks.Count() < 100)
-                _taskManager.CreateTask(Services.AppendModelScheduledTaskHandler.TASK_TYPE_APPEND_MODEL, DateTime.UtcNow, contentItem);
-        }    
-
+     
      
     }
 

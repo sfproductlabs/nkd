@@ -24,20 +24,8 @@ namespace NKD.Services
         [OperationContract]
         T GetFirstMetadata<T>(Guid referenceID, Func<MetaData, bool> predicate = null);
 
-        Guid NKD_GUID_LOG
-        {
-            [OperationContract]
-            get;
-            [OperationContract]
-            set;
-        }
+        [OperationContract]
+        void SetObject(string lookup, string value, string tabletype = null, string usertype = null, string systemdatatype = null);
 
-        Guid NKD_BM_STAGE
-        {
-            [OperationContract]
-            get;
-            [OperationContract]
-            set;
-        }
     }
 }

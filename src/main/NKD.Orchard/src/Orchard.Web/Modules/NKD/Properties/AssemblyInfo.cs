@@ -6,7 +6,7 @@ using System.Security;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NKD")]
+[assembly: AssemblyTitle("EXPEDIT.Geology")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyProduct("Orchard")]
@@ -20,7 +20,7 @@ using System.Security;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e7374234-4c5e-404d-97cc-d8a6a9e752c8")]
+[assembly: Guid("47E65440-CBBE-4EB9-9059-35FD5EC3B8FB")]
 
 // Version information for an assembly consists of the following four values:
 //

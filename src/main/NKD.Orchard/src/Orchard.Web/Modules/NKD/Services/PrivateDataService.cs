@@ -148,52 +148,7 @@ namespace NKD.Services
             }
         }
 
-        public Guid NKD_GUID_LOG
-        {
-            get
-            {
-                if (!guid_log.HasValue)
-                {
-                    guid_log = GetKey(guid_lookup_string);
-                    if (!guid_log.HasValue)
-                    {
-                        SetObject(guid_lookup_string, guid_log_string, "X_Parameter", "Metadata Log", "System.Guid");
-                        guid_log = new Guid(guid_log_string);
-                    }
-                }
-                return guid_log.Value;
-            }
-            set
-            {
-                guid_log = value;
-            }
-        }
-
-        private const string guid_bm_stage_lookup_string = "NKD_BM_STAGE";
-        private const string guid_bm_stage_string = "B8D13700-29F0-4668-952F-98B0716DF22A";
-        private static Guid? guid_bm_stage_id = null;
         
-
-        public Guid NKD_BM_STAGE
-        {
-            get
-            {
-                if (!guid_bm_stage_id.HasValue)
-                {
-                    guid_bm_stage_id = GetKey(guid_bm_stage_lookup_string);
-                    if (!guid_bm_stage_id.HasValue)
-                    {
-                        SetObject(guid_bm_stage_lookup_string, guid_bm_stage_string, "X_Parameter", "Metadata Stage", "System.Guid");
-                        guid_bm_stage_id = new Guid(guid_bm_stage_string);
-                    }
-                }
-                return guid_bm_stage_id.Value;
-            }
-            set
-            {
-                guid_bm_stage_id = value;
-            }
-        }
         
     }
 }

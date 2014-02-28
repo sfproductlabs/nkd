@@ -6,7 +6,7 @@ using Orchard.Security.Permissions;
 
 namespace NKD.Security {
     [UsedImplicitly]
-    public class ProjectAuthorizationEventHandler : IAuthorizationServiceEventHandler {
+    public class NKDAuthorizationEventHandler : IAuthorizationServiceEventHandler {
         public void Checking(CheckAccessContext context) { }
         public void Complete(CheckAccessContext context) { }
 
@@ -56,8 +56,8 @@ namespace NKD.Security {
         }
 
         private static Permission GetOwnerVariation(Permission permission) {
-            if (permission.Name == Permissions.ManageProjects.Name)
-                return Permissions.ManageOwnProjects;
+            if (permission.Name == Permissions.Management.Name)
+                return Permissions.Lead;
             if (permission.Name == Orchard.Core.Contents.Permissions.ViewContent.Name)
                 return Orchard.Core.Contents.Permissions.ViewOwnContent;
             return null;

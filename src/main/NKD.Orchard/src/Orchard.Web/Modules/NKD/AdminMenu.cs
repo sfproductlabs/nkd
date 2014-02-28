@@ -7,11 +7,9 @@ using Orchard.UI.Navigation;
 
 namespace NKD {
     public class AdminMenu : INavigationProvider {
-        private readonly IProjectsService _projectService;
         private readonly Work<RequestContext> _requestContextAccessor;
         
-        public AdminMenu(Work<RequestContext> requestContextAccessor, IProjectsService projectService) {
-            _projectService = projectService;
+        public AdminMenu(Work<RequestContext> requestContextAccessor) {
             _requestContextAccessor = requestContextAccessor;
             T = NullLocalizer.Instance;
         }
