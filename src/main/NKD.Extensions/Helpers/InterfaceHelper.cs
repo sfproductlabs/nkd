@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Linq.Expressions;
 using System.Dynamic;
-using ImpromptuInterface;
 using System.Threading;
 using System.Collections.Concurrent;
 

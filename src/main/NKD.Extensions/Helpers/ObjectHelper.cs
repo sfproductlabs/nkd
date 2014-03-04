@@ -6,12 +6,10 @@ using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Security.Cryptography;
-using System.Web.Script.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 using System.Reflection;
-using System.Collections.Generic;
 using System.Threading;
+using System.Web.Script.Serialization;
 
 namespace NKD.Helpers
 {
