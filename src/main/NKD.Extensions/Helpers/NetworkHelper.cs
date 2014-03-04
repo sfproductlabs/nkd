@@ -94,6 +94,27 @@ namespace NKD.Helpers
 
         }
 
+        public static uint IPAsInt(this IPAddress ip)
+        {
+            if (ip == null)
+                return 0;
+
+            //lsb
+            var ipb = ip.GetAddressBytes();
+            uint value = 0;
+            for (int i = 0; i < ipb.Length; i++)
+            {
+                value += ((uint)ipb[i] & 0xff) << (8 * i);
+            }
+            return value;
+            ////msb
+            //for (int i = 0; i < ipb.Length; i++)
+            //{
+            //   value = (value << 8) + (ipb[i] & 0xff);
+            //}
+
+        }
+
         public class IPAddressRange
         {
             readonly System.Net.Sockets.AddressFamily addressFamily;
