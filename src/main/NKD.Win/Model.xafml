@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application>
+<Application Logo="LogoCMYK">
   <Options Skin="Office 2013 Light Gray" UIType="TabbedMDI" UseServerMode="True" />
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />

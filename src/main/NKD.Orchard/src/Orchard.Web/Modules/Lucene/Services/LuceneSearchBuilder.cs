@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Lucene.Models;
+using Lucene.Net.Analysis;
 using Lucene.Net.Index;
 using Lucene.Net.Search;
 using Lucene.Net.Store;
+using Lucene.Net.Util;
 using Orchard.Indexing;
 using Orchard.Logging;
 using Lucene.Net.Documents;
@@ -28,10 +30,11 @@ namespace Lucene.Services {
         private bool _asFilter;
 
         // pending clause attributes
-        private BooleanClause.Occur _occur;
+        private Occur _occur;
         private bool _exactMatch;
         private float _boost;
         private Query _query;
+        private readonly Analyzer _analyzer = LuceneIndexProvider.CreateAnalyzer();
 
         public ILogger Logger { get; set; }
 
@@ -51,7 +54,7 @@ namespace Lucene.Services {
         }
 
         public ISearchBuilder Parse(string defaultField, string query, bool escape) {
-            return Parse(new[] { defaultField }, query, escape);
+            return Parse(new[] {defaultField}, query, escape);
         }
 
         public ISearchBuilder Parse(string[] defaultFields, string query, bool escape) {
@@ -67,10 +70,9 @@ namespace Lucene.Services {
                 query = QueryParser.Escape(query);
             }
 
-            var analyzer = LuceneIndexProvider.CreateAnalyzer();
             foreach (var defaultField in defaultFields) {
                 CreatePendingClause();
-                _query = new QueryParser(LuceneIndexProvider.LuceneVersion, defaultField, analyzer).Parse(query);
+                _query = new QueryParser(LuceneIndexProvider.LuceneVersion, defaultField, _analyzer).Parse(query);
             }
 
             return this;
@@ -82,9 +84,9 @@ namespace Lucene.Services {
             return this;
         }
 
-        public ISearchBuilder WithinRange(string field, int min, int max) {
+        public ISearchBuilder WithinRange(string field, int? min, int? max, bool includeMin = true, bool includeMax = true) {
             CreatePendingClause();
-            _query = NumericRangeQuery.NewIntRange(field, min, max, true, true);
+            _query = NumericRangeQuery.NewIntRange(field, min, max, includeMin, includeMax);
             return this;
         }
 
@@ -94,9 +96,9 @@ namespace Lucene.Services {
             return this;
         }
 
-        public ISearchBuilder WithinRange(string field, double min, double max) {
+        public ISearchBuilder WithinRange(string field, double? min, double? max, bool includeMin = true, bool includeMax = true) {
             CreatePendingClause();
-            _query = NumericRangeQuery.NewDoubleRange(field, min, max, true, true);
+            _query = NumericRangeQuery.NewDoubleRange(field, min, max, includeMin, includeMax);
             return this;
         }
 
@@ -110,15 +112,15 @@ namespace Lucene.Services {
             return this;
         }
 
-        public ISearchBuilder WithinRange(string field, DateTime min, DateTime max) {
+        public ISearchBuilder WithinRange(string field, DateTime? min, DateTime? max, bool includeMin = true, bool includeMax = true) {
             CreatePendingClause();
-            _query = new TermRangeQuery(field, DateTools.DateToString(min, DateTools.Resolution.MILLISECOND), DateTools.DateToString(max, DateTools.Resolution.MILLISECOND), true, true);
+            _query = new TermRangeQuery(field, min.HasValue ? DateTools.DateToString(min.Value, DateTools.Resolution.MILLISECOND) : null, max.HasValue ? DateTools.DateToString(max.Value, DateTools.Resolution.MILLISECOND) : null, includeMin, includeMax);
             return this;
         }
 
-        public ISearchBuilder WithinRange(string field, string min, string max) {
+        public ISearchBuilder WithinRange(string field, string min, string max, bool includeMin = true, bool includeMax = true) {
             CreatePendingClause();
-            _query = new TermRangeQuery(field, QueryParser.Escape(min.ToLower()), QueryParser.Escape(max.ToLower()), true, true);
+            _query = new TermRangeQuery(field, min != null ? QueryParser.Escape(min.ToLower()) : null, max != null ? QueryParser.Escape(max.ToLower()) : null, includeMin, includeMax);
             return this;
         }
 
@@ -133,12 +135,12 @@ namespace Lucene.Services {
         }
 
         public ISearchBuilder Mandatory() {
-            _occur = BooleanClause.Occur.MUST;
+            _occur = Occur.MUST;
             return this;
         }
 
         public ISearchBuilder Forbidden() {
-            _occur = BooleanClause.Occur.MUST_NOT;
+            _occur = Occur.MUST_NOT;
             return this;
         }
 
@@ -153,13 +155,11 @@ namespace Lucene.Services {
         }
 
         private void InitPendingClause() {
-            _occur = BooleanClause.Occur.SHOULD;
+            _occur = Occur.SHOULD;
             _exactMatch = false;
             _query = null;
             _boost = 0;
             _asFilter = false;
-            _sort = String.Empty;
-            _comparer = 0;
         }
 
         private void CreatePendingClause() {
@@ -170,13 +170,13 @@ namespace Lucene.Services {
             // comparing floating-point numbers using an epsilon value
             const double epsilon = 0.001;
             if (Math.Abs(_boost - 0) > epsilon) {
-                _query.SetBoost(_boost);
+                _query.Boost = _boost;
             }
 
             if (!_exactMatch) {
                 var termQuery = _query as TermQuery;
                 if (termQuery != null) {
-                    var term = termQuery.GetTerm();
+                    var term = termQuery.Term;
                     // prefixed queries are case sensitive
                     _query = new PrefixQuery(term);
                 }
@@ -188,7 +188,7 @@ namespace Lucene.Services {
                 _clauses.Add(new BooleanClause(_query, _occur));
             }
 
-            _query = null;
+            InitPendingClause();
         }
 
         public ISearchBuilder SortBy(string name) {
@@ -257,14 +257,16 @@ namespace Lucene.Services {
             Query resultQuery = booleanQuery;
 
             if (_clauses.Count == 0) {
-                if (_filters.Count > 0) { // only filters applieds => transform to a boolean query
+                if (_filters.Count > 0) {
+                    // only filters applieds => transform to a boolean query
                     foreach (var clause in _filters) {
                         booleanQuery.Add(clause);
                     }
 
                     resultQuery = booleanQuery;
                 }
-                else { // search all documents, without filter or clause
+                else {
+                    // search all documents, without filter or clause
                     resultQuery = new MatchAllDocsQuery(null);
                 }
             }
@@ -300,11 +302,11 @@ namespace Lucene.Services {
                 return Enumerable.Empty<ISearchHit>();
             }
 
-            try {
+            using (searcher) {
                 var sort = String.IsNullOrEmpty(_sort)
                                ? Sort.RELEVANCE
                                : new Sort(new SortField(_sort, _comparer, _sortDescending));
-                var collector = TopFieldCollector.create(
+                var collector = TopFieldCollector.Create(
                     sort,
                     _count + _skip,
                     false,
@@ -316,18 +318,14 @@ namespace Lucene.Services {
                 searcher.Search(query, collector);
 
                 var results = collector.TopDocs().ScoreDocs
-                    .Skip(_skip)
-                    .Select(scoreDoc => new LuceneSearchHit(searcher.Doc(scoreDoc.doc), scoreDoc.score))
-                    .ToList();
+                                       .Skip(_skip)
+                                       .Select(scoreDoc => new LuceneSearchHit(searcher.Doc(scoreDoc.Doc), scoreDoc.Score))
+                                       .ToList();
 
                 Logger.Debug("Search results: {0}", results.Count);
 
                 return results;
             }
-            finally {
-                searcher.Close();
-            }
-
         }
 
         public int Count() {
@@ -343,31 +341,43 @@ namespace Lucene.Services {
                 return 0;
             }
 
-            try {
+            using (searcher) {
                 var hits = searcher.Search(query, Int16.MaxValue);
                 Logger.Information("Search results: {0}", hits.ScoreDocs.Length);
                 var length = hits.ScoreDocs.Length;
                 return Math.Min(length - _skip, _count);
             }
-            finally {
-                searcher.Close();
+        }
+
+        public ISearchBits GetBits() {
+            var query = CreateQuery();
+            IndexSearcher searcher;
+
+            try {
+                searcher = new IndexSearcher(_directory, true);
+            }
+            catch {
+                // index might not exist if it has been rebuilt
+                Logger.Information("Attempt to read a none existing index");
+                return null;
             }
 
+            using (searcher) {
+                var filter = new QueryWrapperFilter(query);
+                var bits = filter.GetDocIdSet(searcher.IndexReader);
+                var disi = new OpenBitSetDISI(bits.Iterator(), searcher.MaxDoc);
+                return new SearchBits(disi);
+            }
         }
 
         public ISearchHit Get(int documentId) {
             var query = new TermQuery(new Term("id", documentId.ToString(CultureInfo.InvariantCulture)));
 
-            var searcher = new IndexSearcher(_directory, true);
-            try {
+            using (var searcher = new IndexSearcher(_directory, true)) {
                 var hits = searcher.Search(query, 1);
                 Logger.Information("Search results: {0}", hits.ScoreDocs.Length);
-                return hits.ScoreDocs.Length > 0 ? new LuceneSearchHit(searcher.Doc(hits.ScoreDocs[0].doc), hits.ScoreDocs[0].score) : null;
-            }
-            finally {
-                searcher.Close();
+                return hits.ScoreDocs.Length > 0 ? new LuceneSearchHit(searcher.Doc(hits.ScoreDocs[0].Doc), hits.ScoreDocs[0].Score) : null;
             }
         }
-
     }
 }

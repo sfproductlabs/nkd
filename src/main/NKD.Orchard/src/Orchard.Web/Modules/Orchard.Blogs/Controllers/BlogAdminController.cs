@@ -8,6 +8,7 @@ using Orchard.ContentManagement;
 using Orchard.Data;
 using Orchard.DisplayManagement;
 using Orchard.Localization;
+using Orchard.Mvc;
 using Orchard.UI.Admin;
 using Orchard.UI.Navigation;
 using Orchard.UI.Notify;
@@ -152,11 +153,12 @@ namespace Orchard.Blogs.Controllers {
         public ActionResult List() {
             var list = Services.New.List();
             list.AddRange(_blogService.Get(VersionOptions.Latest)
-                              .Select(b => {
-                                          var blog = Services.ContentManager.BuildDisplay(b, "SummaryAdmin");
-                                          blog.TotalPostCount = _blogPostService.PostCount(b, VersionOptions.Latest);
-                                          return blog;
-                                      }));
+                .Where(x => Services.Authorizer.Authorize(Permissions.MetaListOwnBlogs, x))
+                .Select(b => {
+                            var blog = Services.ContentManager.BuildDisplay(b, "SummaryAdmin");
+                            blog.TotalPostCount = _blogPostService.PostCount(b, VersionOptions.Latest);
+                            return blog;
+                        }));
 
             dynamic viewModel = Services.New.ViewModel()
                 .ContentItems(list);

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets955CA7A81693F09090792FC72DB6A4461E839B24393D23285C6BA281DC786B0E))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets4FCDB8E3F475050505493A631C0C0A6FBE78F8AAC6DE00FA7A8DB14F2A6156DF))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets955CA7A81693F09090792FC72DB6A4461E839B24393D23285C6BA281DC786B0E : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets4FCDB8E3F475050505493A631C0C0A6FBE78F8AAC6DE00FA7A8DB14F2A6156DF : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets955CA7A81693F09090792FC72DB6A4461E839B24393D23285C6BA281DC786B0E()
+        public ViewsForBaseEntitySets4FCDB8E3F475050505493A631C0C0A6FBE78F8AAC6DE00FA7A8DB14F2A6156DF()
         {
             this.EdmEntityContainerName = "NKDC";
             this.StoreEntityContainerName = "NKDModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "4e75ece8e3e785b07231780318af2920b8687f6fbcb916867098411c3a1eab91";
-            this.HashOverAllExtentViews = "60f62d520b5889dfb3355a9c2800f19992c72d216c8185d7afae6840c3ca75ff";
+            this.HashOverMappingClosure = "24242d1a8be05687dc1f89d7b6652803eb2206173ea332976aa469d8113eeed7";
+            this.HashOverAllExtentViews = "29860e0bfa34eb89af9681e5fd8abeee20e96dae195421ccf02e29be3be5964e";
             this.ViewCount = 728;
         }
         
@@ -29167,48 +29167,49 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView706()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3207);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3321);
             viewString.Append("\r\n    SELECT VALUE -- Constructing E_StatisticData\r\n        [NKD.Module.Business");
             viewString.Append("Objects.Store.E_StatisticData](T1.[E_StatisticData.StatisticDataID], T1.[E_Stati");
             viewString.Append("sticData.StatisticDataName], T1.[E_StatisticData.StatisticValue], T1.[E_Statisti");
-            viewString.Append("cData.TableType], T1.[E_StatisticData.ReferenceID], T1.[E_StatisticData.Count], ");
-            viewString.Append("T1.[E_StatisticData.Sigma], T1.[E_StatisticData.Mean], T1.[E_StatisticData.Updat");
-            viewString.Append("ed], T1.[E_StatisticData.Multiplier], T1.[E_StatisticData.MultiplierWithPriority");
-            viewString.Append("], T1.[E_StatisticData.Integral], T1.[E_StatisticData.IntegralWithPriority], T1.");
-            viewString.Append("[E_StatisticData.Minimum], T1.[E_StatisticData.Maximum], T1.[E_StatisticData.Sca");
-            viewString.Append("leMinimum], T1.[E_StatisticData.ScaleMaximum], T1.[E_StatisticData.Movement], T1");
-            viewString.Append(".[E_StatisticData.Velocity], T1.[E_StatisticData.Total], T1.[E_StatisticData.Sca");
-            viewString.Append("le], T1.[E_StatisticData.Version], T1.[E_StatisticData.VersionAntecedentID], T1.");
-            viewString.Append("[E_StatisticData.VersionCertainty], T1.[E_StatisticData.VersionWorkflowInstanceI");
-            viewString.Append("D], T1.[E_StatisticData.VersionUpdatedBy], T1.[E_StatisticData.VersionDeletedBy]");
-            viewString.Append(", T1.[E_StatisticData.VersionOwnerContactID], T1.[E_StatisticData.VersionOwnerCo");
-            viewString.Append("mpanyID], T1.[E_StatisticData.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n   ");
-            viewString.Append("         T.StatisticDataID AS [E_StatisticData.StatisticDataID], \r\n            T");
-            viewString.Append(".StatisticDataName AS [E_StatisticData.StatisticDataName], \r\n            T.Stati");
-            viewString.Append("sticValue AS [E_StatisticData.StatisticValue], \r\n            T.TableType AS [E_S");
-            viewString.Append("tatisticData.TableType], \r\n            T.ReferenceID AS [E_StatisticData.Referen");
-            viewString.Append("ceID], \r\n            T.Count AS [E_StatisticData.Count], \r\n            T.Sigma A");
-            viewString.Append("S [E_StatisticData.Sigma], \r\n            T.Mean AS [E_StatisticData.Mean], \r\n   ");
-            viewString.Append("         T.Updated AS [E_StatisticData.Updated], \r\n            T.Multiplier AS [");
-            viewString.Append("E_StatisticData.Multiplier], \r\n            T.MultiplierWithPriority AS [E_Statis");
-            viewString.Append("ticData.MultiplierWithPriority], \r\n            T.Integral AS [E_StatisticData.In");
-            viewString.Append("tegral], \r\n            T.IntegralWithPriority AS [E_StatisticData.IntegralWithPr");
-            viewString.Append("iority], \r\n            T.Minimum AS [E_StatisticData.Minimum], \r\n            T.M");
-            viewString.Append("aximum AS [E_StatisticData.Maximum], \r\n            T.ScaleMinimum AS [E_Statisti");
-            viewString.Append("cData.ScaleMinimum], \r\n            T.ScaleMaximum AS [E_StatisticData.ScaleMaxim");
-            viewString.Append("um], \r\n            T.Movement AS [E_StatisticData.Movement], \r\n            T.Vel");
-            viewString.Append("ocity AS [E_StatisticData.Velocity], \r\n            T.Total AS [E_StatisticData.T");
-            viewString.Append("otal], \r\n            T.Scale AS [E_StatisticData.Scale], \r\n            T.Version");
-            viewString.Append(" AS [E_StatisticData.Version], \r\n            T.VersionAntecedentID AS [E_Statist");
-            viewString.Append("icData.VersionAntecedentID], \r\n            T.VersionCertainty AS [E_StatisticDat");
-            viewString.Append("a.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [E_StatisticDa");
-            viewString.Append("ta.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [E_StatisticD");
-            viewString.Append("ata.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [E_StatisticData.Vers");
-            viewString.Append("ionDeletedBy], \r\n            T.VersionOwnerContactID AS [E_StatisticData.Version");
-            viewString.Append("OwnerContactID], \r\n            T.VersionOwnerCompanyID AS [E_StatisticData.Versi");
-            viewString.Append("onOwnerCompanyID], \r\n            T.VersionUpdated AS [E_StatisticData.VersionUpd");
-            viewString.Append("ated], \r\n            True AS _from0\r\n        FROM NKDC.StatisticDatas AS T\r\n    ");
-            viewString.Append(") AS T1");
+            viewString.Append("cData.TableType], T1.[E_StatisticData.ReferenceID], T1.[E_StatisticData.Referenc");
+            viewString.Append("eExternal], T1.[E_StatisticData.Count], T1.[E_StatisticData.Sigma], T1.[E_Statis");
+            viewString.Append("ticData.Mean], T1.[E_StatisticData.Updated], T1.[E_StatisticData.Multiplier], T1");
+            viewString.Append(".[E_StatisticData.MultiplierWithPriority], T1.[E_StatisticData.Integral], T1.[E_");
+            viewString.Append("StatisticData.IntegralWithPriority], T1.[E_StatisticData.Minimum], T1.[E_Statist");
+            viewString.Append("icData.Maximum], T1.[E_StatisticData.ScaleMinimum], T1.[E_StatisticData.ScaleMax");
+            viewString.Append("imum], T1.[E_StatisticData.Movement], T1.[E_StatisticData.Velocity], T1.[E_Stati");
+            viewString.Append("sticData.Total], T1.[E_StatisticData.Scale], T1.[E_StatisticData.Version], T1.[E");
+            viewString.Append("_StatisticData.VersionAntecedentID], T1.[E_StatisticData.VersionCertainty], T1.[");
+            viewString.Append("E_StatisticData.VersionWorkflowInstanceID], T1.[E_StatisticData.VersionUpdatedBy");
+            viewString.Append("], T1.[E_StatisticData.VersionDeletedBy], T1.[E_StatisticData.VersionOwnerContac");
+            viewString.Append("tID], T1.[E_StatisticData.VersionOwnerCompanyID], T1.[E_StatisticData.VersionUpd");
+            viewString.Append("ated])\r\n    FROM (\r\n        SELECT \r\n            T.StatisticDataID AS [E_Statist");
+            viewString.Append("icData.StatisticDataID], \r\n            T.StatisticDataName AS [E_StatisticData.S");
+            viewString.Append("tatisticDataName], \r\n            T.StatisticValue AS [E_StatisticData.StatisticV");
+            viewString.Append("alue], \r\n            T.TableType AS [E_StatisticData.TableType], \r\n            T");
+            viewString.Append(".ReferenceID AS [E_StatisticData.ReferenceID], \r\n            T.ReferenceExternal");
+            viewString.Append(" AS [E_StatisticData.ReferenceExternal], \r\n            T.Count AS [E_StatisticDa");
+            viewString.Append("ta.Count], \r\n            T.Sigma AS [E_StatisticData.Sigma], \r\n            T.Mea");
+            viewString.Append("n AS [E_StatisticData.Mean], \r\n            T.Updated AS [E_StatisticData.Updated");
+            viewString.Append("], \r\n            T.Multiplier AS [E_StatisticData.Multiplier], \r\n            T.M");
+            viewString.Append("ultiplierWithPriority AS [E_StatisticData.MultiplierWithPriority], \r\n           ");
+            viewString.Append(" T.Integral AS [E_StatisticData.Integral], \r\n            T.IntegralWithPriority ");
+            viewString.Append("AS [E_StatisticData.IntegralWithPriority], \r\n            T.Minimum AS [E_Statist");
+            viewString.Append("icData.Minimum], \r\n            T.Maximum AS [E_StatisticData.Maximum], \r\n       ");
+            viewString.Append("     T.ScaleMinimum AS [E_StatisticData.ScaleMinimum], \r\n            T.ScaleMaxi");
+            viewString.Append("mum AS [E_StatisticData.ScaleMaximum], \r\n            T.Movement AS [E_StatisticD");
+            viewString.Append("ata.Movement], \r\n            T.Velocity AS [E_StatisticData.Velocity], \r\n       ");
+            viewString.Append("     T.Total AS [E_StatisticData.Total], \r\n            T.Scale AS [E_StatisticDa");
+            viewString.Append("ta.Scale], \r\n            T.Version AS [E_StatisticData.Version], \r\n            T");
+            viewString.Append(".VersionAntecedentID AS [E_StatisticData.VersionAntecedentID], \r\n            T.V");
+            viewString.Append("ersionCertainty AS [E_StatisticData.VersionCertainty], \r\n            T.VersionWo");
+            viewString.Append("rkflowInstanceID AS [E_StatisticData.VersionWorkflowInstanceID], \r\n            T");
+            viewString.Append(".VersionUpdatedBy AS [E_StatisticData.VersionUpdatedBy], \r\n            T.Version");
+            viewString.Append("DeletedBy AS [E_StatisticData.VersionDeletedBy], \r\n            T.VersionOwnerCon");
+            viewString.Append("tactID AS [E_StatisticData.VersionOwnerContactID], \r\n            T.VersionOwnerC");
+            viewString.Append("ompanyID AS [E_StatisticData.VersionOwnerCompanyID], \r\n            T.VersionUpda");
+            viewString.Append("ted AS [E_StatisticData.VersionUpdated], \r\n            True AS _from0\r\n        F");
+            viewString.Append("ROM NKDC.StatisticDatas AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_StatisticData", viewString.ToString());
         }
         
@@ -29217,7 +29218,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView707()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2993);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3099);
             viewString.Append("\r\n    SELECT VALUE -- Constructing StatisticDatas\r\n        [NKD.Module.BusinessO");
             viewString.Append("bjects.StatisticData](T1.StatisticData_StatisticDataID, T1.StatisticData_Statist");
             viewString.Append("icDataName, T1.StatisticData_StatisticValue, T1.StatisticData_TableType, T1.Stat");
@@ -29230,32 +29231,33 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("sticData_Version, T1.StatisticData_VersionAntecedentID, T1.StatisticData_Version");
             viewString.Append("Certainty, T1.StatisticData_VersionWorkflowInstanceID, T1.StatisticData_VersionU");
             viewString.Append("pdatedBy, T1.StatisticData_VersionDeletedBy, T1.StatisticData_VersionOwnerContac");
-            viewString.Append("tID, T1.StatisticData_VersionOwnerCompanyID, T1.StatisticData_VersionUpdated)\r\n ");
-            viewString.Append("   FROM (\r\n        SELECT \r\n            T.StatisticDataID AS StatisticData_Stati");
-            viewString.Append("sticDataID, \r\n            T.StatisticDataName AS StatisticData_StatisticDataName");
-            viewString.Append(", \r\n            T.StatisticValue AS StatisticData_StatisticValue, \r\n            ");
-            viewString.Append("T.TableType AS StatisticData_TableType, \r\n            T.ReferenceID AS Statistic");
-            viewString.Append("Data_ReferenceID, \r\n            T.Count AS StatisticData_Count, \r\n            T.");
-            viewString.Append("Sigma AS StatisticData_Sigma, \r\n            T.Mean AS StatisticData_Mean, \r\n    ");
-            viewString.Append("        T.Updated AS StatisticData_Updated, \r\n            T.Multiplier AS Statis");
-            viewString.Append("ticData_Multiplier, \r\n            T.MultiplierWithPriority AS StatisticData_Mult");
-            viewString.Append("iplierWithPriority, \r\n            T.Integral AS StatisticData_Integral, \r\n      ");
-            viewString.Append("      T.IntegralWithPriority AS StatisticData_IntegralWithPriority, \r\n          ");
-            viewString.Append("  T.Minimum AS StatisticData_Minimum, \r\n            T.Maximum AS StatisticData_M");
-            viewString.Append("aximum, \r\n            T.ScaleMinimum AS StatisticData_ScaleMinimum, \r\n          ");
-            viewString.Append("  T.ScaleMaximum AS StatisticData_ScaleMaximum, \r\n            T.Movement AS Stat");
-            viewString.Append("isticData_Movement, \r\n            T.Velocity AS StatisticData_Velocity, \r\n      ");
-            viewString.Append("      T.Total AS StatisticData_Total, \r\n            T.Scale AS StatisticData_Sca");
-            viewString.Append("le, \r\n            T.Version AS StatisticData_Version, \r\n            T.VersionAnt");
-            viewString.Append("ecedentID AS StatisticData_VersionAntecedentID, \r\n            T.VersionCertainty");
-            viewString.Append(" AS StatisticData_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS");
-            viewString.Append(" StatisticData_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS St");
-            viewString.Append("atisticData_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS StatisticData_");
-            viewString.Append("VersionDeletedBy, \r\n            T.VersionOwnerContactID AS StatisticData_Version");
-            viewString.Append("OwnerContactID, \r\n            T.VersionOwnerCompanyID AS StatisticData_VersionOw");
-            viewString.Append("nerCompanyID, \r\n            T.VersionUpdated AS StatisticData_VersionUpdated, \r\n");
-            viewString.Append("            True AS _from0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.");
-            viewString.Append("E_StatisticData AS T\r\n    ) AS T1");
+            viewString.Append("tID, T1.StatisticData_VersionOwnerCompanyID, T1.StatisticData_VersionUpdated, T1");
+            viewString.Append(".StatisticData_ReferenceExternal)\r\n    FROM (\r\n        SELECT \r\n            T.St");
+            viewString.Append("atisticDataID AS StatisticData_StatisticDataID, \r\n            T.StatisticDataNam");
+            viewString.Append("e AS StatisticData_StatisticDataName, \r\n            T.StatisticValue AS Statisti");
+            viewString.Append("cData_StatisticValue, \r\n            T.TableType AS StatisticData_TableType, \r\n  ");
+            viewString.Append("          T.ReferenceID AS StatisticData_ReferenceID, \r\n            T.Count AS S");
+            viewString.Append("tatisticData_Count, \r\n            T.Sigma AS StatisticData_Sigma, \r\n            ");
+            viewString.Append("T.Mean AS StatisticData_Mean, \r\n            T.Updated AS StatisticData_Updated, ");
+            viewString.Append("\r\n            T.Multiplier AS StatisticData_Multiplier, \r\n            T.Multipli");
+            viewString.Append("erWithPriority AS StatisticData_MultiplierWithPriority, \r\n            T.Integral");
+            viewString.Append(" AS StatisticData_Integral, \r\n            T.IntegralWithPriority AS StatisticDat");
+            viewString.Append("a_IntegralWithPriority, \r\n            T.Minimum AS StatisticData_Minimum, \r\n    ");
+            viewString.Append("        T.Maximum AS StatisticData_Maximum, \r\n            T.ScaleMinimum AS Stat");
+            viewString.Append("isticData_ScaleMinimum, \r\n            T.ScaleMaximum AS StatisticData_ScaleMaxim");
+            viewString.Append("um, \r\n            T.Movement AS StatisticData_Movement, \r\n            T.Velocity");
+            viewString.Append(" AS StatisticData_Velocity, \r\n            T.Total AS StatisticData_Total, \r\n    ");
+            viewString.Append("        T.Scale AS StatisticData_Scale, \r\n            T.Version AS StatisticData");
+            viewString.Append("_Version, \r\n            T.VersionAntecedentID AS StatisticData_VersionAntecedent");
+            viewString.Append("ID, \r\n            T.VersionCertainty AS StatisticData_VersionCertainty, \r\n      ");
+            viewString.Append("      T.VersionWorkflowInstanceID AS StatisticData_VersionWorkflowInstanceID, \r\n");
+            viewString.Append("            T.VersionUpdatedBy AS StatisticData_VersionUpdatedBy, \r\n            ");
+            viewString.Append("T.VersionDeletedBy AS StatisticData_VersionDeletedBy, \r\n            T.VersionOwn");
+            viewString.Append("erContactID AS StatisticData_VersionOwnerContactID, \r\n            T.VersionOwner");
+            viewString.Append("CompanyID AS StatisticData_VersionOwnerCompanyID, \r\n            T.VersionUpdated");
+            viewString.Append(" AS StatisticData_VersionUpdated, \r\n            T.ReferenceExternal AS Statistic");
+            viewString.Append("Data_ReferenceExternal, \r\n            True AS _from0\r\n        FROM NKDModuleBusi");
+            viewString.Append("nessObjectsStoreContainer.E_StatisticData AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.StatisticDatas", viewString.ToString());
         }
         

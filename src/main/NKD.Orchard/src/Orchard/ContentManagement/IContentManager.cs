@@ -10,7 +10,6 @@ namespace Orchard.ContentManagement {
     public interface IContentManager : IDependency {
         IEnumerable<ContentTypeDefinition> GetContentTypeDefinitions();
 
-
         /// <summary>
         /// Instantiates a new content item with the specified type
         /// </summary>
@@ -24,15 +23,23 @@ namespace Orchard.ContentManagement {
         /// <summary>
         /// Creates (persists) a new content item
         /// </summary>
-        /// <param name="contentItem">The content item instance filled with all necessary data</param>
+        /// <param name="content">The content instance filled with all necessary data</param>
         void Create(ContentItem contentItem);
 
         /// <summary>
         /// Creates (persists) a new content item with the specified version
         /// </summary>
-        /// <param name="contentItem">The content item instance filled with all necessary data</param>
+        /// <param name="content">The content instance filled with all necessary data</param>
         /// <param name="options">The version to create the item with</param>
         void Create(ContentItem contentItem, VersionOptions options);
+
+
+        /// <summary>
+        /// Makes a clone of the content item
+        /// </summary>
+        /// <param name="contentItem">The content item to clone</param>
+        /// <returns>Clone of the item</returns>
+        ContentItem Clone(ContentItem contentItem);
 
 
         /// <summary>
@@ -64,6 +71,7 @@ namespace Orchard.ContentManagement {
 
         IEnumerable<T> GetMany<T>(IEnumerable<int> ids, VersionOptions options, QueryHints hints) where T : class, IContent;
         IEnumerable<T> GetManyByVersionId<T>(IEnumerable<int> versionRecordIds, QueryHints hints) where T : class, IContent;
+        IEnumerable<ContentItem> GetManyByVersionId(IEnumerable<int> versionRecordIds, QueryHints hints);
 
         void Publish(ContentItem contentItem);
         void Unpublish(ContentItem contentItem);
@@ -73,11 +81,6 @@ namespace Orchard.ContentManagement {
         XElement Export(ContentItem contentItem);
         void Import(XElement element, ImportContentSession importContentSession);
 
-        /// <summary>
-        /// Flushes all pending content items to the persistance layer
-        /// </summary>
-        void Flush();
-        
         /// <summary>
         /// Clears the current referenced content items
         /// </summary>
@@ -95,6 +98,7 @@ namespace Orchard.ContentManagement {
         GroupInfo GetEditorGroupInfo(IContent contentItem, string groupInfoId);
         GroupInfo GetDisplayGroupInfo(IContent contentItem, string groupInfoId);
 
+        ContentItem ResolveIdentity(ContentIdentity contentIdentity);
 
         /// <summary>
         /// Builds the display shape of the specified content item

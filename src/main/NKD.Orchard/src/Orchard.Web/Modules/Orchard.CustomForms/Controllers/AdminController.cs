@@ -4,13 +4,11 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Orchard.ContentManagement;
 using Orchard.Core.Common.Models;
-using Orchard.Core.Title.Models;
 using Orchard.CustomForms.Models;
 using Orchard.CustomForms.ViewModels;
 using Orchard.DisplayManagement;
 using Orchard.Localization;
-using Orchard.Security;
-using System;
+using Orchard.Mvc;
 using Orchard.Settings;
 using Orchard.UI.Navigation;
 
@@ -35,7 +33,7 @@ namespace Orchard.CustomForms.Controllers {
         public Localizer T { get; set; }
 
         public ActionResult Index(CustomFormIndexOptions options, PagerParameters pagerParameters) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to list custom forms")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageForms, T("Not authorized to list custom forms")))
                 return new HttpUnauthorizedResult();
 
             var pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
@@ -44,7 +42,7 @@ namespace Orchard.CustomForms.Controllers {
             if (options == null)
                 options = new CustomFormIndexOptions();
 
-            var query = Services.ContentManager.Query().ForType("CustomForm", "CustomFormWidget");
+            var query = Services.ContentManager.Query().ForType("CustomForm", "CustomFormWidget").ForVersion(VersionOptions.Latest);
 
             switch (options.Filter) {
                 case CustomFormFilter.All:
@@ -80,9 +78,9 @@ namespace Orchard.CustomForms.Controllers {
         }
 
         [HttpPost]
-        [Core.Contents.Controllers.FormValueRequired("submit.BulkEdit")]
+        [FormValueRequired("submit.BulkEdit")]
         public ActionResult Index(FormCollection input) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage customForm")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageForms, T("Not authorized to manage customForm")))
                 return new HttpUnauthorizedResult();
 
             var viewModel = new CustomFormIndexViewModel { CustomForms = new List<CustomFormEntry>(), Options = new CustomFormIndexOptions() };
@@ -113,7 +111,7 @@ namespace Orchard.CustomForms.Controllers {
         }
 
         public ActionResult Item(int id, PagerParameters pagerParameters) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage customForm")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageForms, T("Not authorized to manage customForm")))
                 return new HttpUnauthorizedResult();
 
             Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
@@ -136,7 +134,10 @@ namespace Orchard.CustomForms.Controllers {
             list.AddRange(submissions);
             
             var totalItemCount = Services.ContentManager
-                .Query<CommonPart, CommonPartRecord>().Where(x => x.Container == formPart.ContentItem.Record).Count();
+                    .Query<CommonPart, CommonPartRecord>()
+                    .ForVersion(VersionOptions.Latest)
+                    .Where(x => x.Container.Id == id)
+                    .Count();
             shape.Pager(Services.New.Pager(pager).TotalItemCount(totalItemCount));
             shape.List(list);
             return View(shape);

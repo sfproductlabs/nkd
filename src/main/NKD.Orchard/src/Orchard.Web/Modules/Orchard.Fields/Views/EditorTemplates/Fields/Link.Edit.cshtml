@@ -17,13 +17,14 @@
 }
 <fieldset>
     <label for="@Html.FieldIdFor(m => m.Value)">@Model.DisplayName</label>
+    @if (HasText(settings.Hint)) {
     <span class="hint">@settings.Hint</span>
-
+    }
     <div class="editor-label">
         <label for="@Html.FieldIdFor(m => m.Value)" @if(settings.Required) { <text>class="required"</text> }>@T("Url")</label>
     </div>
     <div class="editor-field">
-        @Html.TextBoxFor(m => m.Value, new { @class = "large text" })
+        @Html.TextBoxFor(m => m.Value, new { @class = "text large" })
         <span class="hint">@T("A valid url, i.e. http://orchardproject.net, /content/file.pdf, ...")</span>
     </div>
     @if (settings.LinkTextMode == LinkTextMode.Optional || settings.LinkTextMode == LinkTextMode.Required) {
@@ -31,7 +32,7 @@
             <label for="@Html.FieldIdFor(m => m.Text)" @if(settings.LinkTextMode == LinkTextMode.Required) { <text>class="required"</text> }>@T("Text")</label>
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(m => m.Text, new {@class = "textMedium"})
+            @Html.TextBoxFor(m => m.Text, new {@class = "text medium"})
             <span class="hint">@T("The text of the link. If left empty, the url will be used instead.")</span>
         </div>
     }
@@ -46,6 +47,6 @@
         </div>
     }
     else {
-        @Html.Hidden(Html.FieldNameFor(m => m.Target), target)
+        @Html.Hidden("Target", target)
     }
 </fieldset>

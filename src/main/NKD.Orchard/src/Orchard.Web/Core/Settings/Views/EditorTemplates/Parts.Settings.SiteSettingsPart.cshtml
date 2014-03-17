@@ -2,10 +2,10 @@
 @using Orchard.Settings;
 @{
     var resourceDebugMode = new SelectList(new object[] {
-        new { Id = (int)ResourceDebugMode.FromAppSetting, Text = "Use web.config setting" },
-        new { Id = (int)ResourceDebugMode.Enabled, Text = "Enabled" },
-        new { Id = (int)ResourceDebugMode.Disabled, Text = "Disabled" },
-    }, "Id", "Text", (int)Model.ResourceDebugMode);
+        new { Id = ResourceDebugMode.FromAppSetting, Text = T("Use web.config setting").Text },
+        new { Id = ResourceDebugMode.Enabled, Text = T("Enabled").Text },
+        new { Id = ResourceDebugMode.Disabled, Text = T("Disabled").Text },
+    }, "Id", "Text", Model.ResourceDebugMode);
 }
 <fieldset>
     <legend>@T("General")</legend>
@@ -16,7 +16,7 @@
     </div>
     <div>
         <label for="@Html.FieldIdFor(m => m.BaseUrl)">@T("Base url ")</label>
-        @Html.TextBoxFor(m => m.BaseUrl, new { @class = "textMedium" })
+        @Html.TextBoxFor(m => m.BaseUrl, new { @class = "text medium" })
         <span class="hint">@T("Enter the fully qualified base url of your website.")</span>
         <span class="hint">@T("e.g., http://localhost:30320/orchardlocal, http://www.yourdomain.com")</span>
     </div>
@@ -50,7 +50,7 @@
     </div>
     <div>
         <label for="DefaultPageSize">@T("Default number of items per page")</label>
-        @Html.TextBoxFor(m => m.PageSize, new { @class = "text-small" })
+        @Html.TextBoxFor(m => m.PageSize, new { @class = "text small" })
         <span class="hint">@T("Determines the default number of items that are shown per page.")</span>
     </div>
 </fieldset>

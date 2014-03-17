@@ -9,16 +9,17 @@ using Orchard.ContentTypes.Extensions;
 using Orchard.ContentTypes.Services;
 using Orchard.ContentTypes.Settings;
 using Orchard.ContentTypes.ViewModels;
-using Orchard.Core.Contents.Controllers;
 using Orchard.Core.Contents.Settings;
 using Orchard.Environment.Configuration;
 using Orchard.Localization;
 using Orchard.Logging;
+using Orchard.Mvc;
 using Orchard.UI;
 using Orchard.UI.Notify;
 using Orchard.Utility.Extensions;
 
 namespace Orchard.ContentTypes.Controllers {
+    [ValidateInput(false)]
     public class AdminController : Controller, IUpdateModel {
         private readonly IContentDefinitionService _contentDefinitionService;
         private readonly IContentDefinitionManager _contentDefinitionManager;
@@ -51,16 +52,19 @@ namespace Orchard.ContentTypes.Controllers {
         #region Types
 
         public ActionResult List() {
+            if (!Services.Authorizer.Authorize(Permissions.ViewContentTypes, T("Not allowed to view content types.")))
+                return new HttpUnauthorizedResult();
+
             return View("List", new ListContentTypesViewModel {
                 Types = _contentDefinitionService.GetTypes()
             });
         }
 
-        public ActionResult Create() {
+        public ActionResult Create(string suggestion) {
             if (!Services.Authorizer.Authorize(Permissions.EditContentTypes, T("Not allowed to create a content type.")))
                 return new HttpUnauthorizedResult();
 
-            return View(new CreateTypeViewModel());
+            return View(new CreateTypeViewModel { DisplayName = suggestion, Name = suggestion.ToSafeName() });
         }
 
         [HttpPost, ActionName("Create")]
@@ -250,7 +254,7 @@ namespace Orchard.ContentTypes.Controllers {
 
             Services.Notifier.Information(T("\"{0}\" settings have been saved.", typeViewModel.DisplayName));
 
-            return RedirectToAction("List");
+            return RedirectToAction("Edit", new { id });
         }
 
         [HttpPost, ActionName("Edit")]
@@ -284,7 +288,7 @@ namespace Orchard.ContentTypes.Controllers {
                 Type = typeViewModel,
                 PartSelections = _contentDefinitionService.GetParts(false/*metadataPartsOnly*/)
                     .Where(cpd => !typeViewModel.Parts.Any(p => p.PartDefinition.Name == cpd.Name) && cpd.Settings.GetModel<ContentPartSettings>().Attachable)
-                    .Select(cpd => new PartSelectionViewModel { PartName = cpd.Name, PartDisplayName = cpd.DisplayName })
+                    .Select(cpd => new PartSelectionViewModel { PartName = cpd.Name, PartDisplayName = cpd.DisplayName, PartDescription = cpd.Description})
             };
 
             return View(viewModel);
@@ -371,11 +375,11 @@ namespace Orchard.ContentTypes.Controllers {
             });
         }
 
-        public ActionResult CreatePart() {
+        public ActionResult CreatePart(string suggestion) {
             if (!Services.Authorizer.Authorize(Permissions.EditContentTypes, T("Not allowed to create a content part.")))
                 return new HttpUnauthorizedResult();
 
-            return View(new CreatePartViewModel());
+            return View(new CreatePartViewModel { Name = suggestion.ToSafeName() });
         }
 
         [HttpPost, ActionName("CreatePart")]

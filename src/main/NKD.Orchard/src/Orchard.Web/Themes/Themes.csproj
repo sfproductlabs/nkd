@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Themes</RootNamespace>
     <AssemblyName>Themes</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -35,7 +35,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>..\..\OrchardBasicCorrectness.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -45,116 +44,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\aspnetmvc\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MAS1\Filters\LayoutFilter.cs" />
-    <Compile Include="Metro\Filters\LayoutFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MAS1\Content\Images\accordion-plus-white.png" />
-    <Content Include="MAS1\Content\Images\accordion-plus.png" />
-    <Content Include="MAS1\Content\Images\arrow-submenu.png" />
-    <Content Include="MAS1\Content\Images\cart.png" />
-    <Content Include="MAS1\Content\Images\flags\en-US.gif" />
-    <Content Include="MAS1\Content\Images\flags\pt-PT.gif" />
-    <Content Include="MAS1\Content\Images\header-aux.png" />
-    <Content Include="MAS1\Content\Images\logo.png" />
-    <Content Include="MAS1\Content\Images\search.gif" />
-    <Content Include="MAS1\Content\Images\search.png" />
-    <Content Include="MAS1\Instructions.txt" />
-    <Content Include="MAS1\js\BindMENU.js" />
-    <Content Include="MAS1\js\bootstrap.min.js" />
-    <Content Include="MAS1\js\fix-responsive-WP8.js" />
-    <Content Include="MAS1\js\fix-search-ie8.js" />
-    <Content Include="MAS1\js\html5shiv.js" />
-    <Content Include="MAS1\js\jquery.min.js" />
-    <Content Include="MAS1\js\jquery.nivo.slider.pack.js" />
-    <Content Include="MAS1\js\populateSelectNav.js" />
-    <Content Include="MAS1\MAS1.csproj" />
-    <Content Include="MAS1\Styles\fonts\fontawesome-webfont.svg" />
-    <Content Include="MAS1\Styles\site.css" />
-    <Content Include="MAS1\Styles\site.uncompressed.css" />
-    <Content Include="MAS1\Theme.png" />
-    <Content Include="MAS1\Theme.txt" />
-    <Content Include="MAS1\ThemeZonePreview.png" />
-    <Content Include="Metro\Content\Images\arrow-submenu.png" />
-    <Content Include="Metro\Content\Images\cart.png" />
-    <Content Include="Metro\Content\Images\dummy.gif" />
-    <Content Include="Metro\Content\Images\flags\en-US.gif" />
-    <Content Include="Metro\Content\Images\flags\pt-PT.gif" />
-    <Content Include="Metro\Content\Images\logo.png" />
-    <Content Include="Metro\Content\Images\menu-arrow.png" />
-    <Content Include="Metro\Content\Images\search.go.png" />
-    <Content Include="Metro\Instructions.txt" />
-    <Content Include="Metro\js\BindMENU.js" />
-    <Content Include="Metro\js\bootstrap-affix.js" />
-    <Content Include="Metro\js\bootstrap-alert.js" />
-    <Content Include="Metro\js\bootstrap-button.js" />
-    <Content Include="Metro\js\bootstrap-carousel.js" />
-    <Content Include="Metro\js\bootstrap-collapse.js" />
-    <Content Include="Metro\js\bootstrap-dropdown.js" />
-    <Content Include="Metro\js\bootstrap-modal.js" />
-    <Content Include="Metro\js\bootstrap-popover.js" />
-    <Content Include="Metro\js\bootstrap-scrollspy.js" />
-    <Content Include="Metro\js\bootstrap-tab.js" />
-    <Content Include="Metro\js\bootstrap-tooltip.js" />
-    <Content Include="Metro\js\bootstrap-transition.js" />
-    <Content Include="Metro\js\bootstrap-typeahead.js" />
-    <Content Include="Metro\js\html5shim.googlecode.com.svn.trunk.html5.js" />
-    <Content Include="Metro\js\jquery.min.js" />
-    <Content Include="Metro\js\platform.twitter.com.widgets.js" />
-    <Content Include="Metro\js\populateSelectNav.js" />
-    <Content Include="Metro\js\prefixfree.js" />
-    <Content Include="Metro\Metro.csproj" />
-    <Content Include="Metro\Styles\css\ie7.css" />
-    <Content Include="Metro\Styles\fonts\fontawesome-webfont.svg" />
-    <Content Include="Metro\Styles\site.css" />
-    <Content Include="Metro\Styles\site.uncompressed.css" />
-    <Content Include="Metro\Theme.png" />
-    <Content Include="Metro\Theme.txt" />
-    <Content Include="Metro\ThemeZonePreview.png" />
     <Content Include="TheAdmin\Scripts\admin.js" />
     <Content Include="TheAdmin\Styles\ie.css" />
     <Content Include="TheAdmin\Styles\ie7.css" />
@@ -258,45 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TheAdmin\Views\ErrorPage.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Metro\Content\Web.config" />
-    <Content Include="Metro\js\Web.config" />
-    <Content Include="Metro\Placement.info" />
-    <Content Include="Metro\Styles\fonts\fontawesome-webfont.eot" />
-    <Content Include="Metro\Styles\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Metro\Styles\fonts\fontawesome-webfont.woff" />
-    <Content Include="Metro\Styles\fonts\FontAwesome.otf" />
-    <Content Include="Metro\Styles\Web.config" />
-    <Content Include="Metro\Views\Layout-HomePage.cshtml" />
-    <Content Include="Metro\Views\Layout.cshtml" />
-    <Content Include="Metro\Views\LogOn2.cshtml" />
-    <Content Include="Metro\Views\Parts\Product.cshtml" />
-    <Content Include="Metro\Views\Widget.Wrapper.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MAS1\Content\Web.config" />
-    <Content Include="MAS1\js\Web.config" />
-    <Content Include="MAS1\Placement.info" />
-    <Content Include="MAS1\Styles\fonts\fontawesome-webfont.eot" />
-    <Content Include="MAS1\Styles\fonts\fontawesome-webfont.ttf" />
-    <Content Include="MAS1\Styles\fonts\fontawesome-webfont.woff" />
-    <Content Include="MAS1\Styles\fonts\FontAwesome.otf" />
-    <Content Include="MAS1\Styles\Web.config" />
-    <Content Include="MAS1\Views\Layout-HomePage.cshtml" />
-    <Content Include="MAS1\Views\Layout-Home_Boxed.cshtml" />
-    <Content Include="MAS1\Views\Layout-Home_Boxed_Sidebar.cshtml" />
-    <Content Include="MAS1\Views\Layout-Inner.cshtml" />
-    <Content Include="MAS1\Views\Layout-Inner_Boxed.cshtml" />
-    <Content Include="MAS1\Views\Layout-Inner_Boxed_Sidebar.cshtml" />
-    <Content Include="MAS1\Views\Layout-Inner_Sidebar.cshtml" />
-    <Content Include="MAS1\Views\Layout.cshtml" />
-    <Content Include="MAS1\Views\LogOn2.cshtml" />
-    <Content Include="MAS1\Views\Parts\Product.cshtml" />
-    <Content Include="MAS1\Views\Widget.Wrapper.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

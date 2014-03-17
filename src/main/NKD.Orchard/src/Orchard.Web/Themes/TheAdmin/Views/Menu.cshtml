@@ -1,5 +1,4 @@
-﻿@using System.Web.Routing;
-@using Orchard.Utility.Extensions;
+﻿@using Orchard.Utility.Extensions;
 @{
     Script.Require("jQuery");
     Script.Include("admin.js");
@@ -21,6 +20,7 @@
         string sectionHeaderText = firstLevelMenuItem.Text.Text;
         string sectionHeaderTextHint = firstLevelMenuItem.Text.TextHint;
         var firstOfTheSecond = secondLevelMenuItems.FirstOrDefault();
+        var firstLevelMenuItemUrl = firstLevelMenuItem.Href;
 
         var itemClassName = HasText(sectionHeaderTextHint)
             ? "navicon-" + sectionHeaderTextHint.HtmlClassify()
@@ -30,7 +30,12 @@
             : null;
 
         IHtmlString sectionHeaderMarkup;
-        if (firstOfTheSecond != null && firstLevelMenuItem.LinkToFirstChild && (firstOfTheSecond.RouteValues != null || HasText(firstOfTheSecond.Url))) {
+        if (firstOfTheSecond != null 
+            && firstLevelMenuItem.LinkToFirstChild 
+            && (
+                firstOfTheSecond.RouteValues != null 
+                || HasText(firstOfTheSecond.Url))) {
+            firstLevelMenuItemUrl = firstOfTheSecond.Href;
             sectionHeaderMarkup = HasText(itemId)
                 ? Html.Link(sectionHeaderText, (string)firstOfTheSecond.Href, new { @class = itemClassName, id = itemId })
                 : Html.Link(sectionHeaderText, (string)firstOfTheSecond.Href, new { @class = itemClassName });
@@ -42,7 +47,7 @@
         }
         else {
             // if the header isn't linked and there are no children there's no reason for this item in the menu other than to look pretty
-            if (secondLevelMenuItems.Count() == 0) {
+            if (!secondLevelMenuItems.Any()) {
                 continue;
             }
         
@@ -68,11 +73,17 @@
         var firstLevelTag = Tag(firstLevelMenuItem, "li");
         @firstLevelTag.StartElement
             <h3>@sectionHeaderMarkup</h3>
-            if (secondLevelMenuItems.Where(menuItem => !menuItem.LocalNav).Count() > 1 || !firstLevelMenuItem.LinkToFirstChild) {
+            if (secondLevelMenuItems.Count(menuItem => !menuItem.LocalNav) > 1 || !firstLevelMenuItem.LinkToFirstChild) {
                 <ul class="menuItems">
+                @{ var first = true;}    
                 @foreach (var secondLevelMenuItem in secondLevelMenuItems.Where(menuItem => !menuItem.LocalNav)) {
+                    if (first && firstLevelMenuItem.LinkToFirstChild && String.Equals(firstLevelMenuItemUrl, secondLevelMenuItem.Href)) {
+                        first = false;
+                        continue;
+                    }
+                    
                     string secondLevelTextHint = secondLevelMenuItem.Text.TextHint;
-                    var firstOfTheThird = ((IEnumerable<dynamic>)secondLevelMenuItem).FirstOrDefault();
+                    var firstOfTheThird = ((IEnumerable<dynamic>)secondLevelMenuItem.Items).FirstOrDefault();
 
                     var secondLevelItemClassName = HasText(secondLevelTextHint)
                         ? "subnavicon-" + secondLevelTextHint.HtmlClassify()

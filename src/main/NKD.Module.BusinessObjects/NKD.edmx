@@ -5194,6 +5194,7 @@
           <Property Name="StatisticValue" Type="numeric" Precision="38" Scale="20" />
           <Property Name="TableType" Type="nvarchar" MaxLength="50" />
           <Property Name="ReferenceID" Type="uniqueidentifier" />
+          <Property Name="ReferenceExternal" Type="nvarchar" MaxLength="50" />
           <Property Name="Count" Type="int" />
           <Property Name="Sigma" Type="numeric" Precision="38" Scale="20" />
           <Property Name="Mean" Type="numeric" Precision="38" Scale="20" />
@@ -23198,95 +23199,6 @@
           <Parameter Name="instanceId" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="handleInstanceVersion" Type="bigint" Mode="In" />
         </Function>
-        <!--Errors Found During Generation:
-      warning 6013: The table/view 'NKD.dbo.T_Secured' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="T_Secured">
-        <Property Name="pid" Type="uniqueidentifier" />
-        <Property Name="OwnerContactID" Type="uniqueidentifier" />
-        <Property Name="OwnerCompanyID" Type="uniqueidentifier" />
-        <Property Name="Updated" Type="datetime" />
-      </EntityType>
-      Errors Found During Generation:
-      warning 6013: The table/view 'NKD.System.Activities.DurableInstancing.SqlWorkflowInstanceStoreVersionTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="SqlWorkflowInstanceStoreVersionTable">
-        <Property Name="Major" Type="bigint" />
-        <Property Name="Minor" Type="bigint" />
-        <Property Name="Build" Type="bigint" />
-        <Property Name="Revision" Type="bigint" />
-        <Property Name="LastUpdated" Type="datetime" />
-      </EntityType>
-      Errors Found During Generation:
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value1' at parameter index 2 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value2' at parameter index 3 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value3' at parameter index 4 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value4' at parameter index 5 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value5' at parameter index 6 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value6' at parameter index 7 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value7' at parameter index 8 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value8' at parameter index 9 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value9' at parameter index 10 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value10' at parameter index 11 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value11' at parameter index 12 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value12' at parameter index 13 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value13' at parameter index 14 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value14' at parameter index 15 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value15' at parameter index 16 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value16' at parameter index 17 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value17' at parameter index 18 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value18' at parameter index 19 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value19' at parameter index 20 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value20' at parameter index 21 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value21' at parameter index 22 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value22' at parameter index 23 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value23' at parameter index 24 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value24' at parameter index 25 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value25' at parameter index 26 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value26' at parameter index 27 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value27' at parameter index 28 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value28' at parameter index 29 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value29' at parameter index 30 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value30' at parameter index 31 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value31' at parameter index 32 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      warning 6005: The function 'InsertPromotedProperties' has a parameter 'value32' at parameter index 33 that has a data type 'sql_variant' which is currently not supported for the target .NET Framework version. The function was excluded.
-      
-      <Function Name="InsertPromotedProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="System.Activities.DurableInstancing">
-        <Parameter Name="instanceId" Type="uniqueidentifier" Mode="In" />
-        <Parameter Name="promotionName" Type="nvarchar" Mode="In" />
-        <Parameter Name="value33" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value34" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value35" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value36" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value37" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value38" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value39" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value40" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value41" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value42" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value43" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value44" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value45" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value46" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value47" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value48" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value49" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value50" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value51" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value52" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value53" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value54" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value55" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value56" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value57" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value58" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value59" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value60" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value61" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value62" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value63" Type="varbinary(max)" Mode="In" />
-        <Parameter Name="value64" Type="varbinary(max)" Mode="In" />
-      </Function>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -45735,6 +45647,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <Property Type="String" Name="ReferenceExternal" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SupplierModelContract">
           <Key>
@@ -56117,6 +56030,7 @@
           <EntitySetMapping Name="StatisticDatas">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.StatisticData">
               <MappingFragment StoreEntitySet="E_StatisticData">
+                <ScalarProperty Name="ReferenceExternal" ColumnName="ReferenceExternal" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />

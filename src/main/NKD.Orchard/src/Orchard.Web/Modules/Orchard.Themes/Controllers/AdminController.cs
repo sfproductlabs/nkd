@@ -10,6 +10,7 @@ using Orchard.Environment.Extensions.Models;
 using Orchard.Environment.Features;
 using Orchard.Localization;
 using Orchard.Logging;
+using Orchard.Mvc;
 using Orchard.Mvc.Extensions;
 using Orchard.Reports.Services;
 using Orchard.Security;
@@ -230,26 +231,13 @@ namespace Orchard.Themes.Controllers {
             try {
                 _reportsCoordinator.Register("Data Migration", "Upgrade " + themeId, "Orchard installation");
                 _dataMigrationManager.Update(themeId);
-                Services.Notifier.Information(T("The theme {0} was updated succesfuly", themeId));
+                Services.Notifier.Information(T("The theme {0} was updated successfully", themeId));
             } catch (Exception exception) {
                 Logger.Error(T("An error occured while updating the theme {0}: {1}", themeId, exception.Message).Text);
                 Services.Notifier.Error(T("An error occured while updating the theme {0}: {1}", themeId, exception.Message));
             }
 
             return RedirectToAction("Index");
-        }
-
-        class FormValueRequiredAttribute : ActionMethodSelectorAttribute {
-            private readonly string _submitButtonName;
-
-            public FormValueRequiredAttribute(string submitButtonName) {
-                _submitButtonName = submitButtonName;
-            }
-
-            public override bool IsValidForRequest(ControllerContext controllerContext, MethodInfo methodInfo) {
-                var value = controllerContext.HttpContext.Request.Form[_submitButtonName];
-                return !string.IsNullOrEmpty(value);
-            }
         }
 
         [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]

@@ -142,7 +142,9 @@
     <None Include="App.config" />
     <None Include="DatabaseUpdate\ReadMe.txt" />
     <Content Include="Resources\restore.sql" />
-    <None Include="Resources\v9.bak.zip" />
+    <Content Include="Resources\v9.bak.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Controllers\ReadMe.txt" />

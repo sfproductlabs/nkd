@@ -10,10 +10,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NKD.Win</RootNamespace>
     <AssemblyName>NKD.Win</AssemblyName>
-    <ApplicationIcon>ExpressApp.ico</ApplicationIcon>
+    <ApplicationIcon>Images\NKD.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>http://NakedEnterprise.Org/publish/nkd/19/</PublishUrl>
+    <PublishUrl>http://nakedenterprise.org/media/default/nkd/publish/19/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -25,15 +25,15 @@
     <MapFileExtensions>true</MapFileExtensions>
     <SupportUrl>http://NakedEnterprise.Org</SupportUrl>
     <ErrorReportUrl>https://NakedEnterprise.Org</ErrorReportUrl>
-    <ProductName>NKD Windows</ProductName>
+    <ProductName>NakedEnterprise for Windows</ProductName>
     <PublisherName>NakedEnterprise.Org</PublisherName>
     <SuiteName>NKD</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>55</ApplicationRevision>
-    <ApplicationVersion>1.4.0.%2a</ApplicationVersion>
+    <ApplicationRevision>61</ApplicationRevision>
+    <ApplicationVersion>1.9.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -325,7 +325,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <EmbeddedResource Include="Images\LogoCMYK.png" />
+    <Content Include="Images\NKD.ico" />
     <Content Include="Model.xafml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -339,10 +339,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="NKD.Win_TemporaryKey.pfx" />
-    <None Include="Resources\v9.bak.zip" />
+    <EmbeddedResource Include="Images\LogoCMYK.png" />
+    <Content Include="Resources\v9.bak.zip" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ExpressApp.ico" />
     <None Include="Images\ReadMe.txt" />
     <None Include="Notes.txt" />
   </ItemGroup>
@@ -1393,7 +1393,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
-    <PublishFile Include="ExpressApp.ico">
+    <PublishFile Include="Images\NKD.ico">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -1713,16 +1713,6 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
-    <PublishFile Include="LogoCMYK.ico">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
     <PublishFile Include="Model.xafml">
       <Visible>False</Visible>
       <Group>
@@ -1803,27 +1793,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
-    <PublishFile Include="Resources\v4.bak.zip">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
-    <PublishFile Include="Resources\v4.data.sql.zip">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
-    <PublishFile Include="Resources\v4.schema.sql.zip">
+    <PublishFile Include="Resources\v9.bak.zip">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -2149,7 +2119,7 @@
       <Visible>False</Visible>
       <Description>NKD Package</Description>
       <Progid>NKD.nkd</Progid>
-      <DefaultIcon>ExpressApp.ico</DefaultIcon>
+      <DefaultIcon>Images\NKD.ico</DefaultIcon>
     </FileAssociation>
   </ItemGroup>
   <ItemGroup>

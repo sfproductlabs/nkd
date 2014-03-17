@@ -10,11 +10,15 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using NKD.Module;
 using System.Linq;
+using System.Net;
+using DevExpress.ExpressApp.Win.Utils;
+
 
 namespace NKD.Win
 {
-    static class Program
+    public static class Program
     {
+        public static int? DatabaseVersion = 0;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -24,11 +28,11 @@ namespace NKD.Win
 #if EASYTEST
 			DevExpress.ExpressApp.Win.EasyTest.EasyTestRemotingRegistration.Register();
 #endif
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             EditModelPermission.AlwaysGranted = System.Diagnostics.Debugger.IsAttached;
             NKDWindowsFormsApplication winApplication = new NKDWindowsFormsApplication();
+            winApplication.SplashScreen = new DXSplashScreen("LogoCMYK.png");
 #if EASYTEST
 			if(ConfigurationManager.ConnectionStrings["EasyTestConnectionString"] != null) {
 				winApplication.ConnectionString = ConfigurationManager.ConnectionStrings["EasyTestConnectionString"].ConnectionString;
@@ -40,6 +44,7 @@ namespace NKD.Win
             }
             try
             {
+                var ci = Checkin();
                 winApplication.Setup();
                 
                 if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed && System.Deployment.Application.ApplicationDeployment.CurrentDeployment.IsFirstRun)
@@ -82,5 +87,31 @@ namespace NKD.Win
                 winApplication.HandleException(e);
             }
         }
+
+        static async System.Threading.Tasks.Task Checkin()
+        {
+            await System.Threading.Tasks.Task.Delay(90000);            
+            string username;
+            try
+            {
+                username = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            }
+            catch
+            {
+                username = Environment.UserName;
+            }
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("http://miningappstore.com/share/checkin/{0}", WebUtility.UrlEncode(Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(username)))));
+                //request.Proxy = null; // uncomment this to bypass the default (IE) proxy settings
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                
+            }
+            catch
+            {
+            }
+
+        }
+
     }
 }

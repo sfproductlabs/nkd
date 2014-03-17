@@ -11,7 +11,7 @@
 
     <fieldset>
         @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "textMedium text" }) 
+        @Html.TextBoxFor(m => m.Name, new { @class = "text medium" }) 
         <span class="hint">@T("The name of the Rule")</span>
     </fieldset>
 
@@ -99,6 +99,9 @@
         <button class="primaryAction" type="submit" name="submit.Save" value="submit.Save" >@T("Save")</button>
         @if (!Model.Enabled) {
             <button class="primaryAction" type="submit" name="submit.SaveAndEnable" value="submit.SaveAndEnable" >@T("Save and Enable")</button>
+        }
+        else {
+            @Html.HiddenFor(m => m.Enabled)
         }
     </fieldset>
     

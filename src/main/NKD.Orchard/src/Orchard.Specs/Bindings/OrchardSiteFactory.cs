@@ -20,10 +20,11 @@ namespace Orchard.Specs.Bindings {
         public void GivenIHaveInstalledOrchard(string virtualDirectory) {
             var webApp = Binding<WebAppHosting>();
 
+            // this is the list of module which will be copied over into the temporary Orchard folder
             webApp.GivenIHaveACleanSiteWith(
                 virtualDirectory,
                 TableData(
-                new { extension = "Module", names = "Orchard.Setup, Orchard.Pages, Orchard.Blogs, Orchard.Messaging, Orchard.Media, Orchard.MediaPicker, Orchard.ContentPicker, Orchard.Modules, Orchard.Packaging, Orchard.PublishLater, Orchard.Themes, Orchard.Scripting, Orchard.Widgets, Orchard.Users, Orchard.ContentTypes, Orchard.Roles, Orchard.Comments, Orchard.jQuery, Orchard.Tags, TinyMce, Orchard.Packaging, Orchard.Recipes, Orchard.Warmup, Orchard.Alias, Orchard.Forms, Orchard.Tokens, Orchard.Autoroute, Orchard.Projections, Orchard.Fields" },
+                new { extension = "Module", names = "Orchard.Setup, Orchard.Pages, Orchard.ContentPicker, Orchard.Blogs, Orchard.Messaging, Orchard.MediaLibrary, Orchard.Modules, Orchard.Packaging, Orchard.PublishLater, Orchard.Themes, Orchard.Scripting, Orchard.Widgets, Orchard.Users, Orchard.ContentTypes, Orchard.Roles, Orchard.Comments, Orchard.jQuery, Orchard.Tags, TinyMce, Orchard.Recipes, Orchard.Warmup, Orchard.Alias, Orchard.Forms, Orchard.Tokens, Orchard.Autoroute, Orchard.Projections, Orchard.Fields, Orchard.MediaProcessing, Orchard.OutputCache, Orchard.Taxonomies, Orchard.Workflows, Orchard.Scripting.CSharp" }, 
                 new { extension = "Core", names = "Common, Containers, Dashboard, Feeds, Navigation, Contents, Scheduling, Settings, Shapes, XmlRpc, Title, Reports" },
                 new { extension = "Theme", names = "SafeMode, TheAdmin, TheThemeMachine" }));
 
@@ -93,7 +94,7 @@ namespace Orchard.Specs.Bindings {
                 var shellSettings = new ShellSettings {
                     Name = shellName,
                     RequestUrlHost = hostName,
-                    State = new TenantState("Uninitialized"),
+                    State = TenantState.Uninitialized,
                 };
                 using (var environment = MvcApplication.CreateStandaloneEnvironment("Default")) {
                     environment.Resolve<IShellSettingsManager>().SaveSettings(shellSettings);

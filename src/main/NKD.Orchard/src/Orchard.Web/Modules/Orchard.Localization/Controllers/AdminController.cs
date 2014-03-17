@@ -3,12 +3,12 @@ using System.Linq;
 using System.Web.Mvc;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Aspects;
-using Orchard.Core.Contents.Controllers;
 using Orchard.Core.Contents.Settings;
 using Orchard.DisplayManagement;
 using Orchard.Localization.Models;
 using Orchard.Localization.Services;
 using Orchard.Localization.ViewModels;
+using Orchard.Mvc;
 using Orchard.UI.Notify;
 
 namespace Orchard.Localization.Controllers {
@@ -142,7 +142,7 @@ namespace Orchard.Localization.Controllers {
                 Services.Notifier.Information(T("Created content item translation."));
             }
 
-            var metadata = _contentManager.GetItemMetadata(model.Content);
+            var metadata = _contentManager.GetItemMetadata(model.Content.ContentItem);
 
             //todo: (heskew) if null, redirect to somewhere better than nowhere
             return metadata.EditorRouteValues == null ? null : RedirectToRoute(metadata.EditorRouteValues);

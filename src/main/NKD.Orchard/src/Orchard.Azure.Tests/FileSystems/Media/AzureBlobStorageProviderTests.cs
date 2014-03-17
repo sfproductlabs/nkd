@@ -2,10 +2,12 @@
 using System.IO;
 using System.Web;
 using NUnit.Framework;
-using Orchard.Azure.FileSystems.Media;
 using Microsoft.WindowsAzure;
 using System.Linq;
+using Orchard.Caching;
 using Orchard.Environment.Configuration;
+using Orchard.Azure.Services.FileSystems.Media;
+using Orchard.FileSystems.Media;
 
 namespace Orchard.Azure.Tests.FileSystems.Media {
     [TestFixture]
@@ -17,7 +19,7 @@ namespace Orchard.Azure.Tests.FileSystems.Media {
         protected override void OnInit() {
             CloudStorageAccount.TryParse("UseDevelopmentStorage=true", out _devAccount);
 
-            _azureBlobStorageProvider = new AzureBlobStorageProvider(new ShellSettings { Name = "default" }, _devAccount);
+            _azureBlobStorageProvider = new AzureBlobStorageProvider(new ShellSettings { Name = "default" }, new ConfigurationMimeTypeProvider(new DefaultCacheManager(typeof(ConfigurationMimeTypeProvider), new DefaultCacheHolder(new DefaultCacheContextAccessor()))));
         }
 
         [SetUp]
@@ -214,8 +216,6 @@ namespace Orchard.Azure.Tests.FileSystems.Media {
             using ( var writer = new StreamWriter(stream) )
                 writer.Write(teststring);
 
-            Assert.AreEqual(22, foo.GetSize());
-
             string content;
             using ( var stream = foo.OpenRead() )
             using ( var reader = new StreamReader(stream) ) {
@@ -272,6 +272,26 @@ namespace Orchard.Azure.Tests.FileSystems.Media {
             var file = _azureBlobStorageProvider.Container.GetBlockBlobReference("default/foo1.xyz");
             file.FetchAttributes();
             Assert.That(file.Properties.ContentType, Is.EqualTo("application/unknown"));
+        }
+
+
+        [Test]
+        public void GetStoragePathShouldReturnAValidLocalPath()
+        {
+            _azureBlobStorageProvider.CreateFile("folder1/foo.txt");
+            var publicPath = _azureBlobStorageProvider.GetPublicUrl("folder1/foo.txt");
+            var storagePath = _azureBlobStorageProvider.GetStoragePath(publicPath);
+
+            Assert.IsNotNull(storagePath);
+            Assert.That(storagePath, Is.EqualTo("folder1/foo.txt"));
+        }
+
+        [Test]
+        public void GetStoragePathShouldReturnNullIfPathIsNotLocal()
+        {
+            var storagePath = _azureBlobStorageProvider.GetStoragePath("foo");
+
+            Assert.IsNull(storagePath);
         }
 
     }

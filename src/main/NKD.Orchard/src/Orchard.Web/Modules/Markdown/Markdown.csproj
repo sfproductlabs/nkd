@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Markdown</RootNamespace>
     <AssemblyName>Markdown</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -35,7 +35,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>..\..\..\OrchardBasicCorrectness.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -45,49 +44,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MarkdownSharp">
       <HintPath>..\..\..\..\lib\markdown\MarkdownSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\aspnetmvc\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
@@ -102,13 +70,36 @@
   <ItemGroup>
     <Content Include="Content\Admin\Images\grippie.png" />
     <Content Include="Scripts\orchard-markdown.js" />
-    <Content Include="Scripts\jquery.textarearesizer.min.js" />
+    <Content Include="Scripts\orchard-markdown-media-library.js" />
+    <Content Include="Scripts\jquery.textarearesizer.min.js">
+      <DependentUpon>jquery.textarearesizer.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Markdown.Converter.js" />
+    <Content Include="Scripts\Markdown.Converter.min.js">
+      <DependentUpon>Markdown.Converter.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Markdown.Editor.js" />
+    <Content Include="Scripts\Markdown.Editor.min.js">
+      <DependentUpon>Markdown.Editor.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Markdown.Sanitizer.js" />
+    <Content Include="Scripts\Markdown.Sanitizer.min.js">
+      <DependentUpon>Markdown.Sanitizer.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\orchard-markdown-media-library.min.js">
+      <DependentUpon>orchard-markdown-media-library.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\orchard-markdown-media-picker.js" />
+    <Content Include="Scripts\jquery.textarearesizer.js" />
+    <Content Include="Scripts\orchard-markdown-media-picker.min.js">
+      <DependentUpon>orchard-markdown-media-picker.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\orchard-markdown.min.js">
+      <DependentUpon>orchard-markdown.js</DependentUpon>
+    </Content>
     <Content Include="Styles\admin-markdown.css" />
     <Content Include="Content\Admin\Images\wmd-buttons.png" />
     <Content Include="Module.txt" />
-    <Content Include="Scripts\Markdown.Converter.js" />
-    <Content Include="Scripts\Markdown.Editor.js" />
-    <Content Include="Scripts\Markdown.Sanitizer.js" />
     <Content Include="Scripts\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -136,7 +127,39 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery.textarearesizer.min.js.map">
+      <DependentUpon>jquery.textarearesizer.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Markdown.Converter.min.js.map">
+      <DependentUpon>Markdown.Converter.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Markdown.Editor.min.js.map">
+      <DependentUpon>Markdown.Editor.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Markdown.Sanitizer.min.js.map">
+      <DependentUpon>Markdown.Sanitizer.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\orchard-markdown-media-library.min.js.map">
+      <DependentUpon>orchard-markdown-media-library.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\orchard-markdown-media-picker.min.js.map">
+      <DependentUpon>orchard-markdown-media-picker.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\orchard-markdown.min.js.map">
+      <DependentUpon>orchard-markdown.js</DependentUpon>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -7,13 +7,19 @@ using System.Text;
 using NHibernate;
 using NHibernate.Transform;
 using Orchard.ContentManagement.Records;
+using Orchard.Data.Providers;
+using Orchard.Environment.Configuration;
 using Orchard.Utility.Extensions;
 
 namespace Orchard.ContentManagement {
 
     public class DefaultHqlQuery : IHqlQuery {
         private readonly ISession _session;
+        private readonly IEnumerable<ISqlStatementProvider> _sqlStatementProviders;
+        private readonly ShellSettings _shellSettings;
         private VersionOptions _versionOptions;
+        private string[] _includedPartRecords = new string[0];
+        private bool _cacheable;
 
         protected IJoin _from;
         protected readonly List<Tuple<IAlias, Join>> _joins = new List<Tuple<IAlias, Join>>();
@@ -22,8 +28,14 @@ namespace Orchard.ContentManagement {
 
         public IContentManager ContentManager { get; private set; }
 
-        public DefaultHqlQuery(IContentManager contentManager, ISession session) {
+        public DefaultHqlQuery(
+            IContentManager contentManager, 
+            ISession session,
+            IEnumerable<ISqlStatementProvider> sqlStatementProviders,
+            ShellSettings shellSettings) {
             _session = session;
+            _sqlStatementProviders = sqlStatementProviders;
+            _shellSettings = shellSettings;
             ContentManager = contentManager;
         }
 
@@ -62,13 +74,18 @@ namespace Orchard.ContentManagement {
             return BindCriteriaByAlias(BindItemCriteria(), "ContentType", "ct");
         }
 
-        internal IAlias BindItemCriteria() {
+        internal IAlias BindItemCriteria(string type = "") {
             // [ContentItemVersionRecord] >join> [ContentItemRecord]
-            return BindCriteriaByAlias(BindItemVersionCriteria(), typeof(ContentItemRecord).Name, "ci");
+            return BindCriteriaByAlias(BindItemVersionCriteria(type), typeof(ContentItemRecord).Name, "ci");
         }
 
-        internal IAlias BindItemVersionCriteria() {
-            return _from ?? (_from = new Join(typeof(ContentItemVersionRecord).FullName, "civ", ""));
+        internal IAlias BindItemVersionCriteria(string type = "") {
+            _from = _from ?? new Join(typeof(ContentItemVersionRecord).FullName, "civ", type);
+            if (_from.Type.Length < type.Length) {
+                _from.Type = type;
+            }
+
+            return _from;
         }
 
         internal IAlias BindPartCriteria<TRecord>() where TRecord : ContentPartRecord {
@@ -140,6 +157,12 @@ namespace Orchard.ContentManagement {
             if (contentTypeNames != null && contentTypeNames.Length != 0) {
                 Where(BindTypeCriteria(), x => x.InG("Name", contentTypeNames));
             }
+            
+            return this;
+        }
+
+        public IHqlQuery Include(params string[] contentPartRecords) {
+            _includedPartRecords = _includedPartRecords.Union(contentPartRecords).ToArray();
             return this;
         }
 
@@ -158,11 +181,14 @@ namespace Orchard.ContentManagement {
 
         public IEnumerable<ContentItem> Slice(int skip, int count) {
             ApplyHqlVersionOptionsRestrictions(_versionOptions);
+            _cacheable = true;
+            
             var hql = ToHql(false);
+
             var query = _session
                 .CreateQuery(hql)
-                .SetCacheable(true)
-                .SetResultTransformer(new DistinctRootEntityResultTransformer());
+                .SetCacheable(_cacheable)
+                ;
 
             if (skip != 0) {
                 query.SetFirstResult(skip);
@@ -171,29 +197,50 @@ namespace Orchard.ContentManagement {
                 query.SetMaxResults(count);
             }
 
-            return query.List<ContentItemVersionRecord>()
-                .Select(x => ContentManager.Get(x.Id, VersionOptions.VersionRecord(x.Id)))
-                .ToReadOnlyCollection();
+            var ids = query
+                .SetResultTransformer(Transformers.AliasToEntityMap)
+                .List<IDictionary>()
+                .Select(x => (int)x["Id"]);
+
+            return ContentManager.GetManyByVersionId(ids, new QueryHints().ExpandRecords(_includedPartRecords));
         }
 
         public int Count() {
             ApplyHqlVersionOptionsRestrictions(_versionOptions);
-            return Convert.ToInt32(
-                _session.CreateQuery(ToHql(true))
-                .SetCacheable(true)
-                .SetResultTransformer(new DistinctRootEntityResultTransformer())
-                .UniqueResult()
-                );
+            var hql = ToHql(true);
+            hql = "select count(Id) from Orchard.ContentManagement.Records.ContentItemVersionRecord where Id in ( " + hql + " )";
+            return Convert.ToInt32(_session.CreateQuery(hql)
+                           .SetCacheable(true)
+                           .UniqueResult())
+                ;
         }
 
         public string ToHql(bool count) {
             var sb = new StringBuilder();
 
             if (count) {
-                sb.Append("select count(civ) ").AppendLine();
+                sb.Append("select distinct civ.Id as Id").AppendLine();
             }
             else {
-                sb.Append("select civ ").AppendLine();
+                sb.Append("select distinct civ.Id as Id");
+
+                // add sort properties in the select
+                foreach (var sort in _sortings) {
+                    var sortFactory = new DefaultHqlSortFactory();
+                    sort.Item2(sortFactory);
+
+                    if (!sortFactory.Randomize) {
+                        sb.Append(", ");
+                        sb.Append(sort.Item1.Name).Append(".").Append(sortFactory.PropertyName);
+                    }
+                    else {
+                        // select distinct can't be used with newid()
+                        _cacheable = false;
+                        sb.Replace("select distinct", "select ");
+                    }
+                }
+
+                sb.AppendLine();
             }
 
             sb.Append("from ").Append(_from.TableName).Append(" as ").Append(_from.Name).AppendLine();
@@ -232,7 +279,20 @@ namespace Orchard.ContentManagement {
                 sort.Item2(sortFactory);
 
                 if (sortFactory.Randomize) {
-                    sb.Append(" newid()");
+
+                    string command = null;
+
+                    foreach (var sqlStatementProvider in _sqlStatementProviders) {
+                        if (!String.Equals(sqlStatementProvider.DataProvider, _shellSettings.DataProvider)) {
+                            continue;
+                        }
+
+                        command = sqlStatementProvider.GetStatement("random") ?? command;
+                    }
+
+                    if (command != null) {
+                        sb.Append(command);    
+                    }
                 }
                 else {
                     sb.Append(sort.Item1.Name).Append(".").Append(sortFactory.PropertyName);
@@ -240,6 +300,12 @@ namespace Orchard.ContentManagement {
                         sb.Append(" desc");
                     }
                 }
+            }
+
+            // no order clause was specified, use a default sort order, unless it's a count
+            // query hence it doesn't need one
+            if (firstSort && !count) {
+                sb.Append("order by civ.Id");
             }
 
             return sb.ToString();
@@ -302,7 +368,7 @@ namespace Orchard.ContentManagement {
                 throw new ArgumentException("Alias can't be empty");
             }
             
-            Name = name;
+            Name = name.Strip('-');
         }
 
         public DefaultHqlQuery<IContent> Query { get; set; }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -17,13 +18,15 @@ namespace Orchard.Data {
         private readonly ShellBlueprint _shellBlueprint;
         private readonly IAppDataFolder _appDataFolder;
         private readonly IHostEnvironment _hostEnvironment;
+        private readonly IEnumerable<ISessionConfigurationEvents> _configurers;
         private ConfigurationCache _currentConfig;
 
-        public SessionConfigurationCache(ShellSettings shellSettings, ShellBlueprint shellBlueprint, IAppDataFolder appDataFolder, IHostEnvironment hostEnvironment) {
+        public SessionConfigurationCache(ShellSettings shellSettings, ShellBlueprint shellBlueprint, IAppDataFolder appDataFolder, IHostEnvironment hostEnvironment, IEnumerable<ISessionConfigurationEvents> configurers) {
             _shellSettings = shellSettings;
             _shellBlueprint = shellBlueprint;
             _appDataFolder = appDataFolder;
             _hostEnvironment = hostEnvironment;
+            _configurers = configurers;
             _currentConfig = null;
 
             Logger = NullLogger.Instance;
@@ -151,7 +154,7 @@ namespace Orchard.Data {
                 if (recordType.BaseType != null)
                     hash.AddTypeReference(recordType.BaseType);
 
-                foreach (var property in recordType.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public)) {
+                foreach (var property in recordType.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)) {
                     hash.AddString(property.Name);
                     hash.AddTypeReference(property.PropertyType);
 
@@ -160,6 +163,8 @@ namespace Orchard.Data {
                     }
                 }
             }
+
+            _configurers.Invoke(c => c.ComputingHash(hash), Logger);
 
             return hash;
         }

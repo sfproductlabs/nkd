@@ -240,7 +240,15 @@ ul.disc {list-style:disc inside; margin:12px 0;}
     width:40px;
 }
 #site {
-    font-size:1.385em; /*18px*/
+    font-size: 1.385em; /*18px*/
+}
+#site a {
+    width: 186px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
 #site a, #site a:visited, #site a:active {
     color:#fff;
@@ -281,12 +289,12 @@ ul.disc {list-style:disc inside; margin:12px 0;}
     border:0;
     margin:0 10px 0 10px;
 }
-#menu .expando-glyph {
+#menu .expando-glyph-container .expando-glyph {
     background:transparent no-repeat 0 -19px;
     background-image:url(images/menu-glyph.png);
     left:160px;
 }
-#menu .expando-glyph:hover {
+#menu .expando-glyph-container .expando-glyph:hover {
     background-image:url(images/menu-glyph.png);
 }
 #menu .expando-glyph-container.closed .expando-glyph {
@@ -316,11 +324,13 @@ ul.disc {list-style:disc inside; margin:12px 0;}
     font-size:14px;
     padding:0 0 0 10px;
 }
-#menu .menu-admin a {
+#menu .menu-admin a,
+#menu .menu-admin span {
     background-position:0 2px;
     background-repeat:no-repeat;
 }
-#menu .menu-admin li h3 a { /* only the h3 gets an icon by default */
+#menu .menu-admin li h3 a,
+#menu .menu-admin li h3 span { /* only the h3 gets an icon by default */
     background-image:url(images/menu-default.png);
     padding:0 0 0 20px;
 }
@@ -350,7 +360,12 @@ ul.disc {list-style:disc inside; margin:12px 0;}
      border-radius: 2px;
 }
 #menu .menu-admin ul a:hover, #menu .menu-admin ul a:active {background-color:rgba(101,107,85,0.5);}
+#menu .menu-admin .section-new .navicon-new {
+    background-image: none;
+    padding: 0;
+}
 ul.menuItems {margin:6px 0 0 0;}
+
 
 /******Tabs******/
 #local-navigation {margin:8px 0 -8px 0;}
@@ -547,7 +562,8 @@ legend            { font-size: 1.231em; font-weight: normal; border:none;}
 fieldset          { padding:6px 0 0; margin:0 0 12px 0; border: 0px solid #dbdbdb; }
 label             { font-weight:normal; display:block; padding: 0 0 0.3em 0; }
 label.forcheckbox { margin:0 0 0 .4em; display:inline; }
-label.required:after {margin-left: 1ex; content: "*"; color: red; }  
+label.required:after {margin-left: 1ex; content: "*"; color: red; }
+legend.required:after {margin-left: 1ex; content: "*"; color: red; }    
 
 form.inline, form.inline fieldset { /* todo: (heskew) need something other than .inline ... */
     display:inline;
@@ -592,30 +608,29 @@ label input {
     color:#7c7c7c;
 }
 /* todo: (heskew) try to get .text on stuff like .text-box */
-select, textarea, input.text, input.textMedium, input.text-small, input.text-box {
+/* Official classes to use: 'text', 'text small', 'text medium', 'text large'. No more 'textMedium', 'text-medium', 'text-small', 'text-large' */
+select, textarea, input.text, input.textMedium, input.text-medium, input.text-small, input.text-box {
     font-family:inherit;
     padding:3px;
     border:1px solid #bdbcbc;
-    font-family:inherit;
     font-size:inherit;
 }
-input.text, input.textMedium, input.text-box {
+input.text, input.textMedium, input.text-medium, input.text-box {
     line-height:1.2em;
 }
-/*Are we using the two classes below?*/
-input.text-small {
+input.text-small, input.text.small {
     width:4em;
 }
-input.textMedium {
+input.textMedium, input.text-medium, input.text.medium {
     width:26em;
 }
 select {
     padding:1px;	
 }
-select:focus, textarea:focus, input.text:focus, input.text-box:focus, input.text-small:focus, input.textMedium:focus  {
+select:focus, textarea:focus, input.text:focus, input.text-box:focus, input.text-small:focus, input.textMedium:focus, input.text-medium:focus  {
     border-color:#666d51;
 }
-input.check-box {
+input.check-box, input[type=checkbox] {
     margin-left:0;
     vertical-align:-.1em;
 }
@@ -661,23 +676,23 @@ button.remove:focus::-moz-focus-inner, .remove.button:focus::-moz-focus-inner {
     float:right;
 }
 .button.grey {
-  		color:#5d615d;
-		background:#f5f5f5;
-		border:1px solid #999;
+        color:#5d615d;
+        background:#f5f5f5;
+        border:1px solid #999;
 
-		/*CSS3 properties*/
-		text-shadow:none;
-		
-		-webkit-box-shadow: inset 0px 0px 1px rgba(255, 255, 255, 1.0); 
+        /*CSS3 properties*/
+        text-shadow:none;
+        
+        -webkit-box-shadow: inset 0px 0px 1px rgba(255, 255, 255, 1.0); 
         -moz-box-shadow: inset 0px 0px 1px rgba(255, 255, 255, 1.0); 
         box-shadow: inset 0px 0px 1px rgba(255, 255, 255, 1.0);
-		
-		/*----In ie the first couplet sets the alpha value so 00=transparent and ff=opaque)----*/    
+        
+        /*----In ie the first couplet sets the alpha value so 00=transparent and ff=opaque)----*/    
         filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#fff5f5f5',  endColorstr='#ffd9d9d9');
         background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(245, 245, 245, 1.0)), to(rgba(217, 217, 217, 1.0)));   
         background: -moz-linear-gradient(top, rgba(245, 245, 245, 1.0), rgba(217, 217, 217, 1.0));
-		
-		-webkit-border-radius: 2px;
+        
+        -webkit-border-radius: 2px;
         -moz-border-radius: 2px;
          border-radius: 2px;	
 }
@@ -703,7 +718,7 @@ button, .button, a.button {
      
     /*----In ie the first couplet sets the alpha value so 00=transparent and ff=opaque)----*/    
      filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#ff9bb36c',  endColorstr='#ff809f43');	
-	 background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(155, 179, 108, 1.0)), to(rgba(128, 159, 67, 1.0)));    
+     background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(155, 179, 108, 1.0)), to(rgba(128, 159, 67, 1.0)));    
      background: -moz-linear-gradient(top, rgba(155, 179, 108, 1.0), rgba(128, 159, 67, 1.0));
 
      /*test - base green in pallet is 155,179,108*/
@@ -744,7 +759,7 @@ button:active, .buton:active, a.button:active {
     /*CSS3 properties*/
     text-shadow: rgba(0,0,0,.5) 0px 0px 1px;
      filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#ff9bb36c',  endColorstr='#ff809f43');	
-	 background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(155, 179, 108, 1.0)), to(rgba(128, 159, 67, 1.0)));   
+     background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(155, 179, 108, 1.0)), to(rgba(128, 159, 67, 1.0)));   
      background: -moz-linear-gradient(top, rgba(155, 179, 108, 1.0), rgba(128, 159, 67, 1.0));
 }
 button:focus::-moz-focus-inner, .button:focus::-moz-focus-inner {
@@ -752,19 +767,19 @@ button:focus::-moz-focus-inner, .button:focus::-moz-focus-inner {
 }
 /*disabled*/
 .button.disabled, .button.disabled:visited, .button.disabled:hover, .button.disabled:active, .button.disabled:focus {
-	background-color:#eee;
-	border:1px solid #ababab;
-	color:#ababab;
-	cursor:default;
-	
-	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#ffeeeeee',  endColorstr='#ffeeeeee');
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(238, 238, 238, 1.0)), to(rgba(238, 238, 238, 1.0)));   
+    background-color:#eee;
+    border:1px solid #ababab;
+    color:#ababab;
+    cursor:default;
+    
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#ffeeeeee',  endColorstr='#ffeeeeee');
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(238, 238, 238, 1.0)), to(rgba(238, 238, 238, 1.0)));   
     background: -moz-linear-gradient(top, rgba(238, 238, 238, 1.0), rgba(238, 238, 238, 1.0));
     
-	text-shadow: none;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 /* and allow all of that button style to be undone and beyond - to look like a link */
 button.link {
@@ -895,10 +910,16 @@ table.items td .add
     float: right;
 }
 
+table.items tr.internal *{
+    background-color: #eee;
+    color: grey; 
+}
+
 /* Content item lists
 ----------------------------------------------------------*/
 .contentItems {
     border:1px solid #eaeaea;
+    border-bottom: none;
     background:#FFF;
     clear:both;
     margin:1em 0;
@@ -909,9 +930,6 @@ table.items td .add
     overflow:hidden;
     padding:0 1.4em .8em;
     border-bottom:1px solid #eaeaea;
-}
-.contentItems li.last {
-    border-bottom:none;
 }
 .contentItems.bulk-items li {
     padding-bottom:.6em;
@@ -974,7 +992,7 @@ table.items td .add
 .contentItems .related {
     text-align:right;
 }
-.contentItems .commentcount {
+.contentItems .comment-count {
     line-height:2em;
 }
 

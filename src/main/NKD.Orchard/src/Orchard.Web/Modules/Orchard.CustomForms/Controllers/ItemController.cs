@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Web.Mvc;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Aspects;
 using Orchard.Core.Contents.Settings;
+using Orchard.CustomForms.Activities;
 using Orchard.CustomForms.Models;
 using Orchard.CustomForms.Rules;
 using Orchard.Data;
 using Orchard.DisplayManagement;
 using Orchard.Localization;
 using Orchard.Logging;
+using Orchard.Mvc;
 using Orchard.Mvc.Extensions;
 using Orchard.Themes;
 using Orchard.Tokens;
 using Orchard.UI.Notify;
+using Orchard.Workflows.Services;
 
 namespace Orchard.CustomForms.Controllers {
     [Themed(true)]
@@ -25,6 +27,7 @@ namespace Orchard.CustomForms.Controllers {
         private readonly ITransactionManager _transactionManager;
         private readonly IRulesManager _rulesManager;
         private readonly ITokenizer _tokenizer;
+        private readonly IWorkflowManager _workflowManager;
 
         public ItemController(
             IOrchardServices orchardServices,
@@ -32,12 +35,14 @@ namespace Orchard.CustomForms.Controllers {
             ITransactionManager transactionManager,
             IShapeFactory shapeFactory,
             IRulesManager rulesManager,
-            ITokenizer tokenizer) {
+            ITokenizer tokenizer,
+            IWorkflowManager workflowManager) {
             Services = orchardServices;
             _contentManager = contentManager;
             _transactionManager = transactionManager;
             _rulesManager = rulesManager;
             _tokenizer = tokenizer;
+            _workflowManager = workflowManager;
             T = NullLocalizer.Instance;
             Logger = NullLogger.Instance;
             Shape = shapeFactory;
@@ -119,8 +124,6 @@ namespace Orchard.CustomForms.Controllers {
             if (!Services.Authorizer.Authorize(Permissions.CreateSubmitPermission(customForm.ContentType), contentItem, T("Couldn't create content")))
                 return new HttpUnauthorizedResult();
 
-            _contentManager.Create(contentItem, VersionOptions.Draft);
-
             dynamic model = _contentManager.UpdateEditor(contentItem, this);
             
             if (!ModelState.IsValid) {
@@ -130,15 +133,18 @@ namespace Orchard.CustomForms.Controllers {
                 if (form.ContentType == "CustomFormWidget") {
                     foreach (var error in ModelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage)) {
                         Services.Notifier.Error(T(error));
-                    } 
+                    }
+
+                    // save the updated editor shape into TempData to survive a redirection and keep the edited values
+                    TempData["CustomFormWidget.InvalidCustomFormState"] = model;
 
                     if (returnUrl != null) {
                         return this.RedirectLocal(returnUrl);
                     }
                 }
 
-                // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-                return View((object)model);
+                model.ContentItem(form);
+                return View(model);
             }
 
             contentItem.As<ICommonPart>().Container = customForm.ContentItem;
@@ -147,15 +153,17 @@ namespace Orchard.CustomForms.Controllers {
             _rulesManager.TriggerEvent("CustomForm", "Submitted",
                     () => new Dictionary<string, object> { { "Content", contentItem } });
 
+            // trigger any workflow
+            _workflowManager.TriggerEvent(FormSubmittedActivity.EventName, customForm.ContentItem,
+                    () => new Dictionary<string, object> { { "Content", contentItem } });
+
             if (customForm.Redirect) {
                 returnUrl = _tokenizer.Replace(customForm.RedirectUrl, new Dictionary<string, object> { { "Content", contentItem } });
             }
 
             // save the submitted form
-            if (!customForm.SaveContentItem) {
-                Services.ContentManager.Remove(contentItem);
-            }
-            else {
+            if (customForm.SaveContentItem) {
+                _contentManager.Create(contentItem);
                 conditionallyPublish(contentItem);
             }
 
@@ -176,19 +184,6 @@ namespace Orchard.CustomForms.Controllers {
 
         void IUpdateModel.AddModelError(string key, LocalizedString errorMessage) {
             ModelState.AddModelError(key, errorMessage.ToString());
-        }
-    }
-
-    public class FormValueRequiredAttribute : ActionMethodSelectorAttribute {
-        private readonly string _submitButtonName;
-
-        public FormValueRequiredAttribute(string submitButtonName) {
-            _submitButtonName = submitButtonName;
-        }
-
-        public override bool IsValidForRequest(ControllerContext controllerContext, MethodInfo methodInfo) {
-            var value = controllerContext.HttpContext.Request.Form[_submitButtonName];
-            return !string.IsNullOrEmpty(value);
         }
     }
 }

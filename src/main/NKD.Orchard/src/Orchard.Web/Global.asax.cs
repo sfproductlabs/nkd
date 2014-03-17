@@ -4,8 +4,6 @@ using System.Web.Routing;
 using Autofac;
 using Orchard.Environment;
 using Orchard.WarmupStarter;
-//using DevExpress.Web.Mvc;
-using System;
 
 namespace Orchard.Web {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -19,7 +17,6 @@ namespace Orchard.Web {
 
         public static void RegisterRoutes(RouteCollection routes) {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.IgnoreRoute("{resource}.ashx/{*pathInfo}"); //for upload control
         }
 
         protected void Application_Start() {
@@ -34,11 +31,6 @@ namespace Orchard.Web {
 
         protected void Application_EndRequest() {
             _starter.OnEndRequest(this);
-        }
-        
-        protected void Application_PreRequestHandlerExecute(object sender, EventArgs e)
-        {
-            //DevExpressHelper.Theme = "SoftOrange";
         }
 
         private static void HostBeginRequest(HttpApplication application, IOrchardHost host) {

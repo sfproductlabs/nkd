@@ -54,6 +54,7 @@ namespace NKD.Services {
 
         private readonly IOrchardServices _orchardServices;
         private readonly IContentManager _contentManager;
+        private readonly IContentManagerSession _contentManagerSession;
         private readonly IRoleService _roleService;
         private readonly IMessageManager _messageManager;
         private readonly IScheduledTaskManager _taskManager;
@@ -76,7 +77,8 @@ namespace NKD.Services {
         public ILogger Logger { get; set; }
 
         public UsersService(
-            IContentManager contentManager, 
+            IContentManager contentManager,
+            IContentManagerSession contentManagerSession,
             IOrchardServices orchardServices, 
             IRoleService roleService, 
             IMessageManager messageManager, 
@@ -94,6 +96,7 @@ namespace NKD.Services {
             _emailRepository = emailRepository;
             _orchardServices = orchardServices;
             _contentManager = contentManager;
+            _contentManagerSession = contentManagerSession;
             _roleService = roleService;
             _messageManager = messageManager;
             _taskManager = taskManager;
@@ -1321,7 +1324,7 @@ namespace NKD.Services {
         public void Creating(UserContext context) { }
 
         public void Created(UserContext context) {
-            _contentManager.Flush();
+            _contentManagerSession.Store(context.User.ContentItem);
             SyncUsers();
             var contact = GetContactID(context.User.UserName);
             //Add user to default company

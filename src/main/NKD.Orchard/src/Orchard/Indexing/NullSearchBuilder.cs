@@ -32,19 +32,19 @@ namespace Orchard.Indexing {
             return this;
         }
 
-        public ISearchBuilder WithinRange(string field, int min, int max) {
+        public ISearchBuilder WithinRange(string field, int? min, int? max, bool includeMin = true, bool includeMax = true) {
             return this;
         }
 
-        public ISearchBuilder WithinRange(string field, double min, double max) {
+        public ISearchBuilder WithinRange(string field, double? min, double? max, bool includeMin = true, bool includeMax = true) {
             return this;
         }
 
-        public ISearchBuilder WithinRange(string field, DateTime min, DateTime max) {
+        public ISearchBuilder WithinRange(string field, DateTime? min, DateTime? max, bool includeMin = true, bool includeMax = true) {
             return this;
         }
 
-        public ISearchBuilder WithinRange(string field, string min, string max) {
+        public ISearchBuilder WithinRange(string field, string min, string max, bool includeMin = true, bool includeMax = true) {
             return this;
         }
 
@@ -127,6 +127,11 @@ namespace Orchard.Indexing {
         public ISearchHit Get(int documentId) {
             return null;
         }
+
+        public ISearchBits GetBits() {
+            throw new NotImplementedException();
+        }
+
         public int Count() {
             return 0;
         }

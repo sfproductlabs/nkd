@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Company="NakedEnterprise.Org" Copyright="This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA." Logo="" WebSite="http://nakedenterprise.org" Description="" Subtitle="Naked Enterprise" AboutInfoString="&lt;br&gt;{0:ProductName}&lt;br&gt;&lt;br&gt;http://nakedenterprise.org&lt;br&gt;&lt;br&gt;{0:Version}&lt;br&gt;{0:Copyright}&lt;br&gt;&lt;br&gt;{0:Description}" VersionFormat="Version {0}.{1}.{2}" Title="NakedEnterprise for Windows">
+<Application Company="NakedEnterprise.Org" Copyright="This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA." Logo="LogoCMYK" WebSite="http://nakedenterprise.org" Description="" Subtitle="Naked Enterprise" AboutInfoString="&lt;br&gt;{0:ProductName}&lt;br&gt;&lt;br&gt;http://nakedenterprise.org&lt;br&gt;&lt;br&gt;{0:Version}&lt;br&gt;{0:Copyright}&lt;br&gt;&lt;br&gt;{0:Description}" VersionFormat="Version {0}.{1}.{2}" Title="NakedEnterprise for Windows">
   <BOModel>
     <Class Name="NKD.Module.BusinessObjects.Account" DefaultListViewAllowEdit="False">
       <OwnMembers>
@@ -3122,7 +3122,7 @@
       </OwnMembers>
     </Class>
   </BOModel>
-  <NavigationItems DefaultChildItemsDisplayStyle="LargeIcons" DefaultLeafImageName="ModelEditor_Default" DefaultParentImageName="Action_Open" NavigationStyle="TreeList" StartupNavigationItem="@73a17b76-9212-47f3-91fd-a0042a75ff7e">
+  <NavigationItems DefaultChildItemsDisplayStyle="LargeIcons" DefaultLeafImageName="ModelEditor_Default" DefaultParentImageName="Action_Open" NavigationStyle="TreeList" StartupNavigationItem="@b19acb3b-ef0c-4a2c-8376-4145f7236b3b">
     <Items>
       <Item Id="@48f3c81d-8c1e-4e84-8916-d16aceb63521" Caption="Business" Index="0" ImageName="BO_Customer" IsNewNode="True">
         <Items IsNewNode="True">
