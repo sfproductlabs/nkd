@@ -152,8 +152,19 @@ namespace NKD.Helpers
                     }
                 }
             }
-        }       
+        }
 
+        public static object GetDefaultValue(this Type t)
+        {
+            if (!t.IsValueType || Nullable.GetUnderlyingType(t) != null)
+                return null;
+            return Activator.CreateInstance(t);
+        }
+
+        public static T GetDefaultValue<T>()
+        {
+            return default(T);
+        }
         
     }
 }

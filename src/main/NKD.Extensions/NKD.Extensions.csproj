@@ -73,10 +73,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\ByteHelper.cs" />
     <Compile Include="Helpers\DataReaderEnumerable.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
     <Compile Include="Helpers\DocHelper.cs" />
+    <Compile Include="Helpers\DynamicHelper.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\InterfaceHelper.cs" />
     <Compile Include="Helpers\LinqHelper.cs" />
