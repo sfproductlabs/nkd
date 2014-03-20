@@ -32085,7 +32085,7 @@
           <NavigationProperty Name="ModelCategory" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModelCategory_X_DictionaryModel" FromRole="X_DictionaryModel" ToRole="X_DictionaryModelCategory" />
           <NavigationProperty Name="ModelCharacteristic" Relationship="NKD.Module.BusinessObjects.FK_X_ModelCharacteristic_X_DictionaryModel" FromRole="X_DictionaryModel" ToRole="X_ModelCharacteristic" />
           <NavigationProperty Name="Survey" Relationship="NKD.Module.BusinessObjects.FK_X_Survey_X_DictionaryModel" FromRole="X_DictionaryModel" ToRole="X_Survey" />
-          <NavigationProperty Name="FileData" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryModel_X_FileData_OriginalFile" FromRole="X_DictionaryModel" ToRole="X_FileData" />
+          <NavigationProperty Name="OriginalFileData" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryModel_X_FileData_OriginalFile" FromRole="X_DictionaryModel" ToRole="X_FileData" />
           <NavigationProperty Name="AssayProcedureProtocolEquipment" Relationship="NKD.Module.BusinessObjects.FK_X_AssayProcedureProtocolEquipment_X_DictionaryModel" FromRole="DictionaryModel" ToRole="X_AssayProcedureProtocolEquipment" />
           <NavigationProperty Name="ApplicationPaymentProviderProductModel" Relationship="NKD.Module.BusinessObjects.FK_E_ApplicationPaymentProviderProductModel_X_DictionaryModel" FromRole="DictionaryModel" ToRole="E_ApplicationPaymentProviderProductModel" />
           <NavigationProperty Name="SupplyItem" Relationship="NKD.Module.BusinessObjects.FK_E_SupplyItem_X_DictionaryModel" FromRole="DictionaryModel" ToRole="SupplyItem" />
@@ -32093,9 +32093,9 @@
           <Property Type="Guid" Name="DefaultLicenseTypeID" />
           <Property Type="Guid" Name="SecureFileDataID" />
           <Property Type="String" Name="SecureRedirectURL" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="X_DictionaryLicenseType" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModel_X_DictionaryLicenseType" FromRole="DictionaryModel" ToRole="DictionaryLicenseType" />
-          <NavigationProperty Name="X_FileData" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModel_X_FileData" FromRole="DictionaryModel" ToRole="FileData" />
-          <NavigationProperty Name="X_FileData1" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModel_X_SecureFileData" FromRole="DictionaryModel" ToRole="FileData" />
+          <NavigationProperty Name="LicenseType" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModel_X_DictionaryLicenseType" FromRole="DictionaryModel" ToRole="DictionaryLicenseType" />
+          <NavigationProperty Name="UserGuideFileData" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModel_X_FileData" FromRole="DictionaryModel" ToRole="FileData" />
+          <NavigationProperty Name="SecureFileData" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryModel_X_SecureFileData" FromRole="DictionaryModel" ToRole="FileData" />
         </EntityType>
         <EntityType Name="DictionaryModelCategory">
           <Key>
