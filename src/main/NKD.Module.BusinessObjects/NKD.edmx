@@ -516,6 +516,68 @@
       [E_VW_PaymentProviderProductDetails].[UnitMinimum] AS [UnitMinimum]
       FROM [dbo].[E_VW_PaymentProviderProductDetails] AS [E_VW_PaymentProviderProductDetails]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="E_VW_SupplyItemDetail" EntityType="NKD.Module.BusinessObjects.Store.E_VW_SupplyItemDetail" store:Type="Views" store:Schema="dbo" store:Name="E_VW_SupplyItemDetail">
+            <DefiningQuery>SELECT 
+      [E_VW_SupplyItemDetail].[SupplyItemID] AS [SupplyItemID], 
+      [E_VW_SupplyItemDetail].[SupplyID] AS [SupplyID], 
+      [E_VW_SupplyItemDetail].[ModelID] AS [ModelID], 
+      [E_VW_SupplyItemDetail].[PartID] AS [PartID], 
+      [E_VW_SupplyItemDetail].[SupplierModelID] AS [SupplierModelID], 
+      [E_VW_SupplyItemDetail].[SupplierPartID] AS [SupplierPartID], 
+      [E_VW_SupplyItemDetail].[WarehouseID] AS [WarehouseID], 
+      [E_VW_SupplyItemDetail].[ProjectPlanTaskModelID] AS [ProjectPlanTaskModelID], 
+      [E_VW_SupplyItemDetail].[ProjectPlanTaskPartID] AS [ProjectPlanTaskPartID], 
+      [E_VW_SupplyItemDetail].[ProjectPlanTaskResponseID] AS [ProjectPlanTaskResponseID], 
+      [E_VW_SupplyItemDetail].[ApplicationPaymentProviderProductID] AS [ApplicationPaymentProviderProductID], 
+      [E_VW_SupplyItemDetail].[ApplicationPaymentProviderProductModelID] AS [ApplicationPaymentProviderProductModelID], 
+      [E_VW_SupplyItemDetail].[ApplicationPaymentProviderProductPartID] AS [ApplicationPaymentProviderProductPartID], 
+      [E_VW_SupplyItemDetail].[CustomerAccountID] AS [CustomerAccountID], 
+      [E_VW_SupplyItemDetail].[ModelUnitID] AS [ModelUnitID], 
+      [E_VW_SupplyItemDetail].[LabourUnitID] AS [LabourUnitID], 
+      [E_VW_SupplyItemDetail].[PartUnitID] AS [PartUnitID], 
+      [E_VW_SupplyItemDetail].[CostPerUnitModel] AS [CostPerUnitModel], 
+      [E_VW_SupplyItemDetail].[CostPerUnitLabour] AS [CostPerUnitLabour], 
+      [E_VW_SupplyItemDetail].[CostPerUnitPart] AS [CostPerUnitPart], 
+      [E_VW_SupplyItemDetail].[QuantityModel] AS [QuantityModel], 
+      [E_VW_SupplyItemDetail].[QuantityLabour] AS [QuantityLabour], 
+      [E_VW_SupplyItemDetail].[QuantityPart] AS [QuantityPart], 
+      [E_VW_SupplyItemDetail].[CostModel] AS [CostModel], 
+      [E_VW_SupplyItemDetail].[CostLabour] AS [CostLabour], 
+      [E_VW_SupplyItemDetail].[CostPart] AS [CostPart], 
+      [E_VW_SupplyItemDetail].[SubtotalModel] AS [SubtotalModel], 
+      [E_VW_SupplyItemDetail].[SubtotalLabour] AS [SubtotalLabour], 
+      [E_VW_SupplyItemDetail].[SubtotalPart] AS [SubtotalPart], 
+      [E_VW_SupplyItemDetail].[DiscountModel] AS [DiscountModel], 
+      [E_VW_SupplyItemDetail].[DiscountLabour] AS [DiscountLabour], 
+      [E_VW_SupplyItemDetail].[DiscountPart] AS [DiscountPart], 
+      [E_VW_SupplyItemDetail].[DiscountAmount] AS [DiscountAmount], 
+      [E_VW_SupplyItemDetail].[TaxModel] AS [TaxModel], 
+      [E_VW_SupplyItemDetail].[TaxLabour] AS [TaxLabour], 
+      [E_VW_SupplyItemDetail].[TaxPart] AS [TaxPart], 
+      [E_VW_SupplyItemDetail].[Tax] AS [Tax], 
+      [E_VW_SupplyItemDetail].[OriginalSubtotal] AS [OriginalSubtotal], 
+      [E_VW_SupplyItemDetail].[CurrencyID] AS [CurrencyID], 
+      [E_VW_SupplyItemDetail].[Subtotal] AS [Subtotal], 
+      [E_VW_SupplyItemDetail].[Notes] AS [Notes], 
+      [E_VW_SupplyItemDetail].[Version] AS [Version], 
+      [E_VW_SupplyItemDetail].[VersionAntecedentID] AS [VersionAntecedentID], 
+      [E_VW_SupplyItemDetail].[VersionCertainty] AS [VersionCertainty], 
+      [E_VW_SupplyItemDetail].[VersionWorkflowInstanceID] AS [VersionWorkflowInstanceID], 
+      [E_VW_SupplyItemDetail].[VersionUpdatedBy] AS [VersionUpdatedBy], 
+      [E_VW_SupplyItemDetail].[VersionDeletedBy] AS [VersionDeletedBy], 
+      [E_VW_SupplyItemDetail].[VersionOwnerContactID] AS [VersionOwnerContactID], 
+      [E_VW_SupplyItemDetail].[VersionOwnerCompanyID] AS [VersionOwnerCompanyID], 
+      [E_VW_SupplyItemDetail].[VersionUpdated] AS [VersionUpdated], 
+      [E_VW_SupplyItemDetail].[StandardModelName] AS [StandardModelName], 
+      [E_VW_SupplyItemDetail].[ModelUnitName] AS [ModelUnitName], 
+      [E_VW_SupplyItemDetail].[StandardPartName] AS [StandardPartName], 
+      [E_VW_SupplyItemDetail].[PartUnitName] AS [PartUnitName], 
+      [E_VW_SupplyItemDetail].[LabourUnitName] AS [LabourUnitName], 
+      [E_VW_SupplyItemDetail].[PrefixCharacters] AS [PrefixCharacters], 
+      [E_VW_SupplyItemDetail].[PostfixCharacters] AS [PostfixCharacters], 
+      [E_VW_SupplyItemDetail].[CustomerPurchaseOrderID] AS [CustomerPurchaseOrderID]
+      FROM [dbo].[E_VW_SupplyItemDetail] AS [E_VW_SupplyItemDetail]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="M_VW_DictionaryCompositeCoal" EntityType="NKD.Module.BusinessObjects.Store.M_VW_DictionaryCompositeCoal" store:Type="Views" store:Schema="dbo" store:Name="M_VW_DictionaryCompositeCoal">
             <DefiningQuery>SELECT 
       [M_VW_DictionaryCompositeCoal].[DictionaryName] AS [DictionaryName], 
@@ -7092,6 +7154,8 @@
           <Property Name="CommunicationCompanyID" Type="uniqueidentifier" />
           <Property Name="StatusWorkTypeID" Type="uniqueidentifier" />
           <Property Name="RegardingWorkTypeID" Type="uniqueidentifier" />
+          <Property Name="RegardingTableType" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegardingReferenceID" Type="uniqueidentifier" />
           <Property Name="RegardingCompanyID" Type="uniqueidentifier" />
           <Property Name="RegardingContactID" Type="uniqueidentifier" />
           <Property Name="RegardingFileDataID" Type="uniqueidentifier" />
@@ -11950,6 +12014,74 @@
           <Property Name="UnitDefault" Type="decimal" Precision="38" Scale="20" />
           <Property Name="UnitMaximum" Type="decimal" Precision="38" Scale="20" />
           <Property Name="UnitMinimum" Type="decimal" Precision="38" Scale="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'NKD.dbo.E_VW_SupplyItemDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="E_VW_SupplyItemDetail">
+          <Key>
+            <PropertyRef Name="SupplyItemID" />
+            <PropertyRef Name="SupplyID" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Name="SupplyItemID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SupplyID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModelID" Type="uniqueidentifier" />
+          <Property Name="PartID" Type="uniqueidentifier" />
+          <Property Name="SupplierModelID" Type="uniqueidentifier" />
+          <Property Name="SupplierPartID" Type="uniqueidentifier" />
+          <Property Name="WarehouseID" Type="uniqueidentifier" />
+          <Property Name="ProjectPlanTaskModelID" Type="uniqueidentifier" />
+          <Property Name="ProjectPlanTaskPartID" Type="uniqueidentifier" />
+          <Property Name="ProjectPlanTaskResponseID" Type="uniqueidentifier" />
+          <Property Name="ApplicationPaymentProviderProductID" Type="uniqueidentifier" />
+          <Property Name="ApplicationPaymentProviderProductModelID" Type="uniqueidentifier" />
+          <Property Name="ApplicationPaymentProviderProductPartID" Type="uniqueidentifier" />
+          <Property Name="CustomerAccountID" Type="uniqueidentifier" />
+          <Property Name="ModelUnitID" Type="uniqueidentifier" />
+          <Property Name="LabourUnitID" Type="uniqueidentifier" />
+          <Property Name="PartUnitID" Type="uniqueidentifier" />
+          <Property Name="CostPerUnitModel" Type="money" />
+          <Property Name="CostPerUnitLabour" Type="money" />
+          <Property Name="CostPerUnitPart" Type="money" />
+          <Property Name="QuantityModel" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="QuantityLabour" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="QuantityPart" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="CostModel" Type="money" />
+          <Property Name="CostLabour" Type="money" />
+          <Property Name="CostPart" Type="money" />
+          <Property Name="SubtotalModel" Type="money" />
+          <Property Name="SubtotalLabour" Type="money" />
+          <Property Name="SubtotalPart" Type="money" />
+          <Property Name="DiscountModel" Type="money" />
+          <Property Name="DiscountLabour" Type="money" />
+          <Property Name="DiscountPart" Type="money" />
+          <Property Name="DiscountAmount" Type="money" />
+          <Property Name="TaxModel" Type="money" />
+          <Property Name="TaxLabour" Type="money" />
+          <Property Name="TaxPart" Type="money" />
+          <Property Name="Tax" Type="money" />
+          <Property Name="OriginalSubtotal" Type="money" />
+          <Property Name="CurrencyID" Type="uniqueidentifier" />
+          <Property Name="Subtotal" Type="money" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+          <Property Name="StandardModelName" Type="nvarchar" MaxLength="60" />
+          <Property Name="ModelUnitName" Type="nvarchar" MaxLength="16" />
+          <Property Name="StandardPartName" Type="nvarchar" MaxLength="60" />
+          <Property Name="PartUnitName" Type="nvarchar" MaxLength="16" />
+          <Property Name="LabourUnitName" Type="nvarchar" MaxLength="16" />
+          <Property Name="PrefixCharacters" Type="nvarchar" MaxLength="5" />
+          <Property Name="PostfixCharacters" Type="nvarchar" MaxLength="5" />
+          <Property Name="CustomerPurchaseOrderID" Type="uniqueidentifier" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'NKD.dbo.M_VW_DictionaryCompositeCoal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -22675,6 +22807,26 @@
           <Parameter Name="purchaseOrder" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="contactID" Type="uniqueidentifier" Mode="In" />
         </Function>
+        <Function Name="E_SP_GetInvoices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="text" Type="nvarchar" Mode="In" />
+          <Parameter Name="applicationID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ownerContactID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ownerCompanyID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="customerCompanyID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="customerContactID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="dated" Type="datetime" Mode="In" />
+          <Parameter Name="startRowIndex" Type="int" Mode="In" />
+          <Parameter Name="pageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="E_SP_GetLicenses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="applicationID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ownerContactID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ownerCompanyID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="licenseeCompanyID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="licenseeContactID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="startRowIndex" Type="int" Mode="In" />
+          <Parameter Name="pageSize" Type="int" Mode="In" />
+        </Function>
         <Function Name="E_SP_GetProductContractConditions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="productsText" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="companyid" Type="uniqueidentifier" Mode="In" />
@@ -22728,6 +22880,18 @@
           <Parameter Name="openOnly" Type="bit" Mode="In" />
           <Parameter Name="startRowIndex" Type="int" Mode="In" />
           <Parameter Name="pageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="E_UDF_OrderDownloads" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="purchaseOrder" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="contactID" Type="uniqueidentifier" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="DownloadID" Type="uniqueidentifier" />
+                <Property Name="Description" Type="nvarchar(max)" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
         </Function>
         <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -27702,6 +27866,31 @@
           <FunctionImport Name="E_SP_DisableVersioningTriggers" />
           <FunctionImport Name="E_SP_DropVersioning" />
           <FunctionImport Name="E_SP_DropVersioningTriggers" />
+          <FunctionImport Name="E_SP_GetInvoices" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetInvoices_Result)">
+            <Parameter Name="text" Mode="In" Type="String" />
+            <Parameter Name="applicationID" Mode="In" Type="Guid" />
+            <Parameter Name="ownerContactID" Mode="In" Type="Guid" />
+            <Parameter Name="ownerCompanyID" Mode="In" Type="Guid" />
+            <Parameter Name="customerCompanyID" Mode="In" Type="Guid" />
+            <Parameter Name="customerContactID" Mode="In" Type="Guid" />
+            <Parameter Name="dated" Mode="In" Type="DateTime" />
+            <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
+            <Parameter Name="pageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="E_UDF_OrderDownloads" IsComposable="true" ReturnType="Collection(NKD.Module.BusinessObjects.E_UDF_OrderDownloads_Result)">
+            <Parameter Name="purchaseOrder" Mode="In" Type="Guid" />
+            <Parameter Name="contactID" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="E_SP_GetLicenses" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetLicenses_Result)">
+            <Parameter Name="applicationID" Mode="In" Type="Guid" />
+            <Parameter Name="ownerContactID" Mode="In" Type="Guid" />
+            <Parameter Name="ownerCompanyID" Mode="In" Type="Guid" />
+            <Parameter Name="licenseeCompanyID" Mode="In" Type="Guid" />
+            <Parameter Name="licenseeContactID" Mode="In" Type="Guid" />
+            <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
+            <Parameter Name="pageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="SupplyItemDetailViews" EntityType="NKD.Module.BusinessObjects.SupplyItemDetailView" />
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -45794,6 +45983,8 @@
           <Property Type="String" Name="CommunicationEmail" MaxLength="255" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="CommunicationRegarding" Relationship="NKD.Module.BusinessObjects.FK_E_CommunicationRegardingData_X_Communication" FromRole="Communication" ToRole="E_CommunicationRegardingData" />
           <NavigationProperty Name="CommunicationEmailsOther" Relationship="NKD.Module.BusinessObjects.FK_E_CommunicationEmail_E_CommunicationEmail" FromRole="Communication" ToRole="CommunicationEmails" />
+          <Property Type="String" Name="RegardingTableType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="RegardingReferenceID" />
         </EntityType>
         <EntityType Name="PaymentProviderProductDetailsView">
           <Key>
@@ -47637,6 +47828,147 @@
           <Property Type="String" Name="UserName" Nullable="false" MaxLength="128" />
           <Property Type="Binary" Name="UserSID" Nullable="true" MaxLength="85" />
         </ComplexType>
+        <ComplexType Name="E_SP_GetInvoices_Result">
+          <Property Type="Int64" Name="InvoiceRow" Nullable="true" />
+          <Property Type="Guid" Name="InvoiceID" Nullable="false" />
+          <Property Type="Decimal" Name="FreightTax" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="FreightAmount" Nullable="true" Precision="19" />
+          <Property Type="Boolean" Name="DiscountAllFreight" Nullable="true" />
+          <Property Type="Decimal" Name="DiscountAmount" Nullable="true" Precision="19" />
+          <Property Type="Boolean" Name="DiscountIncludesFreight" Nullable="true" />
+          <Property Type="Decimal" Name="TaxAmount" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="OriginalTotal" Nullable="true" Precision="19" />
+          <Property Type="Guid" Name="CurrencyID" Nullable="true" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+          <Property Type="DateTime" Name="Dated" Nullable="true" />
+          <Property Type="DateTime" Name="Communicated" Nullable="true" />
+          <Property Type="Int64" Name="InvoiceLineRow" Nullable="true" />
+          <Property Type="Guid" Name="InvoiceLineID" Nullable="true" />
+          <Property Type="String" Name="CurrencyPrefix" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="CurrencyPostfix" Nullable="true" MaxLength="5" />
+          <Property Type="Guid" Name="SupplyItemID" Nullable="true" />
+          <Property Type="String" Name="ReferenceType" Nullable="true" MaxLength="60" />
+          <Property Type="Guid" Name="ReferenceID" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="60" />
+          <Property Type="Decimal" Name="Quantity" Nullable="true" Precision="38" Scale="20" />
+          <Property Type="Guid" Name="TaxID" Nullable="true" />
+          <Property Type="String" Name="TaxName" Nullable="true" MaxLength="60" />
+          <Property Type="Decimal" Name="Tax" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="LineDiscountAmount" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="OriginalSubtotal" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Subtotal" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="E_UDF_OrderDownloads_Result">
+          <Property Type="Guid" Name="DownloadID" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="E_SP_GetLicenses_Result">
+          <Property Type="Int64" Name="LicenseRow" Nullable="true" />
+          <Property Type="Guid" Name="LicenseID" Nullable="false" />
+          <Property Type="Guid" Name="CompanyID" Nullable="true" />
+          <Property Type="Guid" Name="ContactID" Nullable="true" />
+          <Property Type="Guid" Name="LicenseeGUID" Nullable="true" />
+          <Property Type="String" Name="LicenseeName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="LicenseeUsername" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="LicenseeUniqueMachineCode1" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="LicenseeUniqueMachineCode2" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="LicenseeGroupID" Nullable="true" />
+          <Property Type="String" Name="LicensorIP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LicensorName" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="LicenseTypeID" Nullable="true" />
+          <Property Type="String" Name="LicenseType" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="LicenseURL" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="RootServerName" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="RootServerID" Nullable="true" />
+          <Property Type="String" Name="ServerName" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="ServerID" Nullable="true" />
+          <Property Type="Guid" Name="ApplicationID" Nullable="true" />
+          <Property Type="String" Name="ServiceAuthenticationMethod" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="ServiceAuthorisationMethod" Nullable="true" MaxLength="255" />
+          <Property Type="DateTime" Name="ValidFrom" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Expiry" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="SupportExpiry" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="ValidForDuration" Nullable="true" Precision="38" Scale="20" />
+          <Property Type="Guid" Name="ValidForUnitID" Nullable="true" />
+          <Property Type="String" Name="ValidForUnitName" Nullable="true" MaxLength="16" />
+          <Property Type="Guid" Name="AssetID" Nullable="true" />
+          <Property Type="Decimal" Name="ProRataCost" Nullable="true" Precision="19" />
+          <Property Type="Guid" Name="LicenseAssetID" Nullable="true" />
+          <Property Type="Guid" Name="ModelID" Nullable="true" />
+          <Property Type="String" Name="StandardModelName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="ModelRestrictions" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="LicenseAssetModelPartID" Nullable="true" />
+          <Property Type="Guid" Name="ModelPartID" Nullable="true" />
+          <Property Type="String" Name="StandardPartName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="PartRestrictions" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="DownloadID" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="SupplyItemDetailView">
+          <Key>
+            <PropertyRef Name="SupplyItemID" />
+            <PropertyRef Name="SupplyID" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Type="Guid" Name="SupplyItemID" Nullable="false" />
+          <Property Type="Guid" Name="SupplyID" Nullable="false" />
+          <Property Type="Guid" Name="ModelID" />
+          <Property Type="Guid" Name="PartID" />
+          <Property Type="Guid" Name="SupplierModelID" />
+          <Property Type="Guid" Name="SupplierPartID" />
+          <Property Type="Guid" Name="WarehouseID" />
+          <Property Type="Guid" Name="ProjectPlanTaskModelID" />
+          <Property Type="Guid" Name="ProjectPlanTaskPartID" />
+          <Property Type="Guid" Name="ProjectPlanTaskResponseID" />
+          <Property Type="Guid" Name="ApplicationPaymentProviderProductID" />
+          <Property Type="Guid" Name="ApplicationPaymentProviderProductModelID" />
+          <Property Type="Guid" Name="ApplicationPaymentProviderProductPartID" />
+          <Property Type="Guid" Name="CustomerAccountID" />
+          <Property Type="Guid" Name="ModelUnitID" />
+          <Property Type="Guid" Name="LabourUnitID" />
+          <Property Type="Guid" Name="PartUnitID" />
+          <Property Type="Decimal" Name="CostPerUnitModel" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="CostPerUnitLabour" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="CostPerUnitPart" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="QuantityModel" Precision="38" Scale="20" />
+          <Property Type="Decimal" Name="QuantityLabour" Precision="38" Scale="20" />
+          <Property Type="Decimal" Name="QuantityPart" Precision="38" Scale="20" />
+          <Property Type="Decimal" Name="CostModel" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="CostLabour" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="CostPart" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="SubtotalModel" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="SubtotalLabour" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="SubtotalPart" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="DiscountModel" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="DiscountLabour" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="DiscountPart" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="DiscountAmount" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="TaxModel" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="TaxLabour" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="TaxPart" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Tax" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="OriginalSubtotal" Precision="19" Scale="4" />
+          <Property Type="Guid" Name="CurrencyID" />
+          <Property Type="Decimal" Name="Subtotal" Precision="19" Scale="4" />
+          <Property Type="String" Name="Notes" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <Property Type="String" Name="StandardModelName" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModelUnitName" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StandardPartName" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PartUnitName" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LabourUnitName" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PrefixCharacters" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostfixCharacters" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="CustomerPurchaseOrderID" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -56155,6 +56487,8 @@
           <EntitySetMapping Name="Communications">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.Communication">
               <MappingFragment StoreEntitySet="X_Communication">
+                <ScalarProperty Name="RegardingReferenceID" ColumnName="RegardingReferenceID" />
+                <ScalarProperty Name="RegardingTableType" ColumnName="RegardingTableType" />
                 <ScalarProperty Name="CommunicationEmail" ColumnName="CommunicationEmail" />
                 <ScalarProperty Name="CommunicationMobile" ColumnName="CommunicationMobile" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
@@ -56648,6 +56982,158 @@
           <FunctionImportMapping FunctionImportName="E_SP_DisableVersioningTriggers" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_DisableVersioningTriggers" />
           <FunctionImportMapping FunctionImportName="E_SP_DropVersioning" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_DropVersioning" />
           <FunctionImportMapping FunctionImportName="E_SP_DropVersioningTriggers" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_DropVersioningTriggers" />
+          <FunctionImportMapping FunctionImportName="E_SP_GetInvoices" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetInvoices">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetInvoices_Result">
+                <ScalarProperty Name="InvoiceRow" ColumnName="InvoiceRow" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="FreightTax" ColumnName="FreightTax" />
+                <ScalarProperty Name="FreightAmount" ColumnName="FreightAmount" />
+                <ScalarProperty Name="DiscountAllFreight" ColumnName="DiscountAllFreight" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="DiscountIncludesFreight" ColumnName="DiscountIncludesFreight" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+                <ScalarProperty Name="OriginalTotal" ColumnName="OriginalTotal" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Dated" ColumnName="Dated" />
+                <ScalarProperty Name="Communicated" ColumnName="Communicated" />
+                <ScalarProperty Name="InvoiceLineRow" ColumnName="InvoiceLineRow" />
+                <ScalarProperty Name="InvoiceLineID" ColumnName="InvoiceLineID" />
+                <ScalarProperty Name="CurrencyPrefix" ColumnName="CurrencyPrefix" />
+                <ScalarProperty Name="CurrencyPostfix" ColumnName="CurrencyPostfix" />
+                <ScalarProperty Name="SupplyItemID" ColumnName="SupplyItemID" />
+                <ScalarProperty Name="ReferenceType" ColumnName="ReferenceType" />
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="TaxName" ColumnName="TaxName" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="LineDiscountAmount" ColumnName="LineDiscountAmount" />
+                <ScalarProperty Name="OriginalSubtotal" ColumnName="OriginalSubtotal" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="E_UDF_OrderDownloads" FunctionName="NKD.Module.BusinessObjects.Store.E_UDF_OrderDownloads">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_UDF_OrderDownloads_Result">
+                <ScalarProperty Name="DownloadID" ColumnName="DownloadID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_GetLicenses" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetLicenses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetLicenses_Result">
+                <ScalarProperty Name="LicenseRow" ColumnName="LicenseRow" />
+                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="LicenseeGUID" ColumnName="LicenseeGUID" />
+                <ScalarProperty Name="LicenseeName" ColumnName="LicenseeName" />
+                <ScalarProperty Name="LicenseeUsername" ColumnName="LicenseeUsername" />
+                <ScalarProperty Name="LicenseeUniqueMachineCode1" ColumnName="LicenseeUniqueMachineCode1" />
+                <ScalarProperty Name="LicenseeUniqueMachineCode2" ColumnName="LicenseeUniqueMachineCode2" />
+                <ScalarProperty Name="LicenseeGroupID" ColumnName="LicenseeGroupID" />
+                <ScalarProperty Name="LicensorIP" ColumnName="LicensorIP" />
+                <ScalarProperty Name="LicensorName" ColumnName="LicensorName" />
+                <ScalarProperty Name="LicenseTypeID" ColumnName="LicenseTypeID" />
+                <ScalarProperty Name="LicenseType" ColumnName="LicenseType" />
+                <ScalarProperty Name="LicenseURL" ColumnName="LicenseURL" />
+                <ScalarProperty Name="RootServerName" ColumnName="RootServerName" />
+                <ScalarProperty Name="RootServerID" ColumnName="RootServerID" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="ServerID" ColumnName="ServerID" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ServiceAuthenticationMethod" ColumnName="ServiceAuthenticationMethod" />
+                <ScalarProperty Name="ServiceAuthorisationMethod" ColumnName="ServiceAuthorisationMethod" />
+                <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+                <ScalarProperty Name="Expiry" ColumnName="Expiry" />
+                <ScalarProperty Name="SupportExpiry" ColumnName="SupportExpiry" />
+                <ScalarProperty Name="ValidForDuration" ColumnName="ValidForDuration" />
+                <ScalarProperty Name="ValidForUnitID" ColumnName="ValidForUnitID" />
+                <ScalarProperty Name="ValidForUnitName" ColumnName="ValidForUnitName" />
+                <ScalarProperty Name="AssetID" ColumnName="AssetID" />
+                <ScalarProperty Name="ProRataCost" ColumnName="ProRataCost" />
+                <ScalarProperty Name="LicenseAssetID" ColumnName="LicenseAssetID" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="StandardModelName" ColumnName="StandardModelName" />
+                <ScalarProperty Name="ModelRestrictions" ColumnName="ModelRestrictions" />
+                <ScalarProperty Name="LicenseAssetModelPartID" ColumnName="LicenseAssetModelPartID" />
+                <ScalarProperty Name="ModelPartID" ColumnName="ModelPartID" />
+                <ScalarProperty Name="StandardPartName" ColumnName="StandardPartName" />
+                <ScalarProperty Name="PartRestrictions" ColumnName="PartRestrictions" />
+                <ScalarProperty Name="DownloadID" ColumnName="DownloadID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="SupplyItemDetailViews">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.SupplyItemDetailView">
+              <MappingFragment StoreEntitySet="E_VW_SupplyItemDetail">
+                <ScalarProperty Name="CustomerPurchaseOrderID" ColumnName="CustomerPurchaseOrderID" />
+                <ScalarProperty Name="PostfixCharacters" ColumnName="PostfixCharacters" />
+                <ScalarProperty Name="PrefixCharacters" ColumnName="PrefixCharacters" />
+                <ScalarProperty Name="LabourUnitName" ColumnName="LabourUnitName" />
+                <ScalarProperty Name="PartUnitName" ColumnName="PartUnitName" />
+                <ScalarProperty Name="StandardPartName" ColumnName="StandardPartName" />
+                <ScalarProperty Name="ModelUnitName" ColumnName="ModelUnitName" />
+                <ScalarProperty Name="StandardModelName" ColumnName="StandardModelName" />
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="OriginalSubtotal" ColumnName="OriginalSubtotal" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="TaxPart" ColumnName="TaxPart" />
+                <ScalarProperty Name="TaxLabour" ColumnName="TaxLabour" />
+                <ScalarProperty Name="TaxModel" ColumnName="TaxModel" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="DiscountPart" ColumnName="DiscountPart" />
+                <ScalarProperty Name="DiscountLabour" ColumnName="DiscountLabour" />
+                <ScalarProperty Name="DiscountModel" ColumnName="DiscountModel" />
+                <ScalarProperty Name="SubtotalPart" ColumnName="SubtotalPart" />
+                <ScalarProperty Name="SubtotalLabour" ColumnName="SubtotalLabour" />
+                <ScalarProperty Name="SubtotalModel" ColumnName="SubtotalModel" />
+                <ScalarProperty Name="CostPart" ColumnName="CostPart" />
+                <ScalarProperty Name="CostLabour" ColumnName="CostLabour" />
+                <ScalarProperty Name="CostModel" ColumnName="CostModel" />
+                <ScalarProperty Name="QuantityPart" ColumnName="QuantityPart" />
+                <ScalarProperty Name="QuantityLabour" ColumnName="QuantityLabour" />
+                <ScalarProperty Name="QuantityModel" ColumnName="QuantityModel" />
+                <ScalarProperty Name="CostPerUnitPart" ColumnName="CostPerUnitPart" />
+                <ScalarProperty Name="CostPerUnitLabour" ColumnName="CostPerUnitLabour" />
+                <ScalarProperty Name="CostPerUnitModel" ColumnName="CostPerUnitModel" />
+                <ScalarProperty Name="PartUnitID" ColumnName="PartUnitID" />
+                <ScalarProperty Name="LabourUnitID" ColumnName="LabourUnitID" />
+                <ScalarProperty Name="ModelUnitID" ColumnName="ModelUnitID" />
+                <ScalarProperty Name="CustomerAccountID" ColumnName="CustomerAccountID" />
+                <ScalarProperty Name="ApplicationPaymentProviderProductPartID" ColumnName="ApplicationPaymentProviderProductPartID" />
+                <ScalarProperty Name="ApplicationPaymentProviderProductModelID" ColumnName="ApplicationPaymentProviderProductModelID" />
+                <ScalarProperty Name="ApplicationPaymentProviderProductID" ColumnName="ApplicationPaymentProviderProductID" />
+                <ScalarProperty Name="ProjectPlanTaskResponseID" ColumnName="ProjectPlanTaskResponseID" />
+                <ScalarProperty Name="ProjectPlanTaskPartID" ColumnName="ProjectPlanTaskPartID" />
+                <ScalarProperty Name="ProjectPlanTaskModelID" ColumnName="ProjectPlanTaskModelID" />
+                <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+                <ScalarProperty Name="SupplierPartID" ColumnName="SupplierPartID" />
+                <ScalarProperty Name="SupplierModelID" ColumnName="SupplierModelID" />
+                <ScalarProperty Name="PartID" ColumnName="PartID" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="SupplyID" ColumnName="SupplyID" />
+                <ScalarProperty Name="SupplyItemID" ColumnName="SupplyItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

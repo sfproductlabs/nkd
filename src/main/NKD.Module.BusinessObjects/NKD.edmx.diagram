@@ -1192,6 +1192,7 @@
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_Q_Asset_Q_DicitonaryAssetStatus1" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType1" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile1" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.SupplyItemDetailView" Width="1.5" PointX="2.9570178198427977" PointY="18.020550140189265" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

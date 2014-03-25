@@ -74,6 +74,7 @@ namespace NKD.Services {
         }
         private readonly IRepository<EmailPartRecord> _emailRepository;
         private readonly IRepository<UserRolesPartRecord> _userRolesRepository;
+        private readonly IRepository<UserPartRecord> _userPartRepository;
         public ILogger Logger { get; set; }
 
         public UsersService(
@@ -88,7 +89,9 @@ namespace NKD.Services {
             IRepository<UserRolesPartRecord> userRolesRepository, 
             ICacheManager cache, 
             IClock clock, 
-            ISignals signals) 
+            ISignals signals,
+            IRepository<UserPartRecord> userPartRepository
+            ) 
         {
             _signals = signals;
             _clock = clock;
@@ -102,6 +105,7 @@ namespace NKD.Services {
             _taskManager = taskManager;
             _shellSettings = shellSettings;
             _userRolesRepository = userRolesRepository;
+            _userPartRepository = userPartRepository;
             T = NullLocalizer.Instance;
             Logger = NullLogger.Instance;            
         }
@@ -1317,6 +1321,18 @@ namespace NKD.Services {
             else
                 throw new NotSupportedException("Can not delete a security record without an ID.");
 
+        }
+
+        public bool UpdateUserEmail(string email)
+        {
+            IUser user = _orchardServices.WorkContext.CurrentUser;
+            if (!RegexHelper.IsEmail(email))
+                return false;
+            //_contentManager.Query<UserPart, UserPartRecord>().List();
+            if (_userPartRepository.Fetch(f => f.Email == email).Any())
+                return false;
+            user.As<UserPart>().Email = email;
+            return true;
         }
 
         //Events

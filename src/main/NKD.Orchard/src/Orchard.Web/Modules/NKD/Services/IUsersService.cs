@@ -40,6 +40,9 @@ namespace NKD.Services
          string[] GetUserEmails(Guid[] users);
 
          [OperationContract]
+         bool UpdateUserEmail(string email);
+
+         [OperationContract]
          void EmailUsers(string[] recipients, string subject, string body, bool retry = false, bool forwardToSupport = false, string from = null, string fromName = null, bool hideRecipients = false);
 
          [OperationContract]
