@@ -53,9 +53,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MAS1\Filters\LayoutFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MAS1\Content\Images\accordion-plus-white.png" />
+    <Content Include="MAS1\Content\Images\accordion-plus.png" />
+    <Content Include="MAS1\Content\Images\arrow-submenu.png" />
+    <Content Include="MAS1\Content\Images\cart.png" />
+    <Content Include="MAS1\Content\Images\flags\en-US.gif" />
+    <Content Include="MAS1\Content\Images\flags\pt-PT.gif" />
+    <Content Include="MAS1\Content\Images\header-aux.png" />
+    <Content Include="MAS1\Content\Images\logo.png" />
+    <Content Include="MAS1\Content\Images\mas_logo_sml.png" />
+    <Content Include="MAS1\Content\Images\mas_logo_web.png" />
+    <Content Include="MAS1\Content\Images\search.gif" />
+    <Content Include="MAS1\Content\Images\search.png" />
+    <Content Include="MAS1\Content\Images\store.jpg" />
+    <Content Include="MAS1\Instructions.txt" />
+    <Content Include="MAS1\js\BindMENU.js" />
+    <Content Include="MAS1\js\bootstrap.min.js" />
+    <Content Include="MAS1\js\fix-responsive-WP8.js" />
+    <Content Include="MAS1\js\fix-search-ie8.js" />
+    <Content Include="MAS1\js\html5shiv.js" />
+    <Content Include="MAS1\js\jquery-ui.min.js" />
+    <Content Include="MAS1\js\jquery.min.js" />
+    <Content Include="MAS1\js\jquery.nivo.slider.pack.js" />
+    <Content Include="MAS1\js\populateSelectNav.js" />
+    <Content Include="MAS1\MAS1.csproj" />
+    <Content Include="MAS1\Styles\fonts\fontawesome-webfont.svg" />
+    <Content Include="MAS1\Styles\site.css" />
+    <Content Include="MAS1\Styles\site.uncompressed.css" />
+    <Content Include="MAS1\Theme.png" />
+    <Content Include="MAS1\Theme.txt" />
+    <Content Include="MAS1\ThemeZonePreview.png" />
     <Content Include="TheAdmin\Scripts\admin.js" />
     <Content Include="TheAdmin\Styles\ie.css" />
     <Content Include="TheAdmin\Styles\ie7.css" />
@@ -160,8 +191,56 @@
   <ItemGroup>
     <Content Include="TheAdmin\Views\ErrorPage.cshtml" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="MAS1\js\" />
+    <Content Include="MAS1\Content\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MAS1\Styles\fonts\fontawesome-webfont.eot" />
+    <Content Include="MAS1\Styles\fonts\fontawesome-webfont.ttf" />
+    <Content Include="MAS1\Styles\fonts\fontawesome-webfont.woff" />
+    <Content Include="MAS1\Styles\fonts\FontAwesome.otf" />
+    <Content Include="MAS1\Styles\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MAS1\Placement.info" />
+    <Content Include="MAS1\Views\Layout-HomePage.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MAS1\Views\Layout-Home_Boxed.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MAS1\Views\Layout-Home_Boxed_Sidebar.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MAS1\Views\Layout-Inner.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MAS1\Views\Layout-Inner_Boxed.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MAS1\Views\Layout-Inner_Boxed_Sidebar.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MAS1\Views\Layout-Inner_Sidebar.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MAS1\Views\Layout-OldDefault.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MAS1\Views\Layout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MAS1\Views\LogOn2.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MAS1\Views\Parts\Product.cshtml" />
+    <Content Include="MAS1\Views\Widget.Wrapper.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MAS1\js\Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

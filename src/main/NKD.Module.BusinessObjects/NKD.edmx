@@ -22854,6 +22854,13 @@
           <Parameter Name="verified" Type="bit" Mode="InOut" />
           <Parameter Name="found" Type="int" Mode="InOut" />
         </Function>
+        <Function Name="E_SP_GetSoftwareSubmissions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="applicationID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ownerContactID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ownerCompanyID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="startRowIndex" Type="int" Mode="In" />
+          <Parameter Name="pageSize" Type="int" Mode="In" />
+        </Function>
         <Function Name="E_SP_GetSupportEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tabletype" Type="nvarchar" Mode="In" />
           <Parameter Name="referenceID" Type="uniqueidentifier" Mode="In" />
@@ -27891,6 +27898,13 @@
             <Parameter Name="pageSize" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="SupplyItemDetailViews" EntityType="NKD.Module.BusinessObjects.SupplyItemDetailView" />
+          <FunctionImport Name="E_SP_GetSoftwareSubmissions" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetSoftwareSubmissions_Result)">
+            <Parameter Name="applicationID" Mode="In" Type="Guid" />
+            <Parameter Name="ownerContactID" Mode="In" Type="Guid" />
+            <Parameter Name="ownerCompanyID" Mode="In" Type="Guid" />
+            <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
+            <Parameter Name="pageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -47969,6 +47983,14 @@
           <Property Type="String" Name="PostfixCharacters" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="CustomerPurchaseOrderID" />
         </EntityType>
+        <ComplexType Name="E_SP_GetSoftwareSubmissions_Result">
+          <Property Type="Int64" Name="Row" Nullable="true" />
+          <Property Type="Guid" Name="MetaDataID" Nullable="false" />
+          <Property Type="String" Name="ContentToIndex" Nullable="true" />
+          <Property Type="DateTime" Name="VersionUpdated" Nullable="true" Precision="23" />
+          <Property Type="Guid" Name="FileDataID" Nullable="true" />
+          <Property Type="String" Name="FileName" Nullable="true" MaxLength="255" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -57134,6 +57156,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_GetSoftwareSubmissions" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetSoftwareSubmissions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetSoftwareSubmissions_Result">
+                <ScalarProperty Name="Row" ColumnName="Row" />
+                <ScalarProperty Name="MetaDataID" ColumnName="MetaDataID" />
+                <ScalarProperty Name="ContentToIndex" ColumnName="ContentToIndex" />
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="FileDataID" ColumnName="FileDataID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
