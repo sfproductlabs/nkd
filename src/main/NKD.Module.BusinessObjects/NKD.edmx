@@ -22833,6 +22833,7 @@
           <Parameter Name="forDistributor" Type="bit" Mode="In" />
           <Parameter Name="forEndUser" Type="bit" Mode="In" />
           <Parameter Name="forSupplier" Type="bit" Mode="In" />
+          <Parameter Name="includeText" Type="bit" Mode="In" />
         </Function>
         <Function Name="E_SP_GetProductModels" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="text" Type="nvarchar" Mode="In" />
@@ -27626,13 +27627,6 @@
             <End Role="FileData" EntitySet="FileDatas" />
             <End Role="Company" EntitySet="Companies" />
           </AssociationSet>
-          <FunctionImport Name="E_SP_GetProductContractConditions" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetProductContractConditions_Result)">
-            <Parameter Name="productsText" Mode="In" Type="String" />
-            <Parameter Name="companyid" Mode="In" Type="Guid" />
-            <Parameter Name="forDistributor" Mode="In" Type="Boolean" />
-            <Parameter Name="forEndUser" Mode="In" Type="Boolean" />
-            <Parameter Name="forSupplier" Mode="In" Type="Boolean" />
-          </FunctionImport>
           <FunctionImport Name="E_SP_GetProductModels" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetProductModels_Result)">
             <Parameter Name="text" Mode="In" Type="String" />
             <Parameter Name="applicationID" Mode="In" Type="Guid" />
@@ -27904,6 +27898,14 @@
             <Parameter Name="ownerCompanyID" Mode="In" Type="Guid" />
             <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
             <Parameter Name="pageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="E_SP_GetProductContractConditions" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetProductContractConditions_Result)">
+            <Parameter Name="productsText" Mode="In" Type="String" />
+            <Parameter Name="companyid" Mode="In" Type="Guid" />
+            <Parameter Name="forDistributor" Mode="In" Type="Boolean" />
+            <Parameter Name="forEndUser" Mode="In" Type="Boolean" />
+            <Parameter Name="forSupplier" Mode="In" Type="Boolean" />
+            <Parameter Name="includeText" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Split_Result">
@@ -47033,11 +47035,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="E_SP_GetProductContractConditions_Result">
-          <Property Type="Guid" Name="ContractID" Nullable="true" />
-          <Property Type="Guid" Name="ContractConditionID" Nullable="true" />
-          <Property Type="String" Name="ContractText" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="E_SP_GetProductModels_Result">
           <Property Type="Int64" Name="Row" Nullable="true" />
           <Property Type="Guid" Name="SupplierModelID" Nullable="false" />
@@ -47990,6 +47987,11 @@
           <Property Type="DateTime" Name="VersionUpdated" Nullable="true" Precision="23" />
           <Property Type="Guid" Name="FileDataID" Nullable="true" />
           <Property Type="String" Name="FileName" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="E_SP_GetProductContractConditions_Result">
+          <Property Type="Guid" Name="ContractID" Nullable="true" />
+          <Property Type="Guid" Name="ContractConditionID" Nullable="true" />
+          <Property Type="String" Name="ContractText" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -56574,15 +56576,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="E_SP_GetProductContractConditions" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetProductContractConditions">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetProductContractConditions_Result">
-                <ScalarProperty Name="ContractID" ColumnName="ContractID" />
-                <ScalarProperty Name="ContractConditionID" ColumnName="ContractConditionID" />
-                <ScalarProperty Name="ContractText" ColumnName="ContractText" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="E_SP_GetProductModels" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetProductModels">
             <ResultMapping>
               <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetProductModels_Result">
@@ -57165,6 +57158,15 @@
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="FileDataID" ColumnName="FileDataID" />
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_GetProductContractConditions" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetProductContractConditions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetProductContractConditions_Result">
+                <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+                <ScalarProperty Name="ContractConditionID" ColumnName="ContractConditionID" />
+                <ScalarProperty Name="ContractText" ColumnName="ContractText" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
