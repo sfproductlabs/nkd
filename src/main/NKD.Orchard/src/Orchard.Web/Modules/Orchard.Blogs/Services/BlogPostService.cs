@@ -58,7 +58,10 @@ namespace Orchard.Blogs.Services {
         }
 
         public int PostCount(BlogPart blogPart, VersionOptions versionOptions) {
-            return GetBlogQuery(blogPart, versionOptions).Count();
+            return _contentManager.Query(versionOptions, "BlogPost")
+                .Join<CommonPartRecord>().Where(
+                    cr => cr.Container.Id == blogPart.Id)
+                .Count();
         }
 
         public IEnumerable<BlogPostPart> Get(BlogPart blogPart, ArchiveData archiveData) {
@@ -87,7 +90,7 @@ namespace Orchard.Blogs.Services {
         public IEnumerable<KeyValuePair<ArchiveData, int>> GetArchives(BlogPart blogPart) {
             var query = 
                 from bar in _blogArchiveRepository.Table
-                where bar.BlogPart == blogPart.Record
+                where bar.BlogPart.Id == blogPart.Id
                 orderby bar.Year descending, bar.Month descending
                 select bar;
 
@@ -121,12 +124,11 @@ namespace Orchard.Blogs.Services {
             return (task == null ? null : task.ScheduledUtc);
         }
 
-        private IContentQuery<ContentItem, CommonPartRecord> GetBlogQuery(ContentPart<BlogPartRecord> blog, VersionOptions versionOptions) {
+        private IContentQuery<ContentItem, CommonPartRecord> GetBlogQuery(BlogPart blog, VersionOptions versionOptions) {
             return
                 _contentManager.Query(versionOptions, "BlogPost")
                 .Join<CommonPartRecord>().Where(
-                    cr => cr.Container == blog.Record.ContentItemRecord).OrderByDescending(cr => cr.CreatedUtc)
-                .WithQueryHintsFor("BlogPost")
+                    cr => cr.Container.Id == blog.Id).OrderByDescending(cr => cr.CreatedUtc)
                     ;
         }
     }

@@ -26,5 +26,10 @@ namespace Orchard.MultiTenancy.Services {
         /// Returns a list of all installed themes.
         /// </summary>
         IEnumerable<ExtensionDescriptor> GetInstalledThemes();
+
+        /// <summary>
+        /// Returns a list of all installed modules
+        /// </summary>
+        IEnumerable<ExtensionDescriptor> GetInstalledModules();
     }
 }

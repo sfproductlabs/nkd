@@ -50,7 +50,7 @@ namespace Orchard.Users.Controllers {
         public Localizer T { get; set; }
 
         public ActionResult Index(UserIndexOptions options, PagerParameters pagerParameters) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to list users")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageUsers, T("Not authorized to list users")))
                 return new HttpUnauthorizedResult();
 
             var pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
@@ -115,7 +115,7 @@ namespace Orchard.Users.Controllers {
         [HttpPost]
         [FormValueRequired("submit.BulkEdit")]
         public ActionResult Index(FormCollection input) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageUsers, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
             var viewModel = new UsersIndexViewModel {Users = new List<UserEntry>(), Options = new UserIndexOptions()};
@@ -151,22 +151,21 @@ namespace Orchard.Users.Controllers {
         }
 
         public ActionResult Create() {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageUsers, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
             var user = Services.ContentManager.New<IUser>("User");
             var editor = Shape.EditorTemplate(TemplateName: "Parts/User.Create", Model: new UserCreateViewModel(), Prefix: null);
             editor.Metadata.Position = "2";
-            dynamic model = Services.ContentManager.BuildEditor(user);
+            var model = Services.ContentManager.BuildEditor(user);
             model.Content.Add(editor);
 
-            // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-            return View((object)model);
+            return View(model);
         }
 
         [HttpPost, ActionName("Create")]
         public ActionResult CreatePOST(UserCreateViewModel createModel) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageUsers, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
             if (!string.IsNullOrEmpty(createModel.UserName)) {
@@ -193,7 +192,7 @@ namespace Orchard.Users.Controllers {
                                                   null, null, true));
             }
 
-            dynamic model = Services.ContentManager.UpdateEditor(user, this);
+            var model = Services.ContentManager.UpdateEditor(user, this);
 
             if (!ModelState.IsValid) {
                 Services.TransactionManager.Cancel();
@@ -202,8 +201,7 @@ namespace Orchard.Users.Controllers {
                 editor.Metadata.Position = "2";
                 model.Content.Add(editor);
 
-                // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-                return View((object)model);
+                return View(model);
             }
 
             Services.Notifier.Information(T("User created"));
@@ -211,28 +209,27 @@ namespace Orchard.Users.Controllers {
         }
 
         public ActionResult Edit(int id) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageUsers, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
             var user = Services.ContentManager.Get<UserPart>(id);
             var editor = Shape.EditorTemplate(TemplateName: "Parts/User.Edit", Model: new UserEditViewModel {User = user}, Prefix: null);
             editor.Metadata.Position = "2";
-            dynamic model = Services.ContentManager.BuildEditor(user);
+            var model = Services.ContentManager.BuildEditor(user);
             model.Content.Add(editor);
 
-            // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-            return View((object)model);
+            return View(model);
         }
 
         [HttpPost, ActionName("Edit")]
         public ActionResult EditPOST(int id) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageUsers, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
             var user = Services.ContentManager.Get<UserPart>(id, VersionOptions.DraftRequired);
             string previousName = user.UserName;
 
-            dynamic model = Services.ContentManager.UpdateEditor(user, this);
+            var model = Services.ContentManager.UpdateEditor(user, this);
 
             var editModel = new UserEditViewModel {User = user};
             if (TryUpdateModel(editModel)) {
@@ -260,8 +257,7 @@ namespace Orchard.Users.Controllers {
                 editor.Metadata.Position = "2";
                 model.Content.Add(editor);
 
-                // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-                return View((object)model);
+                return View(model);
             }
 
             Services.ContentManager.Publish(user.ContentItem);
@@ -272,7 +268,7 @@ namespace Orchard.Users.Controllers {
 
         [HttpPost]
         public ActionResult Delete(int id) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageUsers, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
             var user = Services.ContentManager.Get<IUser>(id);
@@ -294,13 +290,13 @@ namespace Orchard.Users.Controllers {
         }
 
         public ActionResult SendChallengeEmail(int id) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageUsers, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
             var user = Services.ContentManager.Get<IUser>(id);
 
             if ( user != null ) {
-                var siteUrl = Services.WorkContext.CurrentSite.As<SiteSettings2Part>().BaseUrl;
+                var siteUrl = Services.WorkContext.CurrentSite.BaseUrl;
                 if (String.IsNullOrWhiteSpace(siteUrl)) {
                     siteUrl = HttpContext.Request.ToRootUrlString();
                 }
@@ -314,7 +310,7 @@ namespace Orchard.Users.Controllers {
         }
 
         public ActionResult Approve(int id) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageUsers, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
             var user = Services.ContentManager.Get<IUser>(id);
@@ -331,7 +327,7 @@ namespace Orchard.Users.Controllers {
         }
 
         public ActionResult Moderate(int id) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageUsers, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
             var user = Services.ContentManager.Get<IUser>(id);

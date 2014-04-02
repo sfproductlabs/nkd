@@ -1,13 +1,10 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
-using Orchard.ContentManagement.Handlers;
 using Orchard.Core.Settings.ViewModels;
 using Orchard.Localization;
 using Orchard.ContentManagement;
 using Orchard.Localization.Services;
-using Orchard.Security;
 using Orchard.Settings;
 using Orchard.UI.Notify;
 
@@ -31,7 +28,7 @@ namespace Orchard.Core.Settings.Controllers {
         public Localizer T { get; set; }
 
         public ActionResult Index(string groupInfoId) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage settings")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageSettings, T("Not authorized to manage settings")))
                 return new HttpUnauthorizedResult();
 
             dynamic model;
@@ -52,17 +49,16 @@ namespace Orchard.Core.Settings.Controllers {
                 model = Services.ContentManager.BuildEditor(site);
             }
 
-            // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-            return View((object)model);
+            return View(model);
         }
 
         [HttpPost, ActionName("Index")]
         public ActionResult IndexPOST(string groupInfoId) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage settings")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageSettings, T("Not authorized to manage settings")))
                 return new HttpUnauthorizedResult();
 
             var site = _siteService.GetSiteSettings();
-            dynamic model = Services.ContentManager.UpdateEditor(site, this, groupInfoId);
+            var model = Services.ContentManager.UpdateEditor(site, this, groupInfoId);
 
             GroupInfo groupInfo = null;
 
@@ -83,8 +79,7 @@ namespace Orchard.Core.Settings.Controllers {
                 Services.TransactionManager.Cancel();
                 model.GroupInfo = groupInfo;
 
-                // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-                return View((object)model);
+                return View(model);
             }
 
             Services.Notifier.Information(T("Settings updated"));
@@ -93,7 +88,7 @@ namespace Orchard.Core.Settings.Controllers {
 
         public ActionResult Culture() {
             //todo: class and/or method attributes for our auth?
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage settings")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageSettings, T("Not authorized to manage settings")))
                 return new HttpUnauthorizedResult();
 
             var model = new SiteCulturesViewModel {
@@ -109,7 +104,7 @@ namespace Orchard.Core.Settings.Controllers {
 
         [HttpPost]
         public ActionResult AddCulture(string systemCultureName, string cultureName) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage settings")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageSettings, T("Not authorized to manage settings")))
                 return new HttpUnauthorizedResult();
 
             cultureName = string.IsNullOrWhiteSpace(cultureName) ? systemCultureName : cultureName;
@@ -122,7 +117,7 @@ namespace Orchard.Core.Settings.Controllers {
 
         [HttpPost]
         public ActionResult DeleteCulture(string cultureName) {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage settings")))
+            if (!Services.Authorizer.Authorize(Permissions.ManageSettings, T("Not authorized to manage settings")))
                 return new HttpUnauthorizedResult();
 
             _cultureManager.DeleteCulture(cultureName);

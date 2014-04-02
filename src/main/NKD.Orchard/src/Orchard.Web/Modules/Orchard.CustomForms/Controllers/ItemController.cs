@@ -71,14 +71,13 @@ namespace Orchard.CustomForms.Controllers {
             if (!Services.Authorizer.Authorize(Permissions.CreateSubmitPermission(customForm.ContentType), contentItem, T("Cannot create content")))
                 return new HttpUnauthorizedResult();
 
-            dynamic model = _contentManager.BuildEditor(contentItem);
+            var model = _contentManager.BuildEditor(contentItem);
 
             model
                 .ContentItem(form)
                 .ReturnUrl(Url.RouteUrl(_contentManager.GetItemMetadata(form).DisplayRouteValues));
 
-            // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-            return View((object)model);
+            return View(model);
         }
 
         [HttpPost, ActionName("Create")]
@@ -156,8 +155,8 @@ namespace Orchard.CustomForms.Controllers {
                     () => new Dictionary<string, object> { { "Content", contentItem } });
 
             // trigger any workflow
-            _workflowManager.TriggerEvent(FormSubmittedActivity.EventName, customForm.ContentItem,
-                    () => new Dictionary<string, object> { { "Content", contentItem } });
+            _workflowManager.TriggerEvent(FormSubmittedActivity.EventName, contentItem,
+                    () => new Dictionary<string, object> { { "Content", contentItem} , { "CustomForm", customForm.ContentItem } });
 
             if (customForm.Redirect) {
                 returnUrl = _tokenizer.Replace(customForm.RedirectUrl, new Dictionary<string, object> { { "Content", contentItem } });

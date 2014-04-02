@@ -15,7 +15,7 @@
     Layout.Title = T("Media Library");
 }
 
-<div id="media-library">
+<div id="media-library" data-draft-text="@T("Draft")">
     <div id="media-library-toolbar">
         <a href="#" data-bind="visible: displayed(), click: importMedia" class="button" id="button-import">@T("Import")</a>
         <a href="#" data-bind="visible: displayed(), attr: { href: '@HttpUtility.JavaScriptStringEncode(Url.Action("Edit", "Folder", new { area = "Orchard.MediaLibrary"}))?folderPath=' + encodeURIComponent(displayed()) }" class="button"  id="button-edit-folder">@T("Edit Folder")</a>
@@ -30,12 +30,7 @@
                 @Display(Model.CustomNavigationShapes)
 
                 <li id="media-library-main-navigation-tree">
-                    <ul>
-                        @foreach (var folder in viewModel.Folders) {
-                            <li>
-                                @Display.Partial(TemplateName: "MediaManagerFolder", Model: folder)
-                            </li>
-                        }
+                    <ul data-bind="template: { name: 'media-folder-template', foreach: mediaFolders }">
                     </ul>
                 </li>
             </ul>
@@ -48,6 +43,7 @@
                         </div>
                         <div class="media-library-main-list-overlay">
                             <p class="title" data-bind="text: data.title"></p>
+                            <p class="publication-status" data-bind="text: publicationStatus"></p>
                         </div>
                     </li>
                 </ul>
@@ -94,6 +90,7 @@ var mediaLibrarySettings = {
     mediaItemActionUrl: '@HttpUtility.JavaScriptStringEncode(Url.Action("MediaItem", "Admin"))',
     mediaItemsActionUrl: '@HttpUtility.JavaScriptStringEncode(Url.Action("MediaItems", "Admin"))',
     recentMediaItemsActionUrl: '@HttpUtility.JavaScriptStringEncode(Url.Action("RecentMediaItems", "Admin"))',
+    childFolderListingActionUrl: '@HttpUtility.JavaScriptStringEncode(Url.Action("ChildFolders", "Admin"))',
     importActionUrl: '@HttpUtility.JavaScriptStringEncode(Url.Action("Import", "Admin"))',
     moveActionUrl: '@Url.Action("Move", "Folder", new {area = "Orchard.MediaLibrary"})',
     deleteActionUrl: '@Url.Action("Delete", "Admin", new {area = "Orchard.MediaLibrary"})',
@@ -101,8 +98,20 @@ var mediaLibrarySettings = {
     folderPath: '@HttpUtility.JavaScriptStringEncode(viewModel.FolderPath)',
     deleteConfirmationMessage: '@HttpUtility.JavaScriptStringEncode(T("Are you sure you want to delete these media items ?").Text)',
     errorMessage: '@HttpUtility.JavaScriptStringEncode(T("An unexpected error occured, please refresh the page and try again.").Text)',
-    antiForgeryToken: '@Html.AntiForgeryTokenValueOrchard()'
+    antiForgeryToken: '@Html.AntiForgeryTokenValueOrchard()',
+    childFolders: (@Display.Partial(TemplateName: "ChildFolders", Model: viewModel.ChildFoldersViewModel))['childFolders']
 };
 //]]>
+</script>
+<script type="text/html" id="media-folder-template">
+    <li data-bind="visible: isVisible()">
+        <div class="media-library-folder" data-bind="css: { 'in-progress': $root.pendingRequest() }">
+            <div class="media-library-folder-title" data-bind="click: folderClicked, css: { selected: isSelected() }">
+                <a href="#" class="media-library-navigation-folder-link"><i data-bind="    css: {'icon-folder-open-alt': isExpanded(), 'icon-folder-close-alt': !isExpanded()}"></i><span data-bind="    text: name"></span></a>
+            </div>
+            <ul data-bind="template: { name: 'media-folder-template', foreach: childFolders}, visible: childFolders().length > 0">
+            </ul>
+        </div>
+    </li>
 </script>
 }

@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Web;
 using Orchard.ContentManagement;
 using Orchard.FileSystems.Media;
@@ -108,7 +109,7 @@ namespace Orchard.MediaProcessing.Services {
 
                 using (var image = GetImage(path)) {
 
-                    var filterContext = new FilterContext { Media = image, FilePath = _storageProvider.Combine("_Profiles", _storageProvider.Combine(profileName, CreateDefaultFileName(path))) };
+                    var filterContext = new FilterContext { Media = image, FilePath = _storageProvider.Combine("_Profiles", FormatProfilePath(profileName, path)) };
 
                     if (image == null) {
                         return filterContext.FilePath;
@@ -133,7 +134,6 @@ namespace Orchard.MediaProcessing.Services {
                     _fileNameProvider.UpdateFileName(profileName, path, filterContext.FilePath);
 
                     if (!filterContext.Saved) {
-                        _storageProvider.TryCreateFolder(_storageProvider.Combine("_Profiles", profilePart.Name));
                         var newFile = _storageProvider.OpenOrCreate(filterContext.FilePath);
                         using (var imageStream = newFile.OpenWrite()) {
                             using (var sw = new BinaryWriter(imageStream)) {
@@ -205,20 +205,14 @@ namespace Orchard.MediaProcessing.Services {
             return false;
         }
 
-        private static readonly char[] _disallowed = @"/:?#[]@!$&'()*+,.;=s""<>\|%".ToCharArray();
+        private string FormatProfilePath(string profileName, string path) {
+            
+            var filenameWithExtension = Path.GetFileName(path) ?? "";
+            var fileLocation = path.Substring(0, path.Length - filenameWithExtension.Length);
 
-        private static string CreateDefaultFileName(string path) {
-            var extention = Path.GetExtension(path);
-            var newPath = Path.ChangeExtension(path, "");
-            newPath = newPath.TrimEnd('.').RemoveDiacritics();
-            var normalized = newPath.ToCharArray();
-            for (var i = 0; i < normalized.Length; i++) {
-                if (Array.IndexOf(_disallowed, normalized[i]) >= 0) {
-                    normalized[i] = '_';
-                }
-            }
-
-            return new string(normalized) + extention;
+            return _storageProvider.Combine(
+                _storageProvider.Combine(profileName.GetHashCode().ToString("x").ToLowerInvariant(), fileLocation.GetHashCode().ToString("x").ToLowerInvariant()),
+                    filenameWithExtension);
         }
     }
 }

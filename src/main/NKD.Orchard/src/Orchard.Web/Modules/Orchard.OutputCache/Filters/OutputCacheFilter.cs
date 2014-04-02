@@ -8,6 +8,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Orchard.Mvc.Extensions;
 using Orchard.OutputCache.Models;
 using Orchard.OutputCache.Services;
 using Orchard.Caching;
@@ -295,7 +296,8 @@ namespace Orchard.OutputCache.Filters {
                 _filter = null;
                 if (_previousFilter != null) {
                     response.Filter = _previousFilter;
-                }
+                } 
+                return;
             }
             
             // ignore error results from cache
@@ -437,9 +439,9 @@ namespace Orchard.OutputCache.Filters {
             var redirectUrl = ((RedirectResult)(filterContext.Result)).Url ;
 
             if (!VirtualPathUtility.IsAbsolute(redirectUrl)) {
-                var applicationRoot = filterContext.HttpContext.Request.ToRootUrlString();
+                var applicationRoot = new UrlHelper(filterContext.HttpContext.Request.RequestContext).MakeAbsolute("/");
                 if (redirectUrl.StartsWith(applicationRoot, StringComparison.OrdinalIgnoreCase)) {
-                    redirectUrl = redirectUrl.Substring(applicationRoot.Length);
+                    redirectUrl = "~/" + redirectUrl.Substring(applicationRoot.Length);
                 }
             }
 
@@ -511,7 +513,7 @@ namespace Orchard.OutputCache.Filters {
         private string ComputeCacheKey(ControllerContext controllerContext, IEnumerable<KeyValuePair<string, object>> parameters) {
             var url = controllerContext.HttpContext.Request.RawUrl;
             if (!VirtualPathUtility.IsAbsolute(url)) {
-                var applicationRoot = controllerContext.HttpContext.Request.ToRootUrlString();
+                var applicationRoot = new UrlHelper(controllerContext.HttpContext.Request.RequestContext).MakeAbsolute("/");
                 if (url.StartsWith(applicationRoot, StringComparison.OrdinalIgnoreCase)) {
                     url = url.Substring(applicationRoot.Length);
                 }

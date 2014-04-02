@@ -34,6 +34,6 @@ using System.Security;
 
 
 // CHANGE ON THIS VERSION NEEDS TO BE APPLIED ON WEB.CONFIG TOO 
-[assembly: AssemblyVersion("1.7.3")]
-[assembly: AssemblyFileVersion("1.7.3")]
+[assembly: AssemblyVersion("1.8")]
+[assembly: AssemblyFileVersion("1.8")]
 

@@ -21,7 +21,7 @@ namespace Proligence.SignalR.Core
         {
             get
             {
-                if (_currentContext == null && (string)_scope.Tag == "work")
+                if (_currentContext == null && string.Format("{0}", _scope.Tag) == "work")
                 {
                     try
                     {

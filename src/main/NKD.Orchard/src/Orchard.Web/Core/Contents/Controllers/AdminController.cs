@@ -56,7 +56,24 @@ namespace Orchard.Core.Contents.Controllers {
         public ActionResult List(ListContentsViewModel model, PagerParameters pagerParameters) {
             Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
 
-            var query = _contentManager.Query(VersionOptions.Latest, GetCreatableTypes(false).Select(ctd => ctd.Name).ToArray());
+            var versionOptions = VersionOptions.Latest;
+            switch (model.Options.ContentsStatus)
+            {
+                case ContentsStatus.Published:
+                    versionOptions = VersionOptions.Published;
+                    break;
+                case ContentsStatus.Draft:
+                    versionOptions = VersionOptions.Draft;
+                    break;
+                case ContentsStatus.AllVersions:
+                    versionOptions = VersionOptions.AllVersions;
+                    break;
+                default:
+                    versionOptions = VersionOptions.Latest;
+                    break;
+            }
+
+            var query = _contentManager.Query(versionOptions, GetCreatableTypes(false).Select(ctd => ctd.Name).ToArray());
 
             if (!string.IsNullOrEmpty(model.TypeName)) {
                 var contentTypeDefinition = _contentDefinitionManager.GetTypeDefinition(model.TypeName);
@@ -94,14 +111,13 @@ namespace Orchard.Core.Contents.Controllers {
             var list = Shape.List();
             list.AddRange(pageOfContentItems.Select(ci => _contentManager.BuildDisplay(ci, "SummaryAdmin")));
 
-            dynamic viewModel = Shape.ViewModel()
+            var viewModel = Shape.ViewModel()
                 .ContentItems(list)
                 .Pager(pagerShape)
                 .Options(model.Options)
                 .TypeDisplayName(model.TypeDisplayName ?? "");
 
-            // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-            return View((object)viewModel);
+            return View(viewModel);
         }
 
         private IEnumerable<ContentTypeDefinition> GetCreatableTypes(bool andContainable) {
@@ -117,6 +133,7 @@ namespace Orchard.Core.Contents.Controllers {
             var routeValues = ControllerContext.RouteData.Values;
             if (options != null) {
                 routeValues["Options.OrderBy"] = options.OrderBy; //todo: don't hard-code the key
+                routeValues["Options.ContentsStatus"] = options.ContentsStatus; //todo: don't hard-code the key
                 if (GetCreatableTypes(false).Any(ctd => string.Equals(ctd.Name, options.SelectedFilter, StringComparison.OrdinalIgnoreCase))) {
                     routeValues["id"] = options.SelectedFilter;
                 }
@@ -178,10 +195,9 @@ namespace Orchard.Core.Contents.Controllers {
         }
 
         ActionResult CreatableTypeList(int? containerId) {
-            dynamic viewModel = Shape.ViewModel(ContentTypes: GetCreatableTypes(containerId.HasValue), ContainerId: containerId);
+            var viewModel = Shape.ViewModel(ContentTypes: GetCreatableTypes(containerId.HasValue), ContainerId: containerId);
 
-            // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-            return View("CreatableTypeList", (object)viewModel);
+            return View("CreatableTypeList", viewModel);
         }
 
         public ActionResult Create(string id, int? containerId) {
@@ -200,9 +216,8 @@ namespace Orchard.Core.Contents.Controllers {
                 }
             }
 
-            dynamic model = _contentManager.BuildEditor(contentItem);
-            // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-            return View((object)model);
+            var model = _contentManager.BuildEditor(contentItem);
+            return View(model);
         }
 
         [HttpPost, ActionName("Create")]
@@ -235,11 +250,10 @@ namespace Orchard.Core.Contents.Controllers {
 
             _contentManager.Create(contentItem, VersionOptions.Draft);
 
-            dynamic model = _contentManager.UpdateEditor(contentItem, this);
+            var model = _contentManager.UpdateEditor(contentItem, this);
             if (!ModelState.IsValid) {
                 _transactionManager.Cancel();
-                // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-                return View((object)model);
+                return View(model);
             }
 
             conditionallyPublish(contentItem);
@@ -263,9 +277,8 @@ namespace Orchard.Core.Contents.Controllers {
             if (!Services.Authorizer.Authorize(Permissions.EditContent, contentItem, T("Cannot edit content")))
                 return new HttpUnauthorizedResult();
 
-            dynamic model = _contentManager.BuildEditor(contentItem);
-            // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-            return View((object)model);
+            var model = _contentManager.BuildEditor(contentItem);
+            return View(model);
         }
 
         [HttpPost, ActionName("Edit")]
@@ -310,11 +323,10 @@ namespace Orchard.Core.Contents.Controllers {
                 previousRoute = contentItem.As<IAliasAspect>().Path;
             }
 
-            dynamic model = _contentManager.UpdateEditor(contentItem, this);
+            var model = _contentManager.UpdateEditor(contentItem, this);
             if (!ModelState.IsValid) {
                 _transactionManager.Cancel();
-                // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
-                return View("Edit", (object)model);
+                return View("Edit", model);
             }
 
             conditionallyPublish(contentItem);
