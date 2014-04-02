@@ -195,12 +195,13 @@ $(function () {
     $('#new-message').val('');
     $('#new-message').focus();
 
+    $.connection.hub.logging = true;
     $.connection.hub.start({ transport: activeTransport }, function () {
         chat.server.join()
             .done(function (success) {
                 if (success === false) {
                     $.cookie('userid', '');
-                    addMessage('Log in first to be able to use this chat.".', 'notification');
+                    addMessage('Choose a name using "/nick nickname".', 'notification');
                 }
                 addMessage('After that, you can view rooms using "/rooms" and join a room using "/join roomname".', 'notification');
             });

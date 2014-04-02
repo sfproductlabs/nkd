@@ -157,7 +157,8 @@ namespace Proligence.SignalR.Samples.Connections
 
         private static string GetClientIP(IRequest request)
         {
-            var env = Get<IDictionary<string, object>>(request.Items, "owin.environment");
+
+            var env = request.Environment;
 
             if (env == null)
             {

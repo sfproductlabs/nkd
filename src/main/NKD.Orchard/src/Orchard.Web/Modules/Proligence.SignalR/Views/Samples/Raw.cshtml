@@ -12,7 +12,7 @@
         $(function () {
             "use strict";
 
-            var connection = $.connection("/raw-connection");
+            var connection = $.connection("/conn/raw");
             connection.logging = true;
 
             connection.received(function (data) {

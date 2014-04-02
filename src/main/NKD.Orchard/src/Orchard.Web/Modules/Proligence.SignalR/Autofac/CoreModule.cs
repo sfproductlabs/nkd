@@ -1,10 +1,14 @@
 ﻿using Autofac;
+using JetBrains.Annotations;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using Orchard.Mvc;
 using Proligence.SignalR.Core;
+using Proligence.SignalR.Core.Hubs;
 
 namespace Proligence.SignalR.Autofac
 {
+    [UsedImplicitly]
     public class CoreModule : Module
     {
         protected override void Load(ContainerBuilder moduleBuilder)
@@ -12,7 +16,12 @@ namespace Proligence.SignalR.Autofac
             moduleBuilder
                 .RegisterType<AutofacDependencyResolver>()
                 .As<IDependencyResolver>()
-                .InstancePerDependency();
+                .InstancePerMatchingLifetimeScope("shell");
+
+            moduleBuilder
+                .RegisterType<TaskFriendlyHttpContextAccessor>()
+                .As<IHttpContextAccessor>()
+                .InstancePerLifetimeScope();
 
             moduleBuilder.RegisterSource(new HubsRegistrationSource());
             moduleBuilder.RegisterSource(new PersistentConnectionRegistrationSource());

@@ -3,8 +3,8 @@ AntiForgery: enabled
 SessionState: disabled
 Author: Piotr Szmyd / Proligence
 Website: http://www.proligence.pl
-Version: 1.3
-OrchardVersion: 1.6
+Version: 2.0.2
+OrchardVersion: 1.7
 Description: Enables SignalR functionality within Orchard applications.
 Category: Developer
 Features:

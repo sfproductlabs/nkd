@@ -5,11 +5,11 @@ using System.Web.Routing;
 using System.Web.SessionState;
 using JetBrains.Annotations;
 using Microsoft.AspNet.SignalR;
-using Microsoft.Owin.Host.SystemWeb;
 using Orchard.Environment.Extensions.Models;
 using Orchard.Logging;
 using Orchard.Mvc.Routes;
 using Owin;
+using Proligence.SignalR.Core.Hubs;
 using Proligence.SignalR.Core.Middleware;
 
 namespace Proligence.SignalR.Core
@@ -42,46 +42,48 @@ namespace Proligence.SignalR.Core
             {
                 Route = new RouteCollection().MapOwinPath("signalr.hubs", "/signalr", map =>
                 {
-                    map.Use(typeof(WorkLifetimeScopeHandler));
-                    map.MapHubs(string.Empty, _orchardHubConfiguration.ConnectionConfiguration);                
+                    map.Use<WorkContextScopeMiddleware>();
+                    map.MapSignalR("", _orchardHubConfiguration.ConnectionConfiguration);
                 }),
                 SessionState = SessionStateBehavior.Disabled,
                 Priority = int.MaxValue
             };
 
-            foreach (var tuple in _harvester.Get<PersistentConnection>())
+            yield return new RouteDescriptor
             {
-                var attrs = tuple.Item1.GetCustomAttributes(typeof(ConnectionAttribute), false);
-
-                var typeName = tuple.Item1.Name.ToLowerInvariant();
-                var connectionName = typeName.Contains("connection")
-                                            ? typeName.Substring(0, typeName.IndexOf("connection", System.StringComparison.Ordinal))
-                                            : typeName;
-                string connectionUrl = connectionName;
-
-                if (attrs.Any())
+                Route = new RouteCollection().MapOwinPath("signalr.connections", "/conn", map =>
                 {
-                    var attrName = ((ConnectionAttribute)attrs[0]).Name;
-                    var attrUrl = ((ConnectionAttribute)attrs[0]).Url;
-
-                    connectionName = !string.IsNullOrWhiteSpace(attrName) ? attrName : connectionName;
-                    connectionUrl = connectionName;
-
-                    connectionUrl = !string.IsNullOrWhiteSpace(attrUrl) ? attrUrl : connectionUrl;
-                }
-
-                Tuple<Type, Feature> tuple1 = tuple;
-                yield return new RouteDescriptor
-                {
-                    Route = new RouteCollection().MapOwinPath(connectionName, "/" + connectionUrl.TrimStart('/'), map =>
+                    foreach (var tuple in _harvester.Get<PersistentConnection>())
                     {
-                        map.Use(typeof(WorkLifetimeScopeHandler));
-                        map.MapConnection(string.Empty, tuple1.Item1, _orchardHubConfiguration.ConnectionConfiguration);
-                    }),
-                    SessionState = SessionStateBehavior.Disabled,
-                    Priority = int.MaxValue - 1
-                };
-            }
+                        var attrs = tuple.Item1.GetCustomAttributes(typeof (ConnectionAttribute), false);
+
+                        var typeName = tuple.Item1.Name.ToLowerInvariant();
+                        var connectionName = typeName.Contains("connection")
+                            ? typeName.Substring(0, typeName.IndexOf("connection", System.StringComparison.Ordinal))
+                            : typeName;
+                        string connectionUrl = connectionName;
+
+                        if (attrs.Any())
+                        {
+                            var attrName = ((ConnectionAttribute) attrs[0]).Name;
+                            var attrUrl = ((ConnectionAttribute) attrs[0]).Url;
+
+                            connectionName = !string.IsNullOrWhiteSpace(attrName) ? attrName : connectionName;
+                            connectionUrl = connectionName;
+
+                            connectionUrl = !string.IsNullOrWhiteSpace(attrUrl) ? attrUrl : connectionUrl;
+                        }
+
+                        Tuple<Type, Feature> tuple1 = tuple;
+                        var url = "/" + connectionUrl.TrimStart('/');
+
+                        map.Use<WorkContextScopeMiddleware>();
+                        map.MapSignalR(url, tuple1.Item1, _orchardHubConfiguration.ConnectionConfiguration);
+                    }
+                }),
+                SessionState = SessionStateBehavior.Disabled,
+                Priority = int.MaxValue - 1
+            };
         }
 
     }

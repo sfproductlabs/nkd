@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.SignalR;
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,17 +9,18 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.AspNet.SignalR;
 using Microsoft.Security.Application;
-using Orchard;
+using Microsoft.AspNet.SignalR.Hubs;
 using Orchard.Environment.Extensions;
 using Proligence.SignalR.Samples.Chat.ContentProviders;
+using Cookie = Microsoft.AspNet.SignalR.Cookie;
 
 namespace Proligence.SignalR.Samples.Chat
 {
     [OrchardFeature("Proligence.SignalR.Core.Samples")]
     public class Chat : Hub
     {
-        private readonly IOrchardServices _services;
         private static readonly ConcurrentDictionary<string, ChatUser> _users = new ConcurrentDictionary<string, ChatUser>(StringComparer.OrdinalIgnoreCase);
         private static readonly ConcurrentDictionary<string, HashSet<string>> _userRooms = new ConcurrentDictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase);
         private static readonly ConcurrentDictionary<string, ChatRoom> _rooms = new ConcurrentDictionary<string, ChatRoom>(StringComparer.OrdinalIgnoreCase);
@@ -31,20 +31,19 @@ namespace Proligence.SignalR.Samples.Chat
             new CollegeHumorContentProvider()
         };
 
-        public Chat(IOrchardServices services)
-        {
-            _services = services;
-        }
-
         public bool Join()
         {
-            if (_services.WorkContext.CurrentUser == null) {
+            // Check the user id cookie
+            Cookie userIdCookie;
+
+            if (!Context.RequestCookies.TryGetValue("userid", out userIdCookie))
+            {
                 return false;
             }
 
-            TrySetUser();
-            ChatUser user;
-            if (_users.TryGetValue(_services.WorkContext.CurrentUser.UserName, out user))
+            ChatUser user = _users.Values.FirstOrDefault(u => u.Id == userIdCookie.Value);
+
+            if (user != null)
             {
                 // Update the users's client id mapping
                 user.ConnectionId = Context.ConnectionId;
@@ -175,74 +174,6 @@ namespace Proligence.SignalR.Samples.Chat
                          .Select(b => b.ToString("x2")));
         }
 
-        private bool TrySetUser()
-        {
-            string name = Clients.Caller.name;
-
-            if (_services.WorkContext.CurrentUser == null)
-            {
-                return false;
-            }
-
-            string newUserName = _services.WorkContext.CurrentUser.UserName;
-
-            if (String.IsNullOrEmpty(newUserName))
-            {
-                throw new InvalidOperationException("No username specified!");
-            }
-
-            if (newUserName.Equals(name, StringComparison.OrdinalIgnoreCase))
-            {
-                throw new InvalidOperationException("That's already your username...");
-            }
-
-            if (!_users.ContainsKey(newUserName))
-            {
-                if (String.IsNullOrEmpty(name) || !_users.ContainsKey(name))
-                {
-                    AddUser(newUserName, _services.WorkContext.CurrentUser.Email ?? newUserName);
-                }
-                else
-                {
-                    var oldUser = _users[name];
-                    var newUser = new ChatUser
-                                      {
-                                          Name = newUserName,
-                                          Hash = GetMD5Hash(newUserName),
-                                          Id = oldUser.Id,
-                                          ConnectionId = oldUser.ConnectionId
-                                      };
-
-                    _users[newUserName] = newUser;
-                    _userRooms[newUserName] = new HashSet<string>(_userRooms[name]);
-
-                    if (_userRooms[name].Any())
-                    {
-                        foreach (var r in _userRooms[name])
-                        {
-                            _rooms[r].Users.Remove(name);
-                            _rooms[r].Users.Add(newUserName);
-                            Clients.Group(r).changeUserName(oldUser, newUser);
-                        }
-                    }
-                    HashSet<string> ignoredRoom;
-                    ChatUser ignoredUser;
-                    _userRooms.TryRemove(name, out ignoredRoom);
-                    _users.TryRemove(name, out ignoredUser);
-
-                    Clients.Caller.hash = newUser.Hash;
-                    Clients.Caller.name = newUser.Name;
-
-                    Clients.Caller.changeUserName(oldUser, newUser);
-                }
-            }
-            else
-            {
-                throw new InvalidOperationException(String.Format("Username '{0}' is already taken!", newUserName));
-            }
-            return true;
-        }
-
         private bool TryHandleCommand(string message)
         {
             string room = Clients.Caller.room;
@@ -254,6 +185,69 @@ namespace Proligence.SignalR.Samples.Chat
                 string[] parts = message.Substring(1).Split(' ');
                 string commandName = parts[0];
 
+                if (commandName.Equals("nick", StringComparison.OrdinalIgnoreCase))
+                {
+                    string newUserName = String.Join(" ", parts.Skip(1));
+
+                    if (String.IsNullOrEmpty(newUserName))
+                    {
+                        throw new InvalidOperationException("No username specified!");
+                    }
+
+                    if (newUserName.Equals(name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        throw new InvalidOperationException("That's already your username...");
+                    }
+
+                    if (!_users.ContainsKey(newUserName))
+                    {
+                        if (String.IsNullOrEmpty(name) || !_users.ContainsKey(name))
+                        {
+                            AddUser(newUserName);
+                        }
+                        else
+                        {
+                            var oldUser = _users[name];
+                            var newUser = new ChatUser
+                            {
+                                Name = newUserName,
+                                Hash = GetMD5Hash(newUserName),
+                                Id = oldUser.Id,
+                                ConnectionId = oldUser.ConnectionId
+                            };
+
+                            _users[newUserName] = newUser;
+                            _userRooms[newUserName] = new HashSet<string>(_userRooms[name]);
+
+                            if (_userRooms[name].Any())
+                            {
+                                foreach (var r in _userRooms[name])
+                                {
+                                    _rooms[r].Users.Remove(name);
+                                    _rooms[r].Users.Add(newUserName);
+                                    Clients.Group(r).changeUserName(oldUser, newUser);
+                                }
+                            }
+                            HashSet<string> ignoredRoom;
+                            ChatUser ignoredUser;
+                            _userRooms.TryRemove(name, out ignoredRoom);
+                            _users.TryRemove(name, out ignoredUser);
+
+                            Clients.Caller.hash = newUser.Hash;
+                            Clients.Caller.name = newUser.Name;
+
+                            Clients.Caller.changeUserName(oldUser, newUser);
+                        }
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException(String.Format("Username '{0}' is already taken!", newUserName));
+                    }
+
+                    return true;
+                }
+                else
+                {
                     EnsureUser();
                     if (commandName.Equals("rooms", StringComparison.OrdinalIgnoreCase))
                     {
@@ -383,14 +377,14 @@ namespace Proligence.SignalR.Samples.Chat
 
                         throw new InvalidOperationException(String.Format("'{0}' is not a valid command.", parts[0]));
                     }
-                
+                }
             }
             return false;
         }
 
-        private ChatUser AddUser(string newUserName, string eMail)
+        private ChatUser AddUser(string newUserName)
         {
-            var user = new ChatUser(newUserName, GetMD5Hash(eMail));
+            var user = new ChatUser(newUserName, GetMD5Hash(newUserName));
             user.ConnectionId = Context.ConnectionId;
             _users[newUserName] = user;
             _userRooms[newUserName] = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -427,14 +421,9 @@ namespace Proligence.SignalR.Samples.Chat
         private void EnsureUser()
         {
             string name = Clients.Caller.name;
-            if (String.IsNullOrEmpty(name) || !_users.ContainsKey(name) || _services.WorkContext.CurrentUser == null)
+            if (String.IsNullOrEmpty(name) || !_users.ContainsKey(name))
             {
-                throw new InvalidOperationException("Please log in in order to use this chat.");
-            }
-
-            if (name != _services.WorkContext.CurrentUser.UserName)
-            {
-                TrySetUser();
+                throw new InvalidOperationException("You don't have a name. Pick a name using '/nick nickname'.");
             }
         }
 

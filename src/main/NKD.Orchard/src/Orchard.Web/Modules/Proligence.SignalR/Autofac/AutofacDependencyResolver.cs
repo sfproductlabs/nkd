@@ -47,7 +47,8 @@ namespace Proligence.SignalR.Autofac {
         /// </summary>
         /// <param name="serviceType">Type of the service.</param>
         /// <returns>The single instance if resolved; otherwise, <c>null</c>.</returns>
-        public override object GetService(Type serviceType) {
+        public override object GetService(Type serviceType)
+        {
             return _lifetimeScope.ResolveOptional(serviceType);
         }
 
@@ -60,6 +61,21 @@ namespace Proligence.SignalR.Autofac {
             var enumerableServiceType = typeof(IEnumerable<>).MakeGenericType(serviceType);
             var instance = _lifetimeScope.Resolve(enumerableServiceType);
             return (IEnumerable<object>)instance;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                base.Dispose(true);
+
+                // This object will be cleaned up by the Dispose method.
+                // Therefore, you should call GC.SupressFinalize to
+                // take this object off the finalization queue
+                // and prevent finalization code for this object
+                // from executing a second time.
+                GC.SuppressFinalize(this);
+            }
         }
 
         /// <summary>
@@ -79,6 +95,11 @@ namespace Proligence.SignalR.Autofac {
                         .Select(i => RegistrationBuilder.ForDelegate(i.GetType(), (c, p) => i).As(typedService.ServiceType)
                                                         .InstancePerMatchingLifetimeScope(_lifetimeScope.Tag)
                                                         .PreserveExistingDefaults()
+                                                        .OnRelease(instance =>
+                                                        {
+                                                            // Leaving empty to suppress auto-disposing by Autofac
+                                                            // DefaultDependencyResolver.Dispose already handles the disposal process of these components internally
+                                                        })
                                                         .CreateRegistration());
                 }
             }

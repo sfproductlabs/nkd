@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Autofac;
 using Autofac.Builder;
 using Autofac.Core;
 using Microsoft.AspNet.SignalR;
@@ -30,6 +31,20 @@ namespace Proligence.SignalR.Autofac
             var rb = RegistrationBuilder
                 .ForType(serviceType)
                 .As(typeof(PersistentConnection), serviceType)
+                .OnRelease(instance =>
+                {
+                    var disposable = instance as IDisposable;
+                    if (disposable == null) return;
+
+                    try
+                    {
+                        disposable.Dispose();
+                    }
+                    catch
+                    {
+                        // No exceptions during disposal 
+                    }
+                })
                 .InstancePerDependency();
 
             yield return rb.CreateRegistration();

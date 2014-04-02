@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using Orchard;
 using Orchard.Environment.Extensions;
 
 namespace Proligence.SignalR.Samples.DrawingPad
@@ -9,14 +10,21 @@ namespace Proligence.SignalR.Samples.DrawingPad
     [HubName("DrawingPad")]
     public class DrawingPad : Hub
     {
+        private readonly IOrchardServices services;
+
+        public DrawingPad(IOrchardServices services)
+        {
+            this.services = services;
+        }
+
         public class Point
         {
-            public int X { get; set; }
-            public int Y { get; set; }
+            public double X { get; set; }
+            public double Y { get; set; }
         }
+
         public class Line
         {
-            public bool Remote { get; set; }
             public Point From { get; set; }
             public Point To { get; set; }
             public string Color { get; set; }
@@ -24,7 +32,7 @@ namespace Proligence.SignalR.Samples.DrawingPad
 
         private static long _id;
         // defines some colors
-        private readonly static string[] colors = new[]{
+        private readonly static string[] colors = new string[]{
             "red", "green", "blue", "orange", "navy", "silver", "black", "lime"
         };
 
@@ -37,6 +45,7 @@ namespace Proligence.SignalR.Samples.DrawingPad
         [HubMethodName("Draw")]
         public void Draw(Line data)
         {
+            // ... propagate it to all users
             Clients.Others.draw(data);
         }
     }

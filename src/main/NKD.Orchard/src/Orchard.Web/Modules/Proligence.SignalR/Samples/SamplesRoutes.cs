@@ -9,8 +9,6 @@ namespace Proligence.SignalR.Samples
     [OrchardFeature("Proligence.SignalR.Core.Samples")]
     public class SamplesRoutes : IRouteProvider
     {
-        #region IRouteProvider Members
-
         public void GetRoutes(ICollection<RouteDescriptor> routes)
         {
             foreach (RouteDescriptor routeDescriptor in this.GetRoutes())
@@ -39,7 +37,5 @@ namespace Proligence.SignalR.Samples
                 }
             };
         }
-
-        #endregion
     }
 }
