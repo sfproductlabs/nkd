@@ -66,6 +66,7 @@
     <Compile Include="FormatSpecification\ColumnMap.cs" />
     <Compile Include="FormatSpecification\ImportDataMap.cs" />
     <Compile Include="ImportUtils\CoalQualityImport.cs" />
+    <Compile Include="ImportUtils\DateUtils.cs" />
     <Compile Include="ImportUtils\Hash.cs" />
     <Compile Include="ImportUtils\LasImportUtils.cs" />
     <Compile Include="ImportUtils\RegexUtils.cs" />

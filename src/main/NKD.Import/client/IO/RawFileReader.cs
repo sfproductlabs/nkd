@@ -22,7 +22,7 @@ namespace NKD.Import.Client.IO
 
         public RawFileReader(){
         
-            splitArray[0] = ',';
+            splitArray[0] = '\t';
             SkipLines = 0;
         }
 
@@ -43,11 +43,7 @@ namespace NKD.Import.Client.IO
         public List<RawDataRow> LoadRawDataForPreview(string inputDataFile, IOResults ares) {            
             // first read the raw lines
             List<string> dataLines = ReadDataLines(true, inputDataFile, ares);
-            char delimiter = ',';
-            if (inputDataFile.ToLower().EndsWith(".las"))
-            {
-                delimiter = '\t';
-            }
+            char delimiter = '\t';
             List<RawDataRow> data = ParseDataLines(dataLines, ares, delimiter);
             int maxCols = 0;
             foreach (RawDataRow r in data) {
@@ -154,7 +150,7 @@ namespace NKD.Import.Client.IO
                 try
                 {
 
-                    string[] items = splitQuoted(ln, ',');
+                    string[] items = splitQuoted(ln, '\t');
                    // string[] items = ln.Split(splitArray, StringSplitOptions.None);
                     RawDataRow rdr = new RawDataRow();
                     rdr.dataItems = new List<string>(items);
@@ -317,13 +313,13 @@ namespace NKD.Import.Client.IO
                         if (!insideQuotes)
                         {
                             templist.Add(items[i]);
-                            templist[templist.Count - 1] += ",";
+                            templist[templist.Count - 1] += "\t";
                         }
                         else
                         {
                             tempstring += items[i];
                             if (!items[i].Contains("\""))
-                                tempstring += ",";
+                                tempstring += "\t";
                         }
 
                         if (items[i].Contains("\"") && insideQuotes)
@@ -348,8 +344,10 @@ namespace NKD.Import.Client.IO
             columnManager.AddIndexColumn(recordNumber);
             foreach (string s in items)
             {
-
+                if (columnIndex >= columnManager.columnData.Count)
+                    break;
                 columnManager.AddDataPointToColumn(s, columnIndex, recordNumber);
+                
                 columnIndex++;
             }
         }

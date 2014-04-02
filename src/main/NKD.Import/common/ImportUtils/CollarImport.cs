@@ -201,11 +201,10 @@ namespace NKD.Import.ImportUtils
                                     }
                                     else if (cmap.importDataType.Equals(ImportDataMap.TIMESTAMPDATATYPE))
                                     {
-                                        DateTime dtr = new DateTime();
-                                        bool parsed = DateTime.TryParse(columnValue, out dtr);
-                                        if (parsed)
+                                        var parsed = DateUtils.CleanDate(columnValue);
+                                        if (parsed.HasValue)
                                         {
-                                            columnValue = "\'" + dtr.ToString("yyyy-MM-dd hh:mm:ss tt") + "\'";
+                                            columnValue = "\'" + parsed.Value.ToString("yyyy-MM-dd hh:mm:ss tt") + "\'";
 
                                         }
                                         else
@@ -550,6 +549,8 @@ namespace NKD.Import.ImportUtils
 
         private List<string> parseTestLine(string ln, char delim)
         {
+            return ln.Split(new char[] { delim }, StringSplitOptions.None).ToList();
+
             string[] items = ln.Split(new char[] { delim }, StringSplitOptions.None);
 
             if (ln.Contains("\""))
@@ -569,13 +570,13 @@ namespace NKD.Import.ImportUtils
                         if (!insideQuotes)
                         {
                             templist.Add(items[i]);
-                            templist[templist.Count - 1] += ",";
+                            templist[templist.Count - 1] += "\t";
                         }
                         else
                         {
                             tempstring += items[i];
                             if (!items[i].Contains("\""))
-                                tempstring += ",";
+                                tempstring += "\t";
                         }
 
                         if (items[i].Contains("\"") && insideQuotes)

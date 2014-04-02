@@ -31,8 +31,8 @@ namespace NKD.Import.Client.UI
         {
             InitializeComponent();
             // set default values to CSV
-            FileExtension = "*.csv";
-            FileDescription = "Data files (.csv, .txt)|*.csv;*.txt|All files (*.*)|*.*"; 
+            FileExtension = "*.txt";
+            FileDescription = "Data files (.txt)|*.txt|All files (*.*)|*.*"; 
 
         }
 

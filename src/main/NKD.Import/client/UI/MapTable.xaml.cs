@@ -235,7 +235,7 @@ namespace NKD.Import.Client.UI
             idm.mapDate = System.DateTime.Now;
             idm.mapName = "";
             idm.mapTargetPrimaryTable = mapTargetPrimaryTable;
-            idm.inputDelimiter = ',';
+            idm.inputDelimiter = '\t';
 
             return idm;
         }

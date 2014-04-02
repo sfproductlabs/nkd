@@ -289,7 +289,7 @@ namespace NKD.Import.ImportUtils
                                                         mos.AddWarningMessage("Description too long, truncated to 255 characters.  Line " + linesRead);
 
                                                     }
-                                                    clauseParameters += "\'" + columnValue + "\',";
+                                                    clauseParameters += "\'" + columnValue.Replace("\'","\'\'") + "\',";
                                                 }
                                                 else
                                                 {
@@ -302,11 +302,11 @@ namespace NKD.Import.ImportUtils
                                                         }
 
 
-                                                        clauseParameters += "\'" + columnValue + "\',";
+                                                        clauseParameters += "\'" + columnValue.Replace("\'", "\'\'") + "\',";
                                                     }
                                                     else
                                                     {
-                                                        clauseParameters += "\'" + columnValue + "\',";
+                                                        clauseParameters += "\'" + columnValue.Replace("\'", "\'\'") + "\',";
                                                     }
                                                 }
                                                 //if (columnValue.Equals("-"))

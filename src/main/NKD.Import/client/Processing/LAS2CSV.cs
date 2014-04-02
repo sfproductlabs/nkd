@@ -10,7 +10,7 @@ namespace NKD.Import.Client.Processing
 {
     public class LAS2CSV
     {
-        public string delim = ",";
+        public string delim = "\t";
         public LAS2CSV(string _exportCSVFileName) {
 
             exportCSVFileName = _exportCSVFileName;

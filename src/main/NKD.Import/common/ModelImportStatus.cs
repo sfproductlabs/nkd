@@ -101,7 +101,7 @@ namespace NKD.Import
             }
             else if (finalErrorCode == 5)
             {
-                res += "Error with data consitancy";
+                res += "Error with data consistency";
             }
 
          

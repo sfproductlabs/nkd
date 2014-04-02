@@ -338,7 +338,7 @@ namespace NKD.Import
         /// <param name="_originZ"></param>
         public void ParseDataLinesForOrigins(string headerLine, string firstDataLine, out double _originX, out double _originY, out double _originZ)
         {
-            char delim = ',';
+            char delim = '\t';
             string[] headerItems = headerLine.Split(new char[] { delim }, StringSplitOptions.None);
             string[] lineItems = firstDataLine.Split(new char[] { delim }, StringSplitOptions.None);
             _originX = 0;
@@ -388,7 +388,7 @@ namespace NKD.Import
         // attempt to use the block model file header to automatically create a defintion based on goldfields typical model formats
         public ImportDataMap AutoGenerateFormatDefinition(string headerLine)
         {
-            char delim = ',';
+            char delim = '\t';
                         
             Dictionary<string, bool> autoMap = new Dictionary<string, bool>();
             string[] headerItems = headerLine.Split(new char[] { delim }, StringSplitOptions.None);
@@ -401,7 +401,7 @@ namespace NKD.Import
             // DB field = [Domain]
             ImportDataMap idm = new ImportDataMap();
             idm.columnMap = new List<ColumnMap>();
-            idm.inputDelimiter = ',';
+            idm.inputDelimiter = '\t';
             idm.mapTargetPrimaryTable = "BlockModelBlock";
             idm.dataStartLine = 2;
 

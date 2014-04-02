@@ -12,7 +12,7 @@ namespace NKD.Import.Client.Processing
 {
     public class LASBatchImportTools
     {
-        public string delim = ",";
+        public string delim = "\t";
         public LASBatchImportTools() {
 
             

@@ -1,0 +1,40 @@
+﻿@{ 
+    Script.Require("jQuery_SignalR_Hubs").AtHead();
+    
+    Script.Include("proligence-signalr-common.js").AtHead();
+    Script.Include("samples/signalr.samples.js").AtFoot();
+
+    Script.Include("samples/jQuery.tmpl.js").AtFoot();
+    Script.Include("samples/jquery.cookie.js").AtFoot();
+    Script.Include("samples/Chat.js").AtFoot();
+    
+    Style.Include("samples/chat.css").AtHead();
+}
+
+@using (Script.Head())
+{
+        <script id="new-message-template" type="text/x-jquery-tmpl">
+        <li class="message" id="m-${id}">
+            <strong>${name}:</strong>
+            {{html message}}
+        </li>
+    </script>
+        <script id="new-user-template" type="text/x-jquery-tmpl"> 
+        <li class="user" id="u-${name}">
+            <img src="http://www.gravatar.com/avatar/${hash}?s=16&d=mm" class="gravatar" /> ${name}
+        </li>
+    </script>
+}
+
+<div id="chat-area">
+        <ul id="messages">
+        </ul>
+        <ul id="users">
+        </ul>
+        <div class="clear">
+        </div>
+        <form id="send-message" action="#">
+            <input type="text" id="new-message" />
+            <input type="submit" id="send" value="Send" class="send" />
+        </form>
+    </div>

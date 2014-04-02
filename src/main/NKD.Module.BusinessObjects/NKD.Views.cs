@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets03744438ECA7B9A3FE8D1DF9583ADE8E70DC9136BBE642E2E050A7728A80D967))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets3F0DB388C9121AEFA4F6A0B0D07F4DCCFA281F44634EFD28D3E9C6B8B103B191))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets03744438ECA7B9A3FE8D1DF9583ADE8E70DC9136BBE642E2E050A7728A80D967 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets3F0DB388C9121AEFA4F6A0B0D07F4DCCFA281F44634EFD28D3E9C6B8B103B191 : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets03744438ECA7B9A3FE8D1DF9583ADE8E70DC9136BBE642E2E050A7728A80D967()
+        public ViewsForBaseEntitySets3F0DB388C9121AEFA4F6A0B0D07F4DCCFA281F44634EFD28D3E9C6B8B103B191()
         {
             this.EdmEntityContainerName = "NKDC";
             this.StoreEntityContainerName = "NKDModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "c4e5cebf70951422a8fe37e7d634b457c7458c039d6b714f52fb32eceaee5e52";
-            this.HashOverAllExtentViews = "a0646f136341f2d3e916a8af31b7b3ff95bce254300ba920276e73bf9549ebba";
+            this.HashOverMappingClosure = "fda37913f48474ec49d711832dc64cddc4715788c62e3f67ab26191dfce2cfb5";
+            this.HashOverAllExtentViews = "50cf26f1fca9b7dc55efd6a183a2f864f90167683866199eaa6a409b2c6726e4";
             this.ViewCount = 730;
         }
         
@@ -10180,41 +10180,35 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView183()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2683);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2215);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_DictionaryWorkTypeClass\r\n        [NKD.Modul");
             viewString.Append("e.BusinessObjects.Store.X_DictionaryWorkTypeClass](T1.[X_DictionaryWorkTypeClass");
-            viewString.Append(".WorkTypeClassID], T1.[X_DictionaryWorkTypeClass.StandardWorkTypeClassName], T1.");
-            viewString.Append("[X_DictionaryWorkTypeClass.CoalWorkTypeClassName], T1.[X_DictionaryWorkTypeClass");
-            viewString.Append(".GoldWorkTypeClassName], T1.[X_DictionaryWorkTypeClass.CustomWorkTypeClassName],");
-            viewString.Append(" T1.[X_DictionaryWorkTypeClass.Description], T1.[X_DictionaryWorkTypeClass.FullD");
-            viewString.Append("escription], T1.[X_DictionaryWorkTypeClass.Thumbnail], T1.[X_DictionaryWorkTypeC");
-            viewString.Append("lass.OriginalFileDataID], T1.[X_DictionaryWorkTypeClass.Version], T1.[X_Dictiona");
-            viewString.Append("ryWorkTypeClass.VersionAntecedentID], T1.[X_DictionaryWorkTypeClass.VersionCerta");
-            viewString.Append("inty], T1.[X_DictionaryWorkTypeClass.VersionWorkflowInstanceID], T1.[X_Dictionar");
-            viewString.Append("yWorkTypeClass.VersionUpdatedBy], T1.[X_DictionaryWorkTypeClass.VersionDeletedBy");
-            viewString.Append("], T1.[X_DictionaryWorkTypeClass.VersionOwnerContactID], T1.[X_DictionaryWorkTyp");
-            viewString.Append("eClass.VersionOwnerCompanyID], T1.[X_DictionaryWorkTypeClass.VersionUpdated])\r\n ");
-            viewString.Append("   FROM (\r\n        SELECT \r\n            T.WorkTypeClassID AS [X_DictionaryWorkTy");
-            viewString.Append("peClass.WorkTypeClassID], \r\n            T.StandardWorkTypeClassName AS [X_Dictio");
-            viewString.Append("naryWorkTypeClass.StandardWorkTypeClassName], \r\n            T.CoalWorkTypeClassN");
-            viewString.Append("ame AS [X_DictionaryWorkTypeClass.CoalWorkTypeClassName], \r\n            T.GoldWo");
-            viewString.Append("rkTypeClassName AS [X_DictionaryWorkTypeClass.GoldWorkTypeClassName], \r\n        ");
-            viewString.Append("    T.CustomWorkTypeClassName AS [X_DictionaryWorkTypeClass.CustomWorkTypeClassN");
-            viewString.Append("ame], \r\n            T.Description AS [X_DictionaryWorkTypeClass.Description], \r\n");
-            viewString.Append("            T.FullDescription AS [X_DictionaryWorkTypeClass.FullDescription], \r\n");
-            viewString.Append("            T.Thumbnail AS [X_DictionaryWorkTypeClass.Thumbnail], \r\n            ");
-            viewString.Append("T.OriginalFileDataID AS [X_DictionaryWorkTypeClass.OriginalFileDataID], \r\n      ");
-            viewString.Append("      T.Version AS [X_DictionaryWorkTypeClass.Version], \r\n            T.VersionA");
-            viewString.Append("ntecedentID AS [X_DictionaryWorkTypeClass.VersionAntecedentID], \r\n            T.");
-            viewString.Append("VersionCertainty AS [X_DictionaryWorkTypeClass.VersionCertainty], \r\n            ");
-            viewString.Append("T.VersionWorkflowInstanceID AS [X_DictionaryWorkTypeClass.VersionWorkflowInstanc");
-            viewString.Append("eID], \r\n            T.VersionUpdatedBy AS [X_DictionaryWorkTypeClass.VersionUpda");
-            viewString.Append("tedBy], \r\n            T.VersionDeletedBy AS [X_DictionaryWorkTypeClass.VersionDe");
-            viewString.Append("letedBy], \r\n            T.VersionOwnerContactID AS [X_DictionaryWorkTypeClass.Ve");
-            viewString.Append("rsionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_DictionaryWork");
-            viewString.Append("TypeClass.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_Dictionar");
-            viewString.Append("yWorkTypeClass.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.");
-            viewString.Append("DictionaryWorkTypeClasses AS T\r\n    ) AS T1");
+            viewString.Append(".WorkTypeClassID], T1.[X_DictionaryWorkTypeClass.WorkTypeClassName], T1.[X_Dicti");
+            viewString.Append("onaryWorkTypeClass.Description], T1.[X_DictionaryWorkTypeClass.FullDescription],");
+            viewString.Append(" T1.[X_DictionaryWorkTypeClass.Thumbnail], T1.[X_DictionaryWorkTypeClass.Origina");
+            viewString.Append("lFileDataID], T1.[X_DictionaryWorkTypeClass.Version], T1.[X_DictionaryWorkTypeCl");
+            viewString.Append("ass.VersionAntecedentID], T1.[X_DictionaryWorkTypeClass.VersionCertainty], T1.[X");
+            viewString.Append("_DictionaryWorkTypeClass.VersionWorkflowInstanceID], T1.[X_DictionaryWorkTypeCla");
+            viewString.Append("ss.VersionUpdatedBy], T1.[X_DictionaryWorkTypeClass.VersionDeletedBy], T1.[X_Dic");
+            viewString.Append("tionaryWorkTypeClass.VersionOwnerContactID], T1.[X_DictionaryWorkTypeClass.Versi");
+            viewString.Append("onOwnerCompanyID], T1.[X_DictionaryWorkTypeClass.VersionUpdated])\r\n    FROM (\r\n ");
+            viewString.Append("       SELECT \r\n            T.WorkTypeClassID AS [X_DictionaryWorkTypeClass.Work");
+            viewString.Append("TypeClassID], \r\n            T.WorkTypeClassName AS [X_DictionaryWorkTypeClass.Wo");
+            viewString.Append("rkTypeClassName], \r\n            T.Description AS [X_DictionaryWorkTypeClass.Desc");
+            viewString.Append("ription], \r\n            T.FullDescription AS [X_DictionaryWorkTypeClass.FullDesc");
+            viewString.Append("ription], \r\n            T.Thumbnail AS [X_DictionaryWorkTypeClass.Thumbnail], \r\n");
+            viewString.Append("            T.OriginalFileDataID AS [X_DictionaryWorkTypeClass.OriginalFileDataI");
+            viewString.Append("D], \r\n            T.Version AS [X_DictionaryWorkTypeClass.Version], \r\n          ");
+            viewString.Append("  T.VersionAntecedentID AS [X_DictionaryWorkTypeClass.VersionAntecedentID], \r\n  ");
+            viewString.Append("          T.VersionCertainty AS [X_DictionaryWorkTypeClass.VersionCertainty], \r\n");
+            viewString.Append("            T.VersionWorkflowInstanceID AS [X_DictionaryWorkTypeClass.VersionWor");
+            viewString.Append("kflowInstanceID], \r\n            T.VersionUpdatedBy AS [X_DictionaryWorkTypeClass");
+            viewString.Append(".VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [X_DictionaryWorkTypeCla");
+            viewString.Append("ss.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [X_DictionaryWork");
+            viewString.Append("TypeClass.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_Di");
+            viewString.Append("ctionaryWorkTypeClass.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS ");
+            viewString.Append("[X_DictionaryWorkTypeClass.VersionUpdated], \r\n            True AS _from0\r\n      ");
+            viewString.Append("  FROM NKDC.DictionaryWorkTypeClasses AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_DictionaryWorkTypeClass", viewString.ToString());
         }
         
@@ -10255,41 +10249,43 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView185()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2679);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2807);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_Drilling\r\n        [NKD.Module.BusinessObjec");
             viewString.Append("ts.Store.X_Drilling](T1.[X_Drilling.DrillingID], T1.[X_Drilling.HeaderID], T1.[X");
             viewString.Append("_Drilling.FromDepth], T1.[X_Drilling.ToDepth], T1.[X_Drilling.RunNumber], T1.[X_");
-            viewString.Append("Drilling.RecoveredThickness], T1.[X_Drilling.DrillingDate], T1.[X_Drilling.Drill");
-            viewString.Append("ingCompanyID], T1.[X_Drilling.DrillRigNumber], T1.[X_Drilling.DrillRigTypeID], T");
-            viewString.Append("1.[X_Drilling.DrillerID], T1.[X_Drilling.DrillBitTypeID], T1.[X_Drilling.DrillFl");
-            viewString.Append("uidID], T1.[X_Drilling.DrillSizeID], T1.[X_Drilling.CoreSize], T1.[X_Drilling.Ho");
-            viewString.Append("leSize], T1.[X_Drilling.Reamed], T1.[X_Drilling.Comment], T1.[X_Drilling.Version");
-            viewString.Append("], T1.[X_Drilling.VersionAntecedentID], T1.[X_Drilling.VersionCertainty], T1.[X_");
-            viewString.Append("Drilling.VersionWorkflowInstanceID], T1.[X_Drilling.VersionUpdatedBy], T1.[X_Dri");
-            viewString.Append("lling.VersionDeletedBy], T1.[X_Drilling.VersionOwnerContactID], T1.[X_Drilling.V");
-            viewString.Append("ersionOwnerCompanyID], T1.[X_Drilling.VersionUpdated])\r\n    FROM (\r\n        SELE");
-            viewString.Append("CT \r\n            T.DrillingID AS [X_Drilling.DrillingID], \r\n            T.Header");
-            viewString.Append("ID AS [X_Drilling.HeaderID], \r\n            T.FromDepth AS [X_Drilling.FromDepth]");
-            viewString.Append(", \r\n            T.ToDepth AS [X_Drilling.ToDepth], \r\n            T.RunNumber AS ");
-            viewString.Append("[X_Drilling.RunNumber], \r\n            T.RecoveredThickness AS [X_Drilling.Recove");
-            viewString.Append("redThickness], \r\n            T.DrillingDate AS [X_Drilling.DrillingDate], \r\n    ");
-            viewString.Append("        T.DrillingCompanyID AS [X_Drilling.DrillingCompanyID], \r\n            T.D");
-            viewString.Append("rillRigNumber AS [X_Drilling.DrillRigNumber], \r\n            T.DrillRigTypeID AS ");
-            viewString.Append("[X_Drilling.DrillRigTypeID], \r\n            T.DrillerID AS [X_Drilling.DrillerID]");
-            viewString.Append(", \r\n            T.DrillBitTypeID AS [X_Drilling.DrillBitTypeID], \r\n            T");
-            viewString.Append(".DrillFluidID AS [X_Drilling.DrillFluidID], \r\n            T.DrillSizeID AS [X_Dr");
-            viewString.Append("illing.DrillSizeID], \r\n            T.CoreSize AS [X_Drilling.CoreSize], \r\n      ");
-            viewString.Append("      T.HoleSize AS [X_Drilling.HoleSize], \r\n            T.Reamed AS [X_Drilling");
-            viewString.Append(".Reamed], \r\n            T.Comment AS [X_Drilling.Comment], \r\n            T.Versi");
-            viewString.Append("on AS [X_Drilling.Version], \r\n            T.VersionAntecedentID AS [X_Drilling.V");
-            viewString.Append("ersionAntecedentID], \r\n            T.VersionCertainty AS [X_Drilling.VersionCert");
-            viewString.Append("ainty], \r\n            T.VersionWorkflowInstanceID AS [X_Drilling.VersionWorkflow");
-            viewString.Append("InstanceID], \r\n            T.VersionUpdatedBy AS [X_Drilling.VersionUpdatedBy], ");
-            viewString.Append("\r\n            T.VersionDeletedBy AS [X_Drilling.VersionDeletedBy], \r\n           ");
-            viewString.Append(" T.VersionOwnerContactID AS [X_Drilling.VersionOwnerContactID], \r\n            T.");
-            viewString.Append("VersionOwnerCompanyID AS [X_Drilling.VersionOwnerCompanyID], \r\n            T.Ver");
-            viewString.Append("sionUpdated AS [X_Drilling.VersionUpdated], \r\n            True AS _from0\r\n      ");
-            viewString.Append("  FROM NKDC.Drillings AS T\r\n    ) AS T1");
+            viewString.Append("Drilling.RecoveredLength], T1.[X_Drilling.RockQualityDesignationLength], T1.[X_D");
+            viewString.Append("rilling.DrillingDate], T1.[X_Drilling.DrillingCompanyID], T1.[X_Drilling.DrillRi");
+            viewString.Append("gNumber], T1.[X_Drilling.DrillRigTypeID], T1.[X_Drilling.DrillerID], T1.[X_Drill");
+            viewString.Append("ing.DrillBitTypeID], T1.[X_Drilling.DrillFluidID], T1.[X_Drilling.DrillSizeID], ");
+            viewString.Append("T1.[X_Drilling.CoreSize], T1.[X_Drilling.HoleSize], T1.[X_Drilling.Reamed], T1.[");
+            viewString.Append("X_Drilling.Comment], T1.[X_Drilling.Version], T1.[X_Drilling.VersionAntecedentID");
+            viewString.Append("], T1.[X_Drilling.VersionCertainty], T1.[X_Drilling.VersionWorkflowInstanceID], ");
+            viewString.Append("T1.[X_Drilling.VersionUpdatedBy], T1.[X_Drilling.VersionDeletedBy], T1.[X_Drilli");
+            viewString.Append("ng.VersionOwnerContactID], T1.[X_Drilling.VersionOwnerCompanyID], T1.[X_Drilling");
+            viewString.Append(".VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.DrillingID AS [X_D");
+            viewString.Append("rilling.DrillingID], \r\n            T.HeaderID AS [X_Drilling.HeaderID], \r\n      ");
+            viewString.Append("      T.FromDepth AS [X_Drilling.FromDepth], \r\n            T.ToDepth AS [X_Drill");
+            viewString.Append("ing.ToDepth], \r\n            T.RunNumber AS [X_Drilling.RunNumber], \r\n           ");
+            viewString.Append(" T.RecoveredLength AS [X_Drilling.RecoveredLength], \r\n            T.RockQualityD");
+            viewString.Append("esignationLength AS [X_Drilling.RockQualityDesignationLength], \r\n            T.D");
+            viewString.Append("rillingDate AS [X_Drilling.DrillingDate], \r\n            T.DrillingCompanyID AS [");
+            viewString.Append("X_Drilling.DrillingCompanyID], \r\n            T.DrillRigNumber AS [X_Drilling.Dri");
+            viewString.Append("llRigNumber], \r\n            T.DrillRigTypeID AS [X_Drilling.DrillRigTypeID], \r\n ");
+            viewString.Append("           T.DrillerID AS [X_Drilling.DrillerID], \r\n            T.DrillBitTypeID");
+            viewString.Append(" AS [X_Drilling.DrillBitTypeID], \r\n            T.DrillFluidID AS [X_Drilling.Dri");
+            viewString.Append("llFluidID], \r\n            T.DrillSizeID AS [X_Drilling.DrillSizeID], \r\n         ");
+            viewString.Append("   T.CoreSize AS [X_Drilling.CoreSize], \r\n            T.HoleSize AS [X_Drilling.");
+            viewString.Append("HoleSize], \r\n            T.Reamed AS [X_Drilling.Reamed], \r\n            T.Commen");
+            viewString.Append("t AS [X_Drilling.Comment], \r\n            T.Version AS [X_Drilling.Version], \r\n  ");
+            viewString.Append("          T.VersionAntecedentID AS [X_Drilling.VersionAntecedentID], \r\n         ");
+            viewString.Append("   T.VersionCertainty AS [X_Drilling.VersionCertainty], \r\n            T.VersionW");
+            viewString.Append("orkflowInstanceID AS [X_Drilling.VersionWorkflowInstanceID], \r\n            T.Ver");
+            viewString.Append("sionUpdatedBy AS [X_Drilling.VersionUpdatedBy], \r\n            T.VersionDeletedBy");
+            viewString.Append(" AS [X_Drilling.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [X_D");
+            viewString.Append("rilling.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_Dril");
+            viewString.Append("ling.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_Drilling.Versi");
+            viewString.Append("onUpdated], \r\n            True AS _from0\r\n        FROM NKDC.Drillings AS T\r\n    ");
+            viewString.Append(") AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_Drilling", viewString.ToString());
         }
         
@@ -21931,40 +21927,34 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView490()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2565);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2121);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryWorkTypeClasses\r\n        [NKD.Modul");
             viewString.Append("e.BusinessObjects.DictionaryWorkTypeClass](T1.DictionaryWorkTypeClass_WorkTypeCl");
-            viewString.Append("assID, T1.DictionaryWorkTypeClass_StandardWorkTypeClassName, T1.DictionaryWorkTy");
-            viewString.Append("peClass_CoalWorkTypeClassName, T1.DictionaryWorkTypeClass_GoldWorkTypeClassName,");
-            viewString.Append(" T1.DictionaryWorkTypeClass_CustomWorkTypeClassName, T1.DictionaryWorkTypeClass_");
-            viewString.Append("Description, T1.DictionaryWorkTypeClass_FullDescription, T1.DictionaryWorkTypeCl");
-            viewString.Append("ass_Thumbnail, T1.DictionaryWorkTypeClass_OriginalFileDataID, T1.DictionaryWorkT");
-            viewString.Append("ypeClass_Version, T1.DictionaryWorkTypeClass_VersionAntecedentID, T1.DictionaryW");
-            viewString.Append("orkTypeClass_VersionCertainty, T1.DictionaryWorkTypeClass_VersionWorkflowInstanc");
-            viewString.Append("eID, T1.DictionaryWorkTypeClass_VersionUpdatedBy, T1.DictionaryWorkTypeClass_Ver");
-            viewString.Append("sionDeletedBy, T1.DictionaryWorkTypeClass_VersionOwnerContactID, T1.DictionaryWo");
-            viewString.Append("rkTypeClass_VersionOwnerCompanyID, T1.DictionaryWorkTypeClass_VersionUpdated)\r\n ");
+            viewString.Append("assID, T1.DictionaryWorkTypeClass_Description, T1.DictionaryWorkTypeClass_FullDe");
+            viewString.Append("scription, T1.DictionaryWorkTypeClass_Thumbnail, T1.DictionaryWorkTypeClass_Orig");
+            viewString.Append("inalFileDataID, T1.DictionaryWorkTypeClass_Version, T1.DictionaryWorkTypeClass_V");
+            viewString.Append("ersionAntecedentID, T1.DictionaryWorkTypeClass_VersionCertainty, T1.DictionaryWo");
+            viewString.Append("rkTypeClass_VersionWorkflowInstanceID, T1.DictionaryWorkTypeClass_VersionUpdated");
+            viewString.Append("By, T1.DictionaryWorkTypeClass_VersionDeletedBy, T1.DictionaryWorkTypeClass_Vers");
+            viewString.Append("ionOwnerContactID, T1.DictionaryWorkTypeClass_VersionOwnerCompanyID, T1.Dictiona");
+            viewString.Append("ryWorkTypeClass_VersionUpdated, T1.DictionaryWorkTypeClass_WorkTypeClassName)\r\n ");
             viewString.Append("   FROM (\r\n        SELECT \r\n            T.WorkTypeClassID AS DictionaryWorkTypeC");
-            viewString.Append("lass_WorkTypeClassID, \r\n            T.StandardWorkTypeClassName AS DictionaryWor");
-            viewString.Append("kTypeClass_StandardWorkTypeClassName, \r\n            T.CoalWorkTypeClassName AS D");
-            viewString.Append("ictionaryWorkTypeClass_CoalWorkTypeClassName, \r\n            T.GoldWorkTypeClassN");
-            viewString.Append("ame AS DictionaryWorkTypeClass_GoldWorkTypeClassName, \r\n            T.CustomWork");
-            viewString.Append("TypeClassName AS DictionaryWorkTypeClass_CustomWorkTypeClassName, \r\n            ");
-            viewString.Append("T.Description AS DictionaryWorkTypeClass_Description, \r\n            T.FullDescri");
-            viewString.Append("ption AS DictionaryWorkTypeClass_FullDescription, \r\n            T.Thumbnail AS D");
-            viewString.Append("ictionaryWorkTypeClass_Thumbnail, \r\n            T.OriginalFileDataID AS Dictiona");
-            viewString.Append("ryWorkTypeClass_OriginalFileDataID, \r\n            T.Version AS DictionaryWorkTyp");
-            viewString.Append("eClass_Version, \r\n            T.VersionAntecedentID AS DictionaryWorkTypeClass_V");
-            viewString.Append("ersionAntecedentID, \r\n            T.VersionCertainty AS DictionaryWorkTypeClass_");
-            viewString.Append("VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS DictionaryWorkTyp");
-            viewString.Append("eClass_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Dictionary");
-            viewString.Append("WorkTypeClass_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS DictionaryWo");
-            viewString.Append("rkTypeClass_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS Dictionar");
-            viewString.Append("yWorkTypeClass_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS D");
-            viewString.Append("ictionaryWorkTypeClass_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS ");
-            viewString.Append("DictionaryWorkTypeClass_VersionUpdated, \r\n            True AS _from0\r\n        FR");
-            viewString.Append("OM NKDModuleBusinessObjectsStoreContainer.X_DictionaryWorkTypeClass AS T\r\n    ) ");
-            viewString.Append("AS T1");
+            viewString.Append("lass_WorkTypeClassID, \r\n            T.Description AS DictionaryWorkTypeClass_Des");
+            viewString.Append("cription, \r\n            T.FullDescription AS DictionaryWorkTypeClass_FullDescrip");
+            viewString.Append("tion, \r\n            T.Thumbnail AS DictionaryWorkTypeClass_Thumbnail, \r\n        ");
+            viewString.Append("    T.OriginalFileDataID AS DictionaryWorkTypeClass_OriginalFileDataID, \r\n      ");
+            viewString.Append("      T.Version AS DictionaryWorkTypeClass_Version, \r\n            T.VersionAntec");
+            viewString.Append("edentID AS DictionaryWorkTypeClass_VersionAntecedentID, \r\n            T.VersionC");
+            viewString.Append("ertainty AS DictionaryWorkTypeClass_VersionCertainty, \r\n            T.VersionWor");
+            viewString.Append("kflowInstanceID AS DictionaryWorkTypeClass_VersionWorkflowInstanceID, \r\n        ");
+            viewString.Append("    T.VersionUpdatedBy AS DictionaryWorkTypeClass_VersionUpdatedBy, \r\n          ");
+            viewString.Append("  T.VersionDeletedBy AS DictionaryWorkTypeClass_VersionDeletedBy, \r\n            ");
+            viewString.Append("T.VersionOwnerContactID AS DictionaryWorkTypeClass_VersionOwnerContactID, \r\n    ");
+            viewString.Append("        T.VersionOwnerCompanyID AS DictionaryWorkTypeClass_VersionOwnerCompanyID");
+            viewString.Append(", \r\n            T.VersionUpdated AS DictionaryWorkTypeClass_VersionUpdated, \r\n  ");
+            viewString.Append("          T.WorkTypeClassName AS DictionaryWorkTypeClass_WorkTypeClassName, \r\n  ");
+            viewString.Append("          True AS _from0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.X_");
+            viewString.Append("DictionaryWorkTypeClass AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryWorkTypeClasses", viewString.ToString());
         }
         
@@ -22004,39 +21994,40 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView492()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2489);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2609);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Drillings\r\n        [NKD.Module.BusinessObject");
             viewString.Append("s.Drilling](T1.Drilling_DrillingID, T1.Drilling_HeaderID, T1.Drilling_FromDepth,");
-            viewString.Append(" T1.Drilling_ToDepth, T1.Drilling_RunNumber, T1.Drilling_RecoveredThickness, T1.");
-            viewString.Append("Drilling_DrillingDate, T1.Drilling_DrillingCompanyID, T1.Drilling_DrillRigNumber");
-            viewString.Append(", T1.Drilling_DrillRigTypeID, T1.Drilling_DrillerID, T1.Drilling_DrillBitTypeID,");
-            viewString.Append(" T1.Drilling_DrillFluidID, T1.Drilling_DrillSizeID, T1.Drilling_CoreSize, T1.Dri");
-            viewString.Append("lling_HoleSize, T1.Drilling_Reamed, T1.Drilling_Comment, T1.Drilling_Version, T1");
-            viewString.Append(".Drilling_VersionAntecedentID, T1.Drilling_VersionCertainty, T1.Drilling_Version");
-            viewString.Append("WorkflowInstanceID, T1.Drilling_VersionUpdatedBy, T1.Drilling_VersionDeletedBy, ");
-            viewString.Append("T1.Drilling_VersionOwnerContactID, T1.Drilling_VersionOwnerCompanyID, T1.Drillin");
-            viewString.Append("g_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.DrillingID AS Dril");
-            viewString.Append("ling_DrillingID, \r\n            T.HeaderID AS Drilling_HeaderID, \r\n            T.");
-            viewString.Append("FromDepth AS Drilling_FromDepth, \r\n            T.ToDepth AS Drilling_ToDepth, \r\n");
-            viewString.Append("            T.RunNumber AS Drilling_RunNumber, \r\n            T.RecoveredThicknes");
-            viewString.Append("s AS Drilling_RecoveredThickness, \r\n            T.DrillingDate AS Drilling_Drill");
-            viewString.Append("ingDate, \r\n            T.DrillingCompanyID AS Drilling_DrillingCompanyID, \r\n    ");
-            viewString.Append("        T.DrillRigNumber AS Drilling_DrillRigNumber, \r\n            T.DrillRigTyp");
-            viewString.Append("eID AS Drilling_DrillRigTypeID, \r\n            T.DrillerID AS Drilling_DrillerID,");
-            viewString.Append(" \r\n            T.DrillBitTypeID AS Drilling_DrillBitTypeID, \r\n            T.Dril");
-            viewString.Append("lFluidID AS Drilling_DrillFluidID, \r\n            T.DrillSizeID AS Drilling_Drill");
-            viewString.Append("SizeID, \r\n            T.CoreSize AS Drilling_CoreSize, \r\n            T.HoleSize ");
-            viewString.Append("AS Drilling_HoleSize, \r\n            T.Reamed AS Drilling_Reamed, \r\n            T");
-            viewString.Append(".Comment AS Drilling_Comment, \r\n            T.Version AS Drilling_Version, \r\n   ");
-            viewString.Append("         T.VersionAntecedentID AS Drilling_VersionAntecedentID, \r\n            T.");
-            viewString.Append("VersionCertainty AS Drilling_VersionCertainty, \r\n            T.VersionWorkflowIn");
-            viewString.Append("stanceID AS Drilling_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy");
-            viewString.Append(" AS Drilling_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS Drilling_Vers");
-            viewString.Append("ionDeletedBy, \r\n            T.VersionOwnerContactID AS Drilling_VersionOwnerCont");
-            viewString.Append("actID, \r\n            T.VersionOwnerCompanyID AS Drilling_VersionOwnerCompanyID, ");
-            viewString.Append("\r\n            T.VersionUpdated AS Drilling_VersionUpdated, \r\n            True AS");
-            viewString.Append(" _from0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.X_Drilling AS T\r\n  ");
-            viewString.Append("  ) AS T1");
+            viewString.Append(" T1.Drilling_ToDepth, T1.Drilling_RunNumber, T1.Drilling_DrillingDate, T1.Drilli");
+            viewString.Append("ng_DrillingCompanyID, T1.Drilling_DrillRigNumber, T1.Drilling_DrillRigTypeID, T1");
+            viewString.Append(".Drilling_DrillerID, T1.Drilling_DrillBitTypeID, T1.Drilling_DrillFluidID, T1.Dr");
+            viewString.Append("illing_DrillSizeID, T1.Drilling_CoreSize, T1.Drilling_HoleSize, T1.Drilling_Ream");
+            viewString.Append("ed, T1.Drilling_Comment, T1.Drilling_Version, T1.Drilling_VersionAntecedentID, T");
+            viewString.Append("1.Drilling_VersionCertainty, T1.Drilling_VersionWorkflowInstanceID, T1.Drilling_");
+            viewString.Append("VersionUpdatedBy, T1.Drilling_VersionDeletedBy, T1.Drilling_VersionOwnerContactI");
+            viewString.Append("D, T1.Drilling_VersionOwnerCompanyID, T1.Drilling_VersionUpdated, T1.Drilling_Re");
+            viewString.Append("coveredLength, T1.Drilling_RockQualityDesignationLength)\r\n    FROM (\r\n        SE");
+            viewString.Append("LECT \r\n            T.DrillingID AS Drilling_DrillingID, \r\n            T.HeaderID");
+            viewString.Append(" AS Drilling_HeaderID, \r\n            T.FromDepth AS Drilling_FromDepth, \r\n      ");
+            viewString.Append("      T.ToDepth AS Drilling_ToDepth, \r\n            T.RunNumber AS Drilling_RunNu");
+            viewString.Append("mber, \r\n            T.DrillingDate AS Drilling_DrillingDate, \r\n            T.Dri");
+            viewString.Append("llingCompanyID AS Drilling_DrillingCompanyID, \r\n            T.DrillRigNumber AS ");
+            viewString.Append("Drilling_DrillRigNumber, \r\n            T.DrillRigTypeID AS Drilling_DrillRigType");
+            viewString.Append("ID, \r\n            T.DrillerID AS Drilling_DrillerID, \r\n            T.DrillBitTyp");
+            viewString.Append("eID AS Drilling_DrillBitTypeID, \r\n            T.DrillFluidID AS Drilling_DrillFl");
+            viewString.Append("uidID, \r\n            T.DrillSizeID AS Drilling_DrillSizeID, \r\n            T.Core");
+            viewString.Append("Size AS Drilling_CoreSize, \r\n            T.HoleSize AS Drilling_HoleSize, \r\n    ");
+            viewString.Append("        T.Reamed AS Drilling_Reamed, \r\n            T.Comment AS Drilling_Comment");
+            viewString.Append(", \r\n            T.Version AS Drilling_Version, \r\n            T.VersionAntecedent");
+            viewString.Append("ID AS Drilling_VersionAntecedentID, \r\n            T.VersionCertainty AS Drilling");
+            viewString.Append("_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS Drilling_Version");
+            viewString.Append("WorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Drilling_VersionUpdatedB");
+            viewString.Append("y, \r\n            T.VersionDeletedBy AS Drilling_VersionDeletedBy, \r\n            ");
+            viewString.Append("T.VersionOwnerContactID AS Drilling_VersionOwnerContactID, \r\n            T.Versi");
+            viewString.Append("onOwnerCompanyID AS Drilling_VersionOwnerCompanyID, \r\n            T.VersionUpdat");
+            viewString.Append("ed AS Drilling_VersionUpdated, \r\n            T.RecoveredLength AS Drilling_Recov");
+            viewString.Append("eredLength, \r\n            T.RockQualityDesignationLength AS Drilling_RockQuality");
+            viewString.Append("DesignationLength, \r\n            True AS _from0\r\n        FROM NKDModuleBusinessO");
+            viewString.Append("bjectsStoreContainer.X_Drilling AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Drillings", viewString.ToString());
         }
         

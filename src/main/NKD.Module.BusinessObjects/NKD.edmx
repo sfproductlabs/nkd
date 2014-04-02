@@ -6591,8 +6591,8 @@
           <Property Name="Sequence" Type="int" />
           <Property Name="LabSubsampleName" Type="nvarchar" MaxLength="50" />
           <Property Name="SampleAntecedentID" Type="uniqueidentifier" />
-          <Property Name="FromDepth" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="AgitationMethodID" Type="uniqueidentifier" />
           <Property Name="DurationProcedureSeconds" Type="int" />
           <Property Name="DurationTotalSeconds" Type="int" />
@@ -7100,16 +7100,16 @@
           </Key>
           <Property Name="CasingID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="FromDepth" Type="numeric" Precision="6" Scale="2" />
-          <Property Name="ToDepth" Type="numeric" Precision="6" Scale="2" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="CasingTypeID" Type="uniqueidentifier" />
           <Property Name="CasingSize" Type="int" />
           <Property Name="CasingSizeUnit" Type="uniqueidentifier" />
-          <Property Name="CasingInsideData" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="CasingInsideData" Type="numeric" Precision="9" Scale="3" />
           <Property Name="CasingInsideDataUnit" Type="uniqueidentifier" />
-          <Property Name="CasingOutsideData" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="CasingOutsideData" Type="numeric" Precision="9" Scale="3" />
           <Property Name="CasingOutsideDataUnit" Type="uniqueidentifier" />
-          <Property Name="LengthRecovered" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="LengthRecovered" Type="numeric" Precision="9" Scale="3" />
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
@@ -7127,10 +7127,10 @@
           </Key>
           <Property Name="CementingID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="FromDepth" Type="numeric" Precision="5" Scale="1" />
-          <Property Name="ToDepth" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="CementingDate" Type="date" />
-          <Property Name="Volume" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="Volume" Type="numeric" Precision="9" Scale="3" />
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
@@ -9920,10 +9920,7 @@
             <PropertyRef Name="WorkTypeClassID" />
           </Key>
           <Property Name="WorkTypeClassID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="StandardWorkTypeClassName" Type="nvarchar" Nullable="false" MaxLength="16" />
-          <Property Name="CoalWorkTypeClassName" Type="nvarchar" MaxLength="16" />
-          <Property Name="GoldWorkTypeClassName" Type="nvarchar" MaxLength="16" />
-          <Property Name="CustomWorkTypeClassName" Type="nvarchar" MaxLength="16" />
+          <Property Name="WorkTypeClassName" Type="nvarchar" Nullable="false" MaxLength="16" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
           <Property Name="FullDescription" Type="nvarchar(max)" />
           <Property Name="Thumbnail" Type="varbinary(max)" />
@@ -9961,10 +9958,11 @@
           </Key>
           <Property Name="DrillingID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="FromDepth" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="RunNumber" Type="int" />
-          <Property Name="RecoveredThickness" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="RecoveredLength" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="RockQualityDesignationLength" Type="numeric" Precision="9" Scale="3" />
           <Property Name="DrillingDate" Type="date" />
           <Property Name="DrillingCompanyID" Type="uniqueidentifier" />
           <Property Name="DrillRigNumber" Type="nvarchar" MaxLength="16" />
@@ -10086,8 +10084,8 @@
           <Property Name="GeologyID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="GeologyContactID" Type="uniqueidentifier" />
-          <Property Name="FromDepth" Type="numeric" Precision="6" Scale="2" />
-          <Property Name="ToDepth" Type="numeric" Precision="6" Scale="2" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
@@ -10183,20 +10181,20 @@
           <Property Name="HeightDatumID" Type="uniqueidentifier" />
           <Property Name="EastingUtm" Type="numeric" Precision="19" Scale="7" />
           <Property Name="NorthingUtm" Type="numeric" Precision="19" Scale="7" />
-          <Property Name="Elevation" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="Elevation" Type="numeric" Precision="11" Scale="3" />
           <Property Name="Inclination" Type="int" />
           <Property Name="Azimuth" Type="int" />
           <Property Name="LocationID" Type="uniqueidentifier" />
           <Property Name="StartDate" Type="date" />
           <Property Name="CompleteDate" Type="date" />
-          <Property Name="TotalDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="TotalDepth" Type="numeric" Precision="11" Scale="3" />
           <Property Name="HoleRedrilled" Type="nvarchar" MaxLength="16" />
           <Property Name="GeologyCompanyID" Type="uniqueidentifier" />
           <Property Name="HasHadGeotechLogs" Type="bit" />
           <Property Name="HasHadCorePhotos" Type="bit" />
           <Property Name="DefaultGeophysicalLoggingCompanyID" Type="uniqueidentifier" />
           <Property Name="DefaultGeophysicalLoggerID" Type="uniqueidentifier" />
-          <Property Name="StandingWaterLevel" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="StandingWaterLevel" Type="numeric" Precision="11" Scale="3" />
           <Property Name="StandingWaterLevelDate" Type="date" />
           <Property Name="DateRehabilitated" Type="date" />
           <Property Name="HoleStatusID" Type="uniqueidentifier" />
@@ -10273,8 +10271,8 @@
             <PropertyRef Name="InterpretationID" />
           </Key>
           <Property Name="InterpretationID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="FromDepth" Type="numeric" Precision="6" Scale="2" />
-          <Property Name="ToDepth" Type="numeric" Precision="6" Scale="2" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="TopX" Type="numeric" Precision="38" Scale="20" />
           <Property Name="TopY" Type="numeric" Precision="38" Scale="20" />
           <Property Name="TopZ" Type="numeric" Precision="38" Scale="20" />
@@ -10506,9 +10504,9 @@
           </Key>
           <Property Name="LithologyID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="FromDepth" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="RecoveredThickness" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="RecoveredThickness" Type="numeric" Precision="9" Scale="3" />
           <Property Name="DomainID" Type="uniqueidentifier" />
           <Property Name="SeamID" Type="uniqueidentifier" />
           <Property Name="PlyID" Type="uniqueidentifier" />
@@ -10621,7 +10619,7 @@
           <Property Name="LocationGeography" Type="geography" />
           <Property Name="LatitudeWGS84" Type="numeric" Precision="10" Scale="7" />
           <Property Name="LongitudeWGS84" Type="numeric" Precision="10" Scale="7" />
-          <Property Name="Elevation" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="Elevation" Type="numeric" Precision="9" Scale="3" />
           <Property Name="CountryID" Type="nvarchar" MaxLength="2" />
           <Property Name="CountryStateID" Type="uniqueidentifier" />
           <Property Name="DefaultCulture" Type="nvarchar" MaxLength="5" />
@@ -10736,8 +10734,8 @@
           </Key>
           <Property Name="MineralogyID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="FromDepth" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="MineralAbundanceID" Type="uniqueidentifier" />
           <Property Name="MineralFormID" Type="uniqueidentifier" />
           <Property Name="MineralTypeID" Type="uniqueidentifier" />
@@ -10887,18 +10885,18 @@
           </Key>
           <Property Name="PointLoadID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="FromDepth" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="SampleNumber" Type="nvarchar" MaxLength="16" />
-          <Property Name="SampleLength" Type="numeric" Precision="5" Scale="3" />
+          <Property Name="SampleLength" Type="numeric" Precision="9" Scale="3" />
           <Property Name="SampleStateID" Type="uniqueidentifier" />
           <Property Name="SampleTypeID" Type="uniqueidentifier" />
           <Property Name="TestSampleCode" Type="nvarchar" MaxLength="16" />
-          <Property Name="TestSampleDepth" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="TestSampleDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="PointLoadTestTypeID" Type="uniqueidentifier" />
           <Property Name="PlatenSeparation" Type="int" />
           <Property Name="Width" Type="int" />
-          <Property Name="FailureLoad" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="FailureLoad" Type="numeric" Precision="6" Scale="2" />
           <Property Name="FailureModeID" Type="uniqueidentifier" />
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="Version" Type="int" Nullable="false" />
@@ -11294,13 +11292,13 @@
           </Key>
           <Property Name="RecoveryID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="FromDepth" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="Advance" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="CoreLoss" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="CoreRecovered" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="Solid" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="Total" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="Advance" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="CoreLoss" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="CoreRecovered" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="Solid" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="Total" Type="numeric" Precision="9" Scale="3" />
           <Property Name="Confident" Type="bit" />
           <Property Name="DrillSizeID" Type="uniqueidentifier" />
           <Property Name="CoreSize" Type="int" />
@@ -11327,8 +11325,8 @@
           <Property Name="SampleName" Type="nvarchar" MaxLength="16" />
           <Property Name="SampleNumber" Type="nvarchar" MaxLength="16" />
           <Property Name="SampleTaken" Type="datetime" />
-          <Property Name="FromDepth" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="SampleMassKg" Type="numeric" Precision="6" Scale="4" />
           <Property Name="DryMassKg" Type="numeric" Precision="6" Scale="4" />
           <Property Name="LocationID" Type="uniqueidentifier" />
@@ -11452,7 +11450,7 @@
           </Key>
           <Property Name="SurveyID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Depth" Type="numeric" Nullable="false" Precision="7" Scale="3" />
+          <Property Name="Depth" Type="numeric" Nullable="false" Precision="9" Scale="3" />
           <Property Name="Dip" Type="numeric" Precision="5" Scale="2" />
           <Property Name="MagneticDip" Type="numeric" Precision="5" Scale="2" />
           <Property Name="MagnetAffected" Type="bit" />
@@ -11684,7 +11682,7 @@
           </Key>
           <Property Name="WaterFlowID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="TestDepth" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="TestDepth" Type="numeric" Precision="9" Scale="3" />
           <Property Name="TestDate" Type="date" />
           <Property Name="SampleTypeID" Type="uniqueidentifier" />
           <Property Name="SampleNumber" Type="nvarchar" MaxLength="16" />
@@ -22794,6 +22792,7 @@
         <Function Name="E_SP_DisableVersioningTriggers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="E_SP_DropAllStoreData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="E_SP_DropAllTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_DropCoalLogExceptions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="E_SP_DropEverythingForDeploy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="droptriggers" Type="bit" Mode="In" />
         </Function>
@@ -22889,6 +22888,7 @@
           <Parameter Name="startRowIndex" Type="int" Mode="In" />
           <Parameter Name="pageSize" Type="int" Mode="In" />
         </Function>
+        <Function Name="E_SP_ShowCoalLogExceptions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="E_UDF_OrderDownloads" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="purchaseOrder" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="contactID" Type="uniqueidentifier" Mode="In" />
@@ -22902,6 +22902,14 @@
           </ReturnType>
         </Function>
         <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="InlineMax" ReturnType="decimal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="val1" Type="decimal" Mode="In" />
+          <Parameter Name="val2" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="InlineMin" ReturnType="decimal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="val1" Type="decimal" Mode="In" />
+          <Parameter Name="val2" Type="decimal" Mode="In" />
+        </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -27907,6 +27915,8 @@
             <Parameter Name="forSupplier" Mode="In" Type="Boolean" />
             <Parameter Name="includeText" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="E_SP_DropCoalLogExceptions" />
+          <FunctionImport Name="E_SP_ShowCoalLogExceptions" />
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -29983,16 +29993,16 @@
           </Key>
           <Property Name="CasingID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
-          <Property Name="FromDepth" Type="Decimal" Precision="6" Scale="2" />
-          <Property Name="ToDepth" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="CasingTypeID" Type="Guid" />
           <Property Name="CasingSize" Type="Int32" />
           <Property Name="CasingSizeUnit" Type="Guid" />
-          <Property Name="CasingInsideData" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="CasingInsideData" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="CasingInsideDataUnit" Type="Guid" />
-          <Property Name="CasingOutsideData" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="CasingOutsideData" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="CasingOutsideDataUnit" Type="Guid" />
-          <Property Name="LengthRecovered" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="LengthRecovered" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Version" Type="Int32" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="Guid" />
@@ -30016,10 +30026,10 @@
           </Key>
           <Property Name="CementingID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
-          <Property Name="FromDepth" Type="Decimal" Precision="5" Scale="1" />
-          <Property Name="ToDepth" Type="Decimal" Precision="5" Scale="1" />
+          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="CementingDate" Type="DateTime" Precision="0" />
-          <Property Name="Volume" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Volume" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Version" Type="Int32" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="Guid" />
@@ -33132,10 +33142,6 @@
             <PropertyRef Name="WorkTypeClassID" />
           </Key>
           <Property Name="WorkTypeClassID" Type="Guid" Nullable="false" />
-          <Property Name="StandardWorkTypeClassName" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="CoalWorkTypeClassName" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="GoldWorkTypeClassName" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="CustomWorkTypeClassName" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="FullDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
@@ -33150,6 +33156,7 @@
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
           <NavigationProperty Name="FileData" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryWorkTypeClass_X_FileData_OriginalFile" FromRole="X_DictionaryWorkTypeClass" ToRole="X_FileData" />
+          <Property Type="String" Name="WorkTypeClassName" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DictionaryWorkTypeRelation">
           <Key>
@@ -33176,10 +33183,9 @@
           </Key>
           <Property Name="DrillingID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
-          <Property Name="FromDepth" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="Decimal" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="RunNumber" Type="Int32" />
-          <Property Name="RecoveredThickness" Type="Decimal" Precision="7" Scale="3" />
           <Property Name="DrillingDate" Type="DateTime" Precision="0" />
           <Property Name="DrillingCompanyID" Type="Guid" />
           <Property Name="DrillRigNumber" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
@@ -33209,6 +33215,8 @@
           <NavigationProperty Name="DrillSize" Relationship="NKD.Module.BusinessObjects.FK_X_DrillingData_X_DictionaryDrill_Size_Name" FromRole="X_Drilling" ToRole="X_DictionaryDrillSize" />
           <NavigationProperty Name="Interpretation" Relationship="NKD.Module.BusinessObjects.FK_X_DesurveyResult_X_Drilling" FromRole="X_Drilling" ToRole="X_Interpretation" />
           <NavigationProperty Name="Header" Relationship="NKD.Module.BusinessObjects.FK_X_DrillingData_X_Header" FromRole="X_Drilling" ToRole="X_Header" />
+          <Property Type="Decimal" Name="RecoveredLength" Precision="9" Scale="3" />
+          <Property Type="Decimal" Name="RockQualityDesignationLength" Precision="9" Scale="3" />
         </EntityType>
         <EntityType Name="Experience">
           <Key>
@@ -33433,8 +33441,8 @@
           <Property Name="GeologyID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
           <Property Name="GeologyContactID" Type="Guid" />
-          <Property Name="FromDepth" Type="Decimal" Precision="6" Scale="2" />
-          <Property Name="ToDepth" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Version" Type="Int32" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="Guid" />
@@ -33542,20 +33550,20 @@
           <Property Name="HeightDatumID" Type="Guid" />
           <Property Name="EastingUtm" Type="Decimal" Precision="19" Scale="7" />
           <Property Name="NorthingUtm" Type="Decimal" Precision="19" Scale="7" />
-          <Property Name="Elevation" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="Elevation" Type="Decimal" Precision="11" Scale="3" />
           <Property Name="Inclination" Type="Int32" />
           <Property Name="Azimuth" Type="Int32" />
           <Property Name="LocationID" Type="Guid" />
           <Property Name="StartDate" Type="DateTime" Precision="0" />
           <Property Name="CompleteDate" Type="DateTime" Precision="0" />
-          <Property Name="TotalDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="TotalDepth" Type="Decimal" Precision="11" Scale="3" />
           <Property Name="HoleRedrilled" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
           <Property Name="GeologyCompanyID" Type="Guid" />
           <Property Name="HasHadGeotechLogs" Type="Boolean" />
           <Property Name="HasHadCorePhotos" Type="Boolean" />
           <Property Name="DefaultGeophysicalLoggingCompanyID" Type="Guid" />
           <Property Name="DefaultGeophysicalLoggerID" Type="Guid" />
-          <Property Name="StandingWaterLevel" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="StandingWaterLevel" Type="Decimal" Precision="11" Scale="3" />
           <Property Name="StandingWaterLevelDate" Type="DateTime" Precision="0" />
           <Property Name="DateRehabilitated" Type="DateTime" Precision="0" />
           <Property Name="HoleStatusID" Type="Guid" />
@@ -33650,8 +33658,8 @@
             <PropertyRef Name="InterpretationID" />
           </Key>
           <Property Name="InterpretationID" Type="Guid" Nullable="false" />
-          <Property Name="FromDepth" Type="Decimal" Precision="6" Scale="2" />
-          <Property Name="ToDepth" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="TopX" Type="Decimal" Precision="38" Scale="20" />
           <Property Name="TopY" Type="Decimal" Precision="38" Scale="20" />
           <Property Name="TopZ" Type="Decimal" Precision="38" Scale="20" />
@@ -33911,9 +33919,9 @@
           </Key>
           <Property Name="LithologyID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
-          <Property Name="FromDepth" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="RecoveredThickness" Type="Decimal" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="RecoveredThickness" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="DomainID" Type="Guid" />
           <Property Name="SeamID" Type="Guid" />
           <Property Name="PlyID" Type="Guid" />
@@ -34005,7 +34013,7 @@
           <Property Name="LocationGeography" Type="Geography" />
           <Property Name="LatitudeWGS84" Type="Decimal" Precision="10" Scale="7" />
           <Property Name="LongitudeWGS84" Type="Decimal" Precision="10" Scale="7" />
-          <Property Name="Elevation" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="Elevation" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="CountryID" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
           <Property Name="CountryStateID" Type="Guid" />
           <Property Name="DefaultCulture" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
@@ -34145,8 +34153,8 @@
           </Key>
           <Property Name="MineralogyID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
-          <Property Name="FromDepth" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="Decimal" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="MineralAbundanceID" Type="Guid" />
           <Property Name="MineralFormID" Type="Guid" />
           <Property Name="MineralTypeID" Type="Guid" />
@@ -34337,18 +34345,18 @@
           </Key>
           <Property Name="PointLoadID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
-          <Property Name="FromDepth" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="Decimal" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="SampleNumber" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="SampleLength" Type="Decimal" Precision="5" Scale="3" />
+          <Property Name="SampleLength" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="SampleStateID" Type="Guid" />
           <Property Name="SampleTypeID" Type="Guid" />
           <Property Name="TestSampleCode" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="TestSampleDepth" Type="Decimal" Precision="7" Scale="3" />
+          <Property Name="TestSampleDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="PointLoadTestTypeID" Type="Guid" />
           <Property Name="PlatenSeparation" Type="Int32" />
           <Property Name="Width" Type="Int32" />
-          <Property Name="FailureLoad" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="FailureLoad" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="FailureModeID" Type="Guid" />
           <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Version" Type="Int32" Nullable="false" />
@@ -34859,13 +34867,13 @@
           </Key>
           <Property Name="RecoveryID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
-          <Property Name="FromDepth" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="Advance" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="CoreLoss" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="CoreRecovered" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="Solid" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="Total" Type="Decimal" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="Advance" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="CoreLoss" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="CoreRecovered" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="Solid" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="Total" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="Confident" Type="Boolean" />
           <Property Name="DrillSizeID" Type="Guid" />
           <Property Name="CoreSize" Type="Int32" />
@@ -34895,8 +34903,8 @@
           <Property Name="SampleName" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
           <Property Name="SampleNumber" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
           <Property Name="SampleTaken" Type="DateTime" Precision="3" />
-          <Property Name="FromDepth" Type="Decimal" Precision="7" Scale="3" />
-          <Property Name="ToDepth" Type="Decimal" Precision="7" Scale="3" />
+          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="SampleMassKg" Type="Decimal" Precision="6" Scale="4" />
           <Property Name="DryMassKg" Type="Decimal" Precision="6" Scale="4" />
           <Property Name="Version" Type="Int32" Nullable="false" />
@@ -35043,7 +35051,7 @@
           </Key>
           <Property Name="SurveyID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
-          <Property Name="Depth" Type="Decimal" Nullable="false" Precision="7" Scale="3" />
+          <Property Name="Depth" Type="Decimal" Nullable="false" Precision="9" Scale="3" />
           <Property Name="Dip" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="MagneticDip" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="MagnetAffected" Type="Boolean" />
@@ -35313,7 +35321,7 @@
           </Key>
           <Property Name="WaterFlowID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
-          <Property Name="TestDepth" Type="Decimal" Precision="7" Scale="3" />
+          <Property Name="TestDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="TestDate" Type="DateTime" Precision="0" />
           <Property Name="SampleTypeID" Type="Guid" />
           <Property Name="SampleNumber" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
@@ -44220,8 +44228,8 @@
           <Property Type="Int32" Name="Sequence" />
           <Property Type="String" Name="LabSubsampleName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="SampleAntecedentID" />
-          <Property Type="Decimal" Name="FromDepth" Precision="7" Scale="3" />
-          <Property Type="Decimal" Name="ToDepth" Precision="7" Scale="3" />
+          <Property Type="Decimal" Name="FromDepth" Precision="9" Scale="3" />
+          <Property Type="Decimal" Name="ToDepth" Precision="9" Scale="3" />
           <Property Type="Guid" Name="AgitationMethodID" />
           <Property Type="Int32" Name="DurationProcedureSeconds" />
           <Property Type="Int32" Name="DurationTotalSeconds" />
@@ -52484,11 +52492,8 @@
           <EntitySetMapping Name="DictionaryWorkTypeClasses">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.DictionaryWorkTypeClass">
               <MappingFragment StoreEntitySet="X_DictionaryWorkTypeClass">
+                <ScalarProperty Name="WorkTypeClassName" ColumnName="WorkTypeClassName" />
                 <ScalarProperty Name="WorkTypeClassID" ColumnName="WorkTypeClassID" />
-                <ScalarProperty Name="StandardWorkTypeClassName" ColumnName="StandardWorkTypeClassName" />
-                <ScalarProperty Name="CoalWorkTypeClassName" ColumnName="CoalWorkTypeClassName" />
-                <ScalarProperty Name="GoldWorkTypeClassName" ColumnName="GoldWorkTypeClassName" />
-                <ScalarProperty Name="CustomWorkTypeClassName" ColumnName="CustomWorkTypeClassName" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
                 <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
@@ -52526,12 +52531,13 @@
           <EntitySetMapping Name="Drillings">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.Drilling">
               <MappingFragment StoreEntitySet="X_Drilling">
+                <ScalarProperty Name="RockQualityDesignationLength" ColumnName="RockQualityDesignationLength" />
+                <ScalarProperty Name="RecoveredLength" ColumnName="RecoveredLength" />
                 <ScalarProperty Name="DrillingID" ColumnName="DrillingID" />
                 <ScalarProperty Name="HeaderID" ColumnName="HeaderID" />
                 <ScalarProperty Name="FromDepth" ColumnName="FromDepth" />
                 <ScalarProperty Name="ToDepth" ColumnName="ToDepth" />
                 <ScalarProperty Name="RunNumber" ColumnName="RunNumber" />
-                <ScalarProperty Name="RecoveredThickness" ColumnName="RecoveredThickness" />
                 <ScalarProperty Name="DrillingDate" ColumnName="DrillingDate" />
                 <ScalarProperty Name="DrillingCompanyID" ColumnName="DrillingCompanyID" />
                 <ScalarProperty Name="DrillRigNumber" ColumnName="DrillRigNumber" />
@@ -57170,6 +57176,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_DropCoalLogExceptions" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_DropCoalLogExceptions" />
+          <FunctionImportMapping FunctionImportName="E_SP_ShowCoalLogExceptions" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_ShowCoalLogExceptions" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

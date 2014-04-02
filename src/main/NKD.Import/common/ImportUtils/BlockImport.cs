@@ -462,7 +462,7 @@ namespace NKD.Import.ImportUtils
 
                         if (ct > 1)
                         {
-                            List<string> items = parseTestLine(line, ',');
+                            List<string> items = parseTestLine(line, '\t');
 
                             string statement1 = "UPDATE X_BlockModelBlock SET "+colToInsertTo+"="+items[3]+" WHERE BlockModelID=\'"+guid+"\' AND "+
                                                         "CentroidX=" + items[0] + " AND CentroidY=" + items[1] + " AND CentroidZ=" + items[2];
