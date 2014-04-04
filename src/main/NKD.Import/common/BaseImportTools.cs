@@ -336,11 +336,10 @@ namespace NKD.Import
         /// <param name="_originX"></param>
         /// <param name="_originY"></param>
         /// <param name="_originZ"></param>
-        public void ParseDataLinesForOrigins(string headerLine, string firstDataLine, out double _originX, out double _originY, out double _originZ)
+        public void ParseDataLinesForOrigins(string headerLine, string firstDataLine, char delimeter, out double _originX, out double _originY, out double _originZ)
         {
-            char delim = '\t';
-            string[] headerItems = headerLine.Split(new char[] { delim }, StringSplitOptions.None);
-            string[] lineItems = firstDataLine.Split(new char[] { delim }, StringSplitOptions.None);
+            string[] headerItems = headerLine.Split(new char[] { delimeter }, StringSplitOptions.None);
+            string[] lineItems = firstDataLine.Split(new char[] { delimeter }, StringSplitOptions.None);
             _originX = 0;
             _originY = 0;
             _originZ = 0;
@@ -386,12 +385,11 @@ namespace NKD.Import
 
 
         // attempt to use the block model file header to automatically create a defintion based on goldfields typical model formats
-        public ImportDataMap AutoGenerateFormatDefinition(string headerLine)
+        public ImportDataMap AutoGenerateFormatDefinition(string headerLine, char delimeter)
         {
-            char delim = '\t';
-                        
+                       
             Dictionary<string, bool> autoMap = new Dictionary<string, bool>();
-            string[] headerItems = headerLine.Split(new char[] { delim }, StringSplitOptions.None);
+            string[] headerItems = headerLine.Split(new char[] { delimeter }, StringSplitOptions.None);
             // iterate through each item in the header and assign it to a target column. 
             foreach(string ss in headerItems){
                 autoMap.Add(ss, false);
@@ -401,7 +399,8 @@ namespace NKD.Import
             // DB field = [Domain]
             ImportDataMap idm = new ImportDataMap();
             idm.columnMap = new List<ColumnMap>();
-            idm.inputDelimiter = '\t';
+            idm.MaxColumns = headerItems.Length;
+            idm.inputDelimiter = delimeter;
             idm.mapTargetPrimaryTable = "BlockModelBlock";
             idm.dataStartLine = 2;
 
@@ -447,7 +446,7 @@ namespace NKD.Import
             return idx;
         }
 
-        public ModelImportStatus PerformBMAppend(System.IO.Stream bmStream, Guid bmGuid, string alias, string columnNameToImport, int columnIndexToImport, string connString)
+        public ModelImportStatus PerformBMAppend(System.IO.Stream bmStream, Guid bmGuid, string alias, string columnNameToImport, int columnIndexToImport, string connString, char delimiter)
         {
             // TODO: read stream and write updates to database
 
@@ -479,10 +478,11 @@ namespace NKD.Import
                 ImportUtils.BlockImport dbIm = new ImportUtils.BlockImport();
                 ImportDataMap idm = new ImportDataMap();
                 idm.columnMap = new List<ColumnMap>();
+                idm.inputDelimiter = delimiter;
                 idm.columnMap.Add(new ColumnMap(columnNameToImport, columnIndexToImport, "BlockModelBlock", colToInsertTo, ImportDataMap.NUMERICDATATYPE, null, null, null));
                 dbIm.SetBlockModelMetaData(bmGuid, idm, connString);
 
-                return dbIm.UpdateBlockData(bmStream, bmGuid, colToInsertTo, connString);
+                return dbIm.UpdateBlockData(bmStream, bmGuid, colToInsertTo, connString, delimiter);
             }
 
         }
@@ -525,6 +525,19 @@ namespace NKD.Import
             ci.columnName = "[ASSAY RESULT]";
             ci.fkSpec = null;
             colListP.Insert(0,ci);
+            ColumnMetaInfo ci2 = new ColumnMetaInfo();
+            ci2.columnName = "SampleNumber";
+            ci2.fkSpec = null;
+            colListP.Insert(1, ci2);
+            ColumnMetaInfo ci3 = new ColumnMetaInfo();
+            ci3.columnName = "SampleMassKg";
+            ci3.fkSpec = null;
+            colListP.Insert(2, ci3);
+            ColumnMetaInfo ci4 = new ColumnMetaInfo();
+            ci4.columnName = "StandardSampleTypeName";
+            ci4.fkSpec = null;
+            colListP.Insert(3, ci4);
+
 
             // now mark only the mandatory fields - for assay this will be header id, from, to and result
             foreach (ColumnMetaInfo c in colListP) {

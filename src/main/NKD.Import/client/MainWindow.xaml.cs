@@ -51,7 +51,6 @@ namespace NKD.Import.Client
         BackgroundWorker workerLithoDataImport;
         BackgroundWorker workerLASBatchDataImport;
 
-        RawFileReader blockRawFileReader = new RawFileReader();
         ModelColumnDefinitions columnDefs;
 
         ModelImportStatus latestImportUpdateStatus = null;
@@ -250,7 +249,7 @@ namespace NKD.Import.Client
             try
             {
                 string constr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-                string catalog = constr.Split(';').Where(x => x.StartsWith("Initial Catalog=")).FirstOrDefault().Split('=').LastOrDefault();
+                string catalog = constr.Split(';').Where(x => x.ToLower().StartsWith("initial catalog=")).FirstOrDefault().Split('=').LastOrDefault();
 
                 if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
                 {
@@ -346,7 +345,7 @@ namespace NKD.Import.Client
 
         private void SaveLithoFormatExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            SaveFormatFile();
+            SaveFormatFile((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
         }
 
         private void OpenLithoFormatCanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -450,7 +449,7 @@ namespace NKD.Import.Client
             }
             Guid gg = (Guid)ComboBoxProjectList.SelectedValue;
             NKDProjectID = gg;
-            ImportDataMap importMap = MapConfigTable.GetImportDataMap(MapConfigTable.surveyPrimaryTableName);
+            ImportDataMap importMap = MapConfigTable.GetImportDataMap(SelectedFile, MapConfigTable.surveyPrimaryTableName, (SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
             // add into map details of which columns are foreign keys
 
             if (surveyDBFields != null)
@@ -488,7 +487,7 @@ namespace NKD.Import.Client
             }
             Guid gg = (Guid)ComboBoxProjectList.SelectedValue;
             NKDProjectID = gg;
-            ImportDataMap importMap = MapConfigTable.GetImportDataMap(MapConfigTable.lithoPrimaryTableName);
+            ImportDataMap importMap = MapConfigTable.GetImportDataMap(SelectedFile, MapConfigTable.lithoPrimaryTableName, (SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
             // add into map details of which columns are foreign keys
 
             if (lithoDBFields != null)
@@ -519,7 +518,8 @@ namespace NKD.Import.Client
 
             ImportDataMap importMap = (ImportDataMap)e.Argument;
             commandDirector.SetCurrentWorkerThread(workerLithoDataImport);
-            ModelImportStatus status = commandDirector.DoLithoImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, NKDProjectID, doImportOverwrite, this.doDuplicateCheck);
+            var rawFileReader = new RawFileReader((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t');
+            ModelImportStatus status = commandDirector.DoLithoImport(SelectedFile, SelectedFormatFile, importMap, rawFileReader, NKDProjectID, doImportOverwrite, this.doDuplicateCheck);
             latestImportUpdateStatus = status;
             workerLithoDataImport.ReportProgress((int)0, "");
 
@@ -544,7 +544,7 @@ namespace NKD.Import.Client
 
         private void SaveSurveyFormatExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            SaveFormatFile();
+            SaveFormatFile((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
             e.Handled = true;
         }
 
@@ -610,8 +610,6 @@ namespace NKD.Import.Client
 
         public void ResetUI()
         {
-
-            blockRawFileReader = new RawFileReader();
             ModelColumnDefinitions columnDefs = new ModelColumnDefinitions();
             latestImportUpdateStatus = null;
             SelectedFormatFile = "";
@@ -698,7 +696,7 @@ namespace NKD.Import.Client
             doImportOverwrite = (bool)checkBoxOverwrite.IsChecked;
             Guid gg = (Guid)ComboBoxProjectList.SelectedValue;
             NKDProjectID = gg;
-            ImportDataMap importMap = MapConfigTable.GetImportDataMap(MapConfigTable.assayPrimaryTableName);
+            ImportDataMap importMap = MapConfigTable.GetImportDataMap(SelectedFile, MapConfigTable.assayPrimaryTableName, (SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
             // add into map details of which columns are foreign keys
 
             if (assayDBFields != null)
@@ -729,7 +727,8 @@ namespace NKD.Import.Client
         {
             ImportDataMap importMap = (ImportDataMap)e.Argument;
             commandDirector.SetCurrentWorkerThread(workerAssayDataImport);
-            ModelImportStatus status = commandDirector.DoAssayImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader,
+            var rawFileReader = new RawFileReader((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t');
+            ModelImportStatus status = commandDirector.DoAssayImport(SelectedFile, SelectedFormatFile, importMap, rawFileReader,
                 NKDProjectID, doDuplicateCheck, doImportOverwrite);
             latestImportUpdateStatus = status;
         }
@@ -755,7 +754,8 @@ namespace NKD.Import.Client
         {
             ImportDataMap importMap = (ImportDataMap)e.Argument;
             commandDirector.SetCurrentWorkerThread(workerSurveyDataImport);
-            ModelImportStatus status = commandDirector.DoSurveyImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, NKDProjectID, doImportOverwrite, this.doDuplicateCheck);
+            var rawFileReader = new RawFileReader((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t');
+            ModelImportStatus status = commandDirector.DoSurveyImport(SelectedFile, SelectedFormatFile, importMap, rawFileReader, NKDProjectID, doImportOverwrite, this.doDuplicateCheck);
             latestImportUpdateStatus = status;
             workerSurveyDataImport.ReportProgress((int)0, "");
         }
@@ -790,7 +790,7 @@ namespace NKD.Import.Client
 
         private void SaveAssayFormatExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            SaveFormatFile();
+            SaveFormatFile((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
             e.Handled = true;
         }
 
@@ -866,7 +866,7 @@ namespace NKD.Import.Client
 
         private void SaveCoalQualityFormatExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            SaveFormatFile();
+            SaveFormatFile((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
             e.Handled = true;
         }
 
@@ -953,7 +953,7 @@ namespace NKD.Import.Client
             doImportOverwrite = (bool)checkBoxOverwrite.IsChecked;
             Guid gg = (Guid)ComboBoxProjectList.SelectedValue;
             NKDProjectID = gg;
-            ImportDataMap importMap = MapConfigTable.GetImportDataMap(MapConfigTable.assayPrimaryTableName);
+            ImportDataMap importMap = MapConfigTable.GetImportDataMap(SelectedFile, MapConfigTable.assayPrimaryTableName, (SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
             // add into map details of which columns are foreign keys
 
             if (coalQualityDBFields != null)
@@ -985,7 +985,8 @@ namespace NKD.Import.Client
         {
             ImportDataMap importMap = (ImportDataMap)e.Argument;
             commandDirector.SetCurrentWorkerThread(workerCoalQualityDataImport);
-            ModelImportStatus status = commandDirector.DoCoalQualityImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader,
+            var rawFileReader = new RawFileReader((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t');
+            ModelImportStatus status = commandDirector.DoCoalQualityImport(SelectedFile, SelectedFormatFile, importMap, rawFileReader,
                 NKDProjectID, doDuplicateCheck, doImportOverwrite);
             latestImportUpdateStatus = status;
         }
@@ -1095,7 +1096,8 @@ namespace NKD.Import.Client
             ImportDataPreview.SetPreviewType("MODEL");
 
             bool firstLineIsHeader = true;
-            List<RawDataRow> dt = blockRawFileReader.LoadRawDataForPreview(inputFilename, ares);
+            var rawFileReader = new RawFileReader((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t');
+            List<RawDataRow> dt = rawFileReader.LoadRawDataForPreview(inputFilename, ares);
             if (inputFilename.ToLower().EndsWith("las"))
             {
                 ImportDataPreview.ResetTable(dt, false);
@@ -1195,7 +1197,8 @@ namespace NKD.Import.Client
             }
             else
             {
-                List<RawDataRow> dt = blockRawFileReader.LoadRawDataForPreview(inputFilename, ares);
+                var rawFileReader = new RawFileReader(',');
+                List<RawDataRow> dt = rawFileReader.LoadRawDataForPreview(inputFilename, ares);
                 ImportDataPreview.ResetTable(dt, firstLineIsHeader);
 
             }
@@ -1247,13 +1250,14 @@ namespace NKD.Import.Client
             IOResults ares = new IOResults();
 
             bool firstLineIsHeader = true;// (bool)dataEntryForm.checkBoxModelFirstRowHeader.IsChecked;
-            List<RawDataRow> dt = blockRawFileReader.LoadRawData(firstLineIsHeader, fileToLoad, ares);
-            blockRawFileReader.PerformColumnLoad(fileToLoad, ares, blockRawFileReader.MaxCols, firstLineIsHeader, workerLoadData);
-            string ss = blockRawFileReader.GetColumnStats();
-            List<string> res = blockRawFileReader.DetermineColumnDataTypes();
+            var rawFileReader = new RawFileReader((fileToLoad.ToLower().IndexOf(".csv") > -1) ? ',' : '\t');
+            List<RawDataRow> dt = rawFileReader.LoadRawDataForPreview(fileToLoad, ares);
+            rawFileReader.PerformColumnLoad(fileToLoad, ares, rawFileReader.MaxCols, firstLineIsHeader, workerLoadData);
+            string ss = rawFileReader.GetColumnStats();
+            List<string> res = rawFileReader.DetermineColumnDataTypes();
             columnDefs = new ModelColumnDefinitions();
             // collect column assignments here
-            blockRawFileReader.SetColumnDefinitions(columnDefs);
+            rawFileReader.SetColumnDefinitions(columnDefs);
         }
 
         void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -1297,6 +1301,7 @@ namespace NKD.Import.Client
 
         private void PresetDimensionData(ImportDataMap impMap)
         {
+            var rawFileReader = new RawFileReader((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t');
             int cxColumnID = impMap.GetColumnIDMappedTo("CentroidX");
             int cyColumnID = impMap.GetColumnIDMappedTo("CentroidY");
             int czColumnID = impMap.GetColumnIDMappedTo("CentroidZ");
@@ -1307,32 +1312,32 @@ namespace NKD.Import.Client
             PhysicalDimensions pd = new PhysicalDimensions();
             if (cxColumnID > -1)
             {
-                ColumnStats xOrigin = blockRawFileReader.GetDimensions(cxColumnID);
+                ColumnStats xOrigin = rawFileReader.GetDimensions(cxColumnID);
                 pd.originX = xOrigin.min;
             }
             if (cyColumnID > -1)
             {
-                ColumnStats yOrigin = blockRawFileReader.GetDimensions(cyColumnID);
+                ColumnStats yOrigin = rawFileReader.GetDimensions(cyColumnID);
                 pd.originY = yOrigin.min;
             }
             if (czColumnID > -1)
             {
-                ColumnStats zOrigin = blockRawFileReader.GetDimensions(czColumnID);
+                ColumnStats zOrigin = rawFileReader.GetDimensions(czColumnID);
                 pd.originZ = zOrigin.min;
             }
             if (xincColumnID > -1)
             {
-                ColumnStats xInc = blockRawFileReader.GetDimensions(xincColumnID);
+                ColumnStats xInc = rawFileReader.GetDimensions(xincColumnID);
                 pd.blockXWidth = xInc.max;
             }
             if (yincColumnID > -1)
             {
-                ColumnStats yInc = blockRawFileReader.GetDimensions(yincColumnID);
+                ColumnStats yInc = rawFileReader.GetDimensions(yincColumnID);
                 pd.blockYWidth = yInc.max;
             }
             if (zincColumnID > -1)
             {
-                ColumnStats zInc = blockRawFileReader.GetDimensions(zincColumnID);
+                ColumnStats zInc = rawFileReader.GetDimensions(zincColumnID);
                 pd.blockZWidth = zInc.max;
             }
             BlockDimensionsControl.SetBlockDimensions(pd);
@@ -1418,7 +1423,7 @@ namespace NKD.Import.Client
                             MessageBox.Show(messages, "Warnings during loading mapping file");
 
                         }
-                    }
+                    }                   
                     PresetDimensionData(idm);
                 }
                 catch (Exception ex)
@@ -1448,11 +1453,11 @@ namespace NKD.Import.Client
 
         private void SaveFormatExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            SaveFormatFile();
+            SaveFormatFile((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
             e.Handled = true;
         }
 
-        private void SaveFormatFile()
+        private void SaveFormatFile(char delimiter, int maxCols)
         {
             string fileName = UIFileUtils.ShowSaveFileChoose(FormatFileExtension, FormatFileDescription, SelectedFormatFile);
             if (fileName == null)
@@ -1462,7 +1467,7 @@ namespace NKD.Import.Client
             else
             {
                 SelectedFormatFile = fileName;
-                MapConfigTable.SaveFormat(fileName, MapConfigTable.bmPrimaryTableName);
+                MapConfigTable.SaveFormat(fileName, MapConfigTable.bmPrimaryTableName, delimiter, maxCols);
             }
 
         }
@@ -1483,7 +1488,7 @@ namespace NKD.Import.Client
 
         private void BMImportExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            ImportDataMap importMap = MapConfigTable.GetImportDataMap(MapConfigTable.bmPrimaryTableName);
+            ImportDataMap importMap = MapConfigTable.GetImportDataMap(SelectedFile, MapConfigTable.bmPrimaryTableName, (SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
             Guid gg = (Guid)ComboBoxProjectList.SelectedValue;
             // get the selected project ID
             NKDProjectID = gg;
@@ -1505,7 +1510,8 @@ namespace NKD.Import.Client
         {
             ImportDataMap importMap = (ImportDataMap)e.Argument;
             commandDirector.SetCurrentWorkerThread(workerBMDataImport);
-            bool status = commandDirector.DoBMImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, NKDProjectID.ToString(), blockModellName);
+            var rawFileReader = new RawFileReader((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t');
+            bool status = commandDirector.DoBMImport(SelectedFile, SelectedFormatFile, importMap, rawFileReader, NKDProjectID.ToString(), blockModellName);
 
         }
 
@@ -1669,7 +1675,7 @@ namespace NKD.Import.Client
 
         private void SaveLASFormatExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            SaveFormatFile();
+            SaveFormatFile((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
 
             e.Handled = true;
         }
@@ -1752,7 +1758,7 @@ namespace NKD.Import.Client
             bool overwrite = (bool)checkBoxOverwrite.IsChecked;
 
 
-            ImportDataMap importMap = MapConfigTable.GetImportDataMap(MapConfigTable.collarPrimaryTableName);
+            ImportDataMap importMap = MapConfigTable.GetImportDataMap(SelectedFile, MapConfigTable.collarPrimaryTableName, (SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
             // add into map details of which columns are foreign keys
             if (collarDBFields != null)
             {
@@ -1761,8 +1767,8 @@ namespace NKD.Import.Client
 
             // get the selected project ID
 
-
-            ModelImportStatus status = commandDirector.DoCollarImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, NKDProjectID, overwrite);
+            var rawFileReader = new RawFileReader((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t');
+            ModelImportStatus status = commandDirector.DoCollarImport(SelectedFile, SelectedFormatFile, importMap, rawFileReader, NKDProjectID, overwrite);
             latestImportUpdateStatus = status;
             //if(status.finalErrorCode != ModelImportStatus.OK){
             //    string ss = status.GenerateStringMessage(true);
@@ -1818,7 +1824,7 @@ namespace NKD.Import.Client
 
         private void SaveCollarFormatExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            SaveFormatFile();
+            SaveFormatFile((SelectedFile.ToLower().IndexOf(".csv") > -1) ? ',' : '\t', ImportDataPreview.MaxColumns);
 
             e.Handled = true;
         }
@@ -1947,7 +1953,8 @@ namespace NKD.Import.Client
             ImportDataPreview.SetPreviewType("MODEL");
 
             bool firstLineIsHeader = true;
-            List<RawDataRow> dt = blockRawFileReader.LoadRawDataForPreview(inputFilename, ares);
+            var rawFileReader = new RawFileReader((inputFilename.ToLower().IndexOf(".csv") > -1) ? ',' : '\t');
+            List<RawDataRow> dt = rawFileReader.LoadRawDataForPreview(inputFilename, ares);
             ImportDataPreview.ResetTable(dt, firstLineIsHeader);
 
         }

@@ -56,7 +56,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>images\ExpressApp.ico</ApplicationIcon>
+    <ApplicationIcon>images\NKD.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>1F4A4A2571031F0E711153492269D18B9B3D9210</ManifestCertificateThumbprint>
@@ -341,7 +341,7 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\ExpressApp.ico" />
+    <Resource Include="images\NKD.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

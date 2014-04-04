@@ -20,9 +20,9 @@ namespace NKD.Import.Client.IO
         public bool dataLoaded = false;
         public int SkipLines { get; set; }
 
-        public RawFileReader(){
+        public RawFileReader(char delimeter){
         
-            splitArray[0] = '\t';
+            splitArray[0] = delimeter;
             SkipLines = 0;
         }
 
@@ -43,8 +43,7 @@ namespace NKD.Import.Client.IO
         public List<RawDataRow> LoadRawDataForPreview(string inputDataFile, IOResults ares) {            
             // first read the raw lines
             List<string> dataLines = ReadDataLines(true, inputDataFile, ares);
-            char delimiter = '\t';
-            List<RawDataRow> data = ParseDataLines(dataLines, ares, delimiter);
+            List<RawDataRow> data = ParseDataLines(dataLines, ares, splitArray[0]);
             int maxCols = 0;
             foreach (RawDataRow r in data) {
                 int ct = r.dataItems.Count;
@@ -133,7 +132,7 @@ namespace NKD.Import.Client.IO
         /// <param name="allLines"></param>
         /// <param name="ares"></param>
         /// <returns></returns>
-        private List<RawDataRow> ParseDataLines(List<string> allLines, IOResults ares, char delimiter)
+        private List<RawDataRow> ParseDataLines(List<string> allLines, IOResults ares, char delimeter)
         {
             List<RawDataRow> dt = new List<RawDataRow>();
 
@@ -142,7 +141,7 @@ namespace NKD.Import.Client.IO
 
             char[] splitArray = new char[3];
             // set up the delimiting characters
-            splitArray[0] = delimiter;
+            splitArray[0] = delimeter;
             
             int fileLineNumber = 1;
             foreach (string ln in allLines)
@@ -150,7 +149,7 @@ namespace NKD.Import.Client.IO
                 try
                 {
 
-                    string[] items = splitQuoted(ln, '\t');
+                    string[] items = splitQuoted(ln, delimeter);
                    // string[] items = ln.Split(splitArray, StringSplitOptions.None);
                     RawDataRow rdr = new RawDataRow();
                     rdr.dataItems = new List<string>(items);
@@ -173,10 +172,17 @@ namespace NKD.Import.Client.IO
             List<string> list = new List<string>();
             do
             {
-                if (line.StartsWith("\""))
+                if (line.StartsWith("\"") && line.LastIndexOf('\"') != 0)
                 {
                     line = line.Substring(1);
                     int idx = line.IndexOf("\"");
+                    if (idx < 0)
+                    {
+                        //BrokenLine
+                        list.Add(line.Substring(0, Math.Max(line.IndexOf(delimeter), 0)));
+                        line = line.Substring(line.IndexOf(delimeter) + 1);
+                        continue;
+                    }
                     while (line.IndexOf("\"", idx) == line.IndexOf("\"\"", idx))
                     {
                         idx = line.IndexOf("\"\"", idx) + 2;
@@ -233,8 +239,7 @@ namespace NKD.Import.Client.IO
             }
             
             if (sr != null)
-            {
-                
+            {                 
                     string line = null;
                     //Continue to read until you reach end of file
                     int recordNumber = 0;
@@ -313,13 +318,13 @@ namespace NKD.Import.Client.IO
                         if (!insideQuotes)
                         {
                             templist.Add(items[i]);
-                            templist[templist.Count - 1] += "\t";
+                            templist[templist.Count - 1] += splitArray[0];
                         }
                         else
                         {
                             tempstring += items[i];
                             if (!items[i].Contains("\""))
-                                tempstring += "\t";
+                                tempstring += splitArray[0];
                         }
 
                         if (items[i].Contains("\"") && insideQuotes)

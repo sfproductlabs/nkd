@@ -547,11 +547,11 @@ namespace NKD.Import.ImportUtils
 
 
 
-        private List<string> parseTestLine(string ln, char delim)
+        private List<string> parseTestLine(string ln, char delimeter)
         {
-            return ln.Split(new char[] { delim }, StringSplitOptions.None).ToList();
+            return ln.Split(new char[] { delimeter }, StringSplitOptions.None).ToList();
 
-            string[] items = ln.Split(new char[] { delim }, StringSplitOptions.None);
+            string[] items = ln.Split(new char[] { delimeter }, StringSplitOptions.None);
 
             if (ln.Contains("\""))
             {
@@ -570,13 +570,13 @@ namespace NKD.Import.ImportUtils
                         if (!insideQuotes)
                         {
                             templist.Add(items[i]);
-                            templist[templist.Count - 1] += "\t";
+                            templist[templist.Count - 1] += delimeter;
                         }
                         else
                         {
                             tempstring += items[i];
                             if (!items[i].Contains("\""))
-                                tempstring += "\t";
+                                tempstring += delimeter;
                         }
 
                         if (items[i].Contains("\"") && insideQuotes)

@@ -190,7 +190,7 @@ namespace NKD.Import.Client.UI
 
 
 
-        public int MaxColumns { get; set; }
+        public int MaxColumns { get { return PreviewGrid.Columns.Count; } }
 
         internal string QueryColumnAssignments()
         {
@@ -319,7 +319,7 @@ namespace NKD.Import.Client.UI
                     string s1a = ss.Substring(2, idx-2);
                     string s1 = ss.Substring(0, idx);
 
-                    int idx2 = ss.IndexOf(')');
+                    int idx2 = ss.LastIndexOf(')');
                     string s2 = ss.Substring(idx + 1, (idx2 - idx) - 1);
                     res += "\nMap column " + colNum + " \'" + s2 + "\' to " + s1;
                     try

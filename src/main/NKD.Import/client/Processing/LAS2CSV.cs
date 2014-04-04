@@ -10,7 +10,6 @@ namespace NKD.Import.Client.Processing
 {
     public class LAS2CSV
     {
-        public string delim = "\t";
         public LAS2CSV(string _exportCSVFileName) {
 
             exportCSVFileName = _exportCSVFileName;
@@ -26,7 +25,7 @@ namespace NKD.Import.Client.Processing
         public string exportCSVFileName { get; set; }
 
 
-        public string AddLasFileToFile(LASFile lasFile, string origFilename) {
+        public string AddLasFileToFile(LASFile lasFile, string origFilename, char delimeter) {
 
             string res = null;
             // open filestream on append mode
@@ -64,18 +63,18 @@ namespace NKD.Import.Client.Processing
                 {
                     foreach (LASDataRow ldr in lasFile.dataRows)
                     {
-                        string toWrite = tempHoleID + delim + ldr.depth;
+                        string toWrite = tempHoleID + delimeter + ldr.depth;
 
                         foreach (double dd in ldr.rowData)
                         {
-                            toWrite += delim + dd;
+                            toWrite += delimeter + dd;
                         }
-                        // add an extra delimiter to accomodate those files with line speed present
+                        // add an extra delimeter to accomodate those files with line speed present
                         if (ldr.records == 1)
                         {
-                            toWrite += delim;
+                            toWrite += delimeter;
                         }
-                        toWrite += delim + lasFile.columnHeaders[0];
+                        toWrite += delimeter + lasFile.columnHeaders[0];
                         sw.WriteLine(toWrite);
                     }
                 }

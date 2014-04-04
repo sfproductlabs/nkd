@@ -18,7 +18,7 @@ namespace NKD.Import.ImportUtils
         Dictionary<Guid, IQueryable<AssayGroupTest>> resultsCache2 = new Dictionary<Guid, IQueryable<AssayGroupTest>>();
 
 
-        internal List<Sample> CheckForDuplicate(Guid holeID, decimal fromDepth, decimal toDepth)
+        internal List<Sample> CheckForDuplicate(Guid holeID, decimal? fromDepth, decimal? toDepth)
         {
             using (var entityObj = new NKDC(BaseImportTools.XSTRING, null))
             {

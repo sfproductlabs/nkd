@@ -57,18 +57,18 @@ namespace NKD.Import.Client
         /// <param name="SelectedBMFile"></param>
         /// <param name="SelectedFormatBMFile"></param>
         /// <param name="importMap"></param>
-        /// <param name="blockRawFileReader"></param>
+        /// <param name="rawFileReader"></param>
         /// <returns></returns>
-        internal bool DoBMImport(string SelectedBMFile, string SelectedFormatBMFile, ImportDataMap importMap, RawFileReader blockRawFileReader, string NKDProjectID, string modelAlias)
+        internal bool DoBMImport(string SelectedBMFile, string SelectedFormatBMFile, ImportDataMap importMap, RawFileReader rawFileReader, string NKDProjectID, string modelAlias)
         {
             BaseImportTools bit = new BaseImportTools();
             int cxColumnID = importMap.GetColumnIDMappedTo("CentroidX");
             int cyColumnID = importMap.GetColumnIDMappedTo("CentroidY");
             int czColumnID = importMap.GetColumnIDMappedTo("CentroidZ");
             
-            ColumnStats xOrigin = blockRawFileReader.GetDimensions(cxColumnID);
-            ColumnStats yOrigin = blockRawFileReader.GetDimensions(cyColumnID);
-            ColumnStats zOrigin = blockRawFileReader.GetDimensions(czColumnID);
+            ColumnStats xOrigin = rawFileReader.GetDimensions(cxColumnID);
+            ColumnStats yOrigin = rawFileReader.GetDimensions(cyColumnID);
+            ColumnStats zOrigin = rawFileReader.GetDimensions(czColumnID);
 
             int approxNumLines = xOrigin.count;
 
@@ -88,7 +88,7 @@ namespace NKD.Import.Client
             backgroundWorker = worker;
         }
 
-        internal ModelImportStatus DoCollarImport(string SelectedFile, string SelectedFormatBMFile, ImportDataMap importMap, RawFileReader blockRawFileReader, Guid NKDProjectID, bool overwrite)
+        internal ModelImportStatus DoCollarImport(string SelectedFile, string SelectedFormatBMFile, ImportDataMap importMap, RawFileReader rawFileReader, Guid NKDProjectID, bool overwrite)
         {
           
             
@@ -111,7 +111,7 @@ namespace NKD.Import.Client
             
         }
 
-        internal ModelImportStatus DoAssayImport(string SelectedFile, string SelectedFormatFile, ImportDataMap importMap, RawFileReader blockRawFileReader, Guid NKDProjectID, bool checkForDuplicates, bool doImportOverwrite)
+        internal ModelImportStatus DoAssayImport(string SelectedFile, string SelectedFormatFile, ImportDataMap importMap, RawFileReader rawFileReader, Guid NKDProjectID, bool checkForDuplicates, bool doImportOverwrite)
         {
             BaseImportTools bit = new BaseImportTools();
             ModelImportStatus mos = new ModelImportStatus();
@@ -126,7 +126,7 @@ namespace NKD.Import.Client
             return mos;
         }
 
-        internal ModelImportStatus DoCoalQualityImport(string SelectedFile, string SelectedFormatFile, ImportDataMap importMap, RawFileReader blockRawFileReader, Guid NKDProjectID, bool checkForDuplicates, bool doImportOverwrite)
+        internal ModelImportStatus DoCoalQualityImport(string SelectedFile, string SelectedFormatFile, ImportDataMap importMap, RawFileReader rawFileReader, Guid NKDProjectID, bool checkForDuplicates, bool doImportOverwrite)
         {
             BaseImportTools bit = new BaseImportTools();
             ModelImportStatus mos = new ModelImportStatus();
@@ -141,7 +141,7 @@ namespace NKD.Import.Client
             return mos;
         }
 
-        internal ModelImportStatus DoSurveyImport(string SelectedFile, string SelectedFormatFile, ImportDataMap importMap, RawFileReader blockRawFileReader, Guid NKDProjectID, bool doOverwrite, bool checkForDuplicates)
+        internal ModelImportStatus DoSurveyImport(string SelectedFile, string SelectedFormatFile, ImportDataMap importMap, RawFileReader rawFileReader, Guid NKDProjectID, bool doOverwrite, bool checkForDuplicates)
         {
             BaseImportTools bit = new BaseImportTools();
             ModelImportStatus mos = new ModelImportStatus();
@@ -170,7 +170,7 @@ namespace NKD.Import.Client
             return collarNameList;
         }
 
-        internal ModelImportStatus DoLithoImport(string SelectedFile, string SelectedFormatFile, ImportDataMap importMap, RawFileReader blockRawFileReader, Guid NKDProjectID, bool doOverwrite, bool checkForDuplicates)
+        internal ModelImportStatus DoLithoImport(string SelectedFile, string SelectedFormatFile, ImportDataMap importMap, RawFileReader rawFileReader, Guid NKDProjectID, bool doOverwrite, bool checkForDuplicates)
         {
             BaseImportTools bit = new BaseImportTools();
             ModelImportStatus mos = new ModelImportStatus();

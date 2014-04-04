@@ -12,7 +12,7 @@ namespace NKD.Import.Client.Processing
 {
     public class LASBatchImportTools
     {
-        public string delim = "\t";
+        public string delimeter = "\t";
         public LASBatchImportTools() {
 
             
@@ -84,18 +84,18 @@ namespace NKD.Import.Client.Processing
                 {
                     foreach (LASDataRow ldr in lasFile.dataRows)
                     {
-                        string toWrite = tempHoleID + delim + ldr.depth;
+                        string toWrite = tempHoleID + delimeter + ldr.depth;
 
                         foreach (double dd in ldr.rowData)
                         {
-                            toWrite += delim + dd;
+                            toWrite += delimeter + dd;
                         }
-                        // add an extra delimiter to accomodate those files with line speed present
+                        // add an extra delimeter to accomodate those files with line speed present
                         if (ldr.records == 1)
                         {
-                            toWrite += delim;
+                            toWrite += delimeter;
                         }
-                        toWrite += delim + lasFile.columnHeaders[0];
+                        toWrite += delimeter + lasFile.columnHeaders[0];
                         sw.WriteLine(toWrite);
                     }
                 }

@@ -360,11 +360,11 @@ namespace NKD.Import.ImportUtils
         /// Parse a text delimited line of data into items
         /// </summary>
         /// <param name="ln"></param>
-        /// <param name="delim"></param>
+        /// <param name="delimeter"></param>
         /// <returns></returns>
-        private List<string> parseTestLine(string ln, char delim)
+        private List<string> parseTestLine(string ln, char delimeter)
         {
-            string[] items = ln.Split(new char[] { delim }, StringSplitOptions.None);
+            string[] items = ln.Split(new char[] { delimeter }, StringSplitOptions.None);
             return new List<string>(items);
 
         }
@@ -415,7 +415,7 @@ namespace NKD.Import.ImportUtils
 
 
 
-        internal ModelImportStatus UpdateBlockData(Stream bmStream, Guid guid, string colToInsertTo, string connString)
+        internal ModelImportStatus UpdateBlockData(Stream bmStream, Guid guid, string colToInsertTo, string connString, char delimeter)
         {
             ModelImportStatus mos = new ModelImportStatus();
             // iterate through the data lines
@@ -462,7 +462,7 @@ namespace NKD.Import.ImportUtils
 
                         if (ct > 1)
                         {
-                            List<string> items = parseTestLine(line, '\t');
+                            List<string> items = parseTestLine(line, delimeter);
 
                             string statement1 = "UPDATE X_BlockModelBlock SET "+colToInsertTo+"="+items[3]+" WHERE BlockModelID=\'"+guid+"\' AND "+
                                                         "CentroidX=" + items[0] + " AND CentroidY=" + items[1] + " AND CentroidZ=" + items[2];

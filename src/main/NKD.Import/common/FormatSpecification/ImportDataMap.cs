@@ -33,6 +33,7 @@ namespace NKD.Import.FormatSpecification
         public char inputDelimiter { get; set; }            // e.g. comma, tab, space etc.
         public int dataStartLine { get; set; }              // the line the data starts at
         public List<ColumnMap> columnMap { get; set; }        // List contining all the maps pertaining to this particular import definition
+        public int MaxColumns { get; set; }
 
 
 

@@ -563,9 +563,9 @@ namespace NKD.Import.ImportUtils
 
 
 
-        private List<string> parseTestLine(string ln, char delim)
+        private List<string> parseTestLine(string ln, char delimeter)
         {
-            string[] items = ln.Split(new char[] { delim }, StringSplitOptions.None);
+            string[] items = ln.Split(new char[] { delimeter }, StringSplitOptions.None);
             return new List<string>(items);
 
         }

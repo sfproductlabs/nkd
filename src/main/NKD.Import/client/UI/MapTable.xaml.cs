@@ -105,7 +105,7 @@ namespace NKD.Import.Client.UI
             ImportDataMap oldMap = null;
             if (DataGridColumnMap.ItemsSource != null)
             {
-                oldMap = GenerateImportDataMap(impMap.mapTargetPrimaryTable);
+                oldMap = GenerateImportDataMap(impMap.mapOriginalDataFile, impMap.mapTargetPrimaryTable, impMap.inputDelimiter, impMap.MaxColumns);
             }
 
 
@@ -200,23 +200,22 @@ namespace NKD.Import.Client.UI
         }
 
 
-        internal ImportDataMap GetImportDataMap(string mapTargetPrimaryTable)
+        internal ImportDataMap GetImportDataMap(string fileName, string mapTargetPrimaryTable, char delimeter, int maxCols)
         {
-            ImportDataMap idm = GenerateImportDataMap(mapTargetPrimaryTable);
+            ImportDataMap idm = GenerateImportDataMap(fileName, mapTargetPrimaryTable, delimeter, maxCols);
 
             return idm;
         }
 
 
 
-        internal void SaveFormat(string fileName, string  mapTargetPrimaryTable)
+        internal void SaveFormat(string fileName, string mapTargetPrimaryTable, char delimeter, int maxCols)
         {
-            ImportDataMap idm = GenerateImportDataMap(mapTargetPrimaryTable);
-
+            ImportDataMap idm = GenerateImportDataMap(fileName, mapTargetPrimaryTable, delimeter, maxCols);
             ImportMapIO.SaveImportMap(idm, fileName);
         }
 
-        private ImportDataMap GenerateImportDataMap(string mapTargetPrimaryTable)
+        private ImportDataMap GenerateImportDataMap(string fileName, string mapTargetPrimaryTable, char delimeter, int maxCols)
         {
             ObservableCollection<ColumnMap> inMapCols = (ObservableCollection<ColumnMap>)DataGridColumnMap.ItemsSource;
 
@@ -235,7 +234,9 @@ namespace NKD.Import.Client.UI
             idm.mapDate = System.DateTime.Now;
             idm.mapName = "";
             idm.mapTargetPrimaryTable = mapTargetPrimaryTable;
-            idm.inputDelimiter = '\t';
+            idm.inputDelimiter = delimeter;
+            idm.mapOriginalDataFile = fileName;
+            idm.MaxColumns = maxCols;
 
             return idm;
         }

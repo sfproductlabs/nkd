@@ -92,6 +92,7 @@ namespace NKD.Import.ImportUtils
                 SqlConnection secondaryConnection = null;
                 //List<string> uniqueDomains = new List<string>();
                 // get a connection to the database
+                string line = null;
                 try
                 {
                     int domainColIDX = -1;
@@ -122,7 +123,7 @@ namespace NKD.Import.ImportUtils
                         mos.AddErrorMessage("Error getting data stream for input data:\n" + ex.ToString());
                         mos.finalErrorCode = ModelImportStatus.ERROR_LOADING_FILE;
                     }
-                    string line = null;
+                    line = null;
                     float pct = 0;
                     float bct = 1;
 
@@ -136,15 +137,10 @@ namespace NKD.Import.ImportUtils
                     Dictionary<string, int> columnIDX = new Dictionary<string, int>();
                     int fkLookupCount = 0;
 
-                    PopulateCMapShortcut("HeaderID", importMap, columnIDX);
-                    PopulateCMapShortcut("FromDepth", importMap, columnIDX);
-                    PopulateCMapShortcut("ToDepth", importMap, columnIDX);
-                    PopulateCMapShortcut("SampleNumber", importMap, columnIDX);
-                    PopulateCMapShortcut("LabSampleNumber", importMap, columnIDX);
-                    PopulateCMapShortcut("LabBatchNumber", importMap, columnIDX);
+                    PopulateCMapShortcut(importMap, columnIDX);
                     ColumnMap headerCmap = importMap.FindItemsByTargetName("HeaderID");
                     AssayQueries assayQueries = new AssayQueries();
-
+                    List<string> items = new List<string>();
                     if (sr != null)
                     {
                         while ((line = sr.ReadLine()) != null)
@@ -157,17 +153,39 @@ namespace NKD.Import.ImportUtils
                             linesRead++;
                             if (ct >= importMap.dataStartLine)
                             {
+                                var append = parseTestLine(line, importMap.inputDelimiter);
+                                if (items.Count == 0 || append.Count == importMap.MaxColumns)
+                                    items = append;
+                                else if (items.Count < importMap.MaxColumns)
+                                {
+                                    items[items.Count - 1] = items[items.Count - 1] + append[0];
+                                    items.AddRange(append.Skip(1));
+                                }
+                                if (items.Count < importMap.MaxColumns)
+                                {
+                                    mos.AddWarningMessage(string.Format("Bad CSV file, attempted to join....{0}", linesRead));
+                                    continue;
+                                }
+                                else if (items.Count > importMap.MaxColumns)
+                                {
+                                    mos.AddWarningMessage(string.Format("FAILED! Line {0}. Bad CSV file, attempted to join.", linesRead));
+                                    items.Clear();
+                                    continue;
+                                }
 
+                                
                                 // digest a row of input data 
-                                List<string> items = parseTestLine(line, importMap.inputDelimiter);
 
 
                                 Guid holeID = new Guid();
-                                Decimal fromDepth = new Decimal(-9999999999);
-                                Decimal toDepth = new Decimal(-9999999999);
+                                Decimal? fromDepth = null;
+                                Decimal? toDepth = null;
                                 string sampleNumber = null;
                                 string labBatchNumber = null;
                                 string labsampleNumber = null;
+                                Decimal? sampleMassKg = null;
+                                Decimal? dryMassKg = null;
+                                string standardSampleTypeName = null;
 
                                 // find mapped values by name
                                 //ColumnMap cmap = importMap.FindItemsByTargetName("HeaderID");
@@ -293,7 +311,7 @@ namespace NKD.Import.ImportUtils
                                     //cmap = importMap.FindItemsByTargetName("LabSampleNumber");
                                     //if (cmap != null)
                                     idxVal = 0;
-                                    foundEntry = columnIDX.TryGetValue("SampleNumber", out idxVal);
+                                    foundEntry = columnIDX.TryGetValue("LabSampleName", out idxVal);
                                     if (foundEntry)
                                     {
                                         string ii = items[idxVal];
@@ -303,12 +321,47 @@ namespace NKD.Import.ImportUtils
 
                                     //cmap = importMap.FindItemsByTargetName("LabBatchNumber");
                                     idxVal = 0;
-                                    foundEntry = columnIDX.TryGetValue("SampleNumber", out idxVal);
+                                    foundEntry = columnIDX.TryGetValue("LabBatchNumber", out idxVal);
                                     if (foundEntry)
                                     {
                                         string ii = items[idxVal];
                                         labBatchNumber = ii;
                                     }
+
+                                    idxVal = 0;
+                                    foundEntry = columnIDX.TryGetValue("SampleMassKg", out idxVal);
+                                    if (foundEntry)
+                                    {
+                                        string ii = items[idxVal];
+                                        Decimal val = 0;
+                                        bool isOk = Decimal.TryParse(ii, out val);
+                                        if (isOk)
+                                        {
+                                            sampleMassKg = val;
+                                        }
+                                    }
+
+                                    idxVal = 0;
+                                    foundEntry = columnIDX.TryGetValue("DryMassKg", out idxVal);
+                                    if (foundEntry)
+                                    {
+                                        string ii = items[idxVal];
+                                        Decimal val = 0;
+                                        bool isOk = Decimal.TryParse(ii, out val);
+                                        if (isOk)
+                                        {
+                                            dryMassKg = val;
+                                        }
+                                    }
+
+                                    idxVal = 0;
+                                    foundEntry = columnIDX.TryGetValue("StandardSampleTypeName", out idxVal);
+                                    if (foundEntry)
+                                    {
+                                        string ii = items[idxVal];
+                                        standardSampleTypeName = ii;
+                                    }
+
 
                                     Sample xs = new Sample();
                                     if (isDuplicateInterval == true)
@@ -322,14 +375,22 @@ namespace NKD.Import.ImportUtils
                                         xs.ToDepth = toDepth;
                                         xs.HeaderID = holeID;
                                         xs.VersionUpdated = currentUpdateTimestamp;
-
-                                        entityObj.Samples.AddObject(xs);
+                                        xs.SampleNumber = sampleNumber;
+                                        xs.SampleMassKg = sampleMassKg;
+                                        if (!string.IsNullOrWhiteSpace(standardSampleTypeName))
+                                        {
+                                            var t = entityObj.DictionarySampleTypes.Select(f=>new {f.SampleTypeID, f.StandardSampleTypeName}).FirstOrDefault(f => f.StandardSampleTypeName == standardSampleTypeName);
+                                            if (t != null)
+                                                xs.SampleTypeID = t.SampleTypeID;
+                                        }                                            
+                                        xs.DryMassKg = dryMassKg;
                                     }
 
                                     // now pick out all the mapped values
                                     // iterate over all [ASSAY RESULT] columns
                                     bool assayUpdated = false;
                                     bool assayAdded = false;
+                                    var results = new List<AssayGroupTestResult>();
                                     foreach (KeyValuePair<ColumnMap, Guid> kvp in resultsColumns)
                                     {
                                         ColumnMap cm = kvp.Key;
@@ -357,7 +418,7 @@ namespace NKD.Import.ImportUtils
                                         testResult.VersionUpdated = currentUpdateTimestamp;
                                         //}
                                         testResult.LabBatchNumber = labBatchNumber;
-                                      //  testResult.LabSampleName = labsampleNumber;
+                                        testResult.LabSampleName = labsampleNumber;
                                         Decimal result = new Decimal();
                                         if (items.Count >= cm.sourceColumnNumber)
                                         {
@@ -366,19 +427,17 @@ namespace NKD.Import.ImportUtils
                                             {
                                                 testResult.LabResult = result;
                                             }
-                                            else
-                                            {
-                                                testResult.LabResultText = items[cm.sourceColumnNumber];
-                                            }
+                                            testResult.LabResultText = items[cm.sourceColumnNumber];
                                         }
                                         else
                                         {
                                             mos.AddWarningMessage("Line " + linesRead + " contains too few columns to read " + cm.sourceColumnName);
                                         }
 
+                                        results.Add(testResult);
                                         //if (isDuplicateInterval == false)
                                         //{                                       
-                                        entityObj.AssayGroupTestResults.AddObject(testResult);
+                                        
                                         assayAdded = true;
 
                                         //}else{
@@ -395,6 +454,15 @@ namespace NKD.Import.ImportUtils
                                         //}
 
                                     }
+                                    var resultsToSave = (from o in results where !string.IsNullOrWhiteSpace(o.LabResultText) select o);
+                                    if (!resultsToSave.Any())
+                                        continue;
+
+                                    if (!isDuplicateInterval)
+                                        entityObj.Samples.AddObject(xs);
+
+                                    foreach (var save in resultsToSave)
+                                        entityObj.AssayGroupTestResults.AddObject(save);
 
                                     if (assayAdded == true)
                                     {
@@ -421,6 +489,7 @@ namespace NKD.Import.ImportUtils
                             }
                             ct++;
                             //Console.WriteLine("Processing line "+ct);
+                            items.Clear();
                         }
                         entityObj.SaveChanges();
 
@@ -436,7 +505,7 @@ namespace NKD.Import.ImportUtils
                 catch (Exception ex)
                 {
                     UpdateStatus("Error writing assays to database ", 0);
-                    mos.AddErrorMessage("Error writing assay data at line " + linesRead + ":\n" + ex.ToString());
+                    mos.AddErrorMessage("Error writing assay data at line " + linesRead + ":\n" + line + "\n\n" + ex.ToString());
                     mos.finalErrorCode = ModelImportStatus.ERROR_WRITING_TO_DB;
                 }
                 finally
@@ -450,7 +519,7 @@ namespace NKD.Import.ImportUtils
                     }
                     catch (Exception ex)
                     {
-                        mos.AddErrorMessage("Error closing conenction to database:\n" + ex.ToString());
+                        mos.AddErrorMessage("Error closing connection to database:\n" + ex.ToString());
                         mos.finalErrorCode = ModelImportStatus.ERROR_WRITING_TO_DB;
                     }
                 }
@@ -508,12 +577,13 @@ namespace NKD.Import.ImportUtils
             }
         }
 
-       private static void PopulateCMapShortcut(string lookupString, FormatSpecification.ImportDataMap importMap, Dictionary<string, int> columnIDX)
+       private static void PopulateCMapShortcut(FormatSpecification.ImportDataMap importMap, Dictionary<string, int> columnIDX)
        {
-           ColumnMap cmap = importMap.FindItemsByTargetName(lookupString);
-           if (cmap != null)
+           foreach (ColumnMap cm in importMap.columnMap)
            {
-               columnIDX.Add(lookupString, cmap.sourceColumnNumber);
+               if (cm.targetColumnName[0] != '[')
+                columnIDX.Add(cm.targetColumnName.Trim(), cm.sourceColumnNumber);
+
            }
        }
 
@@ -527,9 +597,9 @@ namespace NKD.Import.ImportUtils
      
 
 
-        private List<string> parseTestLine(string ln, char delim)
+        private List<string> parseTestLine(string ln, char delimeter)
         {
-            string[] items = ln.Split(new char[] { delim }, StringSplitOptions.None);
+            string[] items = ln.Split(new char[] { delimeter }, StringSplitOptions.None);
             return new List<string>(items);
 
         }
