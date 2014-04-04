@@ -156,7 +156,6 @@ namespace NKD.Import.Client.UI
                 {
                     cli.Add("->" + req + " (" + rdr.dataItems[i] + ")");
                 }
-
                 try
                 {
                     columnNames.Add(rdr.dataItems[i], i);
@@ -165,8 +164,9 @@ namespace NKD.Import.Client.UI
                 {
                     if (ex is ArgumentException) //i.e. column names are probably not unique, drop out with a more useful error message
                     {
-                        //MessageBox.Show(String.Format("Column {0}, \"{1}\" in file: {2} is a duplicate, please ensure all column headings are unique, removing column for import", i, rdr.dataItems[i],
-                        //    ((NKD.Import.Client.MainWindow)(((System.Delegate)(this.ColumnsMapped)).Target)).SelectedFile));
+                        if (!errorinColumn)
+                        MessageBox.Show(String.Format("Column {0}, \"{1}\" in file: {2} is a duplicate, please ensure all column headings are unique, removing column for import. There may be other errors (printing only this one).", i, rdr.dataItems[i],
+                            ((NKD.Import.Client.MainWindow)(((System.Delegate)(this.ColumnsMapped)).Target)).SelectedFile));
                         errorinColumn = true;
                     }
                 }
