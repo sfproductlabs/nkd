@@ -28055,19 +28055,19 @@
           </FunctionImport>
           <FunctionImport Name="E_SP_DropCoalLogExceptions" />
           <FunctionImport Name="E_SP_ShowCoalLogExceptions" />
-          <EntitySet Name="E_GraphData" EntityType="NKD.Module.BusinessObjects.E_GraphData" />
-          <EntitySet Name="E_GraphDataRelation" EntityType="NKD.Module.BusinessObjects.E_GraphDataRelation" />
+          <EntitySet Name="GraphData" EntityType="NKD.Module.BusinessObjects.GraphData" />
+          <EntitySet Name="GraphDataRelation" EntityType="NKD.Module.BusinessObjects.GraphDataRelation" />
           <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataOriginal" Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataOriginal">
-            <End Role="E_GraphData" EntitySet="E_GraphData" />
-            <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
+            <End Role="E_GraphData" EntitySet="GraphData" />
+            <End Role="E_GraphDataRelation" EntitySet="GraphDataRelation" />
           </AssociationSet>
           <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataRelated" Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated">
-            <End Role="E_GraphData" EntitySet="E_GraphData" />
-            <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
+            <End Role="E_GraphData" EntitySet="GraphData" />
+            <End Role="E_GraphDataRelation" EntitySet="GraphDataRelation" />
           </AssociationSet>
           <AssociationSet Name="FK_E_GraphDataRelation_X_DictionaryRelationType" Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_X_DictionaryRelationType">
             <End Role="DictionaryRelationType" EntitySet="DictionaryRelationTypes" />
-            <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
+            <End Role="E_GraphDataRelation" EntitySet="GraphDataRelation" />
           </AssociationSet>
           <AssociationSet Name="FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass" Association="NKD.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass">
             <End Role="DictionaryWorkTypeClass" EntitySet="DictionaryWorkTypeClasses" />
@@ -48196,7 +48196,7 @@
           <Property Type="Guid" Name="ContractConditionID" Nullable="true" />
           <Property Type="String" Name="ContractText" Nullable="true" />
         </ComplexType>
-        <EntityType Name="E_GraphData">
+        <EntityType Name="GraphData">
           <Key>
             <PropertyRef Name="GraphDataID" />
           </Key>
@@ -48214,10 +48214,10 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
-          <NavigationProperty Name="E_GraphDataRelation" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataOriginal" FromRole="E_GraphData" ToRole="E_GraphDataRelation" />
-          <NavigationProperty Name="E_GraphDataRelation1" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated" FromRole="E_GraphData" ToRole="E_GraphDataRelation" />
+          <NavigationProperty Name="GraphDataOrigin" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataOriginal" FromRole="E_GraphData" ToRole="E_GraphDataRelation" />
+          <NavigationProperty Name="GraphDataRelation" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated" FromRole="E_GraphData" ToRole="E_GraphDataRelation" />
         </EntityType>
-        <EntityType Name="E_GraphDataRelation">
+        <EntityType Name="GraphDataRelation">
           <Key>
             <PropertyRef Name="GraphDataRelationID" />
           </Key>
@@ -48237,13 +48237,13 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
-          <NavigationProperty Name="E_GraphData" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataOriginal" FromRole="E_GraphDataRelation" ToRole="E_GraphData" />
-          <NavigationProperty Name="E_GraphData1" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated" FromRole="E_GraphDataRelation" ToRole="E_GraphData" />
-          <NavigationProperty Name="X_DictionaryRelationType" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_X_DictionaryRelationType" FromRole="E_GraphDataRelation" ToRole="DictionaryRelationType" />
+          <NavigationProperty Name="GraphDataOriginal" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataOriginal" FromRole="E_GraphDataRelation" ToRole="E_GraphData" />
+          <NavigationProperty Name="GraphDataRelated" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated" FromRole="E_GraphDataRelation" ToRole="E_GraphData" />
+          <NavigationProperty Name="RelationType" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_X_DictionaryRelationType" FromRole="E_GraphDataRelation" ToRole="DictionaryRelationType" />
         </EntityType>
         <Association Name="FK_E_GraphDataRelation_E_GraphDataOriginal">
-          <End Type="NKD.Module.BusinessObjects.E_GraphData" Role="E_GraphData" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_GraphDataRelation" Role="E_GraphDataRelation" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.GraphData" Role="E_GraphData" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.GraphDataRelation" Role="E_GraphDataRelation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="E_GraphData">
               <PropertyRef Name="GraphDataID" />
@@ -48254,8 +48254,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_E_GraphDataRelation_E_GraphDataRelated">
-          <End Type="NKD.Module.BusinessObjects.E_GraphData" Role="E_GraphData" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_GraphDataRelation" Role="E_GraphDataRelation" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.GraphData" Role="E_GraphData" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.GraphDataRelation" Role="E_GraphDataRelation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="E_GraphData">
               <PropertyRef Name="GraphDataID" />
@@ -48267,7 +48267,7 @@
         </Association>
         <Association Name="FK_E_GraphDataRelation_X_DictionaryRelationType">
           <End Type="NKD.Module.BusinessObjects.DictionaryRelationType" Role="DictionaryRelationType" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_GraphDataRelation" Role="E_GraphDataRelation" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.GraphDataRelation" Role="E_GraphDataRelation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DictionaryRelationType">
               <PropertyRef Name="RelationTypeID" />
@@ -57483,8 +57483,8 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="E_SP_DropCoalLogExceptions" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_DropCoalLogExceptions" />
           <FunctionImportMapping FunctionImportName="E_SP_ShowCoalLogExceptions" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_ShowCoalLogExceptions" />
-          <EntitySetMapping Name="E_GraphData">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_GraphData">
+          <EntitySetMapping Name="GraphData">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.GraphData">
               <MappingFragment StoreEntitySet="E_GraphData">
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
@@ -57503,8 +57503,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="E_GraphDataRelation">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_GraphDataRelation">
+          <EntitySetMapping Name="GraphDataRelation">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.GraphDataRelation">
               <MappingFragment StoreEntitySet="E_GraphDataRelation">
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />

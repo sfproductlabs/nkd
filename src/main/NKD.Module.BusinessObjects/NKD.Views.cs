@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsAF82417B413E81FDE6C726E59B59263FA713C62C772C17CAA3429D6C152772E2))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets5468A7F35D83A18F7B9B9497CFB833F8C7E50ED26AAF3D7A4E26D145A0BE6F66))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySetsAF82417B413E81FDE6C726E59B59263FA713C62C772C17CAA3429D6C152772E2 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets5468A7F35D83A18F7B9B9497CFB833F8C7E50ED26AAF3D7A4E26D145A0BE6F66 : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySetsAF82417B413E81FDE6C726E59B59263FA713C62C772C17CAA3429D6C152772E2()
+        public ViewsForBaseEntitySets5468A7F35D83A18F7B9B9497CFB833F8C7E50ED26AAF3D7A4E26D145A0BE6F66()
         {
             this.EdmEntityContainerName = "NKDC";
             this.StoreEntityContainerName = "NKDModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "d52a54c8e5b06f73d132f0523cbd5f4392d512cea3fea486a543a44d29a3c699";
-            this.HashOverAllExtentViews = "11cb2bf31e4c663da2b61758481b7bada2f55d7ad6a9edaf587f995a2781a0c8";
+            this.HashOverMappingClosure = "49e31c567b6efd5422300f5dde9793d4776617bb910a8e86e8ec931dac1894c4";
+            this.HashOverAllExtentViews = "777c09366be2b79c6a0d6428b60e84ad643d36098b3b66c66dc8a961974d2e8f";
             this.ViewCount = 734;
         }
         
@@ -15007,8 +15007,8 @@ namespace Edm_EntityMappingGeneratedViews
                     " AS [E_GraphData.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [E_" +
                     "GraphData.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [E_Gr" +
                     "aphData.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_GraphData.V" +
-                    "ersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.E_GraphData AS T" +
-                    "\r\n    ) AS T1");
+                    "ersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.GraphData AS T\r\n" +
+                    "    ) AS T1");
         }
         
         /// <Summary>
@@ -15016,7 +15016,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView307()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2079);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2077);
             viewString.Append("\r\n    SELECT VALUE -- Constructing E_GraphDataRelation\r\n        [NKD.Module.Busi");
             viewString.Append("nessObjects.Store.E_GraphDataRelation](T1.[E_GraphDataRelation.GraphDataRelation");
             viewString.Append("ID], T1.[E_GraphDataRelation.FromGraphDataID], T1.[E_GraphDataRelation.ToGraphDa");
@@ -15042,7 +15042,7 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("    T.VersionOwnerContactID AS [E_GraphDataRelation.VersionOwnerContactID], \r\n  ");
             viewString.Append("          T.VersionOwnerCompanyID AS [E_GraphDataRelation.VersionOwnerCompanyID]");
             viewString.Append(", \r\n            T.VersionUpdated AS [E_GraphDataRelation.VersionUpdated], \r\n    ");
-            viewString.Append("        True AS _from0\r\n        FROM NKDC.E_GraphDataRelation AS T\r\n    ) AS T1");
+            viewString.Append("        True AS _from0\r\n        FROM NKDC.GraphDataRelation AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_GraphDataRelation", viewString.ToString());
         }
         
@@ -26598,67 +26598,62 @@ namespace Edm_EntityMappingGeneratedViews
         }
         
         /// <Summary>
-        /// return view for NKDC.E_GraphData
+        /// return view for NKDC.GraphData
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView615()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.E_GraphData", "\r\n    SELECT VALUE -- Constructing E_GraphData\r\n        [NKD.Module.BusinessObjec" +
-                    "ts.E_GraphData](T1.[E_GraphData.GraphDataID], T1.[E_GraphData.GraphDataName], T1" +
-                    ".[E_GraphData.TableType], T1.[E_GraphData.ReferenceID], T1.[E_GraphData.Referenc" +
-                    "eName], T1.[E_GraphData.Version], T1.[E_GraphData.VersionAntecedentID], T1.[E_Gr" +
-                    "aphData.VersionCertainty], T1.[E_GraphData.VersionWorkflowInstanceID], T1.[E_Gra" +
-                    "phData.VersionUpdatedBy], T1.[E_GraphData.VersionDeletedBy], T1.[E_GraphData.Ver" +
-                    "sionOwnerContactID], T1.[E_GraphData.VersionOwnerCompanyID], T1.[E_GraphData.Ver" +
-                    "sionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.GraphDataID AS [E_Grap" +
-                    "hData.GraphDataID], \r\n            T.GraphDataName AS [E_GraphData.GraphDataName]" +
-                    ", \r\n            T.TableType AS [E_GraphData.TableType], \r\n            T.Referenc" +
-                    "eID AS [E_GraphData.ReferenceID], \r\n            T.ReferenceName AS [E_GraphData." +
-                    "ReferenceName], \r\n            T.Version AS [E_GraphData.Version], \r\n            " +
-                    "T.VersionAntecedentID AS [E_GraphData.VersionAntecedentID], \r\n            T.Vers" +
-                    "ionCertainty AS [E_GraphData.VersionCertainty], \r\n            T.VersionWorkflowI" +
-                    "nstanceID AS [E_GraphData.VersionWorkflowInstanceID], \r\n            T.VersionUpd" +
-                    "atedBy AS [E_GraphData.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [E" +
-                    "_GraphData.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [E_GraphD" +
-                    "ata.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [E_GraphDat" +
-                    "a.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_GraphData.Version" +
-                    "Updated], \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObjectsSto" +
-                    "reContainer.E_GraphData AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.GraphData", "\r\n    SELECT VALUE -- Constructing GraphData\r\n        [NKD.Module.BusinessObjects" +
+                    ".GraphData](T1.GraphData_GraphDataID, T1.GraphData_GraphDataName, T1.GraphData_T" +
+                    "ableType, T1.GraphData_ReferenceID, T1.GraphData_ReferenceName, T1.GraphData_Ver" +
+                    "sion, T1.GraphData_VersionAntecedentID, T1.GraphData_VersionCertainty, T1.GraphD" +
+                    "ata_VersionWorkflowInstanceID, T1.GraphData_VersionUpdatedBy, T1.GraphData_Versi" +
+                    "onDeletedBy, T1.GraphData_VersionOwnerContactID, T1.GraphData_VersionOwnerCompan" +
+                    "yID, T1.GraphData_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.Gr" +
+                    "aphDataID AS GraphData_GraphDataID, \r\n            T.GraphDataName AS GraphData_G" +
+                    "raphDataName, \r\n            T.TableType AS GraphData_TableType, \r\n            T." +
+                    "ReferenceID AS GraphData_ReferenceID, \r\n            T.ReferenceName AS GraphData" +
+                    "_ReferenceName, \r\n            T.Version AS GraphData_Version, \r\n            T.Ve" +
+                    "rsionAntecedentID AS GraphData_VersionAntecedentID, \r\n            T.VersionCerta" +
+                    "inty AS GraphData_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS" +
+                    " GraphData_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS GraphD" +
+                    "ata_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS GraphData_VersionDelet" +
+                    "edBy, \r\n            T.VersionOwnerContactID AS GraphData_VersionOwnerContactID, " +
+                    "\r\n            T.VersionOwnerCompanyID AS GraphData_VersionOwnerCompanyID, \r\n    " +
+                    "        T.VersionUpdated AS GraphData_VersionUpdated, \r\n            True AS _fro" +
+                    "m0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.E_GraphData AS T\r\n    ) " +
+                    "AS T1");
         }
         
         /// <Summary>
-        /// return view for NKDC.E_GraphDataRelation
+        /// return view for NKDC.GraphDataRelation
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView616()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2107);
-            viewString.Append("\r\n    SELECT VALUE -- Constructing E_GraphDataRelation\r\n        [NKD.Module.Busi");
-            viewString.Append("nessObjects.E_GraphDataRelation](T1.[E_GraphDataRelation.GraphDataRelationID], T");
-            viewString.Append("1.[E_GraphDataRelation.FromGraphDataID], T1.[E_GraphDataRelation.ToGraphDataID],");
-            viewString.Append(" T1.[E_GraphDataRelation.Weight], T1.[E_GraphDataRelation.RelationTypeID], T1.[E");
-            viewString.Append("_GraphDataRelation.Related], T1.[E_GraphDataRelation.Sequence], T1.[E_GraphDataR");
-            viewString.Append("elation.Version], T1.[E_GraphDataRelation.VersionAntecedentID], T1.[E_GraphDataR");
-            viewString.Append("elation.VersionCertainty], T1.[E_GraphDataRelation.VersionWorkflowInstanceID], T");
-            viewString.Append("1.[E_GraphDataRelation.VersionUpdatedBy], T1.[E_GraphDataRelation.VersionDeleted");
-            viewString.Append("By], T1.[E_GraphDataRelation.VersionOwnerContactID], T1.[E_GraphDataRelation.Ver");
-            viewString.Append("sionOwnerCompanyID], T1.[E_GraphDataRelation.VersionUpdated])\r\n    FROM (\r\n     ");
-            viewString.Append("   SELECT \r\n            T.GraphDataRelationID AS [E_GraphDataRelation.GraphDataR");
-            viewString.Append("elationID], \r\n            T.FromGraphDataID AS [E_GraphDataRelation.FromGraphDat");
-            viewString.Append("aID], \r\n            T.ToGraphDataID AS [E_GraphDataRelation.ToGraphDataID], \r\n  ");
-            viewString.Append("          T.Weight AS [E_GraphDataRelation.Weight], \r\n            T.RelationType");
-            viewString.Append("ID AS [E_GraphDataRelation.RelationTypeID], \r\n            T.Related AS [E_GraphD");
-            viewString.Append("ataRelation.Related], \r\n            T.Sequence AS [E_GraphDataRelation.Sequence]");
-            viewString.Append(", \r\n            T.Version AS [E_GraphDataRelation.Version], \r\n            T.Vers");
-            viewString.Append("ionAntecedentID AS [E_GraphDataRelation.VersionAntecedentID], \r\n            T.Ve");
-            viewString.Append("rsionCertainty AS [E_GraphDataRelation.VersionCertainty], \r\n            T.Versio");
-            viewString.Append("nWorkflowInstanceID AS [E_GraphDataRelation.VersionWorkflowInstanceID], \r\n      ");
-            viewString.Append("      T.VersionUpdatedBy AS [E_GraphDataRelation.VersionUpdatedBy], \r\n          ");
-            viewString.Append("  T.VersionDeletedBy AS [E_GraphDataRelation.VersionDeletedBy], \r\n            T.");
-            viewString.Append("VersionOwnerContactID AS [E_GraphDataRelation.VersionOwnerContactID], \r\n        ");
-            viewString.Append("    T.VersionOwnerCompanyID AS [E_GraphDataRelation.VersionOwnerCompanyID], \r\n  ");
-            viewString.Append("          T.VersionUpdated AS [E_GraphDataRelation.VersionUpdated], \r\n          ");
-            viewString.Append("  True AS _from0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.E_GraphDat");
-            viewString.Append("aRelation AS T\r\n    ) AS T1");
-            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.E_GraphDataRelation", viewString.ToString());
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.GraphDataRelation", "\r\n    SELECT VALUE -- Constructing GraphDataRelation\r\n        [NKD.Module.Busines" +
+                    "sObjects.GraphDataRelation](T1.GraphDataRelation_GraphDataRelationID, T1.GraphDa" +
+                    "taRelation_FromGraphDataID, T1.GraphDataRelation_ToGraphDataID, T1.GraphDataRela" +
+                    "tion_Weight, T1.GraphDataRelation_RelationTypeID, T1.GraphDataRelation_Related, " +
+                    "T1.GraphDataRelation_Sequence, T1.GraphDataRelation_Version, T1.GraphDataRelatio" +
+                    "n_VersionAntecedentID, T1.GraphDataRelation_VersionCertainty, T1.GraphDataRelati" +
+                    "on_VersionWorkflowInstanceID, T1.GraphDataRelation_VersionUpdatedBy, T1.GraphDat" +
+                    "aRelation_VersionDeletedBy, T1.GraphDataRelation_VersionOwnerContactID, T1.Graph" +
+                    "DataRelation_VersionOwnerCompanyID, T1.GraphDataRelation_VersionUpdated)\r\n    FR" +
+                    "OM (\r\n        SELECT \r\n            T.GraphDataRelationID AS GraphDataRelation_Gr" +
+                    "aphDataRelationID, \r\n            T.FromGraphDataID AS GraphDataRelation_FromGrap" +
+                    "hDataID, \r\n            T.ToGraphDataID AS GraphDataRelation_ToGraphDataID, \r\n   " +
+                    "         T.Weight AS GraphDataRelation_Weight, \r\n            T.RelationTypeID AS" +
+                    " GraphDataRelation_RelationTypeID, \r\n            T.Related AS GraphDataRelation_" +
+                    "Related, \r\n            T.Sequence AS GraphDataRelation_Sequence, \r\n            T" +
+                    ".Version AS GraphDataRelation_Version, \r\n            T.VersionAntecedentID AS Gr" +
+                    "aphDataRelation_VersionAntecedentID, \r\n            T.VersionCertainty AS GraphDa" +
+                    "taRelation_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS GraphD" +
+                    "ataRelation_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Graph" +
+                    "DataRelation_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS GraphDataRela" +
+                    "tion_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS GraphDataRelatio" +
+                    "n_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS GraphDataRelat" +
+                    "ion_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS GraphDataRelation_V" +
+                    "ersionUpdated, \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObjec" +
+                    "tsStoreContainer.E_GraphDataRelation AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
