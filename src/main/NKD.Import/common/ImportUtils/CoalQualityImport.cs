@@ -157,6 +157,8 @@ namespace NKD.Import.ImportUtils
                     Dictionary<string, int> columnIDX = new Dictionary<string, int>();
                     int fkLookupCount = 0;
 
+
+
                     PopulateCMapShortcut("HeaderID", importMap, columnIDX);
                     PopulateCMapShortcut("FromDepth", importMap, columnIDX);
                     PopulateCMapShortcut("ToDepth", importMap, columnIDX);

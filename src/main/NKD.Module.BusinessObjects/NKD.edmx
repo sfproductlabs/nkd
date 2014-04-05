@@ -42,6 +42,8 @@
           <EntitySet Name="E_DictionaryTax" EntityType="NKD.Module.BusinessObjects.Store.E_DictionaryTax" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_DictionaryWorkflowType" EntityType="NKD.Module.BusinessObjects.Store.E_DictionaryWorkflowType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_Download" EntityType="NKD.Module.BusinessObjects.Store.E_Download" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="E_GraphData" EntityType="NKD.Module.BusinessObjects.Store.E_GraphData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="E_GraphDataRelation" EntityType="NKD.Module.BusinessObjects.Store.E_GraphDataRelation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_Invoice" EntityType="NKD.Module.BusinessObjects.Store.E_Invoice" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_InvoiceLine" EntityType="NKD.Module.BusinessObjects.Store.E_InvoiceLine" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_Journal" EntityType="NKD.Module.BusinessObjects.Store.E_Journal" store:Type="Tables" Schema="dbo" />
@@ -732,8 +734,9 @@
       [X_VW_ExperienceBasicView].[WorkTypeName] AS [WorkTypeName], 
       [X_VW_ExperienceBasicView].[WorkTypeDescription] AS [WorkTypeDescription], 
       [X_VW_ExperienceBasicView].[FullDescription] AS [FullDescription], 
-      [X_VW_ExperienceBasicView].[StandardWorkTypeClassName] AS [StandardWorkTypeClassName], 
-      [X_VW_ExperienceBasicView].[Description] AS [Description]
+      [X_VW_ExperienceBasicView].[WorkTypeClassName] AS [WorkTypeClassName], 
+      [X_VW_ExperienceBasicView].[WorkTypeClassDescription] AS [WorkTypeClassDescription], 
+      [X_VW_ExperienceBasicView].[WorkTypeClassFullDescription] AS [WorkTypeClassFullDescription]
       FROM [dbo].[X_VW_ExperienceBasicView] AS [X_VW_ExperienceBasicView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="X_VW_License" EntityType="NKD.Module.BusinessObjects.Store.X_VW_License" store:Type="Views" store:Schema="dbo" store:Name="X_VW_License">
@@ -1234,6 +1237,18 @@
           <AssociationSet Name="FK_E_E_DictionaryRouteType_E_FileData_OriginalFile" Association="NKD.Module.BusinessObjects.Store.FK_E_E_DictionaryRouteType_E_FileData_OriginalFile">
             <End Role="X_FileData" EntitySet="X_FileData" />
             <End Role="E_DictionaryRouteType" EntitySet="E_DictionaryRouteType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataOriginal" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataRelation_E_GraphDataOriginal">
+            <End Role="E_GraphData" EntitySet="E_GraphData" />
+            <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataRelated" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataRelation_E_GraphDataRelated">
+            <End Role="E_GraphData" EntitySet="E_GraphData" />
+            <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataRelation_X_DictionaryRelationType" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataRelation_X_DictionaryRelationType">
+            <End Role="X_DictionaryRelationType" EntitySet="X_DictionaryRelationType" />
+            <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
           </AssociationSet>
           <AssociationSet Name="FK_E_Invoice_E_Currency" Association="NKD.Module.BusinessObjects.Store.FK_E_Invoice_E_Currency">
             <End Role="E_Currency" EntitySet="E_Currency" />
@@ -2901,6 +2916,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_X_DictionaryWorkType_X_DictionaryProfession" Association="NKD.Module.BusinessObjects.Store.FK_X_DictionaryWorkType_X_DictionaryProfession">
             <End Role="X_DictionaryProfession" EntitySet="X_DictionaryProfession" />
+            <End Role="X_DictionaryWorkType" EntitySet="X_DictionaryWorkType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass" Association="NKD.Module.BusinessObjects.Store.FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass">
+            <End Role="X_DictionaryWorkTypeClass" EntitySet="X_DictionaryWorkTypeClass" />
             <End Role="X_DictionaryWorkType" EntitySet="X_DictionaryWorkType" />
           </AssociationSet>
           <AssociationSet Name="FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType" Association="NKD.Module.BusinessObjects.Store.FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType">
@@ -4927,6 +4946,46 @@
           <Property Name="RemainingDownloads" Type="int" Nullable="false" />
           <Property Name="ValidFrom" Type="datetime" />
           <Property Name="ValidUntil" Type="datetime" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="E_GraphData">
+          <Key>
+            <PropertyRef Name="GraphDataID" />
+          </Key>
+          <Property Name="GraphDataID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GraphDataName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TableType" Type="nvarchar" MaxLength="255" />
+          <Property Name="ReferenceID" Type="uniqueidentifier" />
+          <Property Name="ReferenceName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="E_GraphDataRelation">
+          <Key>
+            <PropertyRef Name="GraphDataRelationID" />
+          </Key>
+          <Property Name="GraphDataRelationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FromGraphDataID" Type="uniqueidentifier" />
+          <Property Name="ToGraphDataID" Type="uniqueidentifier" />
+          <Property Name="Weight" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="RelationTypeID" Type="uniqueidentifier" />
+          <Property Name="Related" Type="datetime" />
+          <Property Name="Sequence" Type="int" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
           <Property Name="VersionCertainty" Type="int" />
@@ -9958,11 +10017,10 @@
           </Key>
           <Property Name="DrillingID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="HeaderID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="FromDepth" Type="numeric" Precision="9" Scale="3" />
-          <Property Name="ToDepth" Type="numeric" Precision="9" Scale="3" />
+          <Property Name="DrillerFromDepth" Type="numeric" Precision="11" Scale="3" />
+          <Property Name="DrillerToDepth" Type="numeric" Precision="11" Scale="3" />
+          <Property Name="DrillerRecoveredLength" Type="numeric" Precision="11" Scale="3" />
           <Property Name="RunNumber" Type="int" />
-          <Property Name="RecoveredLength" Type="numeric" Precision="9" Scale="3" />
-          <Property Name="RockQualityDesignationLength" Type="numeric" Precision="9" Scale="3" />
           <Property Name="DrillingDate" Type="date" />
           <Property Name="DrillingCompanyID" Type="uniqueidentifier" />
           <Property Name="DrillRigNumber" Type="nvarchar" MaxLength="16" />
@@ -9974,6 +10032,10 @@
           <Property Name="CoreSize" Type="int" />
           <Property Name="HoleSize" Type="int" />
           <Property Name="Reamed" Type="bit" />
+          <Property Name="GeologistFromDepth" Type="numeric" Precision="11" Scale="3" />
+          <Property Name="GeologistToDepth" Type="numeric" Precision="11" Scale="3" />
+          <Property Name="GeologistRecoveredLength" Type="numeric" Precision="11" Scale="3" />
+          <Property Name="RockQualityDesignationLength" Type="numeric" Precision="11" Scale="3" />
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
@@ -12303,7 +12365,7 @@
             <PropertyRef Name="DateStart" />
             <PropertyRef Name="ExperienceID" />
             <PropertyRef Name="WorkTypeName" />
-            <PropertyRef Name="StandardWorkTypeClassName" />
+            <PropertyRef Name="WorkTypeClassName" />
           </Key>
           <Property Name="ContactName" Type="nvarchar" MaxLength="120" />
           <Property Name="Title" Type="nvarchar" MaxLength="16" />
@@ -12332,8 +12394,9 @@
           <Property Name="WorkTypeName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="WorkTypeDescription" Type="nvarchar" MaxLength="255" />
           <Property Name="FullDescription" Type="nvarchar(max)" />
-          <Property Name="StandardWorkTypeClassName" Type="nvarchar" Nullable="false" MaxLength="16" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="WorkTypeClassName" Type="nvarchar" Nullable="false" MaxLength="16" />
+          <Property Name="WorkTypeClassDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="WorkTypeClassFullDescription" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'NKD.dbo.X_VW_License' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -13399,6 +13462,42 @@
             </Principal>
             <Dependent Role="E_DictionaryRouteType">
               <PropertyRef Name="OriginalFileDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataRelation_E_GraphDataOriginal">
+          <End Role="E_GraphData" Type="NKD.Module.BusinessObjects.Store.E_GraphData" Multiplicity="0..1" />
+          <End Role="E_GraphDataRelation" Type="NKD.Module.BusinessObjects.Store.E_GraphDataRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_GraphData">
+              <PropertyRef Name="GraphDataID" />
+            </Principal>
+            <Dependent Role="E_GraphDataRelation">
+              <PropertyRef Name="FromGraphDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataRelation_E_GraphDataRelated">
+          <End Role="E_GraphData" Type="NKD.Module.BusinessObjects.Store.E_GraphData" Multiplicity="0..1" />
+          <End Role="E_GraphDataRelation" Type="NKD.Module.BusinessObjects.Store.E_GraphDataRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_GraphData">
+              <PropertyRef Name="GraphDataID" />
+            </Principal>
+            <Dependent Role="E_GraphDataRelation">
+              <PropertyRef Name="ToGraphDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataRelation_X_DictionaryRelationType">
+          <End Role="X_DictionaryRelationType" Type="NKD.Module.BusinessObjects.Store.X_DictionaryRelationType" Multiplicity="0..1" />
+          <End Role="E_GraphDataRelation" Type="NKD.Module.BusinessObjects.Store.E_GraphDataRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryRelationType">
+              <PropertyRef Name="RelationTypeID" />
+            </Principal>
+            <Dependent Role="E_GraphDataRelation">
+              <PropertyRef Name="RelationTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -18406,6 +18505,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass">
+          <End Role="X_DictionaryWorkTypeClass" Type="NKD.Module.BusinessObjects.Store.X_DictionaryWorkTypeClass" Multiplicity="0..1" />
+          <End Role="X_DictionaryWorkType" Type="NKD.Module.BusinessObjects.Store.X_DictionaryWorkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryWorkTypeClass">
+              <PropertyRef Name="WorkTypeClassID" />
+            </Principal>
+            <Dependent Role="X_DictionaryWorkType">
+              <PropertyRef Name="WorkTypeClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType">
           <End Role="X_DictionaryWorkType" Type="NKD.Module.BusinessObjects.Store.X_DictionaryWorkType" Multiplicity="1" />
           <End Role="X_DictionaryWorkTypeRelation" Type="NKD.Module.BusinessObjects.Store.X_DictionaryWorkTypeRelation" Multiplicity="*" />
@@ -22854,6 +22965,27 @@
           <Parameter Name="verified" Type="bit" Mode="InOut" />
           <Parameter Name="found" Type="int" Mode="InOut" />
         </Function>
+        <Function Name="E_SP_GetSecuredSearchExtended" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="text" Type="nvarchar" Mode="In" />
+          <Parameter Name="contactid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="applicationid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="table" Type="nvarchar" Mode="In" />
+          <Parameter Name="viewport" Type="geography" Mode="In" />
+          <Parameter Name="centre" Type="geography" Mode="In" />
+          <Parameter Name="fileTypeID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="locationTypeID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="provinceTypeID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="countryID" Type="nvarchar" Mode="In" />
+          <Parameter Name="countryStateID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="dateFrom" Type="datetime" Mode="In" />
+          <Parameter Name="dateTo" Type="datetime" Mode="In" />
+          <Parameter Name="searchResultHighlightClass" Type="nvarchar" Mode="In" />
+          <Parameter Name="maxDescriptionLegnth" Type="int" Mode="In" />
+          <Parameter Name="startRowIndex" Type="int" Mode="In" />
+          <Parameter Name="pageSize" Type="int" Mode="In" />
+          <Parameter Name="verified" Type="bit" Mode="InOut" />
+          <Parameter Name="found" Type="int" Mode="InOut" />
+        </Function>
         <Function Name="E_SP_GetSoftwareSubmissions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="applicationID" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="ownerContactID" Type="uniqueidentifier" Mode="In" />
@@ -22888,6 +23020,17 @@
           <Parameter Name="startRowIndex" Type="int" Mode="In" />
           <Parameter Name="pageSize" Type="int" Mode="In" />
         </Function>
+        <Function Name="E_SP_SearchGraphBreadthFirst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartNode" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="EndNode" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="E_SP_SearchGraphDijkstra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartNode" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="EndNode" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="E_SP_SearchGraphKruskalSpanningTree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_SearchGraphPrimSpanningTree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="E_SP_SearchGraphTopologicalSort" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="E_SP_ShowCoalLogExceptions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="E_UDF_OrderDownloads" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="purchaseOrder" Type="uniqueidentifier" Mode="In" />
@@ -22902,6 +23045,13 @@
           </ReturnType>
         </Function>
         <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="HighLightSearch" ReturnType="nvarchar(max)" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contents" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="searchTerm" Type="nvarchar" Mode="In" />
+          <Parameter Name="class" Type="nvarchar" Mode="In" />
+          <Parameter Name="maxLen" Type="int" Mode="In" />
+          <Parameter Name="searchPartial" Type="bit" Mode="In" />
+        </Function>
         <Function Name="InlineMax" ReturnType="decimal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="val1" Type="decimal" Mode="In" />
           <Parameter Name="val2" Type="decimal" Mode="In" />
@@ -26589,9 +26739,6 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="X_SP_CreateDependentForeignKeys" />
-          <FunctionImport Name="X_SP_CreateDictionaryVersioningTrigger">
-          <Parameter Name="id" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="X_SP_CreateDictionaryViews" />
           <FunctionImport Name="X_SP_CreateDomainFilter">
             <Parameter Name="Str" Mode="In" Type="String" />
@@ -26601,12 +26748,6 @@
             <Parameter Name="Str" Mode="In" Type="String" />
             <Parameter Name="Out" Mode="InOut" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="X_SP_CreateVersioning" />
-          <FunctionImport Name="X_SP_CreateVersioningTrigger">
-          <Parameter Name="table" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="X_SP_CreateVersioningTriggers" />
-          <FunctionImport Name="X_SP_DisableVersioning" />
           <FunctionImport Name="X_SP_DropAllAssays" />
           <FunctionImport Name="X_SP_DropAllGeophysics" />
           <FunctionImport Name="X_SP_DropAllModels" />
@@ -26629,8 +26770,6 @@
           <Parameter Name="guid" Mode="In" Type="Guid" />
           </FunctionImport>
           <FunctionImport Name="X_SP_DropOldModels" />
-          <FunctionImport Name="X_SP_DropVersioning" />
-          <FunctionImport Name="X_SP_DropVersioningTriggers" />
           <FunctionImport Name="X_SP_GetAllGeophysics" ReturnType="Collection(NKD.Module.BusinessObjects.X_SP_GetAllGeophysics_Result)" />
           <FunctionImport Name="X_SP_GetAssays">
             <Parameter Name="assay_group_projectid" Mode="In" Type="Guid" />
@@ -27264,7 +27403,6 @@
             <End Role="AssayGroupSubsample" EntitySet="AssayGroupSubsamples" />
             <End Role="AssayGroupSubsamplePrecondition" EntitySet="AssayGroupSubsamplePreconditions" />
           </AssociationSet>
-          <FunctionImport Name="X_SP_CreateVersioningOnDictionaries" />
           <FunctionImport Name="X_SP_GetAssaysByWorkflow">
             <Parameter Name="assay_group_projectid" Mode="In" Type="Guid" />
             <Parameter Name="assay_groupid" Mode="In" Type="Guid" />
@@ -27917,6 +28055,56 @@
           </FunctionImport>
           <FunctionImport Name="E_SP_DropCoalLogExceptions" />
           <FunctionImport Name="E_SP_ShowCoalLogExceptions" />
+          <EntitySet Name="E_GraphData" EntityType="NKD.Module.BusinessObjects.E_GraphData" />
+          <EntitySet Name="E_GraphDataRelation" EntityType="NKD.Module.BusinessObjects.E_GraphDataRelation" />
+          <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataOriginal" Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataOriginal">
+            <End Role="E_GraphData" EntitySet="E_GraphData" />
+            <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataRelated" Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated">
+            <End Role="E_GraphData" EntitySet="E_GraphData" />
+            <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataRelation_X_DictionaryRelationType" Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_X_DictionaryRelationType">
+            <End Role="DictionaryRelationType" EntitySet="DictionaryRelationTypes" />
+            <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass" Association="NKD.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass">
+            <End Role="DictionaryWorkTypeClass" EntitySet="DictionaryWorkTypeClasses" />
+            <End Role="DictionaryWorkType" EntitySet="DictionaryWorkTypes" />
+          </AssociationSet>
+          <FunctionImport Name="E_SP_GetSecuredSearchExtended" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetSecuredSearchExtended_Result)">
+            <Parameter Name="text" Mode="In" Type="String" />
+            <Parameter Name="contactid" Mode="In" Type="Guid" />
+            <Parameter Name="applicationid" Mode="In" Type="Guid" />
+            <Parameter Name="table" Mode="In" Type="String" />
+            <Parameter Name="viewport" Mode="In" Type="Geography" />
+            <Parameter Name="centre" Mode="In" Type="Geography" />
+            <Parameter Name="fileTypeID" Mode="In" Type="Guid" />
+            <Parameter Name="locationTypeID" Mode="In" Type="Guid" />
+            <Parameter Name="provinceTypeID" Mode="In" Type="Guid" />
+            <Parameter Name="countryID" Mode="In" Type="String" />
+            <Parameter Name="countryStateID" Mode="In" Type="Guid" />
+            <Parameter Name="dateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="dateTo" Mode="In" Type="DateTime" />
+            <Parameter Name="searchResultHighlightClass" Mode="In" Type="String" />
+            <Parameter Name="maxDescriptionLegnth" Mode="In" Type="Int32" />
+            <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
+            <Parameter Name="pageSize" Mode="In" Type="Int32" />
+            <Parameter Name="verified" Mode="InOut" Type="Boolean" />
+            <Parameter Name="found" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="E_SP_SearchGraphBreadthFirst">
+            <Parameter Name="StartNode" Mode="In" Type="Guid" />
+            <Parameter Name="EndNode" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="E_SP_SearchGraphDijkstra">
+            <Parameter Name="StartNode" Mode="In" Type="Guid" />
+            <Parameter Name="EndNode" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="E_SP_SearchGraphKruskalSpanningTree" />
+          <FunctionImport Name="E_SP_SearchGraphPrimSpanningTree" />
+          <FunctionImport Name="E_SP_SearchGraphTopologicalSort" />
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -32652,6 +32840,7 @@
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
           <NavigationProperty Name="LithologyRelation" Relationship="NKD.Module.BusinessObjects.FK_X_LithologyRelation_X_DictionaryRelationType" FromRole="DictionaryRelationType" ToRole="X_LithologyRelation" />
+          <NavigationProperty Name="E_GraphDataRelation" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_X_DictionaryRelationType" FromRole="DictionaryRelationType" ToRole="E_GraphDataRelation" />
         </EntityType>
         <EntityType Name="DictionaryRockMassUnitType">
           <Key>
@@ -33136,6 +33325,7 @@
           <NavigationProperty Name="FileDataWorkTypes" Relationship="NKD.Module.BusinessObjects.FK_X_FileDataWorkType_X_DictionaryWorkType" FromRole="DictionaryWorkType" ToRole="X_FileDataWorkType" />
           <NavigationProperty Name="Communication" Relationship="NKD.Module.BusinessObjects.FK_X_Communication_X_DictionaryWorkType" FromRole="DictionaryWorkType" ToRole="X_Communication" />
           <NavigationProperty Name="Communication1" Relationship="NKD.Module.BusinessObjects.FK_X_Communication_X_DictionaryWorkType1" FromRole="DictionaryWorkType" ToRole="X_Communication" />
+          <NavigationProperty Name="X_DictionaryWorkTypeClass" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass" FromRole="DictionaryWorkType" ToRole="DictionaryWorkTypeClass" />
         </EntityType>
         <EntityType Name="DictionaryWorkTypeClass">
           <Key>
@@ -33157,6 +33347,7 @@
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
           <NavigationProperty Name="FileData" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryWorkTypeClass_X_FileData_OriginalFile" FromRole="X_DictionaryWorkTypeClass" ToRole="X_FileData" />
           <Property Type="String" Name="WorkTypeClassName" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="X_DictionaryWorkType" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass" FromRole="DictionaryWorkTypeClass" ToRole="DictionaryWorkType" />
         </EntityType>
         <EntityType Name="DictionaryWorkTypeRelation">
           <Key>
@@ -33183,8 +33374,6 @@
           </Key>
           <Property Name="DrillingID" Type="Guid" Nullable="false" />
           <Property Name="HeaderID" Type="Guid" Nullable="false" />
-          <Property Name="FromDepth" Type="Decimal" Precision="9" Scale="3" />
-          <Property Name="ToDepth" Type="Decimal" Precision="9" Scale="3" />
           <Property Name="RunNumber" Type="Int32" />
           <Property Name="DrillingDate" Type="DateTime" Precision="0" />
           <Property Name="DrillingCompanyID" Type="Guid" />
@@ -33215,8 +33404,13 @@
           <NavigationProperty Name="DrillSize" Relationship="NKD.Module.BusinessObjects.FK_X_DrillingData_X_DictionaryDrill_Size_Name" FromRole="X_Drilling" ToRole="X_DictionaryDrillSize" />
           <NavigationProperty Name="Interpretation" Relationship="NKD.Module.BusinessObjects.FK_X_DesurveyResult_X_Drilling" FromRole="X_Drilling" ToRole="X_Interpretation" />
           <NavigationProperty Name="Header" Relationship="NKD.Module.BusinessObjects.FK_X_DrillingData_X_Header" FromRole="X_Drilling" ToRole="X_Header" />
-          <Property Type="Decimal" Name="RecoveredLength" Precision="9" Scale="3" />
-          <Property Type="Decimal" Name="RockQualityDesignationLength" Precision="9" Scale="3" />
+          <Property Type="Decimal" Name="GeologistFromDepth" Precision="11" Scale="3" />
+          <Property Type="Decimal" Name="GeologistToDepth" Precision="11" Scale="3" />
+          <Property Type="Decimal" Name="GeologistRecoveredLength" Precision="11" Scale="3" />
+          <Property Type="Decimal" Name="DrillerFromDepth" Precision="11" Scale="3" />
+          <Property Type="Decimal" Name="DrillerToDepth" Precision="11" Scale="3" />
+          <Property Type="Decimal" Name="DrillerRecoveredLength" Precision="11" Scale="3" />
+          <Property Type="Decimal" Name="RockQualityDesignationLength" Precision="11" Scale="3" />
         </EntityType>
         <EntityType Name="Experience">
           <Key>
@@ -35675,7 +35869,7 @@
             <PropertyRef Name="DateStart" />
             <PropertyRef Name="ExperienceID" />
             <PropertyRef Name="WorkTypeName" />
-            <PropertyRef Name="StandardWorkTypeClassName" />
+            <PropertyRef Name="WorkTypeClassName" />
           </Key>
           <Property Name="ContactName" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
           <Property Name="Title" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
@@ -35704,8 +35898,9 @@
           <Property Name="WorkTypeName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="WorkTypeDescription" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="FullDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="StandardWorkTypeClassName" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="WorkTypeClassName" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WorkTypeClassDescription" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WorkTypeClassFullDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="LicenseView">
           <Key>
@@ -48001,6 +48196,112 @@
           <Property Type="Guid" Name="ContractConditionID" Nullable="true" />
           <Property Type="String" Name="ContractText" Nullable="true" />
         </ComplexType>
+        <EntityType Name="E_GraphData">
+          <Key>
+            <PropertyRef Name="GraphDataID" />
+          </Key>
+          <Property Type="Guid" Name="GraphDataID" Nullable="false" />
+          <Property Type="String" Name="GraphDataName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TableType" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="ReferenceID" />
+          <Property Type="String" Name="ReferenceName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="E_GraphDataRelation" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataOriginal" FromRole="E_GraphData" ToRole="E_GraphDataRelation" />
+          <NavigationProperty Name="E_GraphDataRelation1" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated" FromRole="E_GraphData" ToRole="E_GraphDataRelation" />
+        </EntityType>
+        <EntityType Name="E_GraphDataRelation">
+          <Key>
+            <PropertyRef Name="GraphDataRelationID" />
+          </Key>
+          <Property Type="Guid" Name="GraphDataRelationID" Nullable="false" />
+          <Property Type="Guid" Name="FromGraphDataID" />
+          <Property Type="Guid" Name="ToGraphDataID" />
+          <Property Type="Decimal" Name="Weight" Precision="38" Scale="20" />
+          <Property Type="Guid" Name="RelationTypeID" />
+          <Property Type="DateTime" Name="Related" Precision="3" />
+          <Property Type="Int32" Name="Sequence" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="E_GraphData" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataOriginal" FromRole="E_GraphDataRelation" ToRole="E_GraphData" />
+          <NavigationProperty Name="E_GraphData1" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated" FromRole="E_GraphDataRelation" ToRole="E_GraphData" />
+          <NavigationProperty Name="X_DictionaryRelationType" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_X_DictionaryRelationType" FromRole="E_GraphDataRelation" ToRole="DictionaryRelationType" />
+        </EntityType>
+        <Association Name="FK_E_GraphDataRelation_E_GraphDataOriginal">
+          <End Type="NKD.Module.BusinessObjects.E_GraphData" Role="E_GraphData" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.E_GraphDataRelation" Role="E_GraphDataRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_GraphData">
+              <PropertyRef Name="GraphDataID" />
+            </Principal>
+            <Dependent Role="E_GraphDataRelation">
+              <PropertyRef Name="FromGraphDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataRelation_E_GraphDataRelated">
+          <End Type="NKD.Module.BusinessObjects.E_GraphData" Role="E_GraphData" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.E_GraphDataRelation" Role="E_GraphDataRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_GraphData">
+              <PropertyRef Name="GraphDataID" />
+            </Principal>
+            <Dependent Role="E_GraphDataRelation">
+              <PropertyRef Name="ToGraphDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataRelation_X_DictionaryRelationType">
+          <End Type="NKD.Module.BusinessObjects.DictionaryRelationType" Role="DictionaryRelationType" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.E_GraphDataRelation" Role="E_GraphDataRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryRelationType">
+              <PropertyRef Name="RelationTypeID" />
+            </Principal>
+            <Dependent Role="E_GraphDataRelation">
+              <PropertyRef Name="RelationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass">
+          <End Type="NKD.Module.BusinessObjects.DictionaryWorkTypeClass" Role="DictionaryWorkTypeClass" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.DictionaryWorkType" Role="DictionaryWorkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryWorkTypeClass">
+              <PropertyRef Name="WorkTypeClassID" />
+            </Principal>
+            <Dependent Role="DictionaryWorkType">
+              <PropertyRef Name="WorkTypeClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="E_SP_GetSecuredSearchExtended_Result">
+          <Property Type="Int64" Name="Row" Nullable="true" />
+          <Property Type="Int32" Name="TotalRows" Nullable="true" />
+          <Property Type="Guid" Name="ReferenceID" Nullable="false" />
+          <Property Type="String" Name="TableType" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="60" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="Int32" Name="LocationsJSON" Nullable="true" />
+          <Property Type="String" Name="InternalURL" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="ExternalURL" Nullable="true" />
+          <Property Type="Int32" Name="Author" Nullable="true" />
+          <Property Type="Int32" Name="Updated" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -52532,11 +52833,14 @@
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.Drilling">
               <MappingFragment StoreEntitySet="X_Drilling">
                 <ScalarProperty Name="RockQualityDesignationLength" ColumnName="RockQualityDesignationLength" />
-                <ScalarProperty Name="RecoveredLength" ColumnName="RecoveredLength" />
+                <ScalarProperty Name="DrillerRecoveredLength" ColumnName="DrillerRecoveredLength" />
+                <ScalarProperty Name="DrillerToDepth" ColumnName="DrillerToDepth" />
+                <ScalarProperty Name="DrillerFromDepth" ColumnName="DrillerFromDepth" />
+                <ScalarProperty Name="GeologistRecoveredLength" ColumnName="GeologistRecoveredLength" />
+                <ScalarProperty Name="GeologistToDepth" ColumnName="GeologistToDepth" />
+                <ScalarProperty Name="GeologistFromDepth" ColumnName="GeologistFromDepth" />
                 <ScalarProperty Name="DrillingID" ColumnName="DrillingID" />
                 <ScalarProperty Name="HeaderID" ColumnName="HeaderID" />
-                <ScalarProperty Name="FromDepth" ColumnName="FromDepth" />
-                <ScalarProperty Name="ToDepth" ColumnName="ToDepth" />
                 <ScalarProperty Name="RunNumber" ColumnName="RunNumber" />
                 <ScalarProperty Name="DrillingDate" ColumnName="DrillingDate" />
                 <ScalarProperty Name="DrillingCompanyID" ColumnName="DrillingCompanyID" />
@@ -54543,6 +54847,9 @@
           <EntitySetMapping Name="ExperienceBasicViews">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.ExperienceBasicView">
               <MappingFragment StoreEntitySet="X_VW_ExperienceBasicView">
+                <ScalarProperty Name="WorkTypeClassFullDescription" ColumnName="WorkTypeClassFullDescription" />
+                <ScalarProperty Name="WorkTypeClassDescription" ColumnName="WorkTypeClassDescription" />
+                <ScalarProperty Name="WorkTypeClassName" ColumnName="WorkTypeClassName" />
                 <ScalarProperty Name="ContactName" ColumnName="ContactName" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -54570,9 +54877,7 @@
                 <ScalarProperty Name="WorkTypeName" ColumnName="WorkTypeName" />
                 <ScalarProperty Name="WorkTypeDescription" ColumnName="WorkTypeDescription" />
                 <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
-                <ScalarProperty Name="StandardWorkTypeClassName" ColumnName="StandardWorkTypeClassName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LicenseViews">
@@ -57178,6 +57483,70 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="E_SP_DropCoalLogExceptions" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_DropCoalLogExceptions" />
           <FunctionImportMapping FunctionImportName="E_SP_ShowCoalLogExceptions" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_ShowCoalLogExceptions" />
+          <EntitySetMapping Name="E_GraphData">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_GraphData">
+              <MappingFragment StoreEntitySet="E_GraphData">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+                <ScalarProperty Name="TableType" ColumnName="TableType" />
+                <ScalarProperty Name="GraphDataName" ColumnName="GraphDataName" />
+                <ScalarProperty Name="GraphDataID" ColumnName="GraphDataID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="E_GraphDataRelation">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_GraphDataRelation">
+              <MappingFragment StoreEntitySet="E_GraphDataRelation">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="Related" ColumnName="Related" />
+                <ScalarProperty Name="RelationTypeID" ColumnName="RelationTypeID" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="ToGraphDataID" ColumnName="ToGraphDataID" />
+                <ScalarProperty Name="FromGraphDataID" ColumnName="FromGraphDataID" />
+                <ScalarProperty Name="GraphDataRelationID" ColumnName="GraphDataRelationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_GetSecuredSearchExtended" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetSecuredSearchExtended">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetSecuredSearchExtended_Result">
+                <ScalarProperty Name="Row" ColumnName="Row" />
+                <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+                <ScalarProperty Name="TableType" ColumnName="TableType" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LocationsJSON" ColumnName="LocationsJSON" />
+                <ScalarProperty Name="InternalURL" ColumnName="InternalURL" />
+                <ScalarProperty Name="ExternalURL" ColumnName="ExternalURL" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_SearchGraphBreadthFirst" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_SearchGraphBreadthFirst" />
+          <FunctionImportMapping FunctionImportName="E_SP_SearchGraphDijkstra" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_SearchGraphDijkstra" />
+          <FunctionImportMapping FunctionImportName="E_SP_SearchGraphKruskalSpanningTree" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_SearchGraphKruskalSpanningTree" />
+          <FunctionImportMapping FunctionImportName="E_SP_SearchGraphPrimSpanningTree" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_SearchGraphPrimSpanningTree" />
+          <FunctionImportMapping FunctionImportName="E_SP_SearchGraphTopologicalSort" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_SearchGraphTopologicalSort" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

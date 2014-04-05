@@ -1193,6 +1193,12 @@
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType1" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile1" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.SupplyItemDetailView" Width="1.5" PointX="2.9570178198427977" PointY="18.020550140189265" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.E_GraphData" Width="1.5" PointX="7.5824997460388115" PointY="18.02674514894688" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.E_GraphDataRelation" Width="1.5" PointX="2.315692345758757" PointY="6.6964526207635426" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataOriginal" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_X_DictionaryRelationType" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
