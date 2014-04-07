@@ -165,7 +165,7 @@ namespace NKD.Import.Client.UI
                     if (ex is ArgumentException) //i.e. column names are probably not unique, drop out with a more useful error message
                     {
                         if (!errorinColumn)
-                        MessageBox.Show(String.Format("Column {0}, \"{1}\" in file: {2} is a duplicate, please ensure all column headings are unique, removing column for import. There may be other errors (printing only this one).", i, rdr.dataItems[i],
+                        MessageBox.Show(String.Format("Column {0}, \"{1}\" in file: {2} is a duplicate, please ensure all column headings are unique, removing column for import. There may be other errors (showing only this one).", i, rdr.dataItems[i],
                             ((NKD.Import.Client.MainWindow)(((System.Delegate)(this.ColumnsMapped)).Target)).SelectedFile));
                         errorinColumn = true;
                     }
@@ -284,12 +284,21 @@ namespace NKD.Import.Client.UI
 
 
         private int GetValFromDict(Dictionary<string, int> defs, string lookupVal) {
-            int val = -1;
+            int val;
             bool present = defs.TryGetValue(lookupVal, out val);
             if (!present)
             {
-                val = -1;
-            }
+                if (!string.IsNullOrWhiteSpace(lookupVal) && lookupVal.IndexOf("[") == 0 && lookupVal.IndexOf("]") > 0)
+                {
+                    var find = lookupVal.Substring(0, lookupVal.Length - 1);
+                    if (defs.Any(f => f.Key.IndexOf(find) > -1))
+                        val = defs.First(f => f.Key.IndexOf(find) > -1).Value;
+                    else
+                        val = -1;
+                }
+                else
+                    val = -1;
+            }            
             return val;
         }
 
@@ -482,7 +491,7 @@ namespace NKD.Import.Client.UI
 
         internal void SetMandatoryMappingColumns(List<ColumnMetaInfo> _mandatoryColumns)
         {
-            bmRequiredFields = _mandatoryColumns;
+            bmRequiredFields = _mandatoryColumns.GroupBy(f => f.columnName).Select(g=>g.First()).ToList();
         }
 
         internal void SetOptionalMappingColumns(List<ColumnMetaInfo> _optionalColumns)

@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\..\NKD.Orchard\lib\EntityFramework\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\..\NKD.Orchard\lib\EntityFramework.Extended\Build\Release\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
     <Reference Include="ImpromptuInterface">
       <HintPath>..\..\NKD.Orchard\lib\impromptu\ImpromptuInterface.dll</HintPath>
     </Reference>

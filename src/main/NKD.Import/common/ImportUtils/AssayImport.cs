@@ -137,7 +137,7 @@ namespace NKD.Import.ImportUtils
                     Dictionary<string, int> columnIDX = new Dictionary<string, int>();
                     int fkLookupCount = 0;
 
-                    PopulateCMapShortcut(importMap, columnIDX);
+                    BaseImportTools.PopulateCMapShortcut(importMap, columnIDX);
                     ColumnMap headerCmap = importMap.FindItemsByTargetName("HeaderID");
                     AssayQueries assayQueries = new AssayQueries();
                     List<string> items = new List<string>();
@@ -153,7 +153,7 @@ namespace NKD.Import.ImportUtils
                             linesRead++;
                             if (ct >= importMap.dataStartLine)
                             {
-                                var append = parseTestLine(line, importMap.inputDelimiter);
+                                var append = BaseImportTools.ParseTestLine(line, importMap.inputDelimiter);
                                 if (items.Count == 0 || append.Count == importMap.MaxColumns)
                                     items = append;
                                 else if (items.Count < importMap.MaxColumns)
@@ -575,34 +575,9 @@ namespace NKD.Import.ImportUtils
 
                 return pid;
             }
-        }
-
-       private static void PopulateCMapShortcut(FormatSpecification.ImportDataMap importMap, Dictionary<string, int> columnIDX)
-       {
-           foreach (ColumnMap cm in importMap.columnMap)
-           {
-               if (cm.targetColumnName[0] != '[')
-                columnIDX.Add(cm.targetColumnName.Trim(), cm.sourceColumnNumber);
-
-           }
-       }
-
-        /// <summary>
-        /// Find the Guid for the given value in the foreign table.  If it does not exist, create it.
-        /// </summary>
-        /// <param name="columnValue"></param>
-        /// <param name="cmap"></param>
-        /// <param name="connection"></param>
-        /// <returns></returns>
-     
+        }    
 
 
-        private List<string> parseTestLine(string ln, char delimeter)
-        {
-            string[] items = ln.Split(new char[] { delimeter }, StringSplitOptions.None);
-            return new List<string>(items);
-
-        }
 
     }
 }

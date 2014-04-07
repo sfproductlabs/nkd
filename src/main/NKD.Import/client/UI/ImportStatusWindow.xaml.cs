@@ -138,7 +138,7 @@ namespace NKD.Import.Client.UI
             }
             else if (mos.finalErrorCode == 5)
             {
-                message += "Error with data consitancy";
+                message += "Error with data consistency";
             }
 
 

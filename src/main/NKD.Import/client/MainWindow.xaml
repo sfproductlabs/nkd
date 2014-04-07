@@ -5,7 +5,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:UI="clr-namespace:NKD.Import.Client.UI" 
         x:Class="NKD.Import.Client.MainWindow"
-        Title="NakedEnterprise Importer" Height="1000" Width="1000" Icon="images/NKD.ico" Loaded="myWin_Loaded">
+        Title="NakedEnterprise Importer" Height="1000" Width="1000" Icon="/images/NKD.ico" Loaded="myWin_Loaded">
 
     <Window.CommandBindings>
 
@@ -28,7 +28,7 @@
         </Grid.RowDefinitions>
 
 
-        <Ribbon Margin="0,0,0,0" IsDropDownOpen="False" WindowIconVisibility="Hidden" Name="AppRibbon"  SelectionChanged="RibbonSelectionChanged" RequestBringIntoView="AppRibbon_RequestBringIntoView" MouseUp="AppRibbon_MouseUp" Grid.ColumnSpan="2" >
+        <Ribbon Margin="0,0,0,0" IsDropDownOpen="False" WindowIconVisibility="Hidden" Name="AppRibbon" SelectionChanged="RibbonSelectionChanged" RequestBringIntoView="AppRibbon_RequestBringIntoView" MouseUp="AppRibbon_MouseUp" Grid.ColumnSpan="2" >
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu SmallImageSource="/NKD Importer;component/images/copy_32.png">
                     <RibbonApplicationMenuItem Header="Help"

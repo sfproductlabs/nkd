@@ -341,7 +341,7 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\NKD.ico" />
+    <EmbeddedResource Include="images\NKD.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

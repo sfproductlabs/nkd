@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using NKD.Module.BusinessObjects;
 using NKD.Import.FormatSpecification;
 using System.Text.RegularExpressions;
+using EntityFramework.Extensions;
 
 namespace NKD.Import.ImportUtils
 {
@@ -159,15 +160,8 @@ namespace NKD.Import.ImportUtils
 
 
 
-                    PopulateCMapShortcut("HeaderID", importMap, columnIDX);
-                    PopulateCMapShortcut("FromDepth", importMap, columnIDX);
-                    PopulateCMapShortcut("ToDepth", importMap, columnIDX);
-                    PopulateCMapShortcut("SampleNumber", importMap, columnIDX);
-                    PopulateCMapShortcut("SampleName", importMap, columnIDX);
-                    PopulateCMapShortcut("LabSampleNumber", importMap, columnIDX);
-                    PopulateCMapShortcut("LabBatchNumber", importMap, columnIDX);
+                    BaseImportTools.PopulateCMapShortcut(importMap, columnIDX);
                     ColumnMap headerCmap = importMap.FindItemsByTargetName("HeaderID");
-                    AssayQueries assayQueries = new AssayQueries();
                     int seqNum = 1;
                     if (sr != null)
                     {
@@ -183,7 +177,7 @@ namespace NKD.Import.ImportUtils
                             {
 
                                 // digest a row of input data 
-                                List<string> items = parseTestLine(line, importMap.inputDelimiter);
+                                List<string> items = BaseImportTools.ParseTestLine(line, importMap.inputDelimiter);
 
 
                                 Guid holeID = new Guid();
@@ -276,34 +270,10 @@ namespace NKD.Import.ImportUtils
 
                                     
 
-                                    List<Sample> duplicateList = null;
-                                    bool isDuplicateInterval = false;
-                                    //if (checkForDuplicates)
-                                    //{
-                                    //    if (hasFrom && hasTo)
-                                    //    {
-                                    //        // here we need to check that the hole is not duplicated
-                                    //        duplicateList = assayQueries.CheckForDuplicate(holeID, fromDepth, toDepth);
-                                    //        if (duplicateList.Count > 0)
-                                    //        {
-                                    //            isDuplicateInterval = true;
-                                    //        }
-                                    //    }
-                                    //    if (isDuplicateInterval)
-                                    //    {
-                                    //        hasDuplicateIntervals = true;
-                                    //        mos.AddWarningMessage("Duplicate interval for hole " + holeName + " at depth " + fromDepth + " to " + toDepth);
-                                    //        UpdateStatus("Duplicate interval at " + holeName + " " + fromDepth + ", " + toDepth, pct);
-                                    //        if (!doImportOverwrite)
-                                    //        {
-                                    //            mos.recordsFailed++;
-                                    //            continue;
-                                    //        }
-                                    //    }
-                                    //}
+                                 
 
                                     idxVal = 0;
-                                    foundEntry = columnIDX.TryGetValue("SampleNumber", out idxVal);
+                                    foundEntry = columnIDX.TryGetValue("SampleID", out idxVal);
                                     if (foundEntry)
                                     {
                                         string ii = items[idxVal];
@@ -319,7 +289,7 @@ namespace NKD.Import.ImportUtils
 
                                     }
                                     idxVal = 0;
-                                    foundEntry = columnIDX.TryGetValue("SampleNumber", out idxVal);
+                                    foundEntry = columnIDX.TryGetValue("LabSampleName", out idxVal);
                                     if (foundEntry)
                                     {
                                         string ii = items[idxVal];
@@ -328,35 +298,19 @@ namespace NKD.Import.ImportUtils
                                     }
 
                                     idxVal = 0;
-                                    foundEntry = columnIDX.TryGetValue("SampleNumber", out idxVal);
+                                    foundEntry = columnIDX.TryGetValue("LabBatchNumber", out idxVal);
                                     if (foundEntry)
                                     {
                                         string ii = items[idxVal];
                                         labBatchNumber = ii;
                                     }
 
-                                    Sample xs = new Sample();
-                                    if (isDuplicateInterval == true)
-                                    {
-                                        xs = duplicateList.First();
-                                    }
-                                    else
-                                    {
-                                        xs.SampleID = Guid.NewGuid();                                        
-                                        xs.SampleName = sampleName;
-                                        xs.SampleNumber = sampleNumber;
-                                        xs.FromDepth = fromDepth;
-                                        xs.ToDepth = toDepth;
-                                        xs.HeaderID = holeID;
-                                        xs.VersionUpdated = currentUpdateTimestamp;
-
-                                        entityObj.Samples.AddObject(xs);
-                                    }
                                     // Now iddentify the  program, Stage, Size fraction and wash fraction
 
                                     // get the program text
                                     string programType = null;
-                                    if (cmProgram != null) {
+                                    if (cmProgram != null)
+                                    {
                                         programType = items[cmProgram.sourceColumnNumber];
                                     }
                                     string stage = null;
@@ -365,7 +319,7 @@ namespace NKD.Import.ImportUtils
                                         stage = items[cmStage.sourceColumnNumber];
                                     }
                                     string sizeFraction = null;
-                                    if (cmSizeFraction  != null)
+                                    if (cmSizeFraction != null)
                                     {
                                         sizeFraction = items[cmSizeFraction.sourceColumnNumber];
                                     }
@@ -374,6 +328,74 @@ namespace NKD.Import.ImportUtils
                                     {
                                         washFraction = items[cmWashFraction.sourceColumnNumber];
                                     }
+
+                                    IQueryable<AssayGroupSubsample> toUpdate = null;
+                                    bool isDuplicate = false;
+                                    var washID = (from o in entityObj.Parameters where o.ParameterType=="AssayPrecondition" && o.ParameterName=="Wash fraction" select o.ParameterID).FirstOrDefault();
+                                    var sizeID = (from o in entityObj.Parameters where o.ParameterType == "AssayPrecondition" && o.ParameterName == "Size fraction" select o.ParameterID).FirstOrDefault();
+                                    if (checkForDuplicates)
+                                    {
+                                        if (hasFrom && hasTo)
+                                        {
+                                            // here we need to check that not duplicated
+                                            toUpdate =
+                                                (from o in entityObj.AssayGroupSubsamples
+                                                 where
+                                                    o.OriginalSample.HeaderID == holeID
+                                                    && o.OriginalSample.FromDepth == fromDepth
+                                                    && o.OriginalSample.ToDepth == toDepth
+                                                    && o.AssayGroupWorkflowProcedure.WorkflowStateName == stage
+                                                    && o.AssayGroupWorkflowProcedure.AssayGroupWorkflow.WorkflowName == programType
+                                                    && (sizeFraction.Trim() == "" || o.AssayGroupSubsamplePrecondition.Any(f => f.PreconditionName == sizeFraction && f.PreconditionParameterID==sizeID))
+                                                    && (washFraction.Trim() == "" || o.AssayGroupSubsamplePrecondition.Any(f => f.PreconditionName == washFraction && f.PreconditionParameterID==washID))
+                                                 select o);
+
+
+                                            if (toUpdate.Any())
+                                            {
+                                                isDuplicate = true;
+                                            }
+                                        }
+                                        if (isDuplicate)
+                                        {
+                                            hasDuplicateIntervals = true;
+                                            mos.AddWarningMessage("Duplicate interval for hole " + holeName + " at depth " + fromDepth + " to " + toDepth);
+                                            UpdateStatus("Duplicate interval at " + holeName + " " + fromDepth + ", " + toDepth, pct);
+                                            if (!doImportOverwrite)
+                                            {
+                                                mos.recordsFailed++;
+                                                continue;
+                                            }
+                                            else
+                                            {
+                                                foreach (var upd in toUpdate)
+                                                    upd.Sequence = seqNum;
+                                            }
+                                        }
+                                    }
+
+                                    Sample xs = null;
+                                    if (isDuplicate == true)
+                                    {
+                                        xs = toUpdate.First().OriginalSample;
+                                    }
+                                    else
+                                    {
+                                        xs = (from o in entityObj.Samples where o.HeaderID==holeID && o.FromDepth==fromDepth && o.ToDepth==toDepth select o).FirstOrDefault();
+                                        if (xs == null)
+                                        {
+                                            xs = new Sample();
+                                            xs.SampleID = Guid.NewGuid();
+                                            xs.SampleName = sampleName;
+                                            xs.SampleNumber = sampleNumber;
+                                            xs.FromDepth = fromDepth;
+                                            xs.ToDepth = toDepth;
+                                            xs.HeaderID = holeID;
+                                            xs.VersionUpdated = currentUpdateTimestamp;
+                                            entityObj.Samples.AddObject(xs);
+                                        }
+                                    }
+                              
 
                                     // see if the interfal has changed, wherby we will need to reset the sequence ID
                                     if (holeID != lastHoleID)
@@ -393,72 +415,92 @@ namespace NKD.Import.ImportUtils
                                     lastFromDepth = fromDepth;
                                     lastToDepth = toDepth;
                                     lastStage = stage;
-                                    AssayGroupWorkflow agWorkflowProgram = GetAssayGroupWorkflow(entityObj, programType, agGuid);
-                                    AssayGroupWorkflowProcedure agWorkflowStage = GetAssayGroupWorkflowProcedure(entityObj, stage, agWorkflowProgram);
-
-
-                                    AssayGroupSubsample agSS = new AssayGroupSubsample();
-                                    agSS.AssayGroupID = agGuid;
-                                    agSS.Sequence = seqNum;
-                                    agSS.AssayGroupSubsampleID = Guid.NewGuid();
-                                    agSS.SampleAntecedentID = xs.SampleID;
-                                    agSS.OriginalSample = xs;
-                                    agSS.AssayGroupWorkflowProcedureID = agWorkflowStage.AssayGroupWorkflowProcedureID;
-                                    agSS.AssayGroupWorkflowProcedure = agWorkflowStage;
-                                    entityObj.AssayGroupSubsamples.AddObject(agSS);
-                                    entityObj.SaveChanges();
-                                    seqNum++;
-                                    AssayGroupSubsamplePrecondition agSizeFraction = GetAssayGroupPrecondition(entityObj, sizeFraction, "Size fraction", agSS.AssayGroupSubsampleID);
-                                    
-                                    AssayGroupSubsamplePrecondition agWashFraction = GetAssayGroupPrecondition(entityObj, washFraction, "Wash fraction",  agSS.AssayGroupSubsampleID);
-
-                                    // now pick out all the mapped values
-                                    // iterate over all [ASSAY RESULT] columns
-                                    bool assayUpdated = false;
-                                    bool assayAdded = false;
-                                    foreach (KeyValuePair<ColumnMap, Guid> kvp in resultsColumns)
+                                    if (!isDuplicate)
                                     {
-                                        ColumnMap cm = kvp.Key;
-                                        Guid g = kvp.Value; // this is the AssayGroupTestID
+                                        AssayGroupWorkflow agWorkflowProgram = GetAssayGroupWorkflow(entityObj, programType, agGuid);
+                                        AssayGroupWorkflowProcedure agWorkflowStage = GetAssayGroupWorkflowProcedure(entityObj, stage, agWorkflowProgram);
+                                        AssayGroupSubsample agSS = new AssayGroupSubsample();
+                                        agSS.AssayGroupID = agGuid;
+                                        agSS.FromDepth = fromDepth;
+                                        agSS.ToDepth = toDepth;
+                                        agSS.Sequence = seqNum;
+                                        agSS.AssayGroupSubsampleID = Guid.NewGuid();
+                                        agSS.SampleAntecedentID = xs.SampleID;
+                                        agSS.OriginalSample = xs;
+                                        agSS.AssayGroupWorkflowProcedureID = agWorkflowStage.AssayGroupWorkflowProcedureID;
+                                        agSS.AssayGroupWorkflowProcedure = agWorkflowStage;
+                                        entityObj.AssayGroupSubsamples.AddObject(agSS);
+                                        entityObj.SaveChanges();
+                                        AssayGroupSubsamplePrecondition agSizeFraction = GetAssayGroupPrecondition(entityObj, sizeFraction, "Size fraction", agSS.AssayGroupSubsampleID);
 
-                                        AssayGroupTestResult testResult = new AssayGroupTestResult();
-                                        testResult.AssayGroupSubsampleID = agSS.AssayGroupSubsampleID;
-                                        testResult.AssayGroupTestResultID = Guid.NewGuid();
-                                        testResult.AssayGroupTestID = g;
-                                        testResult.SampleID = xs.SampleID;
-                                        testResult.VersionUpdated = currentUpdateTimestamp;
-                                        testResult.LabBatchNumber = labBatchNumber;
-                                        //testResult.LabSampleNumber = labsampleNumber;
-                                        Decimal result = new Decimal();
-                                        if (items.Count >= cm.sourceColumnNumber)
+                                        AssayGroupSubsamplePrecondition agWashFraction = GetAssayGroupPrecondition(entityObj, washFraction, "Wash fraction", agSS.AssayGroupSubsampleID);
+                                        toUpdate = (new[] { agSS }).AsQueryable();
+                                        
+                                    }
+                                    if (isDuplicate)
+                                        entityObj.SaveChanges();
+                                    foreach (var upd in toUpdate.ToList())
+                                    {
+                                        // now pick out all the mapped values
+                                        // iterate over all [ASSAY RESULT] columns
+                                        foreach (KeyValuePair<ColumnMap, Guid> kvp in resultsColumns)
                                         {
-                                            bool parsedOK = Decimal.TryParse(items[cm.sourceColumnNumber], out result);
-                                            if (parsedOK)
+                                            ColumnMap cm = kvp.Key;
+                                            Guid g = kvp.Value; // this is the AssayGroupTestID
+                                            AssayGroupTestResult testResult = null;
+                                            Decimal result = default(decimal);
+                                            string resultText = null;
+                                            bool parsedOK = false;
+                                            if (items.Count >= cm.sourceColumnNumber)
                                             {
-                                                testResult.LabResult = result;
+                                                parsedOK = Decimal.TryParse(items[cm.sourceColumnNumber], out result);
+                                                resultText = items[cm.sourceColumnNumber];
                                             }
                                             else
                                             {
-                                                testResult.LabResultText = items[cm.sourceColumnNumber];
+                                                mos.AddWarningMessage("Line " + linesRead + " contains too few columns to read " + cm.sourceColumnName);
                                             }
+                                            if (string.IsNullOrWhiteSpace(resultText))
+                                                continue;
+                                            if (!isDuplicate)
+                                            {
+                                                testResult = new AssayGroupTestResult();
+                                                testResult.AssayGroupSubsampleID = upd.AssayGroupSubsampleID;
+                                                testResult.AssayGroupTestResultID = Guid.NewGuid();
+                                                testResult.AssayGroupTestID = g;
+                                                testResult.SampleID = xs.SampleID;
+                                                testResult.LabBatchNumber = labBatchNumber;
+                                                entityObj.AssayGroupTestResults.AddObject(testResult);
+                                                testResult.VersionUpdated = currentUpdateTimestamp;
+                                                if (parsedOK)
+                                                    testResult.LabResult = result;
+                                                testResult.LabResultText = resultText;
+                                                //testResult.LabSampleNumber = labsampleNumber;
+                                                mos.recordsAdded++;
+                                            }
+                                            else
+                                            {
+                                                var tempRes = (parsedOK) ? result : default(decimal?);
+                                                entityObj.AssayGroupTestResults.Where(f=>
+                                                    f.AssayGroupSubsampleID == upd.AssayGroupSubsampleID
+                                                    && f.AssayGroupTest.Parameter.ParameterName == cm.sourceColumnName
+                                                    )
+                                                    .Update((f) => new AssayGroupTestResult
+                                                    {
+                                                        LabResult = tempRes,
+                                                        LabResultText = resultText,
+                                                        VersionUpdated = currentUpdateTimestamp                                   
+                                                    });
+                                                mos.recordsUpdated++;
+                                            }
+            
                                         }
-                                        else
-                                        {
-                                            mos.AddWarningMessage("Line " + linesRead + " contains too few columns to read " + cm.sourceColumnName);
-                                        }
-
-                                        entityObj.AssayGroupTestResults.AddObject(testResult);
-                                        assayAdded = true;
+                                     
+                                     
                                     }
 
-                                    if (assayAdded == true)
-                                    {
-                                        mos.recordsAdded++;
-                                    }
-                                    if (assayUpdated)
-                                    {
-                                        mos.recordsUpdated++;
-                                    }
+
+                                    seqNum++;                                    
                                     tb++;
                                 }
                             }
@@ -755,31 +797,6 @@ namespace NKD.Import.ImportUtils
             }
         }
 
-       private static void PopulateCMapShortcut(string lookupString, FormatSpecification.ImportDataMap importMap, Dictionary<string, int> columnIDX)
-       {
-           ColumnMap cmap = importMap.FindItemsByTargetName(lookupString);
-           if (cmap != null)
-           {
-               columnIDX.Add(lookupString, cmap.sourceColumnNumber);
-           }
-       }
-
-        /// <summary>
-        /// Find the Guid for the given value in the foreign table.  If it does not exist, create it.
-        /// </summary>
-        /// <param name="columnValue"></param>
-        /// <param name="cmap"></param>
-        /// <param name="connection"></param>
-        /// <returns></returns>
-     
-
-
-        private List<string> parseTestLine(string ln, char delimeter)
-        {
-            string[] items = ln.Split(new char[] { delimeter }, StringSplitOptions.None);
-            return new List<string>(items);
-
-        }
 
     }
 }

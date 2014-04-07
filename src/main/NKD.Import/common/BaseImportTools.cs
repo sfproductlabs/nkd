@@ -572,6 +572,7 @@ namespace NKD.Import
             removeStubs.Add("SampleCategoryID");
             removeStubs.Add("SampleStateID");
             removeStubs.Add("SampleTypeID");
+            //removeStubs.Add("Sample");
             removeStubs.Add("Assay");
             removeStubs.Add("Version");
             removeStubs.Add("Dict");
@@ -596,11 +597,13 @@ namespace NKD.Import
 
             ColumnMetaInfo ci2 = new ColumnMetaInfo();
             ci2.columnName = "[STAGE]";
+            ci2.isMandatory = true;
             ci2.fkSpec = null;
             colListP.Insert(0, ci2);
 
             ColumnMetaInfo ci0 = new ColumnMetaInfo();
             ci0.columnName = "[PROGRAM]";
+            ci0.isMandatory = true;
             ci0.fkSpec = null;
             colListP.Insert(0, ci0);
 
@@ -614,6 +617,10 @@ namespace NKD.Import
                     c.isMandatory = true;
                 }
                 else if (c.columnName.Equals("ToDepth")) {
+                    c.isMandatory = true;
+                }
+                else if (c.columnName.Equals("SampleID"))
+                {
                     c.isMandatory = true;
                 }
                 else if (c.columnName.Equals("[PROCESS]"))
@@ -880,6 +887,23 @@ namespace NKD.Import
             data = liu.ImportLASFile(lasFile, origFilename, mos, currentProjectID, UpdateStatus);
 
             return data;
+        }
+
+        public static void PopulateCMapShortcut(FormatSpecification.ImportDataMap importMap, Dictionary<string, int> columnIDX)
+        {
+            foreach (ColumnMap cm in importMap.columnMap)
+            {
+                if (cm.targetColumnName[0] != '[')
+                    columnIDX.Add(cm.targetColumnName.Trim(), cm.sourceColumnNumber);
+
+            }
+        }
+
+        public static List<string> ParseTestLine(string ln, char delimeter)
+        {
+            string[] items = ln.Split(new char[] { delimeter }, StringSplitOptions.None);
+            return new List<string>(items);
+
         }
     }
 
