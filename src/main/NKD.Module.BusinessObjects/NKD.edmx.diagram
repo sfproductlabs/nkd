@@ -1199,6 +1199,33 @@
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_X_DictionaryRelationType" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.E_DictionaryLinestringType" Width="1.5" PointX="1.2282453278211156" PointY="28.719510151408386" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.E_DictionaryProjectType" Width="1.5" PointX="7.6167506275776535" PointY="8.6149513910594173" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.E_Linestring" Width="1.5" PointX="9.0634210598950364" PointY="3.7889527994156595" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.E_ProjectOffer" Width="1.5" PointX="8.581886589798092" PointY="29.803420736362888" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.E_ProjectPledge" Width="1.5" PointX="1.8180832405658829" PointY="28.161919204593598" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.E_ProjectPledgeAddendum" Width="1.5" PointX="6.1453504348850583" PointY="5.1940532052861776" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_Currency" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_E_DictionaryLinestringType_X_FileData_OriginalFile" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_Linestring_E_DictionaryLinestringType" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_E_DictionaryProjectType_X_FileData_OriginalFile" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Project_E_DictionaryProjectType" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphData_E_DictionaryWorkflowType" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphData_X_ContactCreator" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_Linestring_X_Company" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_Linestring_X_ContactResponsible" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact1" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Project" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectOffer" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectPledge" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact1" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_ContactOverseer" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Project" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_E_ProjectPledge" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_Contact" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_ContactReviewer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

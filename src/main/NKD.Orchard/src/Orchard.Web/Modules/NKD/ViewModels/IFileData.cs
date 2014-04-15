@@ -10,5 +10,7 @@ namespace NKD.ViewModels
     {
         Guid FileDataID { get; set; }
         string FileName { get; set; }
+        int FileSize { get; set; }
+        byte[] FileBytes { get; set; }
     }
 }

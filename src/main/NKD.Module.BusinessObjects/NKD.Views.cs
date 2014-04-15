@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets5468A7F35D83A18F7B9B9497CFB833F8C7E50ED26AAF3D7A4E26D145A0BE6F66))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsC818806D8BE6EE2F8930370E019F82619B4DD5DE16E28158BA5679F87BFE66E3))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,19 +17,19 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets5468A7F35D83A18F7B9B9497CFB833F8C7E50ED26AAF3D7A4E26D145A0BE6F66 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySetsC818806D8BE6EE2F8930370E019F82619B4DD5DE16E28158BA5679F87BFE66E3 : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets5468A7F35D83A18F7B9B9497CFB833F8C7E50ED26AAF3D7A4E26D145A0BE6F66()
+        public ViewsForBaseEntitySetsC818806D8BE6EE2F8930370E019F82619B4DD5DE16E28158BA5679F87BFE66E3()
         {
             this.EdmEntityContainerName = "NKDC";
             this.StoreEntityContainerName = "NKDModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "49e31c567b6efd5422300f5dde9793d4776617bb910a8e86e8ec931dac1894c4";
-            this.HashOverAllExtentViews = "777c09366be2b79c6a0d6428b60e84ad643d36098b3b66c66dc8a961974d2e8f";
-            this.ViewCount = 734;
+            this.HashOverMappingClosure = "d5f8a5b3162881b3af3488fc8555ab5e73034e22939acce97cb02fb75d3add8b";
+            this.HashOverAllExtentViews = "cfd49ff7b507b1ed931b8acd4b8837b7c81164d2fccc23ce627e40670107a738";
+            this.ViewCount = 746;
         }
         
         /// <Summary>
@@ -2972,6 +2972,54 @@ namespace Edm_EntityMappingGeneratedViews
             if ((index == 733))
             {
                 return GetView733();
+            }
+            if ((index == 734))
+            {
+                return GetView734();
+            }
+            if ((index == 735))
+            {
+                return GetView735();
+            }
+            if ((index == 736))
+            {
+                return GetView736();
+            }
+            if ((index == 737))
+            {
+                return GetView737();
+            }
+            if ((index == 738))
+            {
+                return GetView738();
+            }
+            if ((index == 739))
+            {
+                return GetView739();
+            }
+            if ((index == 740))
+            {
+                return GetView740();
+            }
+            if ((index == 741))
+            {
+                return GetView741();
+            }
+            if ((index == 742))
+            {
+                return GetView742();
+            }
+            if ((index == 743))
+            {
+                return GetView743();
+            }
+            if ((index == 744))
+            {
+                return GetView744();
+            }
+            if ((index == 745))
+            {
+                return GetView745();
             }
             throw new System.IndexOutOfRangeException();
         }
@@ -11017,38 +11065,39 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView202()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2446);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2523);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_Location\r\n        [NKD.Module.BusinessObjec");
             viewString.Append("ts.Store.X_Location](T1.[X_Location.LocationID], T1.[X_Location.LocationTypeID],");
             viewString.Append(" T1.[X_Location.DefaultLocationName], T1.[X_Location.LocationCode], T1.[X_Locati");
             viewString.Append("on.LocationGeography], T1.[X_Location.LatitudeWGS84], T1.[X_Location.LongitudeWG");
             viewString.Append("S84], T1.[X_Location.Elevation], T1.[X_Location.CountryID], T1.[X_Location.Count");
-            viewString.Append("ryStateID], T1.[X_Location.DefaultCulture], T1.[X_Location.OwnerCompanyID], T1.[");
-            viewString.Append("X_Location.ResponsibleContactID], T1.[X_Location.Comment], T1.[X_Location.Versio");
-            viewString.Append("n], T1.[X_Location.VersionAntecedentID], T1.[X_Location.VersionCertainty], T1.[X");
-            viewString.Append("_Location.VersionWorkflowInstanceID], T1.[X_Location.VersionUpdatedBy], T1.[X_Lo");
-            viewString.Append("cation.VersionDeletedBy], T1.[X_Location.VersionOwnerContactID], T1.[X_Location.");
-            viewString.Append("VersionOwnerCompanyID], T1.[X_Location.VersionUpdated])\r\n    FROM (\r\n        SEL");
-            viewString.Append("ECT \r\n            T.LocationID AS [X_Location.LocationID], \r\n            T.Locat");
-            viewString.Append("ionTypeID AS [X_Location.LocationTypeID], \r\n            T.DefaultLocationName AS");
-            viewString.Append(" [X_Location.DefaultLocationName], \r\n            T.LocationCode AS [X_Location.L");
-            viewString.Append("ocationCode], \r\n            T.LocationGeography AS [X_Location.LocationGeography");
-            viewString.Append("], \r\n            T.LatitudeWGS84 AS [X_Location.LatitudeWGS84], \r\n            T.");
-            viewString.Append("LongitudeWGS84 AS [X_Location.LongitudeWGS84], \r\n            T.Elevation AS [X_L");
-            viewString.Append("ocation.Elevation], \r\n            T.CountryID AS [X_Location.CountryID], \r\n     ");
-            viewString.Append("       T.CountryStateID AS [X_Location.CountryStateID], \r\n            T.DefaultC");
-            viewString.Append("ulture AS [X_Location.DefaultCulture], \r\n            T.OwnerCompanyID AS [X_Loca");
-            viewString.Append("tion.OwnerCompanyID], \r\n            T.ResponsibleContactID AS [X_Location.Respon");
-            viewString.Append("sibleContactID], \r\n            T.Comment AS [X_Location.Comment], \r\n            ");
-            viewString.Append("T.Version AS [X_Location.Version], \r\n            T.VersionAntecedentID AS [X_Loc");
-            viewString.Append("ation.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Location.Vers");
-            viewString.Append("ionCertainty], \r\n            T.VersionWorkflowInstanceID AS [X_Location.VersionW");
-            viewString.Append("orkflowInstanceID], \r\n            T.VersionUpdatedBy AS [X_Location.VersionUpdat");
-            viewString.Append("edBy], \r\n            T.VersionDeletedBy AS [X_Location.VersionDeletedBy], \r\n    ");
-            viewString.Append("        T.VersionOwnerContactID AS [X_Location.VersionOwnerContactID], \r\n       ");
-            viewString.Append("     T.VersionOwnerCompanyID AS [X_Location.VersionOwnerCompanyID], \r\n          ");
-            viewString.Append("  T.VersionUpdated AS [X_Location.VersionUpdated], \r\n            True AS _from0\r");
-            viewString.Append("\n        FROM NKDC.Locations AS T\r\n    ) AS T1");
+            viewString.Append("ryStateID], T1.[X_Location.Postcode], T1.[X_Location.DefaultCulture], T1.[X_Loca");
+            viewString.Append("tion.OwnerCompanyID], T1.[X_Location.ResponsibleContactID], T1.[X_Location.Comme");
+            viewString.Append("nt], T1.[X_Location.Version], T1.[X_Location.VersionAntecedentID], T1.[X_Locatio");
+            viewString.Append("n.VersionCertainty], T1.[X_Location.VersionWorkflowInstanceID], T1.[X_Location.V");
+            viewString.Append("ersionUpdatedBy], T1.[X_Location.VersionDeletedBy], T1.[X_Location.VersionOwnerC");
+            viewString.Append("ontactID], T1.[X_Location.VersionOwnerCompanyID], T1.[X_Location.VersionUpdated]");
+            viewString.Append(")\r\n    FROM (\r\n        SELECT \r\n            T.LocationID AS [X_Location.Location");
+            viewString.Append("ID], \r\n            T.LocationTypeID AS [X_Location.LocationTypeID], \r\n          ");
+            viewString.Append("  T.DefaultLocationName AS [X_Location.DefaultLocationName], \r\n            T.Loc");
+            viewString.Append("ationCode AS [X_Location.LocationCode], \r\n            T.LocationGeography AS [X_");
+            viewString.Append("Location.LocationGeography], \r\n            T.LatitudeWGS84 AS [X_Location.Latitu");
+            viewString.Append("deWGS84], \r\n            T.LongitudeWGS84 AS [X_Location.LongitudeWGS84], \r\n     ");
+            viewString.Append("       T.Elevation AS [X_Location.Elevation], \r\n            T.CountryID AS [X_Lo");
+            viewString.Append("cation.CountryID], \r\n            T.CountryStateID AS [X_Location.CountryStateID]");
+            viewString.Append(", \r\n            T.Postcode AS [X_Location.Postcode], \r\n            T.DefaultCult");
+            viewString.Append("ure AS [X_Location.DefaultCulture], \r\n            T.OwnerCompanyID AS [X_Locatio");
+            viewString.Append("n.OwnerCompanyID], \r\n            T.ResponsibleContactID AS [X_Location.Responsib");
+            viewString.Append("leContactID], \r\n            T.Comment AS [X_Location.Comment], \r\n            T.V");
+            viewString.Append("ersion AS [X_Location.Version], \r\n            T.VersionAntecedentID AS [X_Locati");
+            viewString.Append("on.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Location.Version");
+            viewString.Append("Certainty], \r\n            T.VersionWorkflowInstanceID AS [X_Location.VersionWork");
+            viewString.Append("flowInstanceID], \r\n            T.VersionUpdatedBy AS [X_Location.VersionUpdatedB");
+            viewString.Append("y], \r\n            T.VersionDeletedBy AS [X_Location.VersionDeletedBy], \r\n       ");
+            viewString.Append("     T.VersionOwnerContactID AS [X_Location.VersionOwnerContactID], \r\n          ");
+            viewString.Append("  T.VersionOwnerCompanyID AS [X_Location.VersionOwnerCompanyID], \r\n            T");
+            viewString.Append(".VersionUpdated AS [X_Location.VersionUpdated], \r\n            True AS _from0\r\n  ");
+            viewString.Append("      FROM NKDC.Locations AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_Location", viewString.ToString());
         }
         
@@ -11424,26 +11473,27 @@ namespace Edm_EntityMappingGeneratedViews
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_Project", "\r\n    SELECT VALUE -- Constructing X_Project\r\n        [NKD.Module.BusinessObjects" +
                     ".Store.X_Project](T1.[X_Project.ProjectID], T1.[X_Project.ParentProjectID], T1.[" +
-                    "X_Project.TenementID], T1.[X_Project.ProjectName], T1.[X_Project.ProjectCode], T" +
-                    "1.[X_Project.ClientCompanyID], T1.[X_Project.Comment], T1.[X_Project.Version], T" +
-                    "1.[X_Project.VersionAntecedentID], T1.[X_Project.VersionCertainty], T1.[X_Projec" +
-                    "t.VersionWorkflowInstanceID], T1.[X_Project.VersionUpdatedBy], T1.[X_Project.Ver" +
-                    "sionDeletedBy], T1.[X_Project.VersionOwnerContactID], T1.[X_Project.VersionOwner" +
-                    "CompanyID], T1.[X_Project.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n       " +
-                    "     T.ProjectID AS [X_Project.ProjectID], \r\n            T.ParentProjectID AS [X" +
-                    "_Project.ParentProjectID], \r\n            T.TenementID AS [X_Project.TenementID]," +
-                    " \r\n            T.ProjectName AS [X_Project.ProjectName], \r\n            T.Project" +
-                    "Code AS [X_Project.ProjectCode], \r\n            T.ClientCompanyID AS [X_Project.C" +
-                    "lientCompanyID], \r\n            T.Comment AS [X_Project.Comment], \r\n            T" +
-                    ".Version AS [X_Project.Version], \r\n            T.VersionAntecedentID AS [X_Proje" +
-                    "ct.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Project.VersionC" +
-                    "ertainty], \r\n            T.VersionWorkflowInstanceID AS [X_Project.VersionWorkfl" +
-                    "owInstanceID], \r\n            T.VersionUpdatedBy AS [X_Project.VersionUpdatedBy]," +
-                    " \r\n            T.VersionDeletedBy AS [X_Project.VersionDeletedBy], \r\n           " +
-                    " T.VersionOwnerContactID AS [X_Project.VersionOwnerContactID], \r\n            T.V" +
-                    "ersionOwnerCompanyID AS [X_Project.VersionOwnerCompanyID], \r\n            T.Versi" +
-                    "onUpdated AS [X_Project.VersionUpdated], \r\n            True AS _from0\r\n        F" +
-                    "ROM NKDC.Projects AS T\r\n    ) AS T1");
+                    "X_Project.ProjectName], T1.[X_Project.ProjectCode], T1.[X_Project.ProjectTypeID]" +
+                    ", T1.[X_Project.ClientCompanyID], T1.[X_Project.TenementID], T1.[X_Project.Comme" +
+                    "nt], T1.[X_Project.Version], T1.[X_Project.VersionAntecedentID], T1.[X_Project.V" +
+                    "ersionCertainty], T1.[X_Project.VersionWorkflowInstanceID], T1.[X_Project.Versio" +
+                    "nUpdatedBy], T1.[X_Project.VersionDeletedBy], T1.[X_Project.VersionOwnerContactI" +
+                    "D], T1.[X_Project.VersionOwnerCompanyID], T1.[X_Project.VersionUpdated])\r\n    FR" +
+                    "OM (\r\n        SELECT \r\n            T.ProjectID AS [X_Project.ProjectID], \r\n     " +
+                    "       T.ParentProjectID AS [X_Project.ParentProjectID], \r\n            T.Project" +
+                    "Name AS [X_Project.ProjectName], \r\n            T.ProjectCode AS [X_Project.Proje" +
+                    "ctCode], \r\n            T.ProjectTypeID AS [X_Project.ProjectTypeID], \r\n         " +
+                    "   T.ClientCompanyID AS [X_Project.ClientCompanyID], \r\n            T.TenementID " +
+                    "AS [X_Project.TenementID], \r\n            T.Comment AS [X_Project.Comment], \r\n   " +
+                    "         T.Version AS [X_Project.Version], \r\n            T.VersionAntecedentID A" +
+                    "S [X_Project.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Projec" +
+                    "t.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [X_Project.Ver" +
+                    "sionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [X_Project.VersionU" +
+                    "pdatedBy], \r\n            T.VersionDeletedBy AS [X_Project.VersionDeletedBy], \r\n " +
+                    "           T.VersionOwnerContactID AS [X_Project.VersionOwnerContactID], \r\n     " +
+                    "       T.VersionOwnerCompanyID AS [X_Project.VersionOwnerCompanyID], \r\n         " +
+                    "   T.VersionUpdated AS [X_Project.VersionUpdated], \r\n            True AS _from0\r" +
+                    "\n        FROM NKDC.Projects AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -14989,26 +15039,31 @@ namespace Edm_EntityMappingGeneratedViews
         private System.Collections.Generic.KeyValuePair<string, string> GetView306()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_GraphData", "\r\n    SELECT VALUE -- Constructing E_GraphData\r\n        [NKD.Module.BusinessObjec" +
-                    "ts.Store.E_GraphData](T1.[E_GraphData.GraphDataID], T1.[E_GraphData.GraphDataNam" +
-                    "e], T1.[E_GraphData.TableType], T1.[E_GraphData.ReferenceID], T1.[E_GraphData.Re" +
-                    "ferenceName], T1.[E_GraphData.Version], T1.[E_GraphData.VersionAntecedentID], T1" +
-                    ".[E_GraphData.VersionCertainty], T1.[E_GraphData.VersionWorkflowInstanceID], T1." +
-                    "[E_GraphData.VersionUpdatedBy], T1.[E_GraphData.VersionDeletedBy], T1.[E_GraphDa" +
-                    "ta.VersionOwnerContactID], T1.[E_GraphData.VersionOwnerCompanyID], T1.[E_GraphDa" +
-                    "ta.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.GraphDataID AS [" +
-                    "E_GraphData.GraphDataID], \r\n            T.GraphDataName AS [E_GraphData.GraphDat" +
-                    "aName], \r\n            T.TableType AS [E_GraphData.TableType], \r\n            T.Re" +
-                    "ferenceID AS [E_GraphData.ReferenceID], \r\n            T.ReferenceName AS [E_Grap" +
-                    "hData.ReferenceName], \r\n            T.Version AS [E_GraphData.Version], \r\n      " +
-                    "      T.VersionAntecedentID AS [E_GraphData.VersionAntecedentID], \r\n            " +
-                    "T.VersionCertainty AS [E_GraphData.VersionCertainty], \r\n            T.VersionWor" +
-                    "kflowInstanceID AS [E_GraphData.VersionWorkflowInstanceID], \r\n            T.Vers" +
-                    "ionUpdatedBy AS [E_GraphData.VersionUpdatedBy], \r\n            T.VersionDeletedBy" +
-                    " AS [E_GraphData.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [E_" +
-                    "GraphData.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [E_Gr" +
-                    "aphData.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_GraphData.V" +
-                    "ersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.GraphData AS T\r\n" +
-                    "    ) AS T1");
+                    "ts.Store.E_GraphData](T1.[E_GraphData.GraphDataID], T1.[E_GraphData.GraphName], " +
+                    "T1.[E_GraphData.WorkflowTypeID], T1.[E_GraphData.TableType], T1.[E_GraphData.Ref" +
+                    "erenceID], T1.[E_GraphData.GraphData], T1.[E_GraphData.ReferenceName], T1.[E_Gra" +
+                    "phData.Comment], T1.[E_GraphData.CreatedBy], T1.[E_GraphData.Created], T1.[E_Gra" +
+                    "phData.Version], T1.[E_GraphData.VersionAntecedentID], T1.[E_GraphData.VersionCe" +
+                    "rtainty], T1.[E_GraphData.VersionWorkflowInstanceID], T1.[E_GraphData.VersionUpd" +
+                    "atedBy], T1.[E_GraphData.VersionDeletedBy], T1.[E_GraphData.VersionOwnerContactI" +
+                    "D], T1.[E_GraphData.VersionOwnerCompanyID], T1.[E_GraphData.VersionUpdated])\r\n  " +
+                    "  FROM (\r\n        SELECT \r\n            T.GraphDataID AS [E_GraphData.GraphDataID" +
+                    "], \r\n            T.GraphName AS [E_GraphData.GraphName], \r\n            T.Workflo" +
+                    "wTypeID AS [E_GraphData.WorkflowTypeID], \r\n            T.TableType AS [E_GraphDa" +
+                    "ta.TableType], \r\n            T.ReferenceID AS [E_GraphData.ReferenceID], \r\n     " +
+                    "       T.GraphData1 AS [E_GraphData.GraphData], \r\n            T.ReferenceName AS" +
+                    " [E_GraphData.ReferenceName], \r\n            T.Comment AS [E_GraphData.Comment], " +
+                    "\r\n            T.CreatedBy AS [E_GraphData.CreatedBy], \r\n            T.Created AS" +
+                    " [E_GraphData.Created], \r\n            T.Version AS [E_GraphData.Version], \r\n    " +
+                    "        T.VersionAntecedentID AS [E_GraphData.VersionAntecedentID], \r\n          " +
+                    "  T.VersionCertainty AS [E_GraphData.VersionCertainty], \r\n            T.VersionW" +
+                    "orkflowInstanceID AS [E_GraphData.VersionWorkflowInstanceID], \r\n            T.Ve" +
+                    "rsionUpdatedBy AS [E_GraphData.VersionUpdatedBy], \r\n            T.VersionDeleted" +
+                    "By AS [E_GraphData.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [" +
+                    "E_GraphData.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [E_" +
+                    "GraphData.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_GraphData" +
+                    ".VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.GraphData AS T" +
+                    "\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -15016,40 +15071,284 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView307()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2077);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2196);
             viewString.Append("\r\n    SELECT VALUE -- Constructing E_GraphDataRelation\r\n        [NKD.Module.Busi");
             viewString.Append("nessObjects.Store.E_GraphDataRelation](T1.[E_GraphDataRelation.GraphDataRelation");
-            viewString.Append("ID], T1.[E_GraphDataRelation.FromGraphDataID], T1.[E_GraphDataRelation.ToGraphDa");
-            viewString.Append("taID], T1.[E_GraphDataRelation.Weight], T1.[E_GraphDataRelation.RelationTypeID],");
-            viewString.Append(" T1.[E_GraphDataRelation.Related], T1.[E_GraphDataRelation.Sequence], T1.[E_Grap");
-            viewString.Append("hDataRelation.Version], T1.[E_GraphDataRelation.VersionAntecedentID], T1.[E_Grap");
-            viewString.Append("hDataRelation.VersionCertainty], T1.[E_GraphDataRelation.VersionWorkflowInstance");
-            viewString.Append("ID], T1.[E_GraphDataRelation.VersionUpdatedBy], T1.[E_GraphDataRelation.VersionD");
-            viewString.Append("eletedBy], T1.[E_GraphDataRelation.VersionOwnerContactID], T1.[E_GraphDataRelati");
-            viewString.Append("on.VersionOwnerCompanyID], T1.[E_GraphDataRelation.VersionUpdated])\r\n    FROM (\r");
-            viewString.Append("\n        SELECT \r\n            T.GraphDataRelationID AS [E_GraphDataRelation.Grap");
-            viewString.Append("hDataRelationID], \r\n            T.FromGraphDataID AS [E_GraphDataRelation.FromGr");
-            viewString.Append("aphDataID], \r\n            T.ToGraphDataID AS [E_GraphDataRelation.ToGraphDataID]");
-            viewString.Append(", \r\n            T.Weight AS [E_GraphDataRelation.Weight], \r\n            T.Relati");
-            viewString.Append("onTypeID AS [E_GraphDataRelation.RelationTypeID], \r\n            T.Related AS [E_");
-            viewString.Append("GraphDataRelation.Related], \r\n            T.Sequence AS [E_GraphDataRelation.Seq");
-            viewString.Append("uence], \r\n            T.Version AS [E_GraphDataRelation.Version], \r\n            ");
-            viewString.Append("T.VersionAntecedentID AS [E_GraphDataRelation.VersionAntecedentID], \r\n          ");
-            viewString.Append("  T.VersionCertainty AS [E_GraphDataRelation.VersionCertainty], \r\n            T.");
-            viewString.Append("VersionWorkflowInstanceID AS [E_GraphDataRelation.VersionWorkflowInstanceID], \r\n");
-            viewString.Append("            T.VersionUpdatedBy AS [E_GraphDataRelation.VersionUpdatedBy], \r\n    ");
-            viewString.Append("        T.VersionDeletedBy AS [E_GraphDataRelation.VersionDeletedBy], \r\n        ");
-            viewString.Append("    T.VersionOwnerContactID AS [E_GraphDataRelation.VersionOwnerContactID], \r\n  ");
-            viewString.Append("          T.VersionOwnerCompanyID AS [E_GraphDataRelation.VersionOwnerCompanyID]");
-            viewString.Append(", \r\n            T.VersionUpdated AS [E_GraphDataRelation.VersionUpdated], \r\n    ");
-            viewString.Append("        True AS _from0\r\n        FROM NKDC.GraphDataRelation AS T\r\n    ) AS T1");
+            viewString.Append("ID], T1.[E_GraphDataRelation.GraphDataGroupID], T1.[E_GraphDataRelation.FromGrap");
+            viewString.Append("hDataID], T1.[E_GraphDataRelation.ToGraphDataID], T1.[E_GraphDataRelation.Weight");
+            viewString.Append("], T1.[E_GraphDataRelation.RelationTypeID], T1.[E_GraphDataRelation.Related], T1");
+            viewString.Append(".[E_GraphDataRelation.Sequence], T1.[E_GraphDataRelation.Version], T1.[E_GraphDa");
+            viewString.Append("taRelation.VersionAntecedentID], T1.[E_GraphDataRelation.VersionCertainty], T1.[");
+            viewString.Append("E_GraphDataRelation.VersionWorkflowInstanceID], T1.[E_GraphDataRelation.VersionU");
+            viewString.Append("pdatedBy], T1.[E_GraphDataRelation.VersionDeletedBy], T1.[E_GraphDataRelation.Ve");
+            viewString.Append("rsionOwnerContactID], T1.[E_GraphDataRelation.VersionOwnerCompanyID], T1.[E_Grap");
+            viewString.Append("hDataRelation.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.Graph");
+            viewString.Append("DataRelationID AS [E_GraphDataRelation.GraphDataRelationID], \r\n            T.Gra");
+            viewString.Append("phDataGroupID AS [E_GraphDataRelation.GraphDataGroupID], \r\n            T.FromGra");
+            viewString.Append("phDataID AS [E_GraphDataRelation.FromGraphDataID], \r\n            T.ToGraphDataID");
+            viewString.Append(" AS [E_GraphDataRelation.ToGraphDataID], \r\n            T.Weight AS [E_GraphDataR");
+            viewString.Append("elation.Weight], \r\n            T.RelationTypeID AS [E_GraphDataRelation.Relation");
+            viewString.Append("TypeID], \r\n            T.Related AS [E_GraphDataRelation.Related], \r\n           ");
+            viewString.Append(" T.Sequence AS [E_GraphDataRelation.Sequence], \r\n            T.Version AS [E_Gra");
+            viewString.Append("phDataRelation.Version], \r\n            T.VersionAntecedentID AS [E_GraphDataRela");
+            viewString.Append("tion.VersionAntecedentID], \r\n            T.VersionCertainty AS [E_GraphDataRelat");
+            viewString.Append("ion.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [E_GraphData");
+            viewString.Append("Relation.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [E_Grap");
+            viewString.Append("hDataRelation.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [E_GraphDat");
+            viewString.Append("aRelation.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [E_GraphDa");
+            viewString.Append("taRelation.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [E_G");
+            viewString.Append("raphDataRelation.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_Gr");
+            viewString.Append("aphDataRelation.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC");
+            viewString.Append(".GraphDataRelation AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_GraphDataRelation", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDModuleBusinessObjectsStoreContainer.E_DictionaryLinestringType
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView308()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2435);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_DictionaryLinestringType\r\n        [NKD.Modu");
+            viewString.Append("le.BusinessObjects.Store.E_DictionaryLinestringType](T1.[E_DictionaryLinestringT");
+            viewString.Append("ype.LinestringTypeID], T1.[E_DictionaryLinestringType.StandardLinestringTypeName");
+            viewString.Append("], T1.[E_DictionaryLinestringType.CustomLinestringTypeName], T1.[E_DictionaryLin");
+            viewString.Append("estringType.Description], T1.[E_DictionaryLinestringType.FullDescription], T1.[E");
+            viewString.Append("_DictionaryLinestringType.Thumbnail], T1.[E_DictionaryLinestringType.OriginalFil");
+            viewString.Append("eDataID], T1.[E_DictionaryLinestringType.Version], T1.[E_DictionaryLinestringTyp");
+            viewString.Append("e.VersionAntecedentID], T1.[E_DictionaryLinestringType.VersionCertainty], T1.[E_");
+            viewString.Append("DictionaryLinestringType.VersionWorkflowInstanceID], T1.[E_DictionaryLinestringT");
+            viewString.Append("ype.VersionUpdatedBy], T1.[E_DictionaryLinestringType.VersionDeletedBy], T1.[E_D");
+            viewString.Append("ictionaryLinestringType.VersionOwnerContactID], T1.[E_DictionaryLinestringType.V");
+            viewString.Append("ersionOwnerCompanyID], T1.[E_DictionaryLinestringType.VersionUpdated])\r\n    FROM");
+            viewString.Append(" (\r\n        SELECT \r\n            T.LinestringTypeID AS [E_DictionaryLinestringTy");
+            viewString.Append("pe.LinestringTypeID], \r\n            T.StandardLinestringTypeName AS [E_Dictionar");
+            viewString.Append("yLinestringType.StandardLinestringTypeName], \r\n            T.CustomLinestringTyp");
+            viewString.Append("eName AS [E_DictionaryLinestringType.CustomLinestringTypeName], \r\n            T.");
+            viewString.Append("Description AS [E_DictionaryLinestringType.Description], \r\n            T.FullDes");
+            viewString.Append("cription AS [E_DictionaryLinestringType.FullDescription], \r\n            T.Thumbn");
+            viewString.Append("ail AS [E_DictionaryLinestringType.Thumbnail], \r\n            T.OriginalFileDataI");
+            viewString.Append("D AS [E_DictionaryLinestringType.OriginalFileDataID], \r\n            T.Version AS");
+            viewString.Append(" [E_DictionaryLinestringType.Version], \r\n            T.VersionAntecedentID AS [E");
+            viewString.Append("_DictionaryLinestringType.VersionAntecedentID], \r\n            T.VersionCertainty");
+            viewString.Append(" AS [E_DictionaryLinestringType.VersionCertainty], \r\n            T.VersionWorkfl");
+            viewString.Append("owInstanceID AS [E_DictionaryLinestringType.VersionWorkflowInstanceID], \r\n      ");
+            viewString.Append("      T.VersionUpdatedBy AS [E_DictionaryLinestringType.VersionUpdatedBy], \r\n   ");
+            viewString.Append("         T.VersionDeletedBy AS [E_DictionaryLinestringType.VersionDeletedBy], \r\n");
+            viewString.Append("            T.VersionOwnerContactID AS [E_DictionaryLinestringType.VersionOwnerC");
+            viewString.Append("ontactID], \r\n            T.VersionOwnerCompanyID AS [E_DictionaryLinestringType.");
+            viewString.Append("VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_DictionaryLinestrin");
+            viewString.Append("gType.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.E_Diction");
+            viewString.Append("aryLinestringType AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_DictionaryLinestringType", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDModuleBusinessObjectsStoreContainer.E_DictionaryProjectType
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView309()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2179);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_DictionaryProjectType\r\n        [NKD.Module.");
+            viewString.Append("BusinessObjects.Store.E_DictionaryProjectType](T1.[E_DictionaryProjectType.Proje");
+            viewString.Append("ctTypeID], T1.[E_DictionaryProjectType.ProjectTypeName], T1.[E_DictionaryProject");
+            viewString.Append("Type.ProjectTypeDescription], T1.[E_DictionaryProjectType.FullDescription], T1.[");
+            viewString.Append("E_DictionaryProjectType.Thumbnail], T1.[E_DictionaryProjectType.OriginalFileData");
+            viewString.Append("ID], T1.[E_DictionaryProjectType.Version], T1.[E_DictionaryProjectType.VersionAn");
+            viewString.Append("tecedentID], T1.[E_DictionaryProjectType.VersionCertainty], T1.[E_DictionaryProj");
+            viewString.Append("ectType.VersionProjectflowInstanceID], T1.[E_DictionaryProjectType.VersionUpdate");
+            viewString.Append("dBy], T1.[E_DictionaryProjectType.VersionDeletedBy], T1.[E_DictionaryProjectType");
+            viewString.Append(".VersionOwnerContactID], T1.[E_DictionaryProjectType.VersionOwnerCompanyID], T1.");
+            viewString.Append("[E_DictionaryProjectType.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n        ");
+            viewString.Append("    T.ProjectTypeID AS [E_DictionaryProjectType.ProjectTypeID], \r\n            T.");
+            viewString.Append("ProjectTypeName AS [E_DictionaryProjectType.ProjectTypeName], \r\n            T.Pr");
+            viewString.Append("ojectTypeDescription AS [E_DictionaryProjectType.ProjectTypeDescription], \r\n    ");
+            viewString.Append("        T.FullDescription AS [E_DictionaryProjectType.FullDescription], \r\n      ");
+            viewString.Append("      T.Thumbnail AS [E_DictionaryProjectType.Thumbnail], \r\n            T.Origin");
+            viewString.Append("alFileDataID AS [E_DictionaryProjectType.OriginalFileDataID], \r\n            T.Ve");
+            viewString.Append("rsion AS [E_DictionaryProjectType.Version], \r\n            T.VersionAntecedentID ");
+            viewString.Append("AS [E_DictionaryProjectType.VersionAntecedentID], \r\n            T.VersionCertain");
+            viewString.Append("ty AS [E_DictionaryProjectType.VersionCertainty], \r\n            T.VersionProject");
+            viewString.Append("flowInstanceID AS [E_DictionaryProjectType.VersionProjectflowInstanceID], \r\n    ");
+            viewString.Append("        T.VersionUpdatedBy AS [E_DictionaryProjectType.VersionUpdatedBy], \r\n    ");
+            viewString.Append("        T.VersionDeletedBy AS [E_DictionaryProjectType.VersionDeletedBy], \r\n    ");
+            viewString.Append("        T.VersionOwnerContactID AS [E_DictionaryProjectType.VersionOwnerContactI");
+            viewString.Append("D], \r\n            T.VersionOwnerCompanyID AS [E_DictionaryProjectType.VersionOwn");
+            viewString.Append("erCompanyID], \r\n            T.VersionUpdated AS [E_DictionaryProjectType.Version");
+            viewString.Append("Updated], \r\n            True AS _from0\r\n        FROM NKDC.E_DictionaryProjectTyp");
+            viewString.Append("e AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_DictionaryProjectType", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDModuleBusinessObjectsStoreContainer.E_Linestring
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView310()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2113);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_Linestring\r\n        [NKD.Module.BusinessObj");
+            viewString.Append("ects.Store.E_Linestring](T1.[E_Linestring.LinestringID], T1.[E_Linestring.Linest");
+            viewString.Append("ringTypeID], T1.[E_Linestring.DefaultLinestringName], T1.[E_Linestring.Linestrin");
+            viewString.Append("gCode], T1.[E_Linestring.LinestringGeography], T1.[E_Linestring.DefaultCulture],");
+            viewString.Append(" T1.[E_Linestring.OwnerCompanyID], T1.[E_Linestring.ResponsibleContactID], T1.[E");
+            viewString.Append("_Linestring.Comment], T1.[E_Linestring.Version], T1.[E_Linestring.VersionAnteced");
+            viewString.Append("entID], T1.[E_Linestring.VersionCertainty], T1.[E_Linestring.VersionWorkflowInst");
+            viewString.Append("anceID], T1.[E_Linestring.VersionUpdatedBy], T1.[E_Linestring.VersionDeletedBy],");
+            viewString.Append(" T1.[E_Linestring.VersionOwnerContactID], T1.[E_Linestring.VersionOwnerCompanyID");
+            viewString.Append("], T1.[E_Linestring.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T");
+            viewString.Append(".LinestringID AS [E_Linestring.LinestringID], \r\n            T.LinestringTypeID A");
+            viewString.Append("S [E_Linestring.LinestringTypeID], \r\n            T.DefaultLinestringName AS [E_L");
+            viewString.Append("inestring.DefaultLinestringName], \r\n            T.LinestringCode AS [E_Linestrin");
+            viewString.Append("g.LinestringCode], \r\n            T.LinestringGeography AS [E_Linestring.Linestri");
+            viewString.Append("ngGeography], \r\n            T.DefaultCulture AS [E_Linestring.DefaultCulture], \r");
+            viewString.Append("\n            T.OwnerCompanyID AS [E_Linestring.OwnerCompanyID], \r\n            T.");
+            viewString.Append("ResponsibleContactID AS [E_Linestring.ResponsibleContactID], \r\n            T.Com");
+            viewString.Append("ment AS [E_Linestring.Comment], \r\n            T.Version AS [E_Linestring.Version");
+            viewString.Append("], \r\n            T.VersionAntecedentID AS [E_Linestring.VersionAntecedentID], \r\n");
+            viewString.Append("            T.VersionCertainty AS [E_Linestring.VersionCertainty], \r\n           ");
+            viewString.Append(" T.VersionWorkflowInstanceID AS [E_Linestring.VersionWorkflowInstanceID], \r\n    ");
+            viewString.Append("        T.VersionUpdatedBy AS [E_Linestring.VersionUpdatedBy], \r\n            T.V");
+            viewString.Append("ersionDeletedBy AS [E_Linestring.VersionDeletedBy], \r\n            T.VersionOwner");
+            viewString.Append("ContactID AS [E_Linestring.VersionOwnerContactID], \r\n            T.VersionOwnerC");
+            viewString.Append("ompanyID AS [E_Linestring.VersionOwnerCompanyID], \r\n            T.VersionUpdated");
+            viewString.Append(" AS [E_Linestring.VersionUpdated], \r\n            True AS _from0\r\n        FROM NK");
+            viewString.Append("DC.E_Linestring AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_Linestring", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDModuleBusinessObjectsStoreContainer.E_ProjectOffer
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView311()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2499);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_ProjectOffer\r\n        [NKD.Module.BusinessO");
+            viewString.Append("bjects.Store.E_ProjectOffer](T1.[E_ProjectOffer.ProjectOfferID], T1.[E_ProjectOf");
+            viewString.Append("fer.ProjectID], T1.[E_ProjectOffer.OfferDescription], T1.[E_ProjectOffer.OfferCo");
+            viewString.Append("ntactID], T1.[E_ProjectOffer.Offered], T1.[E_ProjectOffer.OriginalAmount], T1.[E");
+            viewString.Append("_ProjectOffer.Amount], T1.[E_ProjectOffer.AmountPaid], T1.[E_ProjectOffer.Expire");
+            viewString.Append("s], T1.[E_ProjectOffer.Expired], T1.[E_ProjectOffer.Realises], T1.[E_ProjectOffe");
+            viewString.Append("r.Realised], T1.[E_ProjectOffer.Approved], T1.[E_ProjectOffer.ApprovedBy], T1.[E");
+            viewString.Append("_ProjectOffer.Version], T1.[E_ProjectOffer.VersionAntecedentID], T1.[E_ProjectOf");
+            viewString.Append("fer.VersionCertainty], T1.[E_ProjectOffer.VersionWorkflowInstanceID], T1.[E_Proj");
+            viewString.Append("ectOffer.VersionUpdatedBy], T1.[E_ProjectOffer.VersionDeletedBy], T1.[E_ProjectO");
+            viewString.Append("ffer.VersionOwnerContactID], T1.[E_ProjectOffer.VersionOwnerCompanyID], T1.[E_Pr");
+            viewString.Append("ojectOffer.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.ProjectO");
+            viewString.Append("fferID AS [E_ProjectOffer.ProjectOfferID], \r\n            T.ProjectID AS [E_Proje");
+            viewString.Append("ctOffer.ProjectID], \r\n            T.OfferDescription AS [E_ProjectOffer.OfferDes");
+            viewString.Append("cription], \r\n            T.OfferContactID AS [E_ProjectOffer.OfferContactID], \r\n");
+            viewString.Append("            T.Offered AS [E_ProjectOffer.Offered], \r\n            T.OriginalAmoun");
+            viewString.Append("t AS [E_ProjectOffer.OriginalAmount], \r\n            T.Amount AS [E_ProjectOffer.");
+            viewString.Append("Amount], \r\n            T.AmountPaid AS [E_ProjectOffer.AmountPaid], \r\n          ");
+            viewString.Append("  T.Expires AS [E_ProjectOffer.Expires], \r\n            T.Expired AS [E_ProjectOf");
+            viewString.Append("fer.Expired], \r\n            T.Realises AS [E_ProjectOffer.Realises], \r\n         ");
+            viewString.Append("   T.Realised AS [E_ProjectOffer.Realised], \r\n            T.Approved AS [E_Proje");
+            viewString.Append("ctOffer.Approved], \r\n            T.ApprovedBy AS [E_ProjectOffer.ApprovedBy], \r\n");
+            viewString.Append("            T.Version AS [E_ProjectOffer.Version], \r\n            T.VersionAntece");
+            viewString.Append("dentID AS [E_ProjectOffer.VersionAntecedentID], \r\n            T.VersionCertainty");
+            viewString.Append(" AS [E_ProjectOffer.VersionCertainty], \r\n            T.VersionWorkflowInstanceID");
+            viewString.Append(" AS [E_ProjectOffer.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy");
+            viewString.Append(" AS [E_ProjectOffer.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [E_Pr");
+            viewString.Append("ojectOffer.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [E_Projec");
+            viewString.Append("tOffer.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [E_Proje");
+            viewString.Append("ctOffer.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_ProjectOffe");
+            viewString.Append("r.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.E_ProjectOffe");
+            viewString.Append("r AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_ProjectOffer", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDModuleBusinessObjectsStoreContainer.E_ProjectPledge
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView312()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3334);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_ProjectPledge\r\n        [NKD.Module.Business");
+            viewString.Append("Objects.Store.E_ProjectPledge](T1.[E_ProjectPledge.ProjectPledgeID], T1.[E_Proje");
+            viewString.Append("ctPledge.ProjectID], T1.[E_ProjectPledge.ParentProjectPledgeID], T1.[E_ProjectPl");
+            viewString.Append("edge.PledgeContactID], T1.[E_ProjectPledge.Pledged], T1.[E_ProjectPledge.Origina");
+            viewString.Append("lAmount], T1.[E_ProjectPledge.CurrencyID], T1.[E_ProjectPledge.DepositAmount], T");
+            viewString.Append("1.[E_ProjectPledge.DepositPaid], T1.[E_ProjectPledge.AcceptedProjectOfferID], T1");
+            viewString.Append(".[E_ProjectPledge.AcceptedProjectOffer], T1.[E_ProjectPledge.QuorumOverseenBy], ");
+            viewString.Append("T1.[E_ProjectPledge.QuorumNegotiated], T1.[E_ProjectPledge.Amount], T1.[E_Projec");
+            viewString.Append("tPledge.AmountPaid], T1.[E_ProjectPledge.Expires], T1.[E_ProjectPledge.Expired],");
+            viewString.Append(" T1.[E_ProjectPledge.Realises], T1.[E_ProjectPledge.Realised], T1.[E_ProjectPled");
+            viewString.Append("ge.Approved], T1.[E_ProjectPledge.ApprovedBy], T1.[E_ProjectPledge.Version], T1.");
+            viewString.Append("[E_ProjectPledge.VersionAntecedentID], T1.[E_ProjectPledge.VersionCertainty], T1");
+            viewString.Append(".[E_ProjectPledge.VersionWorkflowInstanceID], T1.[E_ProjectPledge.VersionUpdated");
+            viewString.Append("By], T1.[E_ProjectPledge.VersionDeletedBy], T1.[E_ProjectPledge.VersionOwnerCont");
+            viewString.Append("actID], T1.[E_ProjectPledge.VersionOwnerCompanyID], T1.[E_ProjectPledge.VersionU");
+            viewString.Append("pdated])\r\n    FROM (\r\n        SELECT \r\n            T.ProjectPledgeID AS [E_Proje");
+            viewString.Append("ctPledge.ProjectPledgeID], \r\n            T.ProjectID AS [E_ProjectPledge.Project");
+            viewString.Append("ID], \r\n            T.ParentProjectPledgeID AS [E_ProjectPledge.ParentProjectPled");
+            viewString.Append("geID], \r\n            T.PledgeContactID AS [E_ProjectPledge.PledgeContactID], \r\n ");
+            viewString.Append("           T.Pledged AS [E_ProjectPledge.Pledged], \r\n            T.OriginalAmoun");
+            viewString.Append("t AS [E_ProjectPledge.OriginalAmount], \r\n            T.CurrencyID AS [E_ProjectP");
+            viewString.Append("ledge.CurrencyID], \r\n            T.DepositAmount AS [E_ProjectPledge.DepositAmou");
+            viewString.Append("nt], \r\n            T.DepositPaid AS [E_ProjectPledge.DepositPaid], \r\n           ");
+            viewString.Append(" T.AcceptedProjectOfferID AS [E_ProjectPledge.AcceptedProjectOfferID], \r\n       ");
+            viewString.Append("     T.AcceptedProjectOffer AS [E_ProjectPledge.AcceptedProjectOffer], \r\n       ");
+            viewString.Append("     T.QuorumOverseenBy AS [E_ProjectPledge.QuorumOverseenBy], \r\n            T.Q");
+            viewString.Append("uorumNegotiated AS [E_ProjectPledge.QuorumNegotiated], \r\n            T.Amount AS");
+            viewString.Append(" [E_ProjectPledge.Amount], \r\n            T.AmountPaid AS [E_ProjectPledge.Amount");
+            viewString.Append("Paid], \r\n            T.Expires AS [E_ProjectPledge.Expires], \r\n            T.Exp");
+            viewString.Append("ired AS [E_ProjectPledge.Expired], \r\n            T.Realises AS [E_ProjectPledge.");
+            viewString.Append("Realises], \r\n            T.Realised AS [E_ProjectPledge.Realised], \r\n           ");
+            viewString.Append(" T.Approved AS [E_ProjectPledge.Approved], \r\n            T.ApprovedBy AS [E_Proj");
+            viewString.Append("ectPledge.ApprovedBy], \r\n            T.Version AS [E_ProjectPledge.Version], \r\n ");
+            viewString.Append("           T.VersionAntecedentID AS [E_ProjectPledge.VersionAntecedentID], \r\n   ");
+            viewString.Append("         T.VersionCertainty AS [E_ProjectPledge.VersionCertainty], \r\n           ");
+            viewString.Append(" T.VersionWorkflowInstanceID AS [E_ProjectPledge.VersionWorkflowInstanceID], \r\n ");
+            viewString.Append("           T.VersionUpdatedBy AS [E_ProjectPledge.VersionUpdatedBy], \r\n         ");
+            viewString.Append("   T.VersionDeletedBy AS [E_ProjectPledge.VersionDeletedBy], \r\n            T.Ver");
+            viewString.Append("sionOwnerContactID AS [E_ProjectPledge.VersionOwnerContactID], \r\n            T.V");
+            viewString.Append("ersionOwnerCompanyID AS [E_ProjectPledge.VersionOwnerCompanyID], \r\n            T");
+            viewString.Append(".VersionUpdated AS [E_ProjectPledge.VersionUpdated], \r\n            True AS _from");
+            viewString.Append("0\r\n        FROM NKDC.E_ProjectPledge AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_ProjectPledge", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDModuleBusinessObjectsStoreContainer.E_ProjectPledgeAddendum
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView313()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2219);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_ProjectPledgeAddendum\r\n        [NKD.Module.");
+            viewString.Append("BusinessObjects.Store.E_ProjectPledgeAddendum](T1.[E_ProjectPledgeAddendum.Proje");
+            viewString.Append("ctPledgeAddendumID], T1.[E_ProjectPledgeAddendum.ProjectPledgeID], T1.[E_Project");
+            viewString.Append("PledgeAddendum.Addendum], T1.[E_ProjectPledgeAddendum.Reviewed], T1.[E_ProjectPl");
+            viewString.Append("edgeAddendum.ReviewedBy], T1.[E_ProjectPledgeAddendum.Approved], T1.[E_ProjectPl");
+            viewString.Append("edgeAddendum.ApprovedBy], T1.[E_ProjectPledgeAddendum.Version], T1.[E_ProjectPle");
+            viewString.Append("dgeAddendum.VersionAntecedentID], T1.[E_ProjectPledgeAddendum.VersionCertainty],");
+            viewString.Append(" T1.[E_ProjectPledgeAddendum.VersionWorkflowInstanceID], T1.[E_ProjectPledgeAdde");
+            viewString.Append("ndum.VersionUpdatedBy], T1.[E_ProjectPledgeAddendum.VersionDeletedBy], T1.[E_Pro");
+            viewString.Append("jectPledgeAddendum.VersionOwnerContactID], T1.[E_ProjectPledgeAddendum.VersionOw");
+            viewString.Append("nerCompanyID], T1.[E_ProjectPledgeAddendum.VersionUpdated])\r\n    FROM (\r\n       ");
+            viewString.Append(" SELECT \r\n            T.ProjectPledgeAddendumID AS [E_ProjectPledgeAddendum.Proj");
+            viewString.Append("ectPledgeAddendumID], \r\n            T.ProjectPledgeID AS [E_ProjectPledgeAddendu");
+            viewString.Append("m.ProjectPledgeID], \r\n            T.Addendum AS [E_ProjectPledgeAddendum.Addendu");
+            viewString.Append("m], \r\n            T.Reviewed AS [E_ProjectPledgeAddendum.Reviewed], \r\n          ");
+            viewString.Append("  T.ReviewedBy AS [E_ProjectPledgeAddendum.ReviewedBy], \r\n            T.Approved");
+            viewString.Append(" AS [E_ProjectPledgeAddendum.Approved], \r\n            T.ApprovedBy AS [E_Project");
+            viewString.Append("PledgeAddendum.ApprovedBy], \r\n            T.Version AS [E_ProjectPledgeAddendum.");
+            viewString.Append("Version], \r\n            T.VersionAntecedentID AS [E_ProjectPledgeAddendum.Versio");
+            viewString.Append("nAntecedentID], \r\n            T.VersionCertainty AS [E_ProjectPledgeAddendum.Ver");
+            viewString.Append("sionCertainty], \r\n            T.VersionWorkflowInstanceID AS [E_ProjectPledgeAdd");
+            viewString.Append("endum.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [E_Project");
+            viewString.Append("PledgeAddendum.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [E_Project");
+            viewString.Append("PledgeAddendum.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [E_Pr");
+            viewString.Append("ojectPledgeAddendum.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyI");
+            viewString.Append("D AS [E_ProjectPledgeAddendum.VersionOwnerCompanyID], \r\n            T.VersionUpd");
+            viewString.Append("ated AS [E_ProjectPledgeAddendum.VersionUpdated], \r\n            True AS _from0\r\n");
+            viewString.Append("        FROM NKDC.E_ProjectPledgeAddendum AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_ProjectPledgeAddendum", viewString.ToString());
         }
         
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.aspnet_UsersInRoles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView308()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView314()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.aspnet_UsersInRoles", @"
     SELECT VALUE -- Constructing aspnet_UsersInRoles
@@ -15066,7 +15365,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Applications
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView309()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView315()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Applications", @"
     SELECT VALUE -- Constructing Applications
@@ -15085,7 +15384,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Memberships
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView310()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView316()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2248);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Memberships\r\n        [NKD.Module.BusinessObje");
@@ -15123,7 +15422,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Paths
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView311()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView317()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Paths", @"
     SELECT VALUE -- Constructing Paths
@@ -15142,7 +15441,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.PersonalizationAllUsers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView312()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView318()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.PersonalizationAllUsers", @"
     SELECT VALUE -- Constructing PersonalizationAllUsers
@@ -15160,7 +15459,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.PersonalizationPerUsers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView313()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView319()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.PersonalizationPerUsers", @"
     SELECT VALUE -- Constructing PersonalizationPerUsers
@@ -15180,7 +15479,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Profiles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView314()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView320()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Profiles", @"
     SELECT VALUE -- Constructing Profiles
@@ -15200,7 +15499,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Roles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView315()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView321()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Roles", @"
     SELECT VALUE -- Constructing Roles
@@ -15220,7 +15519,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Users
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView316()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView322()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Users", @"
     SELECT VALUE -- Constructing Users
@@ -15242,7 +15541,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Credits
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView317()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView323()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Credits", "\r\n    SELECT VALUE -- Constructing Credits\r\n        [NKD.Module.BusinessObjects.C" +
                     "redit](T1.Credit_CreditID, T1.Credit_SupplyID, T1.Credit_InvoiceID, T1.Credit_In" +
@@ -15271,7 +15570,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Currencies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView318()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView324()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Currencies", "\r\n    SELECT VALUE -- Constructing Currencies\r\n        [NKD.Module.BusinessObject" +
                     "s.Currency](T1.Currency_CurrencyID, T1.Currency_CountryID, T1.Currency_Equivalen" +
@@ -15300,7 +15599,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryTaxes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView319()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView325()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2177);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryTaxes\r\n        [NKD.Module.Business");
@@ -15337,7 +15636,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Invoices
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView320()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView326()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3128);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Invoices\r\n        [NKD.Module.BusinessObjects");
@@ -15386,7 +15685,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.InvoiceLines
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView321()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView327()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2300);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InvoiceLines\r\n        [NKD.Module.BusinessObj");
@@ -15424,7 +15723,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Journals
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView322()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView328()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Journals", "\r\n    SELECT VALUE -- Constructing Journals\r\n        [NKD.Module.BusinessObjects." +
                     "Journal](T1.Journal_JournalID, T1.Journal_ReferenceType, T1.Journal_ReferenceID," +
@@ -15452,7 +15751,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Payments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView323()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView329()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2335);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Payments\r\n        [NKD.Module.BusinessObjects");
@@ -15491,7 +15790,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.PurchaseOrders
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView324()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView330()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2942);
             viewString.Append("\r\n    SELECT VALUE -- Constructing PurchaseOrders\r\n        [NKD.Module.BusinessO");
@@ -15537,7 +15836,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Supplies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView325()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView331()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2636);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Supplies\r\n        [NKD.Module.BusinessObjects");
@@ -15579,7 +15878,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SupplyItems
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView326()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView332()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4882);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SupplyItems\r\n        [NKD.Module.BusinessObje");
@@ -15650,7 +15949,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SupplyItemTaxes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView327()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView333()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.SupplyItemTaxes", "\r\n    SELECT VALUE -- Constructing SupplyItemTaxes\r\n        [NKD.Module.BusinessO" +
                     "bjects.SupplyItemTax](T1.SupplyItemTax_SupplyItemTaxID, T1.SupplyItemTax_SupplyI" +
@@ -15677,7 +15976,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Accounts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView328()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView334()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Accounts", "\r\n    SELECT VALUE -- Constructing Accounts\r\n        [NKD.Module.BusinessObjects." +
                     "Account](T1.Account_AccountID, T1.Account_ParentAccountID, T1.Account_AcountCode" +
@@ -15706,7 +16005,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AccountDiscounts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView329()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView335()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2215);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AccountDiscounts\r\n        [NKD.Module.Busines");
@@ -15743,7 +16042,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Assets
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView330()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView336()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2540);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Assets\r\n        [NKD.Module.BusinessObjects.A");
@@ -15784,7 +16083,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssetAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView331()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView337()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.AssetAlias", "\r\n    SELECT VALUE -- Constructing AssetAlias\r\n        [NKD.Module.BusinessObject" +
                     "s.AssetAlias](T1.AssetAlias_AssetAliasID, T1.AssetAlias_AssetID, T1.AssetAlias_A" +
@@ -15812,7 +16111,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssetMaintenances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView332()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView338()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.AssetMaintenances", "\r\n    SELECT VALUE -- Constructing AssetMaintenances\r\n        [NKD.Module.Busines" +
                     "sObjects.AssetMaintenance](T1.AssetMaintenance_AssetMaintenanceID, T1.AssetMaint" +
@@ -15842,7 +16141,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssetWarranties
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView333()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView339()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.AssetWarranties", "\r\n    SELECT VALUE -- Constructing AssetWarranties\r\n        [NKD.Module.BusinessO" +
                     "bjects.AssetWarranty](T1.AssetWarranty_AssetID, T1.AssetWarranty_ModelWarrantyID" +
@@ -15873,7 +16172,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.CompanyAccounts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView334()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView340()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.CompanyAccounts", @"
     SELECT VALUE -- Constructing CompanyAccounts
@@ -15900,7 +16199,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ContractAssets
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView335()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView341()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ContractAssets", "\r\n    SELECT VALUE -- Constructing ContractAssets\r\n        [NKD.Module.BusinessOb" +
                     "jects.ContractAsset](T1.ContractAsset_ContractAssetID, T1.ContractAsset_Contract" +
@@ -15929,7 +16228,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DeliveryAdvices
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView336()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView342()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3038);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DeliveryAdvices\r\n        [NKD.Module.Business");
@@ -15976,7 +16275,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DeliveryAdviceItems
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView337()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView343()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2413);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DeliveryAdviceItems\r\n        [NKD.Module.Busi");
@@ -16016,7 +16315,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDecontaminationStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView338()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView344()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2382);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDecontaminationStatus\r\n        [NKD");
@@ -16055,7 +16354,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDeliveryAdviceReasons
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView339()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView345()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2203);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDeliveryAdviceReasons\r\n        [NKD");
@@ -16092,7 +16391,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDeviceTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView340()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView346()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2480);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDeviceTypes\r\n        [NKD.Module.Bu");
@@ -16133,7 +16432,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryEventTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView341()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView347()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryEventTypes", "\r\n    SELECT VALUE -- Constructing DictionaryEventTypes\r\n        [NKD.Module.Busi" +
                     "nessObjects.DictionaryEventType](T1.DictionaryEventType_EventTypeID, T1.Dictiona" +
@@ -16163,7 +16462,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView342()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView348()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3023);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryParts\r\n        [NKD.Module.Business");
@@ -16210,7 +16509,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryPartCategories
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView343()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView349()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryPartCategories", "\r\n    SELECT VALUE -- Constructing DictionaryPartCategories\r\n        [NKD.Module." +
                     "BusinessObjects.DictionaryPartCategory](T1.DictionaryPartCategory_PartCategoryID" +
@@ -16239,7 +16538,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryPartKits
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView344()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView350()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryPartKits", "\r\n    SELECT VALUE -- Constructing DictionaryPartKits\r\n        [NKD.Module.Busine" +
                     "ssObjects.DictionaryPartKit](T1.DictionaryPartKit_PartKitID, T1.DictionaryPartKi" +
@@ -16268,7 +16567,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryPartKitItems
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView345()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView351()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryPartKitItems", "\r\n    SELECT VALUE -- Constructing DictionaryPartKitItems\r\n        [NKD.Module.Bu" +
                     "sinessObjects.DictionaryPartKitItem](T1.DictionaryPartKitItem_PartKitItemID, T1." +
@@ -16299,7 +16598,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryProcedures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView346()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView352()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2901);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryProcedures\r\n        [NKD.Module.Bus");
@@ -16345,7 +16644,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryWarrantyTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView347()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView353()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryWarrantyTypes", "\r\n    SELECT VALUE -- Constructing DictionaryWarrantyTypes\r\n        [NKD.Module.B" +
                     "usinessObjects.DictionaryWarrantyType](T1.DictionaryWarrantyType_WarrantyTypeID," +
@@ -16376,7 +16675,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView348()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView354()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ModelParts", @"
     SELECT VALUE -- Constructing ModelParts
@@ -16403,7 +16702,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelPartKits
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView349()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView355()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ModelPartKits", @"
     SELECT VALUE -- Constructing ModelPartKits
@@ -16430,7 +16729,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelProcedures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView350()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView356()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ModelProcedures", "\r\n    SELECT VALUE -- Constructing ModelProcedures\r\n        [NKD.Module.BusinessO" +
                     "bjects.ModelProcedure](T1.ModelProcedure_ModelProcedureID, T1.ModelProcedure_Mod" +
@@ -16461,7 +16760,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelProcedureTasks
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView351()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView357()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2330);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ModelProcedureTasks\r\n        [NKD.Module.Busi");
@@ -16500,7 +16799,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelProcedureTaskParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView352()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView358()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ModelProcedureTaskParts", "\r\n    SELECT VALUE -- Constructing ModelProcedureTaskParts\r\n        [NKD.Module.B" +
                     "usinessObjects.ModelProcedureTaskPart](T1.ModelProcedureTaskPart_ModelProcedureT" +
@@ -16531,7 +16830,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelScheduleCycles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView353()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView359()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ModelScheduleCycles", "\r\n    SELECT VALUE -- Constructing ModelScheduleCycles\r\n        [NKD.Module.Busin" +
                     "essObjects.ModelScheduleCycle](T1.ModelScheduleCycle_ModelScheduleCycleID, T1.Mo" +
@@ -16563,7 +16862,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelWarranties
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView354()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView360()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ModelWarranties", "\r\n    SELECT VALUE -- Constructing ModelWarranties\r\n        [NKD.Module.BusinessO" +
                     "bjects.ModelWarranty](T1.ModelWarranty_ModelWarrantyID, T1.ModelWarranty_ModelID" +
@@ -16595,7 +16894,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectPlanTaskModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView355()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView361()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2660);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskModels\r\n        [NKD.Module.Bu");
@@ -16638,7 +16937,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectPlanTaskParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView356()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView362()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2603);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskParts\r\n        [NKD.Module.Bus");
@@ -16680,7 +16979,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Recalls
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView357()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView363()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Recalls", "\r\n    SELECT VALUE -- Constructing Recalls\r\n        [NKD.Module.BusinessObjects.R" +
                     "ecall](T1.Recall_RecallID, T1.Recall_GlobalRecallCode, T1.Recall_GlobalRecallOri" +
@@ -16712,7 +17011,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.RecallModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView358()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView364()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.RecallModels", @"
     SELECT VALUE -- Constructing RecallModels
@@ -16740,7 +17039,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.RecallModelAssets
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView359()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView365()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.RecallModelAssets", "\r\n    SELECT VALUE -- Constructing RecallModelAssets\r\n        [NKD.Module.Busines" +
                     "sObjects.RecallModelAsset](T1.RecallModelAsset_RecallModelAssetID, T1.RecallMode" +
@@ -16768,7 +17067,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SupplierModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView360()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView366()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2627);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SupplierModels\r\n        [NKD.Module.BusinessO");
@@ -16810,7 +17109,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SupplierParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView361()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView367()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2564);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SupplierParts\r\n        [NKD.Module.BusinessOb");
@@ -16852,7 +17151,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Warehouses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView362()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView368()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Warehouses", "\r\n    SELECT VALUE -- Constructing Warehouses\r\n        [NKD.Module.BusinessObject" +
                     "s.Warehouse](T1.Warehouse_WarehouseID, T1.Warehouse_WarehouseName, T1.Warehouse_" +
@@ -16879,7 +17178,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WarehouseModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView363()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView369()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.WarehouseModels", "\r\n    SELECT VALUE -- Constructing WarehouseModels\r\n        [NKD.Module.BusinessO" +
                     "bjects.WarehouseModel](T1.WarehouseModel_WarehouseModelID, T1.WarehouseModel_Mod" +
@@ -16912,7 +17211,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WarehouseModelSuppliers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView364()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView370()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2202);
             viewString.Append("\r\n    SELECT VALUE -- Constructing WarehouseModelSuppliers\r\n        [NKD.Module.");
@@ -16949,7 +17248,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WarehouseParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView365()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView371()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.WarehouseParts", "\r\n    SELECT VALUE -- Constructing WarehouseParts\r\n        [NKD.Module.BusinessOb" +
                     "jects.WarehousePart](T1.WarehousePart_WarehousePartID, T1.WarehousePart_PartID, " +
@@ -16981,7 +17280,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WarehousePartSuppliers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView366()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView372()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2158);
             viewString.Append("\r\n    SELECT VALUE -- Constructing WarehousePartSuppliers\r\n        [NKD.Module.B");
@@ -17017,7 +17316,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WorkflowSchedules
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView367()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView373()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.WorkflowSchedules", "\r\n    SELECT VALUE -- Constructing WorkflowSchedules\r\n        [NKD.Module.Busines" +
                     "sObjects.WorkflowSchedule](T1.WorkflowSchedule_WorkflowScheduleID, T1.WorkflowSc" +
@@ -17048,7 +17347,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Addresses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView368()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView374()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2308);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Addresses\r\n        [NKD.Module.BusinessObject");
@@ -17086,7 +17385,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroups
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView369()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView375()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2068);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroups\r\n        [NKD.Module.BusinessObje");
@@ -17121,7 +17420,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupStandardTestResults
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView370()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView376()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3570);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupStandardTestResults\r\n        [NKD.M");
@@ -17175,7 +17474,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupTests
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView371()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView377()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2213);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupTests\r\n        [NKD.Module.Business");
@@ -17212,7 +17511,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupTestResults
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView372()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView378()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2672);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupTestResults\r\n        [NKD.Module.Bu");
@@ -17255,7 +17554,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupTestResultComments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView373()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView379()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.AssayGroupTestResultComments", "\r\n    SELECT VALUE -- Constructing AssayGroupTestResultComments\r\n        [NKD.Mod" +
                     "ule.BusinessObjects.AssayGroupTestResultComment](T1.AssayGroupTestResultComment_" +
@@ -17287,7 +17586,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupTestResultDuplicates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView374()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView380()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2861);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupTestResultDuplicates\r\n        [NKD.");
@@ -17332,7 +17631,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.BlockModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView375()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView381()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4118);
             viewString.Append("\r\n    SELECT VALUE -- Constructing BlockModels\r\n        [NKD.Module.BusinessObje");
@@ -17393,7 +17692,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.BlockModelBlocks
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView376()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView382()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(6662);
             viewString.Append("\r\n    SELECT VALUE -- Constructing BlockModelBlocks\r\n        [NKD.Module.Busines");
@@ -17486,7 +17785,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.BlockModelBlockDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView377()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView383()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2057);
             viewString.Append("\r\n    SELECT VALUE -- Constructing BlockModelBlockDatas\r\n        [NKD.Module.Bus");
@@ -17521,7 +17820,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.BlockModelMetadatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView378()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView384()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.BlockModelMetadatas", "\r\n    SELECT VALUE -- Constructing BlockModelMetadatas\r\n        [NKD.Module.Busin" +
                     "essObjects.BlockModelMetadata](T1.BlockModelMetadata_BlockModelMetadataID, T1.Bl" +
@@ -17553,7 +17852,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Casings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView379()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView385()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2083);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Casings\r\n        [NKD.Module.BusinessObjects.");
@@ -17589,7 +17888,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Cementings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView380()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView386()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Cementings", "\r\n    SELECT VALUE -- Constructing Cementings\r\n        [NKD.Module.BusinessObject" +
                     "s.Cementing](T1.Cementing_CementingID, T1.Cementing_HeaderID, T1.Cementing_FromD" +
@@ -17617,7 +17916,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Companies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView381()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView387()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Companies", "\r\n    SELECT VALUE -- Constructing Companies\r\n        [NKD.Module.BusinessObjects" +
                     ".Company](T1.Company_CompanyID, T1.Company_CompanyName, T1.Company_CountryID, T1" +
@@ -17645,7 +17944,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.CompanyAddresses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView382()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView388()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.CompanyAddresses", @"
     SELECT VALUE -- Constructing CompanyAddresses
@@ -17672,7 +17971,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.CompanyRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView383()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView389()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.CompanyRelations", "\r\n    SELECT VALUE -- Constructing CompanyRelations\r\n        [NKD.Module.Business" +
                     "Objects.CompanyRelation](T1.CompanyRelation_CompanyRelationID, T1.CompanyRelatio" +
@@ -17701,7 +18000,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Compliances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView384()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView390()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2077);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Compliances\r\n        [NKD.Module.BusinessObje");
@@ -17736,7 +18035,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ComplianceTasks
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView385()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView391()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ComplianceTasks", "\r\n    SELECT VALUE -- Constructing ComplianceTasks\r\n        [NKD.Module.BusinessO" +
                     "bjects.ComplianceTask](T1.ComplianceTask_ComplianceTaskID, T1.ComplianceTask_Com" +
@@ -17764,7 +18063,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ComplianceWorkTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView386()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView392()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ComplianceWorkTypes", "\r\n    SELECT VALUE -- Constructing ComplianceWorkTypes\r\n        [NKD.Module.Busin" +
                     "essObjects.ComplianceWorkType](T1.ComplianceWorkType_ComplianceWorkTypeID, T1.Co" +
@@ -17792,7 +18091,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Contacts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView387()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView393()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2621);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Contacts\r\n        [NKD.Module.BusinessObjects");
@@ -17834,7 +18133,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ContactAddresses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView388()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView394()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ContactAddresses", @"
     SELECT VALUE -- Constructing ContactAddresses
@@ -17861,7 +18160,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Contracts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView389()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView395()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3286);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Contracts\r\n        [NKD.Module.BusinessObject");
@@ -17912,7 +18211,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ContractConditions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView390()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView396()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2672);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ContractConditions\r\n        [NKD.Module.Busin");
@@ -17955,7 +18254,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ContractConditionModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView391()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView397()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ContractConditionModels", "\r\n    SELECT VALUE -- Constructing ContractConditionModels\r\n        [NKD.Module.B" +
                     "usinessObjects.ContractConditionModel](T1.ContractConditionModel_ContractConditi" +
@@ -17985,7 +18284,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ContractConditionParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView392()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView398()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ContractConditionParts", "\r\n    SELECT VALUE -- Constructing ContractConditionParts\r\n        [NKD.Module.Bu" +
                     "sinessObjects.ContractConditionPart](T1.ContractConditionPart_ContractConditionP" +
@@ -18014,7 +18313,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.CostEstimateModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView393()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView399()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2621);
             viewString.Append("\r\n    SELECT VALUE -- Constructing CostEstimateModels\r\n        [NKD.Module.Busin");
@@ -18056,7 +18355,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Defects
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView394()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView400()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3934);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Defects\r\n        [NKD.Module.BusinessObjects.");
@@ -18115,7 +18414,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Desurveys
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView395()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView401()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Desurveys", @"
     SELECT VALUE -- Constructing Desurveys
@@ -18142,7 +18441,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAdjectives
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView396()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView402()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2348);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAdjectives\r\n        [NKD.Module.Bus");
@@ -18181,7 +18480,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAlterations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView397()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView403()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2402);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAlterations\r\n        [NKD.Module.Bu");
@@ -18221,7 +18520,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAssayMethods
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView398()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView404()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2456);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayMethods\r\n        [NKD.Module.B");
@@ -18261,7 +18560,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAssayStandards
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView399()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView405()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2564);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayStandards\r\n        [NKD.Module");
@@ -18303,7 +18602,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAssayTests
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView400()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView406()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2348);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayTests\r\n        [NKD.Module.Bus");
@@ -18342,7 +18641,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAssayTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView401()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView407()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2348);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayTypes\r\n        [NKD.Module.Bus");
@@ -18381,7 +18680,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryBasalContacts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView402()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView408()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2510);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryBasalContacts\r\n        [NKD.Module.");
@@ -18422,7 +18721,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryBedSpacings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView403()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView409()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2402);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryBedSpacings\r\n        [NKD.Module.Bu");
@@ -18462,7 +18761,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryCharacteristics
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView404()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView410()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2564);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCharacteristics\r\n        [NKD.Modul");
@@ -18504,7 +18803,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryCharacteristicTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView405()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView411()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2508);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCharacteristicTypes\r\n        [NKD.M");
@@ -18545,7 +18844,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryColours
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView406()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView412()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2186);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryColours\r\n        [NKD.Module.Busine");
@@ -18582,7 +18881,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryCommodities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView407()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView413()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2349);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCommodities\r\n        [NKD.Module.Bu");
@@ -18621,7 +18920,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryContractConditionTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView408()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView414()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2640);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryContractConditionTypes\r\n        [NK");
@@ -18664,7 +18963,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryCoreStates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView409()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView415()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2348);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCoreStates\r\n        [NKD.Module.Bus");
@@ -18703,7 +19002,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryCostTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView410()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView416()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2068);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCostTypes\r\n        [NKD.Module.Busi");
@@ -18738,7 +19037,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryCountries
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView411()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView417()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2541);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCountries\r\n        [NKD.Module.Busi");
@@ -18779,7 +19078,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryCountryStates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView412()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView418()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2610);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCountryStates\r\n        [NKD.Module.");
@@ -18821,7 +19120,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDataStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView413()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView419()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2401);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDataStatus\r\n        [NKD.Module.Bus");
@@ -18861,7 +19160,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDefectCompletenesses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView414()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView420()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2835);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDefectCompletenesses\r\n        [NKD.");
@@ -18906,7 +19205,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDefectContinuities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView415()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView421()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2727);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDefectContinuities\r\n        [NKD.Mo");
@@ -18950,7 +19249,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDefectSpacings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView416()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView422()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2564);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDefectSpacings\r\n        [NKD.Module");
@@ -18992,7 +19291,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDefectTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView417()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView423()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2402);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDefectTypes\r\n        [NKD.Module.Bu");
@@ -19032,7 +19331,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDesurveyAlgorithmTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView418()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView424()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2996);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDesurveyAlgorithmTypes\r\n        [NK");
@@ -19079,7 +19378,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDimensions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView419()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView425()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2454);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDimensions\r\n        [NKD.Module.Bus");
@@ -19119,7 +19418,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDipOrientationMethods
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView420()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView426()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2942);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDipOrientationMethods\r\n        [NKD");
@@ -19165,7 +19464,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDomains
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView421()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView427()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryDomains", "\r\n    SELECT VALUE -- Constructing DictionaryDomains\r\n        [NKD.Module.Busines" +
                     "sObjects.DictionaryDomain](T1.DictionaryDomain_DomainID, T1.DictionaryDomain_Sta" +
@@ -19196,7 +19495,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDomainAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView422()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView428()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryDomainAlias", "\r\n    SELECT VALUE -- Constructing DictionaryDomainAlias\r\n        [NKD.Module.Bus" +
                     "inessObjects.DictionaryDomainAlias](T1.DictionaryDomainAlias_DomainAliasID, T1.D" +
@@ -19229,7 +19528,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDrillBitTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView423()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView429()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2510);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDrillBitTypes\r\n        [NKD.Module.");
@@ -19270,7 +19569,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDrillCasingTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView424()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView430()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2672);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDrillCasingTypes\r\n        [NKD.Modu");
@@ -19313,7 +19612,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDrillFluids
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView425()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView431()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2402);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDrillFluids\r\n        [NKD.Module.Bu");
@@ -19353,7 +19652,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDrillRigTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView426()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView432()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2510);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDrillRigTypes\r\n        [NKD.Module.");
@@ -19394,7 +19693,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryDrillSizes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView427()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView433()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2348);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDrillSizes\r\n        [NKD.Module.Bus");
@@ -19433,7 +19732,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryEstimatedStrengths
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView428()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView434()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2780);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryEstimatedStrengths\r\n        [NKD.Mo");
@@ -19477,7 +19776,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryFailureModes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView429()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView435()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2456);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryFailureModes\r\n        [NKD.Module.B");
@@ -19517,7 +19816,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryFileTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView430()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView436()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2273);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryFileTypes\r\n        [NKD.Module.Busi");
@@ -19555,7 +19854,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryFlowTestTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView431()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView437()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2510);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryFlowTestTypes\r\n        [NKD.Module.");
@@ -19596,7 +19895,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryGasDetecteds
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView432()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView438()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2456);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryGasDetecteds\r\n        [NKD.Module.B");
@@ -19636,7 +19935,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryGeodeticDatums
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView433()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView439()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2564);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryGeodeticDatums\r\n        [NKD.Module");
@@ -19678,7 +19977,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryGeophysicalLogTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView434()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView440()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2834);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryGeophysicalLogTypes\r\n        [NKD.M");
@@ -19723,7 +20022,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryGroups
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView435()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView441()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2132);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryGroups\r\n        [NKD.Module.Busines");
@@ -19759,7 +20058,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryGroupMemberships
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView436()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView442()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2183);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryGroupMemberships\r\n        [NKD.Modu");
@@ -19796,7 +20095,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryHeightDatums
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView437()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView443()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2456);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryHeightDatums\r\n        [NKD.Module.B");
@@ -19836,7 +20135,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryHolePurposes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView438()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView444()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2456);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryHolePurposes\r\n        [NKD.Module.B");
@@ -19876,7 +20175,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryHoleStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView439()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView445()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2401);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryHoleStatus\r\n        [NKD.Module.Bus");
@@ -19916,7 +20215,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryHoleTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView440()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView446()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2294);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryHoleTypes\r\n        [NKD.Module.Busi");
@@ -19954,7 +20253,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryHorizons
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView441()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView447()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2240);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryHorizons\r\n        [NKD.Module.Busin");
@@ -19992,7 +20291,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryHues
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView442()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView448()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryHues", "\r\n    SELECT VALUE -- Constructing DictionaryHues\r\n        [NKD.Module.BusinessOb" +
                     "jects.DictionaryHue](T1.DictionaryHue_HueID, T1.DictionaryHue_StandardHueName, T" +
@@ -20025,7 +20324,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryInfillModes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView443()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView449()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2402);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryInfillModes\r\n        [NKD.Module.Bu");
@@ -20065,7 +20364,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryInfillTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView444()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView450()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2402);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryInfillTypes\r\n        [NKD.Module.Bu");
@@ -20105,7 +20404,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryIntervalStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView445()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView451()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2617);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryIntervalStatus\r\n        [NKD.Module");
@@ -20147,7 +20446,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryLeaseApplicationTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView446()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView452()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2942);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLeaseApplicationTypes\r\n        [NKD");
@@ -20193,7 +20492,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryLicenseTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView447()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView453()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2200);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLicenseTypes\r\n        [NKD.Module.B");
@@ -20230,7 +20529,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryLithologyInterrelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView448()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView454()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3050);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLithologyInterrelations\r\n        [N");
@@ -20278,7 +20577,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryLithologyQualifiers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView449()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView455()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2834);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLithologyQualifiers\r\n        [NKD.M");
@@ -20323,7 +20622,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryLithologyTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView450()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView456()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2564);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLithologyTypes\r\n        [NKD.Module");
@@ -20365,7 +20664,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryLocationTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView451()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView457()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2510);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLocationTypes\r\n        [NKD.Module.");
@@ -20406,7 +20705,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryMechanicalStates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView452()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView458()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2672);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMechanicalStates\r\n        [NKD.Modu");
@@ -20449,7 +20748,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryMineralAbundances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView453()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView459()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2726);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralAbundances\r\n        [NKD.Mod");
@@ -20493,7 +20792,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryMineralAndFossilAbundances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView454()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView460()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3212);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralAndFossilAbundances\r\n       ");
@@ -20543,7 +20842,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryMineralAndFossilAssociations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView455()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView461()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3320);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralAndFossilAssociations\r\n     ");
@@ -20594,7 +20893,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryMineralAndFossilTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView456()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView462()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2942);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralAndFossilTypes\r\n        [NKD");
@@ -20640,7 +20939,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryMineralForms
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView457()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView463()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2456);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralForms\r\n        [NKD.Module.B");
@@ -20680,7 +20979,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryMineralStyles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView458()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView464()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2510);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralStyles\r\n        [NKD.Module.");
@@ -20721,7 +21020,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryMineralTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView459()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView465()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2456);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralTypes\r\n        [NKD.Module.B");
@@ -20761,7 +21060,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView460()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView466()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3627);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryModels\r\n        [NKD.Module.Busines");
@@ -20816,7 +21115,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryModelCategories
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView461()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView467()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryModelCategories", "\r\n    SELECT VALUE -- Constructing DictionaryModelCategories\r\n        [NKD.Module" +
                     ".BusinessObjects.DictionaryModelCategory](T1.DictionaryModelCategory_ModelCatego" +
@@ -20846,7 +21145,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryModelRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView462()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView468()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryModelRelations", "\r\n    SELECT VALUE -- Constructing DictionaryModelRelations\r\n        [NKD.Module." +
                     "BusinessObjects.DictionaryModelRelation](T1.DictionaryModelRelation_ModelRelatio" +
@@ -20878,7 +21177,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryModelStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView463()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView469()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2199);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryModelStatus\r\n        [NKD.Module.Bu");
@@ -20915,7 +21214,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryMoistureSensitivities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView464()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView470()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2889);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMoistureSensitivities\r\n        [NKD");
@@ -20961,7 +21260,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryPartStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView465()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView471()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2155);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryPartStatus\r\n        [NKD.Module.Bus");
@@ -20997,7 +21296,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryPlasticities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView466()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView472()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2403);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryPlasticities\r\n        [NKD.Module.B");
@@ -21037,7 +21336,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryPlies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView467()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView473()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryPlies", "\r\n    SELECT VALUE -- Constructing DictionaryPlies\r\n        [NKD.Module.BusinessO" +
                     "bjects.DictionaryPly](T1.DictionaryPly_PlyID, T1.DictionaryPly_StandardPlyName, " +
@@ -21068,7 +21367,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryPlyAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView468()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView474()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryPlyAlias", "\r\n    SELECT VALUE -- Constructing DictionaryPlyAlias\r\n        [NKD.Module.Busine" +
                     "ssObjects.DictionaryPlyAlias](T1.DictionaryPlyAlias_PlyAliasID, T1.DictionaryPly" +
@@ -21099,7 +21398,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryPointLoadTestTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView469()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView475()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2780);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryPointLoadTestTypes\r\n        [NKD.Mo");
@@ -21143,7 +21442,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryPositions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView470()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView476()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2294);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryPositions\r\n        [NKD.Module.Busi");
@@ -21181,7 +21480,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryProfessions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView471()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView477()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2402);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryProfessions\r\n        [NKD.Module.Bu");
@@ -21221,7 +21520,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryProvinceGroups
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView472()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView478()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2699);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryProvinceGroups\r\n        [NKD.Module");
@@ -21264,7 +21563,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryProvinceTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView473()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView479()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2510);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryProvinceTypes\r\n        [NKD.Module.");
@@ -21305,7 +21604,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryRelationTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView474()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView480()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2510);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryRelationTypes\r\n        [NKD.Module.");
@@ -21346,7 +21645,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryRockMassUnitTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView475()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView481()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2726);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryRockMassUnitTypes\r\n        [NKD.Mod");
@@ -21390,7 +21689,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionarySampleCategories
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView476()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView482()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2619);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySampleCategories\r\n        [NKD.Modu");
@@ -21432,7 +21731,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionarySampleStates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView477()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView483()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2456);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySampleStates\r\n        [NKD.Module.B");
@@ -21472,7 +21771,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionarySampleTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView478()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView484()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2402);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySampleTypes\r\n        [NKD.Module.Bu");
@@ -21512,7 +21811,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionarySeams
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView479()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView485()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionarySeams", "\r\n    SELECT VALUE -- Constructing DictionarySeams\r\n        [NKD.Module.BusinessO" +
                     "bjects.DictionarySeam](T1.DictionarySeam_SeamID, T1.DictionarySeam_StandardSeamN" +
@@ -21543,7 +21842,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionarySeamAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView480()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView486()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionarySeamAlias", "\r\n    SELECT VALUE -- Constructing DictionarySeamAlias\r\n        [NKD.Module.Busin" +
                     "essObjects.DictionarySeamAlias](T1.DictionarySeamAlias_SeamAliasID, T1.Dictionar" +
@@ -21575,7 +21874,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionarySedimentaryFeatures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView481()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView487()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2834);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySedimentaryFeatures\r\n        [NKD.M");
@@ -21620,7 +21919,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryShades
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView482()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView488()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2132);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryShades\r\n        [NKD.Module.Busines");
@@ -21656,7 +21955,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryShapes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView483()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView489()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2132);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryShapes\r\n        [NKD.Module.Busines");
@@ -21692,7 +21991,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryStratigraphies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView484()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView490()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2511);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryStratigraphies\r\n        [NKD.Module");
@@ -21733,7 +22032,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionarySurfaceRoughnesses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView485()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView491()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2727);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySurfaceRoughnesses\r\n        [NKD.Mo");
@@ -21777,7 +22076,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionarySurveyAccuracies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView486()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView492()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2619);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySurveyAccuracies\r\n        [NKD.Modu");
@@ -21819,7 +22118,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryTextures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView487()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView493()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2240);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryTextures\r\n        [NKD.Module.Busin");
@@ -21857,7 +22156,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryUnits
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView488()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView494()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2474);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryUnits\r\n        [NKD.Module.Business");
@@ -21897,7 +22196,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryUnitTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView489()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView495()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2068);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryUnitTypes\r\n        [NKD.Module.Busi");
@@ -21932,7 +22231,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryWeatherings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView490()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView496()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2402);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryWeatherings\r\n        [NKD.Module.Bu");
@@ -21972,7 +22271,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryWorkTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView491()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView497()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2160);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryWorkTypes\r\n        [NKD.Module.Busi");
@@ -22009,7 +22308,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryWorkTypeClasses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView492()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView498()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2121);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryWorkTypeClasses\r\n        [NKD.Modul");
@@ -22045,7 +22344,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryWorkTypeRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView493()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView499()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryWorkTypeRelations", "\r\n    SELECT VALUE -- Constructing DictionaryWorkTypeRelations\r\n        [NKD.Modu" +
                     "le.BusinessObjects.DictionaryWorkTypeRelation](T1.DictionaryWorkTypeRelation_Wor" +
@@ -22076,7 +22375,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Drillings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView494()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView500()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2981);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Drillings\r\n        [NKD.Module.BusinessObject");
@@ -22123,7 +22422,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Experiences
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView495()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView501()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3685);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Experiences\r\n        [NKD.Module.BusinessObje");
@@ -22179,7 +22478,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.FileDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView496()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView502()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2204);
             viewString.Append("\r\n    SELECT VALUE -- Constructing FileDatas\r\n        [NKD.Module.BusinessObject");
@@ -22216,7 +22515,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Geologies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView497()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView503()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Geologies", "\r\n    SELECT VALUE -- Constructing Geologies\r\n        [NKD.Module.BusinessObjects" +
                     ".Geology](T1.Geology_GeologyID, T1.Geology_HeaderID, T1.Geology_GeologyContactID" +
@@ -22242,7 +22541,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Geophysics
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView498()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView504()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Geophysics", "\r\n    SELECT VALUE -- Constructing Geophysics\r\n        [NKD.Module.BusinessObject" +
                     "s.Geophysics](T1.Geophysics_GeophysicsID, T1.Geophysics_FileName, T1.Geophysics_" +
@@ -22274,7 +22573,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.GeophysicsDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView499()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView505()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.GeophysicsDatas", "\r\n    SELECT VALUE -- Constructing GeophysicsDatas\r\n        [NKD.Module.BusinessO" +
                     "bjects.GeophysicsData](T1.GeophysicsData_GeophysicsDataID, T1.GeophysicsData_Geo" +
@@ -22303,7 +22602,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.GeophysicsMetadatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView500()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView506()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2135);
             viewString.Append("\r\n    SELECT VALUE -- Constructing GeophysicsMetadatas\r\n        [NKD.Module.Busi");
@@ -22339,7 +22638,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Headers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView501()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView507()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3666);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Headers\r\n        [NKD.Module.BusinessObjects.");
@@ -22394,7 +22693,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.HeaderGeophysicalLogs
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView502()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView508()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2078);
             viewString.Append("\r\n    SELECT VALUE -- Constructing HeaderGeophysicalLogs\r\n        [NKD.Module.Bu");
@@ -22429,7 +22728,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.HeaderRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView503()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView509()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.HeaderRelations", "\r\n    SELECT VALUE -- Constructing HeaderRelations\r\n        [NKD.Module.BusinessO" +
                     "bjects.HeaderRelation](T1.HeaderRelation_HeaderRelationID, T1.HeaderRelation_Ori" +
@@ -22458,7 +22757,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Interpretations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView504()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView510()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3620);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Interpretations\r\n        [NKD.Module.Business");
@@ -22513,7 +22812,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.InterpretationDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView505()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView511()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.InterpretationDatas", "\r\n    SELECT VALUE -- Constructing InterpretationDatas\r\n        [NKD.Module.Busin" +
                     "essObjects.InterpretationData](T1.InterpretationData_InterpretationDataID, T1.In" +
@@ -22544,7 +22843,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Leases
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView506()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView512()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Leases", "\r\n    SELECT VALUE -- Constructing Leases\r\n        [NKD.Module.BusinessObjects.Le" +
                     "ase](T1.Lease_LeaseID, T1.Lease_TenementID, T1.Lease_LeaseNumber, T1.Lease_Owner" +
@@ -22571,7 +22870,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LeaseApplications
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView507()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView513()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2392);
             viewString.Append("\r\n    SELECT VALUE -- Constructing LeaseApplications\r\n        [NKD.Module.Busine");
@@ -22610,7 +22909,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Licenses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView508()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView514()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(5673);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Licenses\r\n        [NKD.Module.BusinessObjects");
@@ -22690,7 +22989,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LicenseAssets
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView509()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView515()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.LicenseAssets", "\r\n    SELECT VALUE -- Constructing LicenseAssets\r\n        [NKD.Module.BusinessObj" +
                     "ects.LicenseAsset](T1.LicenseAsset_LicenseAssetID, T1.LicenseAsset_LicenseID, T1" +
@@ -22717,7 +23016,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Lithologies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView510()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView516()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4658);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Lithologies\r\n        [NKD.Module.BusinessObje");
@@ -22785,9 +23084,9 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Locations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView511()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView517()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2288);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2357);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Locations\r\n        [NKD.Module.BusinessObject");
             viewString.Append("s.Location](T1.Location_LocationID, T1.Location_LocationTypeID, T1.Location_Defa");
             viewString.Append("ultLocationName, T1.Location_LocationCode, T1.Location_LocationGeography, T1.Loc");
@@ -22797,33 +23096,34 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("ation_Version, T1.Location_VersionAntecedentID, T1.Location_VersionCertainty, T1");
             viewString.Append(".Location_VersionWorkflowInstanceID, T1.Location_VersionUpdatedBy, T1.Location_V");
             viewString.Append("ersionDeletedBy, T1.Location_VersionOwnerContactID, T1.Location_VersionOwnerComp");
-            viewString.Append("anyID, T1.Location_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.L");
-            viewString.Append("ocationID AS Location_LocationID, \r\n            T.LocationTypeID AS Location_Loc");
-            viewString.Append("ationTypeID, \r\n            T.DefaultLocationName AS Location_DefaultLocationName");
-            viewString.Append(", \r\n            T.LocationCode AS Location_LocationCode, \r\n            T.Locatio");
-            viewString.Append("nGeography AS Location_LocationGeography, \r\n            T.LatitudeWGS84 AS Locat");
-            viewString.Append("ion_LatitudeWGS84, \r\n            T.LongitudeWGS84 AS Location_LongitudeWGS84, \r\n");
-            viewString.Append("            T.Elevation AS Location_Elevation, \r\n            T.CountryID AS Loca");
-            viewString.Append("tion_CountryID, \r\n            T.CountryStateID AS Location_CountryStateID, \r\n   ");
-            viewString.Append("         T.DefaultCulture AS Location_DefaultCulture, \r\n            T.OwnerCompa");
-            viewString.Append("nyID AS Location_OwnerCompanyID, \r\n            T.ResponsibleContactID AS Locatio");
-            viewString.Append("n_ResponsibleContactID, \r\n            T.Comment AS Location_Comment, \r\n         ");
-            viewString.Append("   T.Version AS Location_Version, \r\n            T.VersionAntecedentID AS Locatio");
-            viewString.Append("n_VersionAntecedentID, \r\n            T.VersionCertainty AS Location_VersionCerta");
-            viewString.Append("inty, \r\n            T.VersionWorkflowInstanceID AS Location_VersionWorkflowInsta");
-            viewString.Append("nceID, \r\n            T.VersionUpdatedBy AS Location_VersionUpdatedBy, \r\n        ");
-            viewString.Append("    T.VersionDeletedBy AS Location_VersionDeletedBy, \r\n            T.VersionOwne");
-            viewString.Append("rContactID AS Location_VersionOwnerContactID, \r\n            T.VersionOwnerCompan");
-            viewString.Append("yID AS Location_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS Locatio");
-            viewString.Append("n_VersionUpdated, \r\n            True AS _from0\r\n        FROM NKDModuleBusinessOb");
-            viewString.Append("jectsStoreContainer.X_Location AS T\r\n    ) AS T1");
+            viewString.Append("anyID, T1.Location_VersionUpdated, T1.Location_Postcode)\r\n    FROM (\r\n        SE");
+            viewString.Append("LECT \r\n            T.LocationID AS Location_LocationID, \r\n            T.Location");
+            viewString.Append("TypeID AS Location_LocationTypeID, \r\n            T.DefaultLocationName AS Locati");
+            viewString.Append("on_DefaultLocationName, \r\n            T.LocationCode AS Location_LocationCode, \r");
+            viewString.Append("\n            T.LocationGeography AS Location_LocationGeography, \r\n            T.");
+            viewString.Append("LatitudeWGS84 AS Location_LatitudeWGS84, \r\n            T.LongitudeWGS84 AS Locat");
+            viewString.Append("ion_LongitudeWGS84, \r\n            T.Elevation AS Location_Elevation, \r\n         ");
+            viewString.Append("   T.CountryID AS Location_CountryID, \r\n            T.CountryStateID AS Location");
+            viewString.Append("_CountryStateID, \r\n            T.DefaultCulture AS Location_DefaultCulture, \r\n  ");
+            viewString.Append("          T.OwnerCompanyID AS Location_OwnerCompanyID, \r\n            T.Responsib");
+            viewString.Append("leContactID AS Location_ResponsibleContactID, \r\n            T.Comment AS Locatio");
+            viewString.Append("n_Comment, \r\n            T.Version AS Location_Version, \r\n            T.VersionA");
+            viewString.Append("ntecedentID AS Location_VersionAntecedentID, \r\n            T.VersionCertainty AS");
+            viewString.Append(" Location_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS Locatio");
+            viewString.Append("n_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Location_Versio");
+            viewString.Append("nUpdatedBy, \r\n            T.VersionDeletedBy AS Location_VersionDeletedBy, \r\n   ");
+            viewString.Append("         T.VersionOwnerContactID AS Location_VersionOwnerContactID, \r\n          ");
+            viewString.Append("  T.VersionOwnerCompanyID AS Location_VersionOwnerCompanyID, \r\n            T.Ver");
+            viewString.Append("sionUpdated AS Location_VersionUpdated, \r\n            T.Postcode AS Location_Pos");
+            viewString.Append("tcode, \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObjectsStoreC");
+            viewString.Append("ontainer.X_Location AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Locations", viewString.ToString());
         }
         
         /// <Summary>
         /// return view for NKDC.LocationAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView512()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView518()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.LocationAlias", "\r\n    SELECT VALUE -- Constructing LocationAlias\r\n        [NKD.Module.BusinessObj" +
                     "ects.LocationAlias](T1.LocationAlias_LocationAliasID, T1.LocationAlias_LocationI" +
@@ -22851,7 +23151,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LocationDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView513()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView519()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.LocationDatas", "\r\n    SELECT VALUE -- Constructing LocationDatas\r\n        [NKD.Module.BusinessObj" +
                     "ects.LocationData](T1.LocationData_LocationDataID, T1.LocationData_ParentLocatio" +
@@ -22879,7 +23179,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LocationTraces
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView514()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView520()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.LocationTraces", "\r\n    SELECT VALUE -- Constructing LocationTraces\r\n        [NKD.Module.BusinessOb" +
                     "jects.LocationTrace](T1.LocationTrace_LocationHistoryID, T1.LocationTrace_Locati" +
@@ -22908,7 +23208,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Mineralogies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView515()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView521()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Mineralogies", "\r\n    SELECT VALUE -- Constructing Mineralogies\r\n        [NKD.Module.BusinessObje" +
                     "cts.Mineralogy](T1.Mineralogy_MineralogyID, T1.Mineralogy_HeaderID, T1.Mineralog" +
@@ -22941,7 +23241,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelCharacteristics
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView516()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView522()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ModelCharacteristics", "\r\n    SELECT VALUE -- Constructing ModelCharacteristics\r\n        [NKD.Module.Busi" +
                     "nessObjects.ModelCharacteristic](T1.ModelCharacteristic_ModelCharacteristicID, T" +
@@ -22970,7 +23270,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Opportunities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView517()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView523()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2970);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Opportunities\r\n        [NKD.Module.BusinessOb");
@@ -23017,7 +23317,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Parameters
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView518()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView524()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Parameters", "\r\n    SELECT VALUE -- Constructing Parameters\r\n        [NKD.Module.BusinessObject" +
                     "s.Parameter](T1.Parameter_ParameterID, T1.Parameter_ParameterType, T1.Parameter_" +
@@ -23048,7 +23348,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ParameterDuplicates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView519()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView525()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ParameterDuplicates", "\r\n    SELECT VALUE -- Constructing ParameterDuplicates\r\n        [NKD.Module.Busin" +
                     "essObjects.ParameterDuplicate](T1.ParameterDuplicate_ParameterDuplicateID, T1.Pa" +
@@ -23076,7 +23376,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ParameterGroups
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView520()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView526()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ParameterGroups", @"
     SELECT VALUE -- Constructing ParameterGroups
@@ -23103,7 +23403,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.PartCharacteristics
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView521()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView527()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.PartCharacteristics", "\r\n    SELECT VALUE -- Constructing PartCharacteristics\r\n        [NKD.Module.Busin" +
                     "essObjects.PartCharacteristic](T1.PartCharacteristic_PartCharacteristicID, T1.Pa" +
@@ -23132,7 +23432,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.PointLoads
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView522()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView528()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2425);
             viewString.Append("\r\n    SELECT VALUE -- Constructing PointLoads\r\n        [NKD.Module.BusinessObjec");
@@ -23172,7 +23472,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Projects
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView523()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView529()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Projects", "\r\n    SELECT VALUE -- Constructing Projects\r\n        [NKD.Module.BusinessObjects." +
                     "Project](T1.Project_ProjectID, T1.Project_ParentProjectID, T1.Project_TenementID" +
@@ -23180,27 +23480,28 @@ namespace Edm_EntityMappingGeneratedViews
                     ".Project_Comment, T1.Project_Version, T1.Project_VersionAntecedentID, T1.Project" +
                     "_VersionCertainty, T1.Project_VersionWorkflowInstanceID, T1.Project_VersionUpdat" +
                     "edBy, T1.Project_VersionDeletedBy, T1.Project_VersionOwnerContactID, T1.Project_" +
-                    "VersionOwnerCompanyID, T1.Project_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n" +
-                    "            T.ProjectID AS Project_ProjectID, \r\n            T.ParentProjectID AS" +
-                    " Project_ParentProjectID, \r\n            T.TenementID AS Project_TenementID, \r\n  " +
-                    "          T.ProjectName AS Project_ProjectName, \r\n            T.ProjectCode AS P" +
-                    "roject_ProjectCode, \r\n            T.ClientCompanyID AS Project_ClientCompanyID, " +
-                    "\r\n            T.Comment AS Project_Comment, \r\n            T.Version AS Project_V" +
-                    "ersion, \r\n            T.VersionAntecedentID AS Project_VersionAntecedentID, \r\n  " +
-                    "          T.VersionCertainty AS Project_VersionCertainty, \r\n            T.Versio" +
-                    "nWorkflowInstanceID AS Project_VersionWorkflowInstanceID, \r\n            T.Versio" +
-                    "nUpdatedBy AS Project_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS Proj" +
-                    "ect_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS Project_VersionOw" +
-                    "nerContactID, \r\n            T.VersionOwnerCompanyID AS Project_VersionOwnerCompa" +
-                    "nyID, \r\n            T.VersionUpdated AS Project_VersionUpdated, \r\n            Tr" +
-                    "ue AS _from0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.X_Project AS T" +
-                    "\r\n    ) AS T1");
+                    "VersionOwnerCompanyID, T1.Project_VersionUpdated, T1.Project_ProjectTypeID)\r\n   " +
+                    " FROM (\r\n        SELECT \r\n            T.ProjectID AS Project_ProjectID, \r\n      " +
+                    "      T.ParentProjectID AS Project_ParentProjectID, \r\n            T.TenementID A" +
+                    "S Project_TenementID, \r\n            T.ProjectName AS Project_ProjectName, \r\n    " +
+                    "        T.ProjectCode AS Project_ProjectCode, \r\n            T.ClientCompanyID AS" +
+                    " Project_ClientCompanyID, \r\n            T.Comment AS Project_Comment, \r\n        " +
+                    "    T.Version AS Project_Version, \r\n            T.VersionAntecedentID AS Project" +
+                    "_VersionAntecedentID, \r\n            T.VersionCertainty AS Project_VersionCertain" +
+                    "ty, \r\n            T.VersionWorkflowInstanceID AS Project_VersionWorkflowInstance" +
+                    "ID, \r\n            T.VersionUpdatedBy AS Project_VersionUpdatedBy, \r\n            " +
+                    "T.VersionDeletedBy AS Project_VersionDeletedBy, \r\n            T.VersionOwnerCont" +
+                    "actID AS Project_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS" +
+                    " Project_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS Project_Versio" +
+                    "nUpdated, \r\n            T.ProjectTypeID AS Project_ProjectTypeID, \r\n            " +
+                    "True AS _from0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.X_Project AS" +
+                    " T\r\n    ) AS T1");
         }
         
         /// <Summary>
         /// return view for NKDC.ProjectDeliverables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView524()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView530()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4077);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectDeliverables\r\n        [NKD.Module.Busi");
@@ -23260,7 +23561,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectPlans
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView525()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView531()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProjectPlans", "\r\n    SELECT VALUE -- Constructing ProjectPlans\r\n        [NKD.Module.BusinessObje" +
                     "cts.ProjectPlan](T1.ProjectPlan_ProjectPlanID, T1.ProjectPlan_ProjectID, T1.Proj" +
@@ -23289,7 +23590,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectPlanTasks
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView526()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView532()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2366);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTasks\r\n        [NKD.Module.Busines");
@@ -23328,7 +23629,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectPlanTaskComplianceResponses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView527()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView533()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2951);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskComplianceResponses\r\n        [");
@@ -23374,7 +23675,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectPlanTaskDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView528()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView534()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProjectPlanTaskDatas", "\r\n    SELECT VALUE -- Constructing ProjectPlanTaskDatas\r\n        [NKD.Module.Busi" +
                     "nessObjects.ProjectPlanTaskData](T1.ProjectPlanTaskData_ProjectPlanTaskDataID, T" +
@@ -23406,7 +23707,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectPlanTaskResponses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView529()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView535()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3815);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskResponses\r\n        [NKD.Module");
@@ -23463,7 +23764,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectPlanTaskResponseDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView530()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView536()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2241);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskResponseDatas\r\n        [NKD.Mo");
@@ -23501,7 +23802,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectPlanTaskWorkers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView531()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView537()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProjectPlanTaskWorkers", "\r\n    SELECT VALUE -- Constructing ProjectPlanTaskWorkers\r\n        [NKD.Module.Bu" +
                     "sinessObjects.ProjectPlanTaskWorker](T1.ProjectPlanTaskWorker_ProjectPlanTaskWor" +
@@ -23533,7 +23834,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProspectusProjects
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView532()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView538()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2921);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProspectusProjects\r\n        [NKD.Module.Busin");
@@ -23579,7 +23880,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProspectusProjectCommodities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView533()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView539()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProspectusProjectCommodities", "\r\n    SELECT VALUE -- Constructing ProspectusProjectCommodities\r\n        [NKD.Mod" +
                     "ule.BusinessObjects.ProspectusProjectCommodity](T1.ProspectusProjectCommodity_Pr" +
@@ -23610,7 +23911,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Provinces
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView534()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView540()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2342);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Provinces\r\n        [NKD.Module.BusinessObject");
@@ -23649,7 +23950,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProvinceAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView535()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView541()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProvinceAlias", "\r\n    SELECT VALUE -- Constructing ProvinceAlias\r\n        [NKD.Module.BusinessObj" +
                     "ects.ProvinceAlias](T1.ProvinceAlias_ProvinceAliasID, T1.ProvinceAlias_ProvinceI" +
@@ -23677,7 +23978,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProvinceDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView536()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView542()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProvinceDatas", "\r\n    SELECT VALUE -- Constructing ProvinceDatas\r\n        [NKD.Module.BusinessObj" +
                     "ects.ProvinceData](T1.ProvinceData_ProvinceDataID, T1.ProvinceData_ParentProvinc" +
@@ -23705,7 +24006,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProvinceRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView537()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView543()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProvinceRelations", "\r\n    SELECT VALUE -- Constructing ProvinceRelations\r\n        [NKD.Module.Busines" +
                     "sObjects.ProvinceRelation](T1.ProvinceRelation_ProvinceRelationID, T1.ProvinceRe" +
@@ -23735,7 +24036,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Recoveries
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView538()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView544()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Recoveries", "\r\n    SELECT VALUE -- Constructing Recoveries\r\n        [NKD.Module.BusinessObject" +
                     "s.Recovery](T1.Recovery_RecoveryID, T1.Recovery_HeaderID, T1.Recovery_FromDepth," +
@@ -23768,7 +24069,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Samples
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView539()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView545()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Samples", "\r\n    SELECT VALUE -- Constructing Samples\r\n        [NKD.Module.BusinessObjects.S" +
                     "ample](T1.Sample_SampleID, T1.Sample_HeaderID, T1.Sample_SampleCategoryID, T1.Sa" +
@@ -23801,7 +24102,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SecurityBlacklists
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView540()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView546()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3203);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SecurityBlacklists\r\n        [NKD.Module.Busin");
@@ -23851,7 +24152,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SecurityWhitelists
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView541()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView547()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3203);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SecurityWhitelists\r\n        [NKD.Module.Busin");
@@ -23901,7 +24202,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Servers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView542()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView548()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Servers", "\r\n    SELECT VALUE -- Constructing Servers\r\n        [NKD.Module.BusinessObjects.S" +
                     "erver](T1.Server_ServerID, T1.Server_Hostname, T1.Server_Domain, T1.Server_IP, T" +
@@ -23931,7 +24232,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Surveys
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView543()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView549()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2109);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Surveys\r\n        [NKD.Module.BusinessObjects.");
@@ -23967,7 +24268,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Tasks
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView544()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView550()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Tasks", "\r\n    SELECT VALUE -- Constructing Tasks\r\n        [NKD.Module.BusinessObjects.Tas" +
                     "k](T1.Task_TaskID, T1.Task_TaskName, T1.Task_WorkTypeID, T1.Task_DefaultPriority" +
@@ -24000,7 +24301,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.TaskDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView545()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView551()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.TaskDatas", @"
     SELECT VALUE -- Constructing TaskDatas
@@ -24029,7 +24330,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.TaskRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView546()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView552()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.TaskRelations", "\r\n    SELECT VALUE -- Constructing TaskRelations\r\n        [NKD.Module.BusinessObj" +
                     "ects.TaskRelation](T1.TaskRelation_TaskRelationID, T1.TaskRelation_OriginalTaskI" +
@@ -24058,7 +24359,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Tenements
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView547()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView553()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Tenements", "\r\n    SELECT VALUE -- Constructing Tenements\r\n        [NKD.Module.BusinessObjects" +
                     ".Tenement](T1.Tenement_TenementID, T1.Tenement_TenementName, T1.Tenement_Tenemen" +
@@ -24090,7 +24391,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.TenementCommodities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView548()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView554()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.TenementCommodities", "\r\n    SELECT VALUE -- Constructing TenementCommodities\r\n        [NKD.Module.Busin" +
                     "essObjects.TenementCommodity](T1.TenementCommodity_TenementCommodityID, T1.Tenem" +
@@ -24117,7 +24418,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.TenementProvinces
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView549()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView555()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.TenementProvinces", "\r\n    SELECT VALUE -- Constructing TenementProvinces\r\n        [NKD.Module.Busines" +
                     "sObjects.TenementProvince](T1.TenementProvince_TenementProvinceID, T1.TenementPr" +
@@ -24144,7 +24445,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.TenementRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView550()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView556()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.TenementRelations", "\r\n    SELECT VALUE -- Constructing TenementRelations\r\n        [NKD.Module.Busines" +
                     "sObjects.TenementRelation](T1.TenementRelation_TenementRelationID, T1.TenementRe" +
@@ -24171,7 +24472,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.UsageAuditViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView551()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView557()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.UsageAuditViews", "\r\n    SELECT VALUE -- Constructing UsageAuditViews\r\n        [NKD.Module.BusinessO" +
                     "bjects.UsageAuditView](T1.UsageAuditView_UsageAuditID, T1.UsageAuditView_UsageID" +
@@ -24203,7 +24504,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WaterFlows
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView552()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView558()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2312);
             viewString.Append("\r\n    SELECT VALUE -- Constructing WaterFlows\r\n        [NKD.Module.BusinessObjec");
@@ -24241,7 +24542,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LithologyAdjectives
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView553()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView559()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.LithologyAdjectives", "\r\n    SELECT VALUE -- Constructing LithologyAdjectives\r\n        [NKD.Module.Busin" +
                     "essObjects.LithologyAdjective](T1.LithologyAdjective_LithologyAdjectiveID, T1.Li" +
@@ -24270,7 +24571,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LithologySedimentaryFeatures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView554()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView560()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.LithologySedimentaryFeatures", "\r\n    SELECT VALUE -- Constructing LithologySedimentaryFeatures\r\n        [NKD.Mod" +
                     "ule.BusinessObjects.LithologySedimentaryFeature](T1.LithologySedimentaryFeature_" +
@@ -24303,7 +24604,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.HeaderHolePurposes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView555()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView561()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.HeaderHolePurposes", "\r\n    SELECT VALUE -- Constructing HeaderHolePurposes\r\n        [NKD.Module.Busine" +
                     "ssObjects.HeaderHolePurpose](T1.HeaderHolePurpose_HeaderHolePurposeID, T1.Header" +
@@ -24332,7 +24633,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LithologyRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView556()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView562()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.LithologyRelations", "\r\n    SELECT VALUE -- Constructing LithologyRelations\r\n        [NKD.Module.Busine" +
                     "ssObjects.LithologyRelation](T1.LithologyRelation_LithologyRelationID, T1.Lithol" +
@@ -24364,7 +24665,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.FileDataWorkTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView557()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView563()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.FileDataWorkTypes", "\r\n    SELECT VALUE -- Constructing FileDataWorkTypes\r\n        [NKD.Module.Busines" +
                     "sObjects.FileDataWorkType](T1.FileDataWorkType_FileDataWorkTypeID, T1.FileDataWo" +
@@ -24394,7 +24695,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryWorkflowTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView558()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView564()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryWorkflowTypes", "\r\n    SELECT VALUE -- Constructing DictionaryWorkflowTypes\r\n        [NKD.Module.B" +
                     "usinessObjects.DictionaryWorkflowType](T1.DictionaryWorkflowType_WorkflowTypeID," +
@@ -24425,7 +24726,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Workflows
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView559()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView565()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Workflows", "\r\n    SELECT VALUE -- Constructing Workflows\r\n        [NKD.Module.BusinessObjects" +
                     ".Workflow](T1.Workflow_WorkflowID, T1.Workflow_WorkflowName, T1.Workflow_Workflo" +
@@ -24452,7 +24753,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupSubsamples
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView560()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView566()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3096);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupSubsamples\r\n        [NKD.Module.Bus");
@@ -24500,7 +24801,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupSubsampleChemicals
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView561()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView567()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.AssayGroupSubsampleChemicals", "\r\n    SELECT VALUE -- Constructing AssayGroupSubsampleChemicals\r\n        [NKD.Mod" +
                     "ule.BusinessObjects.AssayGroupSubsampleChemical](T1.AssayGroupSubsampleChemical_" +
@@ -24533,7 +24834,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupSubsampleEquipments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView562()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView568()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.AssayGroupSubsampleEquipments", "\r\n    SELECT VALUE -- Constructing AssayGroupSubsampleEquipments\r\n        [NKD.Mo" +
                     "dule.BusinessObjects.AssayGroupSubsampleEquipment](T1.AssayGroupSubsampleEquipme" +
@@ -24565,7 +24866,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupSubsamplePreconditions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView563()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView569()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2809);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupSubsamplePreconditions\r\n        [NK");
@@ -24610,7 +24911,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupSubsampleRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView564()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView570()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2059);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupSubsampleRelations\r\n        [NKD.Mo");
@@ -24645,7 +24946,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupTestEquipments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView565()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView571()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.AssayGroupTestEquipments", "\r\n    SELECT VALUE -- Constructing AssayGroupTestEquipments\r\n        [NKD.Module." +
                     "BusinessObjects.AssayGroupTestEquipment](T1.AssayGroupTestEquipment_AssayGroupTe" +
@@ -24675,7 +24976,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupWorkflows
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView566()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView572()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.AssayGroupWorkflows", "\r\n    SELECT VALUE -- Constructing AssayGroupWorkflows\r\n        [NKD.Module.Busin" +
                     "essObjects.AssayGroupWorkflow](T1.AssayGroupWorkflow_AssayGroupWorkflowID, T1.As" +
@@ -24704,7 +25005,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupWorkflowProcedures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView567()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView573()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2208);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupWorkflowProcedures\r\n        [NKD.Mo");
@@ -24741,7 +25042,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayProcedures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView568()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView574()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.AssayProcedures", "\r\n    SELECT VALUE -- Constructing AssayProcedures\r\n        [NKD.Module.BusinessO" +
                     "bjects.AssayProcedure](T1.AssayProcedure_AssayProcedureID, T1.AssayProcedure_Ass" +
@@ -24768,7 +25069,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayProcedureProtocols
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView569()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView575()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2261);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayProcedureProtocols\r\n        [NKD.Module.");
@@ -24806,7 +25107,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayProcedureProtocolEquipments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView570()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView576()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2048);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayProcedureProtocolEquipments\r\n        [NK");
@@ -24841,7 +25142,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAgitationMethods
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView571()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView577()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2887);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAgitationMethods\r\n        [NKD.Modu");
@@ -24887,7 +25188,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAssayProcedureMethods
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView572()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView578()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2942);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayProcedureMethods\r\n        [NKD");
@@ -24933,7 +25234,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAssayProcedureTechniques
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView573()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView579()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3104);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayProcedureTechniques\r\n        [");
@@ -24981,7 +25282,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAssayProcedureTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView574()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView580()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2834);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayProcedureTypes\r\n        [NKD.M");
@@ -25026,7 +25327,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAssayTechniques
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView575()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView581()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2618);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayTechniques\r\n        [NKD.Modul");
@@ -25068,7 +25369,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryChemicals
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView576()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView582()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2294);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryChemicals\r\n        [NKD.Module.Busi");
@@ -25106,7 +25407,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayProcedureProtocolPreconditions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView577()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView583()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2567);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayProcedureProtocolPreconditions\r\n        ");
@@ -25148,7 +25449,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayWorkflowProcedureProtocols
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView578()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView584()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2280);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayWorkflowProcedureProtocols\r\n        [NKD");
@@ -25186,7 +25487,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAssayPreconditionTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView579()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView585()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2996);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayPreconditionTypes\r\n        [NK");
@@ -25233,7 +25534,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationPaymentProviders
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView580()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView586()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3026);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ApplicationPaymentProviders\r\n        [NKD.Mod");
@@ -25280,7 +25581,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationPaymentProviderCurrencies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView581()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView587()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2495);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ApplicationPaymentProviderCurrencies\r\n       ");
@@ -25321,7 +25622,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationPaymentProviderProducts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView582()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView588()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2987);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ApplicationPaymentProviderProducts\r\n        [");
@@ -25368,7 +25669,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationPaymentProviderProductModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView583()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView589()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2855);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ApplicationPaymentProviderProductModels\r\n    ");
@@ -25413,7 +25714,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationPaymentProviderProductParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView584()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView590()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2666);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ApplicationPaymentProviderProductParts\r\n     ");
@@ -25456,7 +25757,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationRoutes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView585()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView591()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2229);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ApplicationRoutes\r\n        [NKD.Module.Busine");
@@ -25493,7 +25794,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationRouteDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView586()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView592()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2285);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ApplicationRouteDatas\r\n        [NKD.Module.Bu");
@@ -25531,7 +25832,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationRouteParameters
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView587()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView593()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ApplicationRouteParameters", "\r\n    SELECT VALUE -- Constructing ApplicationRouteParameters\r\n        [NKD.Modul" +
                     "e.BusinessObjects.ApplicationRouteParameter](T1.ApplicationRouteParameter_Applic" +
@@ -25564,7 +25865,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssetDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView588()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView594()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2528);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssetDatas\r\n        [NKD.Module.BusinessObjec");
@@ -25605,7 +25906,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssetProductions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView589()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView595()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2661);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssetProductions\r\n        [NKD.Module.Busines");
@@ -25648,7 +25949,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ContactCreditCards
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView590()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView596()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2669);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ContactCreditCards\r\n        [NKD.Module.Busin");
@@ -25691,7 +25992,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAccountTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView591()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView597()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2200);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAccountTypes\r\n        [NKD.Module.B");
@@ -25728,7 +26029,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryOrderStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView592()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView598()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2199);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryOrderStatus\r\n        [NKD.Module.Bu");
@@ -25765,7 +26066,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryRouteTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView593()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView599()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2112);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryRouteTypes\r\n        [NKD.Module.Bus");
@@ -25801,7 +26102,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Downloads
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView594()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView600()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2276);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Downloads\r\n        [NKD.Module.BusinessObject");
@@ -25839,7 +26140,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Problems
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView595()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView601()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3255);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Problems\r\n        [NKD.Module.BusinessObjects");
@@ -25889,7 +26190,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProblemAssetDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView596()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView602()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProblemAssetDatas", "\r\n    SELECT VALUE -- Constructing ProblemAssetDatas\r\n        [NKD.Module.Busines" +
                     "sObjects.ProblemAssetData](T1.ProblemAssetData_ProblemAssetDataID, T1.ProblemAss" +
@@ -25916,7 +26217,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProblemRequirements
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView597()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView603()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProblemRequirements", "\r\n    SELECT VALUE -- Constructing ProblemRequirements\r\n        [NKD.Module.Busin" +
                     "essObjects.ProblemRequirement](T1.ProblemRequirement_ProblemRequirementID, T1.Pr" +
@@ -25947,7 +26248,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProblemRequirementAssetDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView598()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView604()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3243);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProblemRequirementAssetDatas\r\n        [NKD.Mo");
@@ -25997,7 +26298,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProblemSolutions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView599()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView605()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProblemSolutions", "\r\n    SELECT VALUE -- Constructing ProblemSolutions\r\n        [NKD.Module.Business" +
                     "Objects.ProblemSolution](T1.ProblemSolution_ProblemSolutionID, T1.ProblemSolutio" +
@@ -26026,7 +26327,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProblemSolutionAssetDataAllocations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView600()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView606()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2767);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProblemSolutionAssetDataAllocations\r\n        ");
@@ -26070,7 +26371,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SupplierModelContracts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView601()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView607()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2245);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SupplierModelContracts\r\n        [NKD.Module.B");
@@ -26108,7 +26409,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SupplierPartContracts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView602()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView608()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2204);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SupplierPartContracts\r\n        [NKD.Module.Bu");
@@ -26145,7 +26446,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SupplyContractConditions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView603()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView609()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2249);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SupplyContractConditions\r\n        [NKD.Module");
@@ -26183,7 +26484,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Communications
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView604()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView610()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3904);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Communications\r\n        [NKD.Module.BusinessO");
@@ -26241,7 +26542,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAddressTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView605()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView611()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2200);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAddressTypes\r\n        [NKD.Module.B");
@@ -26278,7 +26579,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationPaymentProviderContacts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView606()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView612()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2540);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ApplicationPaymentProviderContacts\r\n        [");
@@ -26319,7 +26620,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.PaymentInvoices
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView607()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView613()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.PaymentInvoices", "\r\n    SELECT VALUE -- Constructing PaymentInvoices\r\n        [NKD.Module.BusinessO" +
                     "bjects.PaymentInvoice](T1.PaymentInvoice_PaymentInvoiceID, T1.PaymentInvoice_Pay" +
@@ -26347,7 +26648,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.TwoStepAuthenticationDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView608()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView614()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3581);
             viewString.Append("\r\n    SELECT VALUE -- Constructing TwoStepAuthenticationDatas\r\n        [NKD.Modu");
@@ -26401,7 +26702,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Affiliates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView609()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView615()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Affiliates", "\r\n    SELECT VALUE -- Constructing Affiliates\r\n        [NKD.Module.BusinessObject" +
                     "s.Affiliate](T1.Affiliate_AffiliateID, T1.Affiliate_ParentContactID, T1.Affiliat" +
@@ -26428,7 +26729,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAffiliateTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView610()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView616()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2375);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAffiliateTypes\r\n        [NKD.Module");
@@ -26467,7 +26768,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.CommunicationEmails
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView611()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView617()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.CommunicationEmails", "\r\n    SELECT VALUE -- Constructing CommunicationEmails\r\n        [NKD.Module.Busin" +
                     "essObjects.CommunicationEmails](T1.CommunicationEmails_CommunicationEmailID, T1." +
@@ -26497,7 +26798,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.CommunicationRegardingDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView612()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView618()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2111);
             viewString.Append("\r\n    SELECT VALUE -- Constructing CommunicationRegardingDatas\r\n        [NKD.Mod");
@@ -26533,7 +26834,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryAssetStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView613()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView619()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryAssetStatus", "\r\n    SELECT VALUE -- Constructing DictionaryAssetStatus\r\n        [NKD.Module.Bus" +
                     "inessObjects.DictionaryAssetStatus](T1.DictionaryAssetStatus_AssetStatusID, T1.D" +
@@ -26564,7 +26865,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryUsageAuditTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView614()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView620()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2159);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryUsageAuditTypes\r\n        [NKD.Modul");
@@ -26600,66 +26901,318 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.GraphData
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView615()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView621()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.GraphData", "\r\n    SELECT VALUE -- Constructing GraphData\r\n        [NKD.Module.BusinessObjects" +
-                    ".GraphData](T1.GraphData_GraphDataID, T1.GraphData_GraphDataName, T1.GraphData_T" +
-                    "ableType, T1.GraphData_ReferenceID, T1.GraphData_ReferenceName, T1.GraphData_Ver" +
-                    "sion, T1.GraphData_VersionAntecedentID, T1.GraphData_VersionCertainty, T1.GraphD" +
-                    "ata_VersionWorkflowInstanceID, T1.GraphData_VersionUpdatedBy, T1.GraphData_Versi" +
-                    "onDeletedBy, T1.GraphData_VersionOwnerContactID, T1.GraphData_VersionOwnerCompan" +
-                    "yID, T1.GraphData_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.Gr" +
-                    "aphDataID AS GraphData_GraphDataID, \r\n            T.GraphDataName AS GraphData_G" +
-                    "raphDataName, \r\n            T.TableType AS GraphData_TableType, \r\n            T." +
-                    "ReferenceID AS GraphData_ReferenceID, \r\n            T.ReferenceName AS GraphData" +
-                    "_ReferenceName, \r\n            T.Version AS GraphData_Version, \r\n            T.Ve" +
-                    "rsionAntecedentID AS GraphData_VersionAntecedentID, \r\n            T.VersionCerta" +
-                    "inty AS GraphData_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS" +
-                    " GraphData_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS GraphD" +
-                    "ata_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS GraphData_VersionDelet" +
-                    "edBy, \r\n            T.VersionOwnerContactID AS GraphData_VersionOwnerContactID, " +
-                    "\r\n            T.VersionOwnerCompanyID AS GraphData_VersionOwnerCompanyID, \r\n    " +
-                    "        T.VersionUpdated AS GraphData_VersionUpdated, \r\n            True AS _fro" +
-                    "m0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.E_GraphData AS T\r\n    ) " +
-                    "AS T1");
+                    ".GraphData](T1.GraphData_GraphDataID, T1.GraphData_TableType, T1.GraphData_Refer" +
+                    "enceID, T1.GraphData_ReferenceName, T1.GraphData_Version, T1.GraphData_VersionAn" +
+                    "tecedentID, T1.GraphData_VersionCertainty, T1.GraphData_VersionWorkflowInstanceI" +
+                    "D, T1.GraphData_VersionUpdatedBy, T1.GraphData_VersionDeletedBy, T1.GraphData_Ve" +
+                    "rsionOwnerContactID, T1.GraphData_VersionOwnerCompanyID, T1.GraphData_VersionUpd" +
+                    "ated, T1.GraphData_GraphName, T1.GraphData_WorkflowTypeID, T1.GraphData_GraphDat" +
+                    "a1, T1.GraphData_Comment, T1.GraphData_CreatedBy, T1.GraphData_Created)\r\n    FRO" +
+                    "M (\r\n        SELECT \r\n            T.GraphDataID AS GraphData_GraphDataID, \r\n    " +
+                    "        T.TableType AS GraphData_TableType, \r\n            T.ReferenceID AS Graph" +
+                    "Data_ReferenceID, \r\n            T.ReferenceName AS GraphData_ReferenceName, \r\n  " +
+                    "          T.Version AS GraphData_Version, \r\n            T.VersionAntecedentID AS" +
+                    " GraphData_VersionAntecedentID, \r\n            T.VersionCertainty AS GraphData_Ve" +
+                    "rsionCertainty, \r\n            T.VersionWorkflowInstanceID AS GraphData_VersionWo" +
+                    "rkflowInstanceID, \r\n            T.VersionUpdatedBy AS GraphData_VersionUpdatedBy" +
+                    ", \r\n            T.VersionDeletedBy AS GraphData_VersionDeletedBy, \r\n            " +
+                    "T.VersionOwnerContactID AS GraphData_VersionOwnerContactID, \r\n            T.Vers" +
+                    "ionOwnerCompanyID AS GraphData_VersionOwnerCompanyID, \r\n            T.VersionUpd" +
+                    "ated AS GraphData_VersionUpdated, \r\n            T.GraphName AS GraphData_GraphNa" +
+                    "me, \r\n            T.WorkflowTypeID AS GraphData_WorkflowTypeID, \r\n            T." +
+                    "GraphData AS GraphData_GraphData1, \r\n            T.Comment AS GraphData_Comment," +
+                    " \r\n            T.CreatedBy AS GraphData_CreatedBy, \r\n            T.Created AS Gr" +
+                    "aphData_Created, \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObj" +
+                    "ectsStoreContainer.E_GraphData AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
         /// return view for NKDC.GraphDataRelation
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView616()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView622()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.GraphDataRelation", "\r\n    SELECT VALUE -- Constructing GraphDataRelation\r\n        [NKD.Module.Busines" +
-                    "sObjects.GraphDataRelation](T1.GraphDataRelation_GraphDataRelationID, T1.GraphDa" +
-                    "taRelation_FromGraphDataID, T1.GraphDataRelation_ToGraphDataID, T1.GraphDataRela" +
-                    "tion_Weight, T1.GraphDataRelation_RelationTypeID, T1.GraphDataRelation_Related, " +
-                    "T1.GraphDataRelation_Sequence, T1.GraphDataRelation_Version, T1.GraphDataRelatio" +
-                    "n_VersionAntecedentID, T1.GraphDataRelation_VersionCertainty, T1.GraphDataRelati" +
-                    "on_VersionWorkflowInstanceID, T1.GraphDataRelation_VersionUpdatedBy, T1.GraphDat" +
-                    "aRelation_VersionDeletedBy, T1.GraphDataRelation_VersionOwnerContactID, T1.Graph" +
-                    "DataRelation_VersionOwnerCompanyID, T1.GraphDataRelation_VersionUpdated)\r\n    FR" +
-                    "OM (\r\n        SELECT \r\n            T.GraphDataRelationID AS GraphDataRelation_Gr" +
-                    "aphDataRelationID, \r\n            T.FromGraphDataID AS GraphDataRelation_FromGrap" +
-                    "hDataID, \r\n            T.ToGraphDataID AS GraphDataRelation_ToGraphDataID, \r\n   " +
-                    "         T.Weight AS GraphDataRelation_Weight, \r\n            T.RelationTypeID AS" +
-                    " GraphDataRelation_RelationTypeID, \r\n            T.Related AS GraphDataRelation_" +
-                    "Related, \r\n            T.Sequence AS GraphDataRelation_Sequence, \r\n            T" +
-                    ".Version AS GraphDataRelation_Version, \r\n            T.VersionAntecedentID AS Gr" +
-                    "aphDataRelation_VersionAntecedentID, \r\n            T.VersionCertainty AS GraphDa" +
-                    "taRelation_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS GraphD" +
-                    "ataRelation_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Graph" +
-                    "DataRelation_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS GraphDataRela" +
-                    "tion_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS GraphDataRelatio" +
-                    "n_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS GraphDataRelat" +
-                    "ion_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS GraphDataRelation_V" +
-                    "ersionUpdated, \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObjec" +
-                    "tsStoreContainer.E_GraphDataRelation AS T\r\n    ) AS T1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2086);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing GraphDataRelation\r\n        [NKD.Module.Busine");
+            viewString.Append("ssObjects.GraphDataRelation](T1.GraphDataRelation_GraphDataRelationID, T1.GraphD");
+            viewString.Append("ataRelation_FromGraphDataID, T1.GraphDataRelation_ToGraphDataID, T1.GraphDataRel");
+            viewString.Append("ation_Weight, T1.GraphDataRelation_RelationTypeID, T1.GraphDataRelation_Related,");
+            viewString.Append(" T1.GraphDataRelation_Sequence, T1.GraphDataRelation_Version, T1.GraphDataRelati");
+            viewString.Append("on_VersionAntecedentID, T1.GraphDataRelation_VersionCertainty, T1.GraphDataRelat");
+            viewString.Append("ion_VersionWorkflowInstanceID, T1.GraphDataRelation_VersionUpdatedBy, T1.GraphDa");
+            viewString.Append("taRelation_VersionDeletedBy, T1.GraphDataRelation_VersionOwnerContactID, T1.Grap");
+            viewString.Append("hDataRelation_VersionOwnerCompanyID, T1.GraphDataRelation_VersionUpdated, T1.Gra");
+            viewString.Append("phDataRelation_GraphDataGroupID)\r\n    FROM (\r\n        SELECT \r\n            T.Gra");
+            viewString.Append("phDataRelationID AS GraphDataRelation_GraphDataRelationID, \r\n            T.FromG");
+            viewString.Append("raphDataID AS GraphDataRelation_FromGraphDataID, \r\n            T.ToGraphDataID A");
+            viewString.Append("S GraphDataRelation_ToGraphDataID, \r\n            T.Weight AS GraphDataRelation_W");
+            viewString.Append("eight, \r\n            T.RelationTypeID AS GraphDataRelation_RelationTypeID, \r\n   ");
+            viewString.Append("         T.Related AS GraphDataRelation_Related, \r\n            T.Sequence AS Gra");
+            viewString.Append("phDataRelation_Sequence, \r\n            T.Version AS GraphDataRelation_Version, \r");
+            viewString.Append("\n            T.VersionAntecedentID AS GraphDataRelation_VersionAntecedentID, \r\n ");
+            viewString.Append("           T.VersionCertainty AS GraphDataRelation_VersionCertainty, \r\n         ");
+            viewString.Append("   T.VersionWorkflowInstanceID AS GraphDataRelation_VersionWorkflowInstanceID, \r");
+            viewString.Append("\n            T.VersionUpdatedBy AS GraphDataRelation_VersionUpdatedBy, \r\n       ");
+            viewString.Append("     T.VersionDeletedBy AS GraphDataRelation_VersionDeletedBy, \r\n            T.V");
+            viewString.Append("ersionOwnerContactID AS GraphDataRelation_VersionOwnerContactID, \r\n            T");
+            viewString.Append(".VersionOwnerCompanyID AS GraphDataRelation_VersionOwnerCompanyID, \r\n           ");
+            viewString.Append(" T.VersionUpdated AS GraphDataRelation_VersionUpdated, \r\n            T.GraphData");
+            viewString.Append("GroupID AS GraphDataRelation_GraphDataGroupID, \r\n            True AS _from0\r\n   ");
+            viewString.Append("     FROM NKDModuleBusinessObjectsStoreContainer.E_GraphDataRelation AS T\r\n    )");
+            viewString.Append(" AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.GraphDataRelation", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDC.E_DictionaryLinestringType
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView623()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2463);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_DictionaryLinestringType\r\n        [NKD.Modu");
+            viewString.Append("le.BusinessObjects.E_DictionaryLinestringType](T1.[E_DictionaryLinestringType.Li");
+            viewString.Append("nestringTypeID], T1.[E_DictionaryLinestringType.StandardLinestringTypeName], T1.");
+            viewString.Append("[E_DictionaryLinestringType.CustomLinestringTypeName], T1.[E_DictionaryLinestrin");
+            viewString.Append("gType.Description], T1.[E_DictionaryLinestringType.FullDescription], T1.[E_Dicti");
+            viewString.Append("onaryLinestringType.Thumbnail], T1.[E_DictionaryLinestringType.OriginalFileDataI");
+            viewString.Append("D], T1.[E_DictionaryLinestringType.Version], T1.[E_DictionaryLinestringType.Vers");
+            viewString.Append("ionAntecedentID], T1.[E_DictionaryLinestringType.VersionCertainty], T1.[E_Dictio");
+            viewString.Append("naryLinestringType.VersionWorkflowInstanceID], T1.[E_DictionaryLinestringType.Ve");
+            viewString.Append("rsionUpdatedBy], T1.[E_DictionaryLinestringType.VersionDeletedBy], T1.[E_Diction");
+            viewString.Append("aryLinestringType.VersionOwnerContactID], T1.[E_DictionaryLinestringType.Version");
+            viewString.Append("OwnerCompanyID], T1.[E_DictionaryLinestringType.VersionUpdated])\r\n    FROM (\r\n  ");
+            viewString.Append("      SELECT \r\n            T.LinestringTypeID AS [E_DictionaryLinestringType.Lin");
+            viewString.Append("estringTypeID], \r\n            T.StandardLinestringTypeName AS [E_DictionaryLines");
+            viewString.Append("tringType.StandardLinestringTypeName], \r\n            T.CustomLinestringTypeName ");
+            viewString.Append("AS [E_DictionaryLinestringType.CustomLinestringTypeName], \r\n            T.Descri");
+            viewString.Append("ption AS [E_DictionaryLinestringType.Description], \r\n            T.FullDescripti");
+            viewString.Append("on AS [E_DictionaryLinestringType.FullDescription], \r\n            T.Thumbnail AS");
+            viewString.Append(" [E_DictionaryLinestringType.Thumbnail], \r\n            T.OriginalFileDataID AS [");
+            viewString.Append("E_DictionaryLinestringType.OriginalFileDataID], \r\n            T.Version AS [E_Di");
+            viewString.Append("ctionaryLinestringType.Version], \r\n            T.VersionAntecedentID AS [E_Dicti");
+            viewString.Append("onaryLinestringType.VersionAntecedentID], \r\n            T.VersionCertainty AS [E");
+            viewString.Append("_DictionaryLinestringType.VersionCertainty], \r\n            T.VersionWorkflowInst");
+            viewString.Append("anceID AS [E_DictionaryLinestringType.VersionWorkflowInstanceID], \r\n            ");
+            viewString.Append("T.VersionUpdatedBy AS [E_DictionaryLinestringType.VersionUpdatedBy], \r\n         ");
+            viewString.Append("   T.VersionDeletedBy AS [E_DictionaryLinestringType.VersionDeletedBy], \r\n      ");
+            viewString.Append("      T.VersionOwnerContactID AS [E_DictionaryLinestringType.VersionOwnerContact");
+            viewString.Append("ID], \r\n            T.VersionOwnerCompanyID AS [E_DictionaryLinestringType.Versio");
+            viewString.Append("nOwnerCompanyID], \r\n            T.VersionUpdated AS [E_DictionaryLinestringType.");
+            viewString.Append("VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObj");
+            viewString.Append("ectsStoreContainer.E_DictionaryLinestringType AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.E_DictionaryLinestringType", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDC.E_DictionaryProjectType
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView624()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2207);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_DictionaryProjectType\r\n        [NKD.Module.");
+            viewString.Append("BusinessObjects.E_DictionaryProjectType](T1.[E_DictionaryProjectType.ProjectType");
+            viewString.Append("ID], T1.[E_DictionaryProjectType.ProjectTypeName], T1.[E_DictionaryProjectType.P");
+            viewString.Append("rojectTypeDescription], T1.[E_DictionaryProjectType.FullDescription], T1.[E_Dict");
+            viewString.Append("ionaryProjectType.Thumbnail], T1.[E_DictionaryProjectType.OriginalFileDataID], T");
+            viewString.Append("1.[E_DictionaryProjectType.Version], T1.[E_DictionaryProjectType.VersionAntecede");
+            viewString.Append("ntID], T1.[E_DictionaryProjectType.VersionCertainty], T1.[E_DictionaryProjectTyp");
+            viewString.Append("e.VersionProjectflowInstanceID], T1.[E_DictionaryProjectType.VersionUpdatedBy], ");
+            viewString.Append("T1.[E_DictionaryProjectType.VersionDeletedBy], T1.[E_DictionaryProjectType.Versi");
+            viewString.Append("onOwnerContactID], T1.[E_DictionaryProjectType.VersionOwnerCompanyID], T1.[E_Dic");
+            viewString.Append("tionaryProjectType.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.");
+            viewString.Append("ProjectTypeID AS [E_DictionaryProjectType.ProjectTypeID], \r\n            T.Projec");
+            viewString.Append("tTypeName AS [E_DictionaryProjectType.ProjectTypeName], \r\n            T.ProjectT");
+            viewString.Append("ypeDescription AS [E_DictionaryProjectType.ProjectTypeDescription], \r\n          ");
+            viewString.Append("  T.FullDescription AS [E_DictionaryProjectType.FullDescription], \r\n            ");
+            viewString.Append("T.Thumbnail AS [E_DictionaryProjectType.Thumbnail], \r\n            T.OriginalFile");
+            viewString.Append("DataID AS [E_DictionaryProjectType.OriginalFileDataID], \r\n            T.Version ");
+            viewString.Append("AS [E_DictionaryProjectType.Version], \r\n            T.VersionAntecedentID AS [E_");
+            viewString.Append("DictionaryProjectType.VersionAntecedentID], \r\n            T.VersionCertainty AS ");
+            viewString.Append("[E_DictionaryProjectType.VersionCertainty], \r\n            T.VersionProjectflowIn");
+            viewString.Append("stanceID AS [E_DictionaryProjectType.VersionProjectflowInstanceID], \r\n          ");
+            viewString.Append("  T.VersionUpdatedBy AS [E_DictionaryProjectType.VersionUpdatedBy], \r\n          ");
+            viewString.Append("  T.VersionDeletedBy AS [E_DictionaryProjectType.VersionDeletedBy], \r\n          ");
+            viewString.Append("  T.VersionOwnerContactID AS [E_DictionaryProjectType.VersionOwnerContactID], \r\n");
+            viewString.Append("            T.VersionOwnerCompanyID AS [E_DictionaryProjectType.VersionOwnerComp");
+            viewString.Append("anyID], \r\n            T.VersionUpdated AS [E_DictionaryProjectType.VersionUpdate");
+            viewString.Append("d], \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObjectsStoreCont");
+            viewString.Append("ainer.E_DictionaryProjectType AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.E_DictionaryProjectType", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDC.E_Linestring
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView625()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2141);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_Linestring\r\n        [NKD.Module.BusinessObj");
+            viewString.Append("ects.E_Linestring](T1.[E_Linestring.LinestringID], T1.[E_Linestring.LinestringTy");
+            viewString.Append("peID], T1.[E_Linestring.DefaultLinestringName], T1.[E_Linestring.LinestringCode]");
+            viewString.Append(", T1.[E_Linestring.LinestringGeography], T1.[E_Linestring.DefaultCulture], T1.[E");
+            viewString.Append("_Linestring.OwnerCompanyID], T1.[E_Linestring.ResponsibleContactID], T1.[E_Lines");
+            viewString.Append("tring.Comment], T1.[E_Linestring.Version], T1.[E_Linestring.VersionAntecedentID]");
+            viewString.Append(", T1.[E_Linestring.VersionCertainty], T1.[E_Linestring.VersionWorkflowInstanceID");
+            viewString.Append("], T1.[E_Linestring.VersionUpdatedBy], T1.[E_Linestring.VersionDeletedBy], T1.[E");
+            viewString.Append("_Linestring.VersionOwnerContactID], T1.[E_Linestring.VersionOwnerCompanyID], T1.");
+            viewString.Append("[E_Linestring.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.Lines");
+            viewString.Append("tringID AS [E_Linestring.LinestringID], \r\n            T.LinestringTypeID AS [E_L");
+            viewString.Append("inestring.LinestringTypeID], \r\n            T.DefaultLinestringName AS [E_Linestr");
+            viewString.Append("ing.DefaultLinestringName], \r\n            T.LinestringCode AS [E_Linestring.Line");
+            viewString.Append("stringCode], \r\n            T.LinestringGeography AS [E_Linestring.LinestringGeog");
+            viewString.Append("raphy], \r\n            T.DefaultCulture AS [E_Linestring.DefaultCulture], \r\n     ");
+            viewString.Append("       T.OwnerCompanyID AS [E_Linestring.OwnerCompanyID], \r\n            T.Respon");
+            viewString.Append("sibleContactID AS [E_Linestring.ResponsibleContactID], \r\n            T.Comment A");
+            viewString.Append("S [E_Linestring.Comment], \r\n            T.Version AS [E_Linestring.Version], \r\n ");
+            viewString.Append("           T.VersionAntecedentID AS [E_Linestring.VersionAntecedentID], \r\n      ");
+            viewString.Append("      T.VersionCertainty AS [E_Linestring.VersionCertainty], \r\n            T.Ver");
+            viewString.Append("sionWorkflowInstanceID AS [E_Linestring.VersionWorkflowInstanceID], \r\n          ");
+            viewString.Append("  T.VersionUpdatedBy AS [E_Linestring.VersionUpdatedBy], \r\n            T.Version");
+            viewString.Append("DeletedBy AS [E_Linestring.VersionDeletedBy], \r\n            T.VersionOwnerContac");
+            viewString.Append("tID AS [E_Linestring.VersionOwnerContactID], \r\n            T.VersionOwnerCompany");
+            viewString.Append("ID AS [E_Linestring.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E");
+            viewString.Append("_Linestring.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDModul");
+            viewString.Append("eBusinessObjectsStoreContainer.E_Linestring AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.E_Linestring", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDC.E_ProjectOffer
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView626()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2527);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_ProjectOffer\r\n        [NKD.Module.BusinessO");
+            viewString.Append("bjects.E_ProjectOffer](T1.[E_ProjectOffer.ProjectOfferID], T1.[E_ProjectOffer.Pr");
+            viewString.Append("ojectID], T1.[E_ProjectOffer.OfferDescription], T1.[E_ProjectOffer.OfferContactI");
+            viewString.Append("D], T1.[E_ProjectOffer.Offered], T1.[E_ProjectOffer.OriginalAmount], T1.[E_Proje");
+            viewString.Append("ctOffer.Amount], T1.[E_ProjectOffer.AmountPaid], T1.[E_ProjectOffer.Expires], T1");
+            viewString.Append(".[E_ProjectOffer.Expired], T1.[E_ProjectOffer.Realises], T1.[E_ProjectOffer.Real");
+            viewString.Append("ised], T1.[E_ProjectOffer.Approved], T1.[E_ProjectOffer.ApprovedBy], T1.[E_Proje");
+            viewString.Append("ctOffer.Version], T1.[E_ProjectOffer.VersionAntecedentID], T1.[E_ProjectOffer.Ve");
+            viewString.Append("rsionCertainty], T1.[E_ProjectOffer.VersionWorkflowInstanceID], T1.[E_ProjectOff");
+            viewString.Append("er.VersionUpdatedBy], T1.[E_ProjectOffer.VersionDeletedBy], T1.[E_ProjectOffer.V");
+            viewString.Append("ersionOwnerContactID], T1.[E_ProjectOffer.VersionOwnerCompanyID], T1.[E_ProjectO");
+            viewString.Append("ffer.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.ProjectOfferID");
+            viewString.Append(" AS [E_ProjectOffer.ProjectOfferID], \r\n            T.ProjectID AS [E_ProjectOffe");
+            viewString.Append("r.ProjectID], \r\n            T.OfferDescription AS [E_ProjectOffer.OfferDescripti");
+            viewString.Append("on], \r\n            T.OfferContactID AS [E_ProjectOffer.OfferContactID], \r\n      ");
+            viewString.Append("      T.Offered AS [E_ProjectOffer.Offered], \r\n            T.OriginalAmount AS [");
+            viewString.Append("E_ProjectOffer.OriginalAmount], \r\n            T.Amount AS [E_ProjectOffer.Amount");
+            viewString.Append("], \r\n            T.AmountPaid AS [E_ProjectOffer.AmountPaid], \r\n            T.Ex");
+            viewString.Append("pires AS [E_ProjectOffer.Expires], \r\n            T.Expired AS [E_ProjectOffer.Ex");
+            viewString.Append("pired], \r\n            T.Realises AS [E_ProjectOffer.Realises], \r\n            T.R");
+            viewString.Append("ealised AS [E_ProjectOffer.Realised], \r\n            T.Approved AS [E_ProjectOffe");
+            viewString.Append("r.Approved], \r\n            T.ApprovedBy AS [E_ProjectOffer.ApprovedBy], \r\n      ");
+            viewString.Append("      T.Version AS [E_ProjectOffer.Version], \r\n            T.VersionAntecedentID");
+            viewString.Append(" AS [E_ProjectOffer.VersionAntecedentID], \r\n            T.VersionCertainty AS [E");
+            viewString.Append("_ProjectOffer.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [E");
+            viewString.Append("_ProjectOffer.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [E");
+            viewString.Append("_ProjectOffer.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [E_ProjectO");
+            viewString.Append("ffer.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [E_ProjectOffer");
+            viewString.Append(".VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [E_ProjectOffe");
+            viewString.Append("r.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_ProjectOffer.Vers");
+            viewString.Append("ionUpdated], \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObjects");
+            viewString.Append("StoreContainer.E_ProjectOffer AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.E_ProjectOffer", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDC.E_ProjectPledge
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView627()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3362);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_ProjectPledge\r\n        [NKD.Module.Business");
+            viewString.Append("Objects.E_ProjectPledge](T1.[E_ProjectPledge.ProjectPledgeID], T1.[E_ProjectPled");
+            viewString.Append("ge.ProjectID], T1.[E_ProjectPledge.ParentProjectPledgeID], T1.[E_ProjectPledge.P");
+            viewString.Append("ledgeContactID], T1.[E_ProjectPledge.Pledged], T1.[E_ProjectPledge.OriginalAmoun");
+            viewString.Append("t], T1.[E_ProjectPledge.CurrencyID], T1.[E_ProjectPledge.DepositAmount], T1.[E_P");
+            viewString.Append("rojectPledge.DepositPaid], T1.[E_ProjectPledge.AcceptedProjectOfferID], T1.[E_Pr");
+            viewString.Append("ojectPledge.AcceptedProjectOffer], T1.[E_ProjectPledge.QuorumOverseenBy], T1.[E_");
+            viewString.Append("ProjectPledge.QuorumNegotiated], T1.[E_ProjectPledge.Amount], T1.[E_ProjectPledg");
+            viewString.Append("e.AmountPaid], T1.[E_ProjectPledge.Expires], T1.[E_ProjectPledge.Expired], T1.[E");
+            viewString.Append("_ProjectPledge.Realises], T1.[E_ProjectPledge.Realised], T1.[E_ProjectPledge.App");
+            viewString.Append("roved], T1.[E_ProjectPledge.ApprovedBy], T1.[E_ProjectPledge.Version], T1.[E_Pro");
+            viewString.Append("jectPledge.VersionAntecedentID], T1.[E_ProjectPledge.VersionCertainty], T1.[E_Pr");
+            viewString.Append("ojectPledge.VersionWorkflowInstanceID], T1.[E_ProjectPledge.VersionUpdatedBy], T");
+            viewString.Append("1.[E_ProjectPledge.VersionDeletedBy], T1.[E_ProjectPledge.VersionOwnerContactID]");
+            viewString.Append(", T1.[E_ProjectPledge.VersionOwnerCompanyID], T1.[E_ProjectPledge.VersionUpdated");
+            viewString.Append("])\r\n    FROM (\r\n        SELECT \r\n            T.ProjectPledgeID AS [E_ProjectPled");
+            viewString.Append("ge.ProjectPledgeID], \r\n            T.ProjectID AS [E_ProjectPledge.ProjectID], \r");
+            viewString.Append("\n            T.ParentProjectPledgeID AS [E_ProjectPledge.ParentProjectPledgeID],");
+            viewString.Append(" \r\n            T.PledgeContactID AS [E_ProjectPledge.PledgeContactID], \r\n       ");
+            viewString.Append("     T.Pledged AS [E_ProjectPledge.Pledged], \r\n            T.OriginalAmount AS [");
+            viewString.Append("E_ProjectPledge.OriginalAmount], \r\n            T.CurrencyID AS [E_ProjectPledge.");
+            viewString.Append("CurrencyID], \r\n            T.DepositAmount AS [E_ProjectPledge.DepositAmount], \r");
+            viewString.Append("\n            T.DepositPaid AS [E_ProjectPledge.DepositPaid], \r\n            T.Acc");
+            viewString.Append("eptedProjectOfferID AS [E_ProjectPledge.AcceptedProjectOfferID], \r\n            T");
+            viewString.Append(".AcceptedProjectOffer AS [E_ProjectPledge.AcceptedProjectOffer], \r\n            T");
+            viewString.Append(".QuorumOverseenBy AS [E_ProjectPledge.QuorumOverseenBy], \r\n            T.QuorumN");
+            viewString.Append("egotiated AS [E_ProjectPledge.QuorumNegotiated], \r\n            T.Amount AS [E_Pr");
+            viewString.Append("ojectPledge.Amount], \r\n            T.AmountPaid AS [E_ProjectPledge.AmountPaid],");
+            viewString.Append(" \r\n            T.Expires AS [E_ProjectPledge.Expires], \r\n            T.Expired A");
+            viewString.Append("S [E_ProjectPledge.Expired], \r\n            T.Realises AS [E_ProjectPledge.Realis");
+            viewString.Append("es], \r\n            T.Realised AS [E_ProjectPledge.Realised], \r\n            T.App");
+            viewString.Append("roved AS [E_ProjectPledge.Approved], \r\n            T.ApprovedBy AS [E_ProjectPle");
+            viewString.Append("dge.ApprovedBy], \r\n            T.Version AS [E_ProjectPledge.Version], \r\n       ");
+            viewString.Append("     T.VersionAntecedentID AS [E_ProjectPledge.VersionAntecedentID], \r\n         ");
+            viewString.Append("   T.VersionCertainty AS [E_ProjectPledge.VersionCertainty], \r\n            T.Ver");
+            viewString.Append("sionWorkflowInstanceID AS [E_ProjectPledge.VersionWorkflowInstanceID], \r\n       ");
+            viewString.Append("     T.VersionUpdatedBy AS [E_ProjectPledge.VersionUpdatedBy], \r\n            T.V");
+            viewString.Append("ersionDeletedBy AS [E_ProjectPledge.VersionDeletedBy], \r\n            T.VersionOw");
+            viewString.Append("nerContactID AS [E_ProjectPledge.VersionOwnerContactID], \r\n            T.Version");
+            viewString.Append("OwnerCompanyID AS [E_ProjectPledge.VersionOwnerCompanyID], \r\n            T.Versi");
+            viewString.Append("onUpdated AS [E_ProjectPledge.VersionUpdated], \r\n            True AS _from0\r\n   ");
+            viewString.Append("     FROM NKDModuleBusinessObjectsStoreContainer.E_ProjectPledge AS T\r\n    ) AS ");
+            viewString.Append("T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.E_ProjectPledge", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for NKDC.E_ProjectPledgeAddendum
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView628()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2247);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_ProjectPledgeAddendum\r\n        [NKD.Module.");
+            viewString.Append("BusinessObjects.E_ProjectPledgeAddendum](T1.[E_ProjectPledgeAddendum.ProjectPled");
+            viewString.Append("geAddendumID], T1.[E_ProjectPledgeAddendum.ProjectPledgeID], T1.[E_ProjectPledge");
+            viewString.Append("Addendum.Addendum], T1.[E_ProjectPledgeAddendum.Reviewed], T1.[E_ProjectPledgeAd");
+            viewString.Append("dendum.ReviewedBy], T1.[E_ProjectPledgeAddendum.Approved], T1.[E_ProjectPledgeAd");
+            viewString.Append("dendum.ApprovedBy], T1.[E_ProjectPledgeAddendum.Version], T1.[E_ProjectPledgeAdd");
+            viewString.Append("endum.VersionAntecedentID], T1.[E_ProjectPledgeAddendum.VersionCertainty], T1.[E");
+            viewString.Append("_ProjectPledgeAddendum.VersionWorkflowInstanceID], T1.[E_ProjectPledgeAddendum.V");
+            viewString.Append("ersionUpdatedBy], T1.[E_ProjectPledgeAddendum.VersionDeletedBy], T1.[E_ProjectPl");
+            viewString.Append("edgeAddendum.VersionOwnerContactID], T1.[E_ProjectPledgeAddendum.VersionOwnerCom");
+            viewString.Append("panyID], T1.[E_ProjectPledgeAddendum.VersionUpdated])\r\n    FROM (\r\n        SELEC");
+            viewString.Append("T \r\n            T.ProjectPledgeAddendumID AS [E_ProjectPledgeAddendum.ProjectPle");
+            viewString.Append("dgeAddendumID], \r\n            T.ProjectPledgeID AS [E_ProjectPledgeAddendum.Proj");
+            viewString.Append("ectPledgeID], \r\n            T.Addendum AS [E_ProjectPledgeAddendum.Addendum], \r\n");
+            viewString.Append("            T.Reviewed AS [E_ProjectPledgeAddendum.Reviewed], \r\n            T.Re");
+            viewString.Append("viewedBy AS [E_ProjectPledgeAddendum.ReviewedBy], \r\n            T.Approved AS [E");
+            viewString.Append("_ProjectPledgeAddendum.Approved], \r\n            T.ApprovedBy AS [E_ProjectPledge");
+            viewString.Append("Addendum.ApprovedBy], \r\n            T.Version AS [E_ProjectPledgeAddendum.Versio");
+            viewString.Append("n], \r\n            T.VersionAntecedentID AS [E_ProjectPledgeAddendum.VersionAntec");
+            viewString.Append("edentID], \r\n            T.VersionCertainty AS [E_ProjectPledgeAddendum.VersionCe");
+            viewString.Append("rtainty], \r\n            T.VersionWorkflowInstanceID AS [E_ProjectPledgeAddendum.");
+            viewString.Append("VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [E_ProjectPledge");
+            viewString.Append("Addendum.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [E_ProjectPledge");
+            viewString.Append("Addendum.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [E_ProjectP");
+            viewString.Append("ledgeAddendum.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [");
+            viewString.Append("E_ProjectPledgeAddendum.VersionOwnerCompanyID], \r\n            T.VersionUpdated A");
+            viewString.Append("S [E_ProjectPledgeAddendum.VersionUpdated], \r\n            True AS _from0\r\n      ");
+            viewString.Append("  FROM NKDModuleBusinessObjectsStoreContainer.E_ProjectPledgeAddendum AS T\r\n    ");
+            viewString.Append(") AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.E_ProjectPledgeAddendum", viewString.ToString());
         }
         
         /// <Summary>
         /// return view for NKDC.aspnet_UsersInRoles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView617()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView629()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.aspnet_UsersInRoles", @"
     SELECT VALUE -- Constructing aspnet_UsersInRoles
@@ -26686,7 +27239,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.aspnet_SchemaVersions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView618()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView630()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.aspnet_SchemaVersions", @"
     SELECT VALUE -- Constructing aspnet_SchemaVersions
@@ -26704,7 +27257,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SchemaVersions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView619()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView631()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.SchemaVersions", @"
     SELECT VALUE -- Constructing SchemaVersions
@@ -26722,7 +27275,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.aspnet_WebEvent_Events
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView620()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView632()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.aspnet_WebEvent_Events", "\r\n    SELECT VALUE -- Constructing aspnet_WebEvent_Events\r\n        [NKD.Module.Bu" +
                     "sinessObjects.Store.aspnet_WebEvent_Events](T1.[aspnet_WebEvent_Events.EventId]," +
@@ -26753,7 +27306,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WebEvent_Events
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView621()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView633()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.WebEvent_Events", "\r\n    SELECT VALUE -- Constructing WebEvent_Events\r\n        [NKD.Module.BusinessO" +
                     "bjects.WebEvent_Events](T1.[WebEvent_Events.EventId], T1.[WebEvent_Events.EventT" +
@@ -26782,7 +27335,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.sysdiagrams
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView622()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView634()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.sysdiagrams", @"
     SELECT VALUE -- Constructing sysdiagrams
@@ -26802,7 +27355,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.sysdiagrams
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView623()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView635()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.sysdiagrams", @"
     SELECT VALUE -- Constructing sysdiagrams
@@ -26822,7 +27375,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_CompanyServer
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView624()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView636()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_CompanyServer", "\r\n    SELECT VALUE -- Constructing X_CompanyServer\r\n        [NKD.Module.BusinessO" +
                     "bjects.Store.X_CompanyServer](T1.[X_CompanyServer.CompanyServerID], T1.[X_Compan" +
@@ -26849,7 +27402,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.CompanyServers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView625()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView637()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.CompanyServers", @"
     SELECT VALUE -- Constructing CompanyServers
@@ -26876,7 +27429,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_LicenseAssetModelPart
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView626()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView638()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_LicenseAssetModelPart", "\r\n    SELECT VALUE -- Constructing X_LicenseAssetModelPart\r\n        [NKD.Module.B" +
                     "usinessObjects.Store.X_LicenseAssetModelPart](T1.[X_LicenseAssetModelPart.Licens" +
@@ -26907,7 +27460,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LicenseAssetModelParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView627()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView639()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.LicenseAssetModelParts", "\r\n    SELECT VALUE -- Constructing LicenseAssetModelParts\r\n        [NKD.Module.Bu" +
                     "sinessObjects.LicenseAssetModelPart](T1.LicenseAssetModelPart_LicenseAssetModelP" +
@@ -26937,7 +27490,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_LicenseHistory
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView628()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView640()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_LicenseHistory", "\r\n    SELECT VALUE -- Constructing X_LicenseHistory\r\n        [NKD.Module.Business" +
                     "Objects.Store.X_LicenseHistory](T1.[X_LicenseHistory.LicenseHistoryID], T1.[X_Li" +
@@ -26966,7 +27519,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LicenseHistories
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView629()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView641()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.LicenseHistories", "\r\n    SELECT VALUE -- Constructing LicenseHistories\r\n        [NKD.Module.Business" +
                     "Objects.LicenseHistory](T1.LicenseHistory_LastLicenseID, T1.LicenseHistory_Licen" +
@@ -26994,7 +27547,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_MetaData
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView630()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView642()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_MetaData", @"
     SELECT VALUE -- Constructing X_MetaData
@@ -27021,7 +27574,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_MetaDataRelation
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView631()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView643()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_MetaDataRelation", "\r\n    SELECT VALUE -- Constructing X_MetaDataRelation\r\n        [NKD.Module.Busine" +
                     "ssObjects.Store.X_MetaDataRelation](T1.[X_MetaDataRelation.MetaDataRelationID], " +
@@ -27050,7 +27603,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.MetaDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView632()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView644()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.MetaDatas", @"
     SELECT VALUE -- Constructing MetaDatas
@@ -27077,7 +27630,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.MetaDataRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView633()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView645()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.MetaDataRelations", "\r\n    SELECT VALUE -- Constructing MetaDataRelations\r\n        [NKD.Module.Busines" +
                     "sObjects.MetaDataRelation](T1.MetaDataRelation_MetaDataRelationID, T1.MetaDataRe" +
@@ -27105,7 +27658,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_PrivateData
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView634()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView646()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2140);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_PrivateData\r\n        [NKD.Module.BusinessOb");
@@ -27141,7 +27694,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.PrivateDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView635()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView647()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.PrivateDatas", "\r\n    SELECT VALUE -- Constructing PrivateDatas\r\n        [NKD.Module.BusinessObje" +
                     "cts.PrivateData](T1.PrivateData_PrivateDataID, T1.PrivateData_UniqueID, T1.Priva" +
@@ -27174,7 +27727,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_ServerApplication
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView636()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView648()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_ServerApplication", "\r\n    SELECT VALUE -- Constructing X_ServerApplication\r\n        [NKD.Module.Busin" +
                     "essObjects.Store.X_ServerApplication](T1.[X_ServerApplication.ServerApplicationI" +
@@ -27202,7 +27755,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ServerApplications
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView637()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView649()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ServerApplications", "\r\n    SELECT VALUE -- Constructing ServerApplications\r\n        [NKD.Module.Busine" +
                     "ssObjects.ServerApplication](T1.ServerApplication_ServerApplicationID, T1.Server" +
@@ -27229,7 +27782,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_Usage
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView638()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView650()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_Usage", "\r\n    SELECT VALUE -- Constructing X_Usage\r\n        [NKD.Module.BusinessObjects.S" +
                     "tore.X_Usage](T1.[X_Usage.UsageID], T1.[X_Usage.AssetID], T1.[X_Usage.ModelID], " +
@@ -27257,7 +27810,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Usages
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView639()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView651()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Usages", "\r\n    SELECT VALUE -- Constructing Usages\r\n        [NKD.Module.BusinessObjects.Us" +
                     "age](T1.Usage_UsageID, T1.Usage_AssetID, T1.Usage_ModelID, T1.Usage_PartID, T1.U" +
@@ -27284,7 +27837,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_UserData
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView640()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView652()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_UserData", "\r\n    SELECT VALUE -- Constructing X_UserData\r\n        [NKD.Module.BusinessObject" +
                     "s.Store.X_UserData](T1.[X_UserData.UserDataID], T1.[X_UserData.TableType], T1.[X" +
@@ -27312,7 +27865,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.UserDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView641()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView653()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.UserDatas", "\r\n    SELECT VALUE -- Constructing UserDatas\r\n        [NKD.Module.BusinessObjects" +
                     ".UserData](T1.UserData_UserDataID, T1.UserData_TableType, T1.UserData_ReferenceI" +
@@ -27339,7 +27892,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.DefinitionIdentityTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView642()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView654()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.DefinitionIdentityTable", @"
     SELECT VALUE -- Constructing DefinitionIdentityTable
@@ -27363,7 +27916,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DefinitionIdentityTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView643()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView655()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DefinitionIdentityTables", @"
     SELECT VALUE -- Constructing DefinitionIdentityTables
@@ -27387,7 +27940,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.IdentityOwnerTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView644()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView656()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.IdentityOwnerTable", @"
     SELECT VALUE -- Constructing IdentityOwnerTable
@@ -27404,7 +27957,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.IdentityOwnerTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView645()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView657()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.IdentityOwnerTables", @"
     SELECT VALUE -- Constructing IdentityOwnerTables
@@ -27421,7 +27974,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.InstanceMetadataChangesTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView646()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView658()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.InstanceMetadataChangesTable", @"
     SELECT VALUE -- Constructing InstanceMetadataChangesTable
@@ -27440,7 +27993,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.InstanceMetadataChangesTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView647()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView659()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.InstanceMetadataChangesTables", @"
     SELECT VALUE -- Constructing InstanceMetadataChangesTables
@@ -27459,7 +28012,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.InstancePromotedPropertiesTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView648()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView660()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4131);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancePromotedPropertiesTable\r\n        [NKD");
@@ -27520,7 +28073,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.InstancePromotedPropertiesTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView649()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView661()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4159);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancePromotedPropertiesTables\r\n        [NK");
@@ -27581,7 +28134,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.InstancesTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView650()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView662()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3005);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancesTable\r\n        [NKD.Module.BusinessO");
@@ -27628,7 +28181,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.InstancesTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView651()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView663()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3033);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancesTables\r\n        [NKD.Module.Business");
@@ -27675,7 +28228,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.KeysTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView652()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView664()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.KeysTable", @"
     SELECT VALUE -- Constructing KeysTable
@@ -27696,7 +28249,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.KeysTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView653()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView665()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.KeysTables", @"
     SELECT VALUE -- Constructing KeysTables
@@ -27717,7 +28270,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.LockOwnersTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView654()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView666()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.LockOwnersTable", "\r\n    SELECT VALUE -- Constructing LockOwnersTable\r\n        [NKD.Module.BusinessO" +
                     "bjects.Store.LockOwnersTable](T1.LockOwnersTable_Id, T1.LockOwnersTable_Surrogat" +
@@ -27746,7 +28299,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LockOwnersTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView655()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView667()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.LockOwnersTables", "\r\n    SELECT VALUE -- Constructing LockOwnersTables\r\n        [NKD.Module.Business" +
                     "Objects.LockOwnersTable](T1.LockOwnersTable_Id, T1.LockOwnersTable_SurrogateLock" +
@@ -27775,7 +28328,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.RunnableInstancesTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView656()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView668()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.RunnableInstancesTable", @"
     SELECT VALUE -- Constructing RunnableInstancesTable
@@ -27795,7 +28348,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.RunnableInstancesTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView657()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView669()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.RunnableInstancesTables", @"
     SELECT VALUE -- Constructing RunnableInstancesTables
@@ -27815,7 +28368,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.ServiceDeploymentsTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView658()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView670()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.ServiceDeploymentsTable", @"
     SELECT VALUE -- Constructing ServiceDeploymentsTable
@@ -27837,7 +28390,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ServiceDeploymentsTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView659()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView671()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ServiceDeploymentsTables", @"
     SELECT VALUE -- Constructing ServiceDeploymentsTables
@@ -27859,7 +28412,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.vw_aspnet_Applications
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView660()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView672()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.vw_aspnet_Applications", @"
     SELECT VALUE -- Constructing vw_aspnet_Applications
@@ -27878,7 +28431,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationsViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView661()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView673()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ApplicationsViews", @"
     SELECT VALUE -- Constructing ApplicationsViews
@@ -27897,7 +28450,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.vw_aspnet_MembershipUsers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView662()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView674()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3210);
             viewString.Append("\r\n    SELECT VALUE -- Constructing vw_aspnet_MembershipUsers\r\n        [NKD.Modul");
@@ -27947,7 +28500,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.MembershipUsersViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView663()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView675()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2864);
             viewString.Append("\r\n    SELECT VALUE -- Constructing MembershipUsersViews\r\n        [NKD.Module.Bus");
@@ -27992,7 +28545,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.vw_aspnet_Profiles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView664()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView676()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.vw_aspnet_Profiles", @"
     SELECT VALUE -- Constructing vw_aspnet_Profiles
@@ -28010,7 +28563,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProfilesViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView665()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView677()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProfilesViews", @"
     SELECT VALUE -- Constructing ProfilesViews
@@ -28028,7 +28581,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.vw_aspnet_Roles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView666()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView678()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.vw_aspnet_Roles", @"
     SELECT VALUE -- Constructing vw_aspnet_Roles
@@ -28048,7 +28601,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.RolesViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView667()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView679()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.RolesViews", @"
     SELECT VALUE -- Constructing RolesViews
@@ -28068,7 +28621,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.vw_aspnet_Users
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView668()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView680()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.vw_aspnet_Users", @"
     SELECT VALUE -- Constructing vw_aspnet_Users
@@ -28090,7 +28643,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.UsersViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView669()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView681()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.UsersViews", @"
     SELECT VALUE -- Constructing UsersViews
@@ -28112,7 +28665,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.vw_aspnet_UsersInRoles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView670()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView682()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.vw_aspnet_UsersInRoles", @"
     SELECT VALUE -- Constructing vw_aspnet_UsersInRoles
@@ -28129,7 +28682,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.UsersInRolesViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView671()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView683()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.UsersInRolesViews", @"
     SELECT VALUE -- Constructing UsersInRolesViews
@@ -28146,7 +28699,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_Paths
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView672()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView684()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_Paths", @"
     SELECT VALUE -- Constructing vw_aspnet_WebPartState_Paths
@@ -28165,7 +28718,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WebPartState_PathsView
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView673()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView685()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.WebPartState_PathsView", @"
     SELECT VALUE -- Constructing WebPartState_PathsView
@@ -28184,7 +28737,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_Shared
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView674()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView686()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_Shared", @"
     SELECT VALUE -- Constructing vw_aspnet_WebPartState_Shared
@@ -28202,7 +28755,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WebPartState_SharedView
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView675()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView687()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.WebPartState_SharedView", @"
     SELECT VALUE -- Constructing WebPartState_SharedView
@@ -28220,7 +28773,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_User
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView676()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView688()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_User", @"
     SELECT VALUE -- Constructing vw_aspnet_WebPartState_User
@@ -28239,7 +28792,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WebPartState_UserView
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView677()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView689()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.WebPartState_UserView", @"
     SELECT VALUE -- Constructing WebPartState_UserView
@@ -28258,7 +28811,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_Company
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView678()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView690()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_VW_Company", @"
     SELECT VALUE -- Constructing X_VW_Company
@@ -28276,7 +28829,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.CompanyViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView679()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView691()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.CompanyViews", @"
     SELECT VALUE -- Constructing CompanyViews
@@ -28294,7 +28847,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_DictionaryHeader
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView680()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView692()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_VW_DictionaryHeader", @"
     SELECT VALUE -- Constructing X_VW_DictionaryHeader
@@ -28311,7 +28864,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryHeaderViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView681()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView693()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryHeaderViews", @"
     SELECT VALUE -- Constructing DictionaryHeaderViews
@@ -28328,7 +28881,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_ExperienceBasicView
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView682()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView694()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3843);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_VW_ExperienceBasicView\r\n        [NKD.Module");
@@ -28386,7 +28939,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ExperienceBasicViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView683()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView695()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3446);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ExperienceBasicViews\r\n        [NKD.Module.Bus");
@@ -28439,7 +28992,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_License
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView684()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView696()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(5530);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_VW_License\r\n        [NKD.Module.BusinessObj");
@@ -28518,7 +29071,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.LicenseViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView685()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView697()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(5227);
             viewString.Append("\r\n    SELECT VALUE -- Constructing LicenseViews\r\n        [NKD.Module.BusinessObj");
@@ -28593,7 +29146,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_ModelsCurrent
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView686()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView698()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_VW_ModelsCurrent", "\r\n    SELECT VALUE -- Constructing X_VW_ModelsCurrent\r\n        [NKD.Module.Busine" +
                     "ssObjects.Store.X_VW_ModelsCurrent](T1.[X_VW_ModelsCurrent.ProjectID], T1.[X_VW_" +
@@ -28622,7 +29175,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelsCurrentViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView687()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView699()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ModelsCurrentViews", "\r\n    SELECT VALUE -- Constructing ModelsCurrentViews\r\n        [NKD.Module.Busine" +
                     "ssObjects.ModelsCurrentView](T1.ModelsCurrentView_ProjectID, T1.ModelsCurrentVie" +
@@ -28650,7 +29203,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_ModelStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView688()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView700()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_VW_ModelStatus", "\r\n    SELECT VALUE -- Constructing X_VW_ModelStatus\r\n        [NKD.Module.Business" +
                     "Objects.Store.X_VW_ModelStatus](T1.[X_VW_ModelStatus.ProjectID], T1.[X_VW_ModelS" +
@@ -28678,7 +29231,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelStatusViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView689()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView701()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ModelStatusViews", "\r\n    SELECT VALUE -- Constructing ModelStatusViews\r\n        [NKD.Module.Business" +
                     "Objects.ModelStatusView](T1.ModelStatusView_ProjectID, T1.ModelStatusView_Projec" +
@@ -28705,7 +29258,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_ProjectModelsAwaitingAuthorisation
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView690()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView702()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_VW_ProjectModelsAwaitingAuthorisation", "\r\n    SELECT VALUE -- Constructing X_VW_ProjectModelsAwaitingAuthorisation\r\n     " +
                     "   [NKD.Module.BusinessObjects.Store.X_VW_ProjectModelsAwaitingAuthorisation](T1" +
@@ -28736,7 +29289,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectModelsAwaitingAuthorisationViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView691()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView703()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProjectModelsAwaitingAuthorisationViews", "\r\n    SELECT VALUE -- Constructing ProjectModelsAwaitingAuthorisationViews\r\n     " +
                     "   [NKD.Module.BusinessObjects.ProjectModelsAwaitingAuthorisationView](T1.Projec" +
@@ -28766,7 +29319,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_ProjectStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView692()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView704()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_VW_ProjectStatus", @"
     SELECT VALUE -- Constructing X_VW_ProjectStatus
@@ -28790,7 +29343,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ProjectStatusViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView693()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView705()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ProjectStatusViews", @"
     SELECT VALUE -- Constructing ProjectStatusViews
@@ -28814,7 +29367,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_SurveyViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView694()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView706()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_VW_SurveyViews", @"
     SELECT VALUE -- Constructing X_VW_SurveyViews
@@ -28840,7 +29393,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SurveyViewsViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView695()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView707()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.SurveyViewsViews", @"
     SELECT VALUE -- Constructing SurveyViewsViews
@@ -28866,7 +29419,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_WorkType
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView696()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView708()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_VW_WorkType", @"
     SELECT VALUE -- Constructing X_VW_WorkType
@@ -28885,7 +29438,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.WorkTypeViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView697()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView709()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.WorkTypeViews", @"
     SELECT VALUE -- Constructing WorkTypeViews
@@ -28904,7 +29457,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.InstancePromotedProperties
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView698()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView710()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3871);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancePromotedProperties\r\n        [NKD.Modu");
@@ -28962,7 +29515,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.InstancePromotedProperties
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView699()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView711()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3757);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancePromotedProperties\r\n        [NKD.Modu");
@@ -29018,7 +29571,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.Instances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView700()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView712()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2532);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Instances\r\n        [NKD.Module.BusinessObject");
@@ -29059,7 +29612,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Instances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView701()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView713()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2509);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Instances\r\n        [NKD.Module.BusinessObject");
@@ -29100,7 +29653,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.ServiceDeployments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView702()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView714()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.ServiceDeployments", @"
     SELECT VALUE -- Constructing ServiceDeployments
@@ -29121,7 +29674,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ServiceDeployments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView703()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView715()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ServiceDeployments", @"
     SELECT VALUE -- Constructing ServiceDeployments
@@ -29142,7 +29695,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.M_VW_DictionaryCompositeCoal
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView704()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView716()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.M_VW_DictionaryCompositeCoal", @"
     SELECT VALUE -- Constructing M_VW_DictionaryCompositeCoal
@@ -29161,7 +29714,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryCompositeCoalViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView705()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView717()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryCompositeCoalViews", @"
     SELECT VALUE -- Constructing DictionaryCompositeCoalViews
@@ -29180,7 +29733,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_DictionaryCompositeStandard
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView706()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView718()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_VW_DictionaryCompositeStandard", @"
     SELECT VALUE -- Constructing X_VW_DictionaryCompositeStandard
@@ -29199,7 +29752,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.DictionaryCompositeStandardViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView707()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView719()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DictionaryCompositeStandardViews", @"
     SELECT VALUE -- Constructing DictionaryCompositeStandardViews
@@ -29218,7 +29771,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_ModelPartInfo
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView708()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView720()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3457);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_VW_ModelPartInfo\r\n        [NKD.Module.Busin");
@@ -29271,7 +29824,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModelPartInfoViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView709()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView721()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3310);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ModelPartInfoViews\r\n        [NKD.Module.Busin");
@@ -29322,7 +29875,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.E_StatisticData
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView710()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView722()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3321);
             viewString.Append("\r\n    SELECT VALUE -- Constructing E_StatisticData\r\n        [NKD.Module.Business");
@@ -29373,7 +29926,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.StatisticDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView711()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView723()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3099);
             viewString.Append("\r\n    SELECT VALUE -- Constructing StatisticDatas\r\n        [NKD.Module.BusinessO");
@@ -29421,7 +29974,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.E_XMLData
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView712()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView724()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_XMLData", "\r\n    SELECT VALUE -- Constructing E_XMLData\r\n        [NKD.Module.BusinessObjects" +
                     ".Store.E_XMLData](T1.[E_XMLData.XMLDataID], T1.[E_XMLData.ParentXMLDataID], T1.[" +
@@ -29449,7 +30002,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.XMLs
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView713()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView725()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.XMLs", @"
     SELECT VALUE -- Constructing XMLs
@@ -29480,7 +30033,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.E_VW_PaymentProviderProductDetails
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView714()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView726()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2339);
             viewString.Append("\r\n    SELECT VALUE -- Constructing E_VW_PaymentProviderProductDetails\r\n        [");
@@ -29519,7 +30072,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.PaymentProviderProductDetailsViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView715()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView727()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2282);
             viewString.Append("\r\n    SELECT VALUE -- Constructing PaymentProviderProductDetailsViews\r\n        [");
@@ -29557,7 +30110,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.X_VW_AssayGroupSample
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView716()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView728()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_VW_AssayGroupSample", @"
     SELECT VALUE -- Constructing X_VW_AssayGroupSample
@@ -29573,7 +30126,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.AssayGroupSampleViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView717()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView729()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.AssayGroupSampleViews", @"
     SELECT VALUE -- Constructing AssayGroupSampleViews
@@ -29589,7 +30142,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.E_VW_ApplicationUserRoles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView718()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView730()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_VW_ApplicationUserRoles", @"
     SELECT VALUE -- Constructing E_VW_ApplicationUserRoles
@@ -29612,7 +30165,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationUserRoles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView719()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView731()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ApplicationUserRoles", @"
     SELECT VALUE -- Constructing ApplicationUserRoles
@@ -29635,7 +30188,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.E_VW_ContactEmails
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView720()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView732()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_VW_ContactEmails", @"
     SELECT VALUE -- Constructing E_VW_ContactEmails
@@ -29652,7 +30205,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ContactEmailsViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView721()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView733()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ContactEmailsViews", @"
     SELECT VALUE -- Constructing ContactEmailsViews
@@ -29669,7 +30222,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.ModuleInfo
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView722()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView734()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.ModuleInfo", @"
     SELECT VALUE -- Constructing ModuleInfo
@@ -29690,7 +30243,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ModuleInfoes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView723()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView735()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ModuleInfoes", @"
     SELECT VALUE -- Constructing ModuleInfoes
@@ -29711,7 +30264,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.ReportData
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView724()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView736()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.ReportData", @"
     SELECT VALUE -- Constructing ReportData
@@ -29733,7 +30286,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ReportDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView725()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView737()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ReportDatas", @"
     SELECT VALUE -- Constructing ReportDatas
@@ -29755,7 +30308,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.T_Dictionary
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView726()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView738()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.T_Dictionary", @"
     SELECT VALUE -- Constructing T_Dictionary
@@ -29782,7 +30335,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.Dictionaries
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView727()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView739()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Dictionaries", @"
     SELECT VALUE -- Constructing Dictionaries
@@ -29809,7 +30362,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.XPObjectType
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView728()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView740()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.XPObjectType", @"
     SELECT VALUE -- Constructing XPObjectType
@@ -29827,7 +30380,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.XPObjectTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView729()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView741()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.XPObjectTypes", @"
     SELECT VALUE -- Constructing XPObjectTypes
@@ -29845,7 +30398,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.E_VW_ApplicationContacts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView730()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView742()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_VW_ApplicationContacts", @"
     SELECT VALUE -- Constructing E_VW_ApplicationContacts
@@ -29863,7 +30416,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.ApplicationContactsViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView731()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView743()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.ApplicationContactsViews", @"
     SELECT VALUE -- Constructing ApplicationContactsViews
@@ -29881,7 +30434,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDModuleBusinessObjectsStoreContainer.E_VW_SupplyItemDetail
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView732()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView744()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(7168);
             viewString.Append("\r\n    SELECT VALUE -- Constructing E_VW_SupplyItemDetail\r\n        [NKD.Module.Bu");
@@ -29980,7 +30533,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for NKDC.SupplyItemDetailViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView733()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView745()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(6847);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SupplyItemDetailViews\r\n        [NKD.Module.Bu");

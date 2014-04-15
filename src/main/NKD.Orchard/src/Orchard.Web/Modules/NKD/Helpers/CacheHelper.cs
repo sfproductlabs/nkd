@@ -4,11 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Threading;
 using System.Web.Caching;
+using NKD.Module.BusinessObjects;
 
 namespace NKD.Helpers
 {
     public static class CacheHelper
     {
+        public enum CacheType {
+            Original,
+            Preview
+        }
+
         private static HttpRuntime _httpRuntime;
 
         public static Cache Cache
@@ -18,6 +24,15 @@ namespace NKD.Helpers
                 EnsureHttpRuntime();
                 return HttpRuntime.Cache;
             }
+        }
+
+        public static FileData AddFileDataToCache(FileData file, string cacheKey = null, CacheType? ct = null, TimeSpan? expiry = null)
+        {
+            if (expiry == null)
+                expiry = CacheHelper.DefaultTimeout;
+            if (string.IsNullOrWhiteSpace(cacheKey))
+                cacheKey = string.Format("{0}-{1}", file.FileDataID, ct);
+            return CacheHelper.AddToCache<FileData>(() => { return file; }, cacheKey, expiry);
         }
 
         public static T AddToCache<T>(this Func<object> toRun, string cacheKey, TimeSpan? expires = null)
