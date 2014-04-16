@@ -48814,12 +48814,12 @@
           <NavigationProperty Name="GraphDataRelation" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated" FromRole="E_GraphData" ToRole="E_GraphDataRelation" />
           <Property Type="String" Name="GraphName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="WorkflowTypeID" />
-          <Property Type="String" Name="GraphData1" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GraphContent" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="CreatedBy" />
           <Property Type="DateTime" Name="Created" Precision="3" />
-          <NavigationProperty Name="E_DictionaryWorkflowType" Relationship="NKD.Module.BusinessObjects.FK_E_GraphData_E_DictionaryWorkflowType" FromRole="GraphData" ToRole="DictionaryWorkflowType" />
-          <NavigationProperty Name="X_Contact" Relationship="NKD.Module.BusinessObjects.FK_E_GraphData_X_ContactCreator" FromRole="GraphData" ToRole="Contact" />
+          <NavigationProperty Name="WorkflowType" Relationship="NKD.Module.BusinessObjects.FK_E_GraphData_E_DictionaryWorkflowType" FromRole="GraphData" ToRole="DictionaryWorkflowType" />
+          <NavigationProperty Name="ContactCreated" Relationship="NKD.Module.BusinessObjects.FK_E_GraphData_X_ContactCreator" FromRole="GraphData" ToRole="Contact" />
         </EntityType>
         <EntityType Name="GraphDataRelation">
           <Key>
@@ -58506,7 +58506,7 @@
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="GraphData1" ColumnName="GraphData" />
+                <ScalarProperty Name="GraphContent" ColumnName="GraphData" />
                 <ScalarProperty Name="WorkflowTypeID" ColumnName="WorkflowTypeID" />
                 <ScalarProperty Name="GraphName" ColumnName="GraphName" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />

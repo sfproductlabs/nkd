@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsC818806D8BE6EE2F8930370E019F82619B4DD5DE16E28158BA5679F87BFE66E3))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsCE4CD3FFD9A306219364BEE7387D5DBB2C50AC72525A6B62F4FB7EF159823698))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySetsC818806D8BE6EE2F8930370E019F82619B4DD5DE16E28158BA5679F87BFE66E3 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySetsCE4CD3FFD9A306219364BEE7387D5DBB2C50AC72525A6B62F4FB7EF159823698 : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySetsC818806D8BE6EE2F8930370E019F82619B4DD5DE16E28158BA5679F87BFE66E3()
+        public ViewsForBaseEntitySetsCE4CD3FFD9A306219364BEE7387D5DBB2C50AC72525A6B62F4FB7EF159823698()
         {
             this.EdmEntityContainerName = "NKDC";
             this.StoreEntityContainerName = "NKDModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "d5f8a5b3162881b3af3488fc8555ab5e73034e22939acce97cb02fb75d3add8b";
-            this.HashOverAllExtentViews = "cfd49ff7b507b1ed931b8acd4b8837b7c81164d2fccc23ce627e40670107a738";
+            this.HashOverMappingClosure = "507853176f5346c27253c9f0c6ab521c24403036762d7abfed96fed3c00a707d";
+            this.HashOverAllExtentViews = "f15885736f59f23c8c7ef6ae4d8060fa9fe720a3cc2ac85b4b1d44f7b9c18188";
             this.ViewCount = 746;
         }
         
@@ -15051,19 +15051,19 @@ namespace Edm_EntityMappingGeneratedViews
                     "], \r\n            T.GraphName AS [E_GraphData.GraphName], \r\n            T.Workflo" +
                     "wTypeID AS [E_GraphData.WorkflowTypeID], \r\n            T.TableType AS [E_GraphDa" +
                     "ta.TableType], \r\n            T.ReferenceID AS [E_GraphData.ReferenceID], \r\n     " +
-                    "       T.GraphData1 AS [E_GraphData.GraphData], \r\n            T.ReferenceName AS" +
-                    " [E_GraphData.ReferenceName], \r\n            T.Comment AS [E_GraphData.Comment], " +
-                    "\r\n            T.CreatedBy AS [E_GraphData.CreatedBy], \r\n            T.Created AS" +
-                    " [E_GraphData.Created], \r\n            T.Version AS [E_GraphData.Version], \r\n    " +
-                    "        T.VersionAntecedentID AS [E_GraphData.VersionAntecedentID], \r\n          " +
-                    "  T.VersionCertainty AS [E_GraphData.VersionCertainty], \r\n            T.VersionW" +
-                    "orkflowInstanceID AS [E_GraphData.VersionWorkflowInstanceID], \r\n            T.Ve" +
-                    "rsionUpdatedBy AS [E_GraphData.VersionUpdatedBy], \r\n            T.VersionDeleted" +
-                    "By AS [E_GraphData.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [" +
-                    "E_GraphData.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [E_" +
-                    "GraphData.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_GraphData" +
-                    ".VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.GraphData AS T" +
-                    "\r\n    ) AS T1");
+                    "       T.GraphContent AS [E_GraphData.GraphData], \r\n            T.ReferenceName " +
+                    "AS [E_GraphData.ReferenceName], \r\n            T.Comment AS [E_GraphData.Comment]" +
+                    ", \r\n            T.CreatedBy AS [E_GraphData.CreatedBy], \r\n            T.Created " +
+                    "AS [E_GraphData.Created], \r\n            T.Version AS [E_GraphData.Version], \r\n  " +
+                    "          T.VersionAntecedentID AS [E_GraphData.VersionAntecedentID], \r\n        " +
+                    "    T.VersionCertainty AS [E_GraphData.VersionCertainty], \r\n            T.Versio" +
+                    "nWorkflowInstanceID AS [E_GraphData.VersionWorkflowInstanceID], \r\n            T." +
+                    "VersionUpdatedBy AS [E_GraphData.VersionUpdatedBy], \r\n            T.VersionDelet" +
+                    "edBy AS [E_GraphData.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS" +
+                    " [E_GraphData.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [" +
+                    "E_GraphData.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_GraphDa" +
+                    "ta.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.GraphData AS" +
+                    " T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -26909,24 +26909,24 @@ namespace Edm_EntityMappingGeneratedViews
                     "tecedentID, T1.GraphData_VersionCertainty, T1.GraphData_VersionWorkflowInstanceI" +
                     "D, T1.GraphData_VersionUpdatedBy, T1.GraphData_VersionDeletedBy, T1.GraphData_Ve" +
                     "rsionOwnerContactID, T1.GraphData_VersionOwnerCompanyID, T1.GraphData_VersionUpd" +
-                    "ated, T1.GraphData_GraphName, T1.GraphData_WorkflowTypeID, T1.GraphData_GraphDat" +
-                    "a1, T1.GraphData_Comment, T1.GraphData_CreatedBy, T1.GraphData_Created)\r\n    FRO" +
-                    "M (\r\n        SELECT \r\n            T.GraphDataID AS GraphData_GraphDataID, \r\n    " +
-                    "        T.TableType AS GraphData_TableType, \r\n            T.ReferenceID AS Graph" +
-                    "Data_ReferenceID, \r\n            T.ReferenceName AS GraphData_ReferenceName, \r\n  " +
-                    "          T.Version AS GraphData_Version, \r\n            T.VersionAntecedentID AS" +
-                    " GraphData_VersionAntecedentID, \r\n            T.VersionCertainty AS GraphData_Ve" +
-                    "rsionCertainty, \r\n            T.VersionWorkflowInstanceID AS GraphData_VersionWo" +
-                    "rkflowInstanceID, \r\n            T.VersionUpdatedBy AS GraphData_VersionUpdatedBy" +
-                    ", \r\n            T.VersionDeletedBy AS GraphData_VersionDeletedBy, \r\n            " +
-                    "T.VersionOwnerContactID AS GraphData_VersionOwnerContactID, \r\n            T.Vers" +
-                    "ionOwnerCompanyID AS GraphData_VersionOwnerCompanyID, \r\n            T.VersionUpd" +
-                    "ated AS GraphData_VersionUpdated, \r\n            T.GraphName AS GraphData_GraphNa" +
-                    "me, \r\n            T.WorkflowTypeID AS GraphData_WorkflowTypeID, \r\n            T." +
-                    "GraphData AS GraphData_GraphData1, \r\n            T.Comment AS GraphData_Comment," +
-                    " \r\n            T.CreatedBy AS GraphData_CreatedBy, \r\n            T.Created AS Gr" +
-                    "aphData_Created, \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObj" +
-                    "ectsStoreContainer.E_GraphData AS T\r\n    ) AS T1");
+                    "ated, T1.GraphData_GraphName, T1.GraphData_WorkflowTypeID, T1.GraphData_GraphCon" +
+                    "tent, T1.GraphData_Comment, T1.GraphData_CreatedBy, T1.GraphData_Created)\r\n    F" +
+                    "ROM (\r\n        SELECT \r\n            T.GraphDataID AS GraphData_GraphDataID, \r\n  " +
+                    "          T.TableType AS GraphData_TableType, \r\n            T.ReferenceID AS Gra" +
+                    "phData_ReferenceID, \r\n            T.ReferenceName AS GraphData_ReferenceName, \r\n" +
+                    "            T.Version AS GraphData_Version, \r\n            T.VersionAntecedentID " +
+                    "AS GraphData_VersionAntecedentID, \r\n            T.VersionCertainty AS GraphData_" +
+                    "VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS GraphData_Version" +
+                    "WorkflowInstanceID, \r\n            T.VersionUpdatedBy AS GraphData_VersionUpdated" +
+                    "By, \r\n            T.VersionDeletedBy AS GraphData_VersionDeletedBy, \r\n          " +
+                    "  T.VersionOwnerContactID AS GraphData_VersionOwnerContactID, \r\n            T.Ve" +
+                    "rsionOwnerCompanyID AS GraphData_VersionOwnerCompanyID, \r\n            T.VersionU" +
+                    "pdated AS GraphData_VersionUpdated, \r\n            T.GraphName AS GraphData_Graph" +
+                    "Name, \r\n            T.WorkflowTypeID AS GraphData_WorkflowTypeID, \r\n            " +
+                    "T.GraphData AS GraphData_GraphContent, \r\n            T.Comment AS GraphData_Comm" +
+                    "ent, \r\n            T.CreatedBy AS GraphData_CreatedBy, \r\n            T.Created A" +
+                    "S GraphData_Created, \r\n            True AS _from0\r\n        FROM NKDModuleBusines" +
+                    "sObjectsStoreContainer.E_GraphData AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
