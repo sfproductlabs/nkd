@@ -34,6 +34,7 @@
           <EntitySet Name="E_ContactCreditCard" EntityType="NKD.Module.BusinessObjects.Store.E_ContactCreditCard" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_Credit" EntityType="NKD.Module.BusinessObjects.Store.E_Credit" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_Currency" EntityType="NKD.Module.BusinessObjects.Store.E_Currency" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="E_DataData" EntityType="NKD.Module.BusinessObjects.Store.E_DataData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_DictionaryAccountType" EntityType="NKD.Module.BusinessObjects.Store.E_DictionaryAccountType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_DictionaryAddressType" EntityType="NKD.Module.BusinessObjects.Store.E_DictionaryAddressType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_DictionaryAffiliateType" EntityType="NKD.Module.BusinessObjects.Store.E_DictionaryAffiliateType" store:Type="Tables" Schema="dbo" />
@@ -45,6 +46,7 @@
           <EntitySet Name="E_DictionaryWorkflowType" EntityType="NKD.Module.BusinessObjects.Store.E_DictionaryWorkflowType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_Download" EntityType="NKD.Module.BusinessObjects.Store.E_Download" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_GraphData" EntityType="NKD.Module.BusinessObjects.Store.E_GraphData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="E_GraphDataContext" EntityType="NKD.Module.BusinessObjects.Store.E_GraphDataContext" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_GraphDataRelation" EntityType="NKD.Module.BusinessObjects.Store.E_GraphDataRelation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_Invoice" EntityType="NKD.Module.BusinessObjects.Store.E_Invoice" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_InvoiceLine" EntityType="NKD.Module.BusinessObjects.Store.E_InvoiceLine" store:Type="Tables" Schema="dbo" />
@@ -1188,6 +1190,10 @@
             <End Role="X_DictionaryCountry" EntitySet="X_DictionaryCountry" />
             <End Role="E_Currency" EntitySet="E_Currency" />
           </AssociationSet>
+          <AssociationSet Name="FK_E_DataData_X_Contact" Association="NKD.Module.BusinessObjects.Store.FK_E_DataData_X_Contact">
+            <End Role="X_Contact" EntitySet="X_Contact" />
+            <End Role="E_DataData" EntitySet="E_DataData" />
+          </AssociationSet>
           <AssociationSet Name="FK_E_DictionaryAddressType_X_FileData" Association="NKD.Module.BusinessObjects.Store.FK_E_DictionaryAddressType_X_FileData">
             <End Role="X_FileData" EntitySet="X_FileData" />
             <End Role="E_DictionaryAddressType" EntitySet="E_DictionaryAddressType" />
@@ -1259,6 +1265,14 @@
           <AssociationSet Name="FK_E_GraphData_X_ContactCreator" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphData_X_ContactCreator">
             <End Role="X_Contact" EntitySet="X_Contact" />
             <End Role="E_GraphData" EntitySet="E_GraphData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataContext_E_GraphData" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataContext_E_GraphData">
+            <End Role="E_GraphData" EntitySet="E_GraphData" />
+            <End Role="E_GraphDataContext" EntitySet="E_GraphDataContext" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataContext_X_Experience" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataContext_X_Experience">
+            <End Role="X_Experience" EntitySet="X_Experience" />
+            <End Role="E_GraphDataContext" EntitySet="E_GraphDataContext" />
           </AssociationSet>
           <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataOriginal" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataRelation_E_GraphDataOriginal">
             <End Role="E_GraphData" EntitySet="E_GraphData" />
@@ -2780,8 +2794,28 @@
             <End Role="X_DictionaryUnit" EntitySet="X_DictionaryUnit" />
             <End Role="X_CostEstimateModel" EntitySet="X_CostEstimateModel" />
           </AssociationSet>
+          <AssociationSet Name="FK_X_Defect_X_DictionaryDefectCompleteness" Association="NKD.Module.BusinessObjects.Store.FK_X_Defect_X_DictionaryDefectCompleteness">
+            <End Role="X_DictionaryDefectCompleteness" EntitySet="X_DictionaryDefectCompleteness" />
+            <End Role="X_Defect" EntitySet="X_Defect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Defect_X_DictionaryDefectContinuity" Association="NKD.Module.BusinessObjects.Store.FK_X_Defect_X_DictionaryDefectContinuity">
+            <End Role="X_DictionaryDefectContinuity" EntitySet="X_DictionaryDefectContinuity" />
+            <End Role="X_Defect" EntitySet="X_Defect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Defect_X_DictionaryDefectSpacing" Association="NKD.Module.BusinessObjects.Store.FK_X_Defect_X_DictionaryDefectSpacing">
+            <End Role="X_DictionaryDefectSpacing" EntitySet="X_DictionaryDefectSpacing" />
+            <End Role="X_Defect" EntitySet="X_Defect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Defect_X_DictionaryDefectType" Association="NKD.Module.BusinessObjects.Store.FK_X_Defect_X_DictionaryDefectType">
+            <End Role="X_DictionaryDefectType" EntitySet="X_DictionaryDefectType" />
+            <End Role="X_Defect" EntitySet="X_Defect" />
+          </AssociationSet>
           <AssociationSet Name="FK_X_Defect_X_DictionaryRockMassUnitType" Association="NKD.Module.BusinessObjects.Store.FK_X_Defect_X_DictionaryRockMassUnitType">
             <End Role="X_DictionaryRockMassUnitType" EntitySet="X_DictionaryRockMassUnitType" />
+            <End Role="X_Defect" EntitySet="X_Defect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Defect_X_Header" Association="NKD.Module.BusinessObjects.Store.FK_X_Defect_X_Header">
+            <End Role="X_Header" EntitySet="X_Header" />
             <End Role="X_Defect" EntitySet="X_Defect" />
           </AssociationSet>
           <AssociationSet Name="FK_X_DefectData_X_DictionaryAlteration" Association="NKD.Module.BusinessObjects.Store.FK_X_DefectData_X_DictionaryAlteration">
@@ -4869,6 +4903,28 @@
           <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
           <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
+        <EntityType Name="E_DataData">
+          <Key>
+            <PropertyRef Name="DataDataID" />
+          </Key>
+          <Property Name="DataDataID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentTableType" Type="nvarchar" MaxLength="255" />
+          <Property Name="ParentReferenceID" Type="uniqueidentifier" />
+          <Property Name="ChildTableType" Type="nvarchar" MaxLength="255" />
+          <Property Name="ChildReferenceID" Type="uniqueidentifier" />
+          <Property Name="IsCircular" Type="bit" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
         <EntityType Name="E_DictionaryAccountType">
           <Key>
             <PropertyRef Name="AccountTypeID" />
@@ -5101,6 +5157,23 @@
           <Property Name="Comment" Type="nvarchar" MaxLength="255" />
           <Property Name="CreatedBy" Type="uniqueidentifier" />
           <Property Name="Created" Type="datetime" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="E_GraphDataContext">
+          <Key>
+            <PropertyRef Name="GraphDataContextID" />
+          </Key>
+          <Property Name="GraphDataContextID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GraphDataID" Type="uniqueidentifier" />
+          <Property Name="ExperienceID" Type="uniqueidentifier" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
           <Property Name="VersionCertainty" Type="int" />
@@ -13543,6 +13616,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_E_DataData_X_Contact">
+          <End Role="X_Contact" Type="NKD.Module.BusinessObjects.Store.X_Contact" Multiplicity="0..1" />
+          <End Role="E_DataData" Type="NKD.Module.BusinessObjects.Store.E_DataData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Contact">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="E_DataData">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_E_DictionaryAddressType_X_FileData">
           <End Role="X_FileData" Type="NKD.Module.BusinessObjects.Store.X_FileData" Multiplicity="0..1" />
           <End Role="E_DictionaryAddressType" Type="NKD.Module.BusinessObjects.Store.E_DictionaryAddressType" Multiplicity="*" />
@@ -13756,6 +13841,30 @@
             </Principal>
             <Dependent Role="E_GraphData">
               <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataContext_E_GraphData">
+          <End Role="E_GraphData" Type="NKD.Module.BusinessObjects.Store.E_GraphData" Multiplicity="0..1" />
+          <End Role="E_GraphDataContext" Type="NKD.Module.BusinessObjects.Store.E_GraphDataContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_GraphData">
+              <PropertyRef Name="GraphDataID" />
+            </Principal>
+            <Dependent Role="E_GraphDataContext">
+              <PropertyRef Name="GraphDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataContext_X_Experience">
+          <End Role="X_Experience" Type="NKD.Module.BusinessObjects.Store.X_Experience" Multiplicity="0..1" />
+          <End Role="E_GraphDataContext" Type="NKD.Module.BusinessObjects.Store.E_GraphDataContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Experience">
+              <PropertyRef Name="ExperienceID" />
+            </Principal>
+            <Dependent Role="E_GraphDataContext">
+              <PropertyRef Name="ExperienceID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -18319,6 +18428,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_X_Defect_X_DictionaryDefectCompleteness">
+          <End Role="X_DictionaryDefectCompleteness" Type="NKD.Module.BusinessObjects.Store.X_DictionaryDefectCompleteness" Multiplicity="0..1" />
+          <End Role="X_Defect" Type="NKD.Module.BusinessObjects.Store.X_Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryDefectCompleteness">
+              <PropertyRef Name="DefectCompletenessID" />
+            </Principal>
+            <Dependent Role="X_Defect">
+              <PropertyRef Name="DefectCompletenessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Defect_X_DictionaryDefectContinuity">
+          <End Role="X_DictionaryDefectContinuity" Type="NKD.Module.BusinessObjects.Store.X_DictionaryDefectContinuity" Multiplicity="0..1" />
+          <End Role="X_Defect" Type="NKD.Module.BusinessObjects.Store.X_Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryDefectContinuity">
+              <PropertyRef Name="DefectContinuityID" />
+            </Principal>
+            <Dependent Role="X_Defect">
+              <PropertyRef Name="DefectContinuityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Defect_X_DictionaryDefectSpacing">
+          <End Role="X_DictionaryDefectSpacing" Type="NKD.Module.BusinessObjects.Store.X_DictionaryDefectSpacing" Multiplicity="0..1" />
+          <End Role="X_Defect" Type="NKD.Module.BusinessObjects.Store.X_Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryDefectSpacing">
+              <PropertyRef Name="DefectSpacingID" />
+            </Principal>
+            <Dependent Role="X_Defect">
+              <PropertyRef Name="BedSpacingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Defect_X_DictionaryDefectType">
+          <End Role="X_DictionaryDefectType" Type="NKD.Module.BusinessObjects.Store.X_DictionaryDefectType" Multiplicity="0..1" />
+          <End Role="X_Defect" Type="NKD.Module.BusinessObjects.Store.X_Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryDefectType">
+              <PropertyRef Name="DefectTypeID" />
+            </Principal>
+            <Dependent Role="X_Defect">
+              <PropertyRef Name="DefectTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_X_Defect_X_DictionaryRockMassUnitType">
           <End Role="X_DictionaryRockMassUnitType" Type="NKD.Module.BusinessObjects.Store.X_DictionaryRockMassUnitType" Multiplicity="0..1" />
           <End Role="X_Defect" Type="NKD.Module.BusinessObjects.Store.X_Defect" Multiplicity="*" />
@@ -18328,6 +18485,18 @@
             </Principal>
             <Dependent Role="X_Defect">
               <PropertyRef Name="RockMassUnitTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Defect_X_Header">
+          <End Role="X_Header" Type="NKD.Module.BusinessObjects.Store.X_Header" Multiplicity="1" />
+          <End Role="X_Defect" Type="NKD.Module.BusinessObjects.Store.X_Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Header">
+              <PropertyRef Name="HeaderID" />
+            </Principal>
+            <Dependent Role="X_Defect">
+              <PropertyRef Name="HeaderID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -24022,15 +24191,6 @@
           <Parameter Name="instanceId" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="handleInstanceVersion" Type="bigint" Mode="In" />
         </Function>
-        <!--Errors Found During Generation:
-      warning 6013: The table/view 'NKD.dbo.T_Secured' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="T_Secured">
-        <Property Name="pid" Type="uniqueidentifier" />
-        <Property Name="OwnerContactID" Type="uniqueidentifier" />
-        <Property Name="OwnerCompanyID" Type="uniqueidentifier" />
-        <Property Name="Updated" Type="datetime" />
-      </EntityType>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -28571,30 +28731,30 @@
           <FunctionImport Name="E_SP_SearchGraphKruskalSpanningTree" />
           <FunctionImport Name="E_SP_SearchGraphPrimSpanningTree" />
           <FunctionImport Name="E_SP_SearchGraphTopologicalSort" />
-          <EntitySet Name="E_DictionaryLinestringType" EntityType="NKD.Module.BusinessObjects.E_DictionaryLinestringType" />
-          <EntitySet Name="E_DictionaryProjectType" EntityType="NKD.Module.BusinessObjects.E_DictionaryProjectType" />
-          <EntitySet Name="E_Linestring" EntityType="NKD.Module.BusinessObjects.E_Linestring" />
-          <EntitySet Name="E_ProjectOffer" EntityType="NKD.Module.BusinessObjects.E_ProjectOffer" />
-          <EntitySet Name="E_ProjectPledge" EntityType="NKD.Module.BusinessObjects.E_ProjectPledge" />
-          <EntitySet Name="E_ProjectPledgeAddendum" EntityType="NKD.Module.BusinessObjects.E_ProjectPledgeAddendum" />
+          <EntitySet Name="DictionaryLinestringTypes" EntityType="NKD.Module.BusinessObjects.DictionaryLinestringType" />
+          <EntitySet Name="DictionaryProjectTypes" EntityType="NKD.Module.BusinessObjects.DictionaryProjectType" />
+          <EntitySet Name="Linestrings" EntityType="NKD.Module.BusinessObjects.Linestring" />
+          <EntitySet Name="ProjectOffers" EntityType="NKD.Module.BusinessObjects.ProjectOffer" />
+          <EntitySet Name="ProjectPledges" EntityType="NKD.Module.BusinessObjects.ProjectPledge" />
+          <EntitySet Name="ProjectPledgeAddendums" EntityType="NKD.Module.BusinessObjects.ProjectPledgeAddendum" />
           <AssociationSet Name="FK_E_ProjectPledge_E_Currency" Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_Currency">
             <End Role="Currency" EntitySet="Currencies" />
-            <End Role="E_ProjectPledge" EntitySet="E_ProjectPledge" />
+            <End Role="E_ProjectPledge" EntitySet="ProjectPledges" />
           </AssociationSet>
           <AssociationSet Name="FK_E_E_DictionaryLinestringType_X_FileData_OriginalFile" Association="NKD.Module.BusinessObjects.FK_E_E_DictionaryLinestringType_X_FileData_OriginalFile">
             <End Role="FileData" EntitySet="FileDatas" />
-            <End Role="E_DictionaryLinestringType" EntitySet="E_DictionaryLinestringType" />
+            <End Role="E_DictionaryLinestringType" EntitySet="DictionaryLinestringTypes" />
           </AssociationSet>
           <AssociationSet Name="FK_E_Linestring_E_DictionaryLinestringType" Association="NKD.Module.BusinessObjects.FK_E_Linestring_E_DictionaryLinestringType">
-            <End Role="E_DictionaryLinestringType" EntitySet="E_DictionaryLinestringType" />
-            <End Role="E_Linestring" EntitySet="E_Linestring" />
+            <End Role="E_DictionaryLinestringType" EntitySet="DictionaryLinestringTypes" />
+            <End Role="E_Linestring" EntitySet="Linestrings" />
           </AssociationSet>
           <AssociationSet Name="FK_E_E_DictionaryProjectType_X_FileData_OriginalFile" Association="NKD.Module.BusinessObjects.FK_E_E_DictionaryProjectType_X_FileData_OriginalFile">
             <End Role="FileData" EntitySet="FileDatas" />
-            <End Role="E_DictionaryProjectType" EntitySet="E_DictionaryProjectType" />
+            <End Role="E_DictionaryProjectType" EntitySet="DictionaryProjectTypes" />
           </AssociationSet>
           <AssociationSet Name="FK_X_Project_E_DictionaryProjectType" Association="NKD.Module.BusinessObjects.FK_X_Project_E_DictionaryProjectType">
-            <End Role="E_DictionaryProjectType" EntitySet="E_DictionaryProjectType" />
+            <End Role="E_DictionaryProjectType" EntitySet="DictionaryProjectTypes" />
             <End Role="Project" EntitySet="Projects" />
           </AssociationSet>
           <AssociationSet Name="FK_E_GraphData_E_DictionaryWorkflowType" Association="NKD.Module.BusinessObjects.FK_E_GraphData_E_DictionaryWorkflowType">
@@ -28607,59 +28767,59 @@
           </AssociationSet>
           <AssociationSet Name="FK_E_Linestring_X_Company" Association="NKD.Module.BusinessObjects.FK_E_Linestring_X_Company">
             <End Role="Company" EntitySet="Companies" />
-            <End Role="E_Linestring" EntitySet="E_Linestring" />
+            <End Role="E_Linestring" EntitySet="Linestrings" />
           </AssociationSet>
           <AssociationSet Name="FK_E_Linestring_X_ContactResponsible" Association="NKD.Module.BusinessObjects.FK_E_Linestring_X_ContactResponsible">
             <End Role="Contact" EntitySet="Contacts" />
-            <End Role="E_Linestring" EntitySet="E_Linestring" />
+            <End Role="E_Linestring" EntitySet="Linestrings" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectOffer_X_Contact" Association="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact">
             <End Role="Contact" EntitySet="Contacts" />
-            <End Role="E_ProjectOffer" EntitySet="E_ProjectOffer" />
+            <End Role="E_ProjectOffer" EntitySet="ProjectOffers" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectOffer_X_Contact1" Association="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact1">
             <End Role="Contact" EntitySet="Contacts" />
-            <End Role="E_ProjectOffer" EntitySet="E_ProjectOffer" />
+            <End Role="E_ProjectOffer" EntitySet="ProjectOffers" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectOffer_X_Project" Association="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Project">
             <End Role="Project" EntitySet="Projects" />
-            <End Role="E_ProjectOffer" EntitySet="E_ProjectOffer" />
+            <End Role="E_ProjectOffer" EntitySet="ProjectOffers" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectPledge_E_ProjectOffer" Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectOffer">
-            <End Role="E_ProjectOffer" EntitySet="E_ProjectOffer" />
-            <End Role="E_ProjectPledge" EntitySet="E_ProjectPledge" />
+            <End Role="E_ProjectOffer" EntitySet="ProjectOffers" />
+            <End Role="E_ProjectPledge" EntitySet="ProjectPledges" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectPledge_E_ProjectPledge" Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectPledge">
-            <End Role="E_ProjectPledge" EntitySet="E_ProjectPledge" />
-            <End Role="E_ProjectPledge1" EntitySet="E_ProjectPledge" />
+            <End Role="E_ProjectPledge" EntitySet="ProjectPledges" />
+            <End Role="E_ProjectPledge1" EntitySet="ProjectPledges" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectPledge_X_Contact" Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact">
             <End Role="Contact" EntitySet="Contacts" />
-            <End Role="E_ProjectPledge" EntitySet="E_ProjectPledge" />
+            <End Role="E_ProjectPledge" EntitySet="ProjectPledges" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectPledge_X_Contact1" Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact1">
             <End Role="Contact" EntitySet="Contacts" />
-            <End Role="E_ProjectPledge" EntitySet="E_ProjectPledge" />
+            <End Role="E_ProjectPledge" EntitySet="ProjectPledges" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectPledge_X_ContactOverseer" Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_ContactOverseer">
             <End Role="Contact" EntitySet="Contacts" />
-            <End Role="E_ProjectPledge" EntitySet="E_ProjectPledge" />
+            <End Role="E_ProjectPledge" EntitySet="ProjectPledges" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectPledge_X_Project" Association="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Project">
             <End Role="Project" EntitySet="Projects" />
-            <End Role="E_ProjectPledge" EntitySet="E_ProjectPledge" />
+            <End Role="E_ProjectPledge" EntitySet="ProjectPledges" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectPledgeAddendum_E_ProjectPledge" Association="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_E_ProjectPledge">
-            <End Role="E_ProjectPledge" EntitySet="E_ProjectPledge" />
-            <End Role="E_ProjectPledgeAddendum" EntitySet="E_ProjectPledgeAddendum" />
+            <End Role="E_ProjectPledge" EntitySet="ProjectPledges" />
+            <End Role="E_ProjectPledgeAddendum" EntitySet="ProjectPledgeAddendums" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectPledgeAddendum_X_Contact" Association="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_Contact">
             <End Role="Contact" EntitySet="Contacts" />
-            <End Role="E_ProjectPledgeAddendum" EntitySet="E_ProjectPledgeAddendum" />
+            <End Role="E_ProjectPledgeAddendum" EntitySet="ProjectPledgeAddendums" />
           </AssociationSet>
           <AssociationSet Name="FK_E_ProjectPledgeAddendum_X_ContactReviewer" Association="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_ContactReviewer">
             <End Role="Contact" EntitySet="Contacts" />
-            <End Role="E_ProjectPledgeAddendum" EntitySet="E_ProjectPledgeAddendum" />
+            <End Role="E_ProjectPledgeAddendum" EntitySet="ProjectPledgeAddendums" />
           </AssociationSet>
           <FunctionImport Name="E_SP_GetSecuredSearch" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetSecuredSearch_Result)">
             <Parameter Name="text" Mode="In" Type="String" />
@@ -28692,6 +28852,40 @@
             <Parameter Name="headerid" Mode="In" Type="Guid" />
             <Parameter Name="records_max" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="GraphDataContexts" EntityType="NKD.Module.BusinessObjects.GraphDataContext" />
+          <AssociationSet Name="FK_E_GraphDataContext_E_GraphData" Association="NKD.Module.BusinessObjects.FK_E_GraphDataContext_E_GraphData">
+            <End Role="GraphData" EntitySet="GraphData" />
+            <End Role="E_GraphDataContext" EntitySet="GraphDataContexts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataContext_X_Experience" Association="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_Experience">
+            <End Role="Experience" EntitySet="Experiences" />
+            <End Role="E_GraphDataContext" EntitySet="GraphDataContexts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Defect_X_DictionaryDefectCompleteness" Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectCompleteness">
+            <End Role="DictionaryDefectCompleteness" EntitySet="DictionaryDefectCompletenesses" />
+            <End Role="Defect" EntitySet="Defects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Defect_X_DictionaryDefectContinuity" Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectContinuity">
+            <End Role="DictionaryDefectContinuity" EntitySet="DictionaryDefectContinuities" />
+            <End Role="Defect" EntitySet="Defects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Defect_X_DictionaryDefectSpacing" Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectSpacing">
+            <End Role="DictionaryDefectSpacing" EntitySet="DictionaryDefectSpacings" />
+            <End Role="Defect" EntitySet="Defects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Defect_X_DictionaryDefectType" Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectType">
+            <End Role="DictionaryDefectType" EntitySet="DictionaryDefectTypes" />
+            <End Role="Defect" EntitySet="Defects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Defect_X_Header" Association="NKD.Module.BusinessObjects.FK_X_Defect_X_Header">
+            <End Role="Header" EntitySet="Headers" />
+            <End Role="Defect" EntitySet="Defects" />
+          </AssociationSet>
+          <EntitySet Name="E_DataData" EntityType="NKD.Module.BusinessObjects.E_DataData" />
+          <AssociationSet Name="FK_E_DataData_X_Contact" Association="NKD.Module.BusinessObjects.FK_E_DataData_X_Contact">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="E_DataData" EntitySet="E_DataData" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -30890,7 +31084,7 @@
           <NavigationProperty Name="Communication1" Relationship="NKD.Module.BusinessObjects.FK_X_Communication_X_Company1" FromRole="Company" ToRole="X_Communication" />
           <NavigationProperty Name="FileData" Relationship="NKD.Module.BusinessObjects.FK_X_Company_X_FileData" FromRole="Company" ToRole="FileData" />
           <NavigationProperty Name="Q_Asset" Relationship="NKD.Module.BusinessObjects.FK_Q_Asset_X_Company" FromRole="Company" ToRole="Asset" />
-          <NavigationProperty Name="E_Linestring" Relationship="NKD.Module.BusinessObjects.FK_E_Linestring_X_Company" FromRole="Company" ToRole="E_Linestring" />
+          <NavigationProperty Name="Linestring" Relationship="NKD.Module.BusinessObjects.FK_E_Linestring_X_Company" FromRole="Company" ToRole="E_Linestring" />
         </EntityType>
         <EntityType Name="CompanyAddress">
           <Key>
@@ -31133,15 +31327,16 @@
           <Property Type="DateTime" Name="DefaultEmailValidated" Precision="3" />
           <Property Type="DateTime" Name="DefaultMobileValidated" Precision="3" />
           <NavigationProperty Name="CommunicationEmails" Relationship="NKD.Module.BusinessObjects.FK_E_CommunicationEmail_X_Contact" FromRole="Contact" ToRole="CommunicationEmails" />
-          <NavigationProperty Name="E_GraphData" Relationship="NKD.Module.BusinessObjects.FK_E_GraphData_X_ContactCreator" FromRole="Contact" ToRole="GraphData" />
-          <NavigationProperty Name="E_Linestring" Relationship="NKD.Module.BusinessObjects.FK_E_Linestring_X_ContactResponsible" FromRole="Contact" ToRole="E_Linestring" />
-          <NavigationProperty Name="E_ProjectOffer" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact" FromRole="Contact" ToRole="E_ProjectOffer" />
-          <NavigationProperty Name="E_ProjectOffer1" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact1" FromRole="Contact" ToRole="E_ProjectOffer" />
-          <NavigationProperty Name="E_ProjectPledge" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact" FromRole="Contact" ToRole="E_ProjectPledge" />
-          <NavigationProperty Name="E_ProjectPledge1" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact1" FromRole="Contact" ToRole="E_ProjectPledge" />
-          <NavigationProperty Name="E_ProjectPledge2" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_ContactOverseer" FromRole="Contact" ToRole="E_ProjectPledge" />
-          <NavigationProperty Name="E_ProjectPledgeAddendum" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_Contact" FromRole="Contact" ToRole="E_ProjectPledgeAddendum" />
-          <NavigationProperty Name="E_ProjectPledgeAddendum1" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_ContactReviewer" FromRole="Contact" ToRole="E_ProjectPledgeAddendum" />
+          <NavigationProperty Name="GraphData" Relationship="NKD.Module.BusinessObjects.FK_E_GraphData_X_ContactCreator" FromRole="Contact" ToRole="GraphData" />
+          <NavigationProperty Name="Linestring" Relationship="NKD.Module.BusinessObjects.FK_E_Linestring_X_ContactResponsible" FromRole="Contact" ToRole="E_Linestring" />
+          <NavigationProperty Name="ProjectOffer" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact" FromRole="Contact" ToRole="E_ProjectOffer" />
+          <NavigationProperty Name="ProjectOfferApproved" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact1" FromRole="Contact" ToRole="E_ProjectOffer" />
+          <NavigationProperty Name="ProjectPledge" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact" FromRole="Contact" ToRole="E_ProjectPledge" />
+          <NavigationProperty Name="ProjectPledgeApproved" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact1" FromRole="Contact" ToRole="E_ProjectPledge" />
+          <NavigationProperty Name="ProjectPledgeOverseen" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_ContactOverseer" FromRole="Contact" ToRole="E_ProjectPledge" />
+          <NavigationProperty Name="ProjectPledgeAddendum" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_Contact" FromRole="Contact" ToRole="E_ProjectPledgeAddendum" />
+          <NavigationProperty Name="ProjectPledgeAddendumApproved" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_ContactReviewer" FromRole="Contact" ToRole="E_ProjectPledgeAddendum" />
+          <NavigationProperty Name="E_DataData" Relationship="NKD.Module.BusinessObjects.FK_E_DataData_X_Contact" FromRole="Contact" ToRole="E_DataData" />
         </EntityType>
         <EntityType Name="ContactAddress">
           <Key>
@@ -31394,6 +31589,11 @@
           <NavigationProperty Name="Shape" Relationship="NKD.Module.BusinessObjects.FK_X_DefectData_X_DictionaryShape" FromRole="X_Defect" ToRole="X_DictionaryShape" />
           <NavigationProperty Name="Weathering" Relationship="NKD.Module.BusinessObjects.FK_X_DefectData_X_DictionaryWeathering" FromRole="X_Defect" ToRole="X_DictionaryWeathering" />
           <NavigationProperty Name="Interpretation" Relationship="NKD.Module.BusinessObjects.FK_X_DesurveyResult_X_Defect" FromRole="X_Defect" ToRole="X_Interpretation" />
+          <NavigationProperty Name="X_DictionaryDefectCompleteness" Relationship="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectCompleteness" FromRole="Defect" ToRole="DictionaryDefectCompleteness" />
+          <NavigationProperty Name="X_DictionaryDefectContinuity" Relationship="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectContinuity" FromRole="Defect" ToRole="DictionaryDefectContinuity" />
+          <NavigationProperty Name="X_DictionaryDefectSpacing" Relationship="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectSpacing" FromRole="Defect" ToRole="DictionaryDefectSpacing" />
+          <NavigationProperty Name="X_DictionaryDefectType" Relationship="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectType" FromRole="Defect" ToRole="DictionaryDefectType" />
+          <NavigationProperty Name="X_Header" Relationship="NKD.Module.BusinessObjects.FK_X_Defect_X_Header" FromRole="Defect" ToRole="Header" />
         </EntityType>
         <EntityType Name="Desurvey">
           <Key>
@@ -31904,6 +32104,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="X_Defect" Relationship="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectCompleteness" FromRole="DictionaryDefectCompleteness" ToRole="Defect" />
         </EntityType>
         <EntityType Name="DictionaryDefectContinuity">
           <Key>
@@ -31928,6 +32129,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="X_Defect" Relationship="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectContinuity" FromRole="DictionaryDefectContinuity" ToRole="Defect" />
         </EntityType>
         <EntityType Name="DictionaryDefectSpacing">
           <Key>
@@ -31953,6 +32155,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="X_Defect" Relationship="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectSpacing" FromRole="DictionaryDefectSpacing" ToRole="Defect" />
         </EntityType>
         <EntityType Name="DictionaryDefectType">
           <Key>
@@ -31978,6 +32181,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="X_Defect" Relationship="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectType" FromRole="DictionaryDefectType" ToRole="Defect" />
         </EntityType>
         <EntityType Name="DictionaryDesurveyAlgorithmType">
           <Key>
@@ -33921,9 +34125,9 @@
           <NavigationProperty Name="ProjectPlanTaskResponse" Relationship="NKD.Module.BusinessObjects.FK_X_ProjectPlanTaskResponse_X_DictionaryWorkType" FromRole="X_DictionaryWorkType" ToRole="X_ProjectPlanTaskResponse" />
           <NavigationProperty Name="FileData" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryWorkType_X_FileData_OriginalFile" FromRole="X_DictionaryWorkType" ToRole="X_FileData" />
           <NavigationProperty Name="FileDataWorkTypes" Relationship="NKD.Module.BusinessObjects.FK_X_FileDataWorkType_X_DictionaryWorkType" FromRole="DictionaryWorkType" ToRole="X_FileDataWorkType" />
-          <NavigationProperty Name="Communication" Relationship="NKD.Module.BusinessObjects.FK_X_Communication_X_DictionaryWorkType" FromRole="DictionaryWorkType" ToRole="X_Communication" />
-          <NavigationProperty Name="Communication1" Relationship="NKD.Module.BusinessObjects.FK_X_Communication_X_DictionaryWorkType1" FromRole="DictionaryWorkType" ToRole="X_Communication" />
-          <NavigationProperty Name="X_DictionaryWorkTypeClass" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass" FromRole="DictionaryWorkType" ToRole="DictionaryWorkTypeClass" />
+          <NavigationProperty Name="CommunicationStatus" Relationship="NKD.Module.BusinessObjects.FK_X_Communication_X_DictionaryWorkType" FromRole="DictionaryWorkType" ToRole="X_Communication" />
+          <NavigationProperty Name="CommunicationRegarding" Relationship="NKD.Module.BusinessObjects.FK_X_Communication_X_DictionaryWorkType1" FromRole="DictionaryWorkType" ToRole="X_Communication" />
+          <NavigationProperty Name="DictionaryWorkTypeClass" Relationship="NKD.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryWorkTypeClass" FromRole="DictionaryWorkType" ToRole="DictionaryWorkTypeClass" />
         </EntityType>
         <EntityType Name="DictionaryWorkTypeClass">
           <Key>
@@ -34069,6 +34273,7 @@
           <NavigationProperty Name="ProjectPlanTaskWorker" Relationship="NKD.Module.BusinessObjects.FK_X_ProjectPlanTaskWorker_X_Worker" FromRole="X_Experience" ToRole="X_ProjectPlanTaskWorker" />
           <NavigationProperty Name="Task" Relationship="NKD.Module.BusinessObjects.FK_X_Task_X_Experience" FromRole="X_Experience" ToRole="X_Task" />
           <NavigationProperty Name="Communication" Relationship="NKD.Module.BusinessObjects.FK_X_Communication_X_Experience" FromRole="Experience" ToRole="X_Communication" />
+          <NavigationProperty Name="GraphDataContext" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_Experience" FromRole="Experience" ToRole="E_GraphDataContext" />
         </EntityType>
         <EntityType Name="FileData">
           <Key>
@@ -34400,6 +34605,7 @@
           <NavigationProperty Name="Survey" Relationship="NKD.Module.BusinessObjects.FK_X_Survey_X_Header" FromRole="X_Header" ToRole="X_Survey" />
           <NavigationProperty Name="WaterFlow" Relationship="NKD.Module.BusinessObjects.FK_X_WaterFlowData_X_Header" FromRole="X_Header" ToRole="X_WaterFlow" />
           <NavigationProperty Name="HeaderHolePurposes" Relationship="NKD.Module.BusinessObjects.FK_X_HeaderHolePurpose_X_Header" FromRole="Header" ToRole="X_HeaderHolePurpose" />
+          <NavigationProperty Name="X_Defect" Relationship="NKD.Module.BusinessObjects.FK_X_Defect_X_Header" FromRole="Header" ToRole="Defect" />
         </EntityType>
         <EntityType Name="HeaderGeophysicalLog">
           <Key>
@@ -48820,6 +49026,7 @@
           <Property Type="DateTime" Name="Created" Precision="3" />
           <NavigationProperty Name="WorkflowType" Relationship="NKD.Module.BusinessObjects.FK_E_GraphData_E_DictionaryWorkflowType" FromRole="GraphData" ToRole="DictionaryWorkflowType" />
           <NavigationProperty Name="ContactCreated" Relationship="NKD.Module.BusinessObjects.FK_E_GraphData_X_ContactCreator" FromRole="GraphData" ToRole="Contact" />
+          <NavigationProperty Name="GraphDataContext" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_E_GraphData" FromRole="GraphData" ToRole="E_GraphDataContext" />
         </EntityType>
         <EntityType Name="GraphDataRelation">
           <Key>
@@ -48894,7 +49101,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="E_DictionaryLinestringType">
+        <EntityType Name="DictionaryLinestringType">
           <Key>
             <PropertyRef Name="LinestringTypeID" />
           </Key>
@@ -48917,7 +49124,7 @@
           <NavigationProperty Name="X_FileData" Relationship="NKD.Module.BusinessObjects.FK_E_E_DictionaryLinestringType_X_FileData_OriginalFile" FromRole="E_DictionaryLinestringType" ToRole="FileData" />
           <NavigationProperty Name="E_Linestring" Relationship="NKD.Module.BusinessObjects.FK_E_Linestring_E_DictionaryLinestringType" FromRole="E_DictionaryLinestringType" ToRole="E_Linestring" />
         </EntityType>
-        <EntityType Name="E_DictionaryProjectType">
+        <EntityType Name="DictionaryProjectType">
           <Key>
             <PropertyRef Name="ProjectTypeID" />
           </Key>
@@ -48939,7 +49146,7 @@
           <NavigationProperty Name="X_FileData" Relationship="NKD.Module.BusinessObjects.FK_E_E_DictionaryProjectType_X_FileData_OriginalFile" FromRole="E_DictionaryProjectType" ToRole="FileData" />
           <NavigationProperty Name="X_Project" Relationship="NKD.Module.BusinessObjects.FK_X_Project_E_DictionaryProjectType" FromRole="E_DictionaryProjectType" ToRole="Project" />
         </EntityType>
-        <EntityType Name="E_Linestring">
+        <EntityType Name="Linestring">
           <Key>
             <PropertyRef Name="LinestringID" />
           </Key>
@@ -48965,7 +49172,7 @@
           <NavigationProperty Name="X_Company" Relationship="NKD.Module.BusinessObjects.FK_E_Linestring_X_Company" FromRole="E_Linestring" ToRole="Company" />
           <NavigationProperty Name="X_Contact" Relationship="NKD.Module.BusinessObjects.FK_E_Linestring_X_ContactResponsible" FromRole="E_Linestring" ToRole="Contact" />
         </EntityType>
-        <EntityType Name="E_ProjectOffer">
+        <EntityType Name="ProjectOffer">
           <Key>
             <PropertyRef Name="ProjectOfferID" />
           </Key>
@@ -48992,12 +49199,12 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
-          <NavigationProperty Name="X_Contact" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact" FromRole="E_ProjectOffer" ToRole="Contact" />
-          <NavigationProperty Name="X_Contact1" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact1" FromRole="E_ProjectOffer" ToRole="Contact" />
-          <NavigationProperty Name="X_Project" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Project" FromRole="E_ProjectOffer" ToRole="Project" />
-          <NavigationProperty Name="E_ProjectPledge" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectOffer" FromRole="E_ProjectOffer" ToRole="E_ProjectPledge" />
+          <NavigationProperty Name="OffererContact" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact" FromRole="E_ProjectOffer" ToRole="Contact" />
+          <NavigationProperty Name="ApproverContact" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Contact1" FromRole="E_ProjectOffer" ToRole="Contact" />
+          <NavigationProperty Name="Project" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectOffer_X_Project" FromRole="E_ProjectOffer" ToRole="Project" />
+          <NavigationProperty Name="ProjectPledge" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectOffer" FromRole="E_ProjectOffer" ToRole="E_ProjectPledge" />
         </EntityType>
-        <EntityType Name="E_ProjectPledge">
+        <EntityType Name="ProjectPledge">
           <Key>
             <PropertyRef Name="ProjectPledgeID" />
           </Key>
@@ -49031,17 +49238,17 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
-          <NavigationProperty Name="E_Currency" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_Currency" FromRole="E_ProjectPledge" ToRole="Currency" />
-          <NavigationProperty Name="E_ProjectOffer" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectOffer" FromRole="E_ProjectPledge" ToRole="E_ProjectOffer" />
-          <NavigationProperty Name="E_ProjectPledge1" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectPledge" FromRole="E_ProjectPledge" ToRole="E_ProjectPledge1" />
-          <NavigationProperty Name="E_ProjectPledge2" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectPledge" FromRole="E_ProjectPledge1" ToRole="E_ProjectPledge" />
-          <NavigationProperty Name="X_Contact" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact" FromRole="E_ProjectPledge" ToRole="Contact" />
-          <NavigationProperty Name="X_Contact1" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact1" FromRole="E_ProjectPledge" ToRole="Contact" />
-          <NavigationProperty Name="X_Contact2" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_ContactOverseer" FromRole="E_ProjectPledge" ToRole="Contact" />
-          <NavigationProperty Name="X_Project" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Project" FromRole="E_ProjectPledge" ToRole="Project" />
-          <NavigationProperty Name="E_ProjectPledgeAddendum" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_E_ProjectPledge" FromRole="E_ProjectPledge" ToRole="E_ProjectPledgeAddendum" />
+          <NavigationProperty Name="Currency" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_Currency" FromRole="E_ProjectPledge" ToRole="Currency" />
+          <NavigationProperty Name="ProjectOffer" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectOffer" FromRole="E_ProjectPledge" ToRole="E_ProjectOffer" />
+          <NavigationProperty Name="ProjectPledgeChildren" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectPledge" FromRole="E_ProjectPledge" ToRole="E_ProjectPledge1" />
+          <NavigationProperty Name="ProjectPledgeParent" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_E_ProjectPledge" FromRole="E_ProjectPledge1" ToRole="E_ProjectPledge" />
+          <NavigationProperty Name="PledgerContact" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact" FromRole="E_ProjectPledge" ToRole="Contact" />
+          <NavigationProperty Name="ApproverContact" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Contact1" FromRole="E_ProjectPledge" ToRole="Contact" />
+          <NavigationProperty Name="OverseerContact" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_ContactOverseer" FromRole="E_ProjectPledge" ToRole="Contact" />
+          <NavigationProperty Name="Project" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_Project" FromRole="E_ProjectPledge" ToRole="Project" />
+          <NavigationProperty Name="ProjectPledgeAddendum" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_E_ProjectPledge" FromRole="E_ProjectPledge" ToRole="E_ProjectPledgeAddendum" />
         </EntityType>
-        <EntityType Name="E_ProjectPledgeAddendum">
+        <EntityType Name="ProjectPledgeAddendum">
           <Key>
             <PropertyRef Name="ProjectPledgeAddendumID" />
           </Key>
@@ -49061,13 +49268,13 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
-          <NavigationProperty Name="E_ProjectPledge" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_E_ProjectPledge" FromRole="E_ProjectPledgeAddendum" ToRole="E_ProjectPledge" />
-          <NavigationProperty Name="X_Contact" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_Contact" FromRole="E_ProjectPledgeAddendum" ToRole="Contact" />
-          <NavigationProperty Name="X_Contact1" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_ContactReviewer" FromRole="E_ProjectPledgeAddendum" ToRole="Contact" />
+          <NavigationProperty Name="ProjectPledge" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_E_ProjectPledge" FromRole="E_ProjectPledgeAddendum" ToRole="E_ProjectPledge" />
+          <NavigationProperty Name="AddendumContact" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_Contact" FromRole="E_ProjectPledgeAddendum" ToRole="Contact" />
+          <NavigationProperty Name="ApproverContact" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_ContactReviewer" FromRole="E_ProjectPledgeAddendum" ToRole="Contact" />
         </EntityType>
         <Association Name="FK_E_ProjectPledge_E_Currency">
           <End Type="NKD.Module.BusinessObjects.Currency" Role="Currency" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Currency">
               <PropertyRef Name="CurrencyID" />
@@ -49079,7 +49286,7 @@
         </Association>
         <Association Name="FK_E_E_DictionaryLinestringType_X_FileData_OriginalFile">
           <End Type="NKD.Module.BusinessObjects.FileData" Role="FileData" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_DictionaryLinestringType" Role="E_DictionaryLinestringType" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.DictionaryLinestringType" Role="E_DictionaryLinestringType" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FileData">
               <PropertyRef Name="FileDataID" />
@@ -49090,8 +49297,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_E_Linestring_E_DictionaryLinestringType">
-          <End Type="NKD.Module.BusinessObjects.E_DictionaryLinestringType" Role="E_DictionaryLinestringType" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_Linestring" Role="E_Linestring" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.DictionaryLinestringType" Role="E_DictionaryLinestringType" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.Linestring" Role="E_Linestring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="E_DictionaryLinestringType">
               <PropertyRef Name="LinestringTypeID" />
@@ -49103,7 +49310,7 @@
         </Association>
         <Association Name="FK_E_E_DictionaryProjectType_X_FileData_OriginalFile">
           <End Type="NKD.Module.BusinessObjects.FileData" Role="FileData" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_DictionaryProjectType" Role="E_DictionaryProjectType" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.DictionaryProjectType" Role="E_DictionaryProjectType" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FileData">
               <PropertyRef Name="FileDataID" />
@@ -49114,7 +49321,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_X_Project_E_DictionaryProjectType">
-          <End Type="NKD.Module.BusinessObjects.E_DictionaryProjectType" Role="E_DictionaryProjectType" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.DictionaryProjectType" Role="E_DictionaryProjectType" Multiplicity="0..1" />
           <End Type="NKD.Module.BusinessObjects.Project" Role="Project" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="E_DictionaryProjectType">
@@ -49151,7 +49358,7 @@
         </Association>
         <Association Name="FK_E_Linestring_X_Company">
           <End Type="NKD.Module.BusinessObjects.Company" Role="Company" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_Linestring" Role="E_Linestring" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.Linestring" Role="E_Linestring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Company">
               <PropertyRef Name="CompanyID" />
@@ -49163,7 +49370,7 @@
         </Association>
         <Association Name="FK_E_Linestring_X_ContactResponsible">
           <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_Linestring" Role="E_Linestring" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.Linestring" Role="E_Linestring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
@@ -49175,7 +49382,7 @@
         </Association>
         <Association Name="FK_E_ProjectOffer_X_Contact">
           <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectOffer" Role="E_ProjectOffer" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectOffer" Role="E_ProjectOffer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
@@ -49187,7 +49394,7 @@
         </Association>
         <Association Name="FK_E_ProjectOffer_X_Contact1">
           <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectOffer" Role="E_ProjectOffer" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectOffer" Role="E_ProjectOffer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
@@ -49199,7 +49406,7 @@
         </Association>
         <Association Name="FK_E_ProjectOffer_X_Project">
           <End Type="NKD.Module.BusinessObjects.Project" Role="Project" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectOffer" Role="E_ProjectOffer" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectOffer" Role="E_ProjectOffer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Project">
               <PropertyRef Name="ProjectID" />
@@ -49210,8 +49417,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_E_ProjectPledge_E_ProjectOffer">
-          <End Type="NKD.Module.BusinessObjects.E_ProjectOffer" Role="E_ProjectOffer" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectOffer" Role="E_ProjectOffer" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="E_ProjectOffer">
               <PropertyRef Name="ProjectOfferID" />
@@ -49222,8 +49429,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_E_ProjectPledge_E_ProjectPledge">
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledge" Role="E_ProjectPledge" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledge" Role="E_ProjectPledge1" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledge" Role="E_ProjectPledge" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledge" Role="E_ProjectPledge1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="E_ProjectPledge">
               <PropertyRef Name="ProjectPledgeID" />
@@ -49235,7 +49442,7 @@
         </Association>
         <Association Name="FK_E_ProjectPledge_X_Contact">
           <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
@@ -49247,7 +49454,7 @@
         </Association>
         <Association Name="FK_E_ProjectPledge_X_Contact1">
           <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
@@ -49259,7 +49466,7 @@
         </Association>
         <Association Name="FK_E_ProjectPledge_X_ContactOverseer">
           <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
@@ -49271,7 +49478,7 @@
         </Association>
         <Association Name="FK_E_ProjectPledge_X_Project">
           <End Type="NKD.Module.BusinessObjects.Project" Role="Project" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledge" Role="E_ProjectPledge" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Project">
               <PropertyRef Name="ProjectID" />
@@ -49282,8 +49489,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_E_ProjectPledgeAddendum_E_ProjectPledge">
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledge" Role="E_ProjectPledge" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledgeAddendum" Role="E_ProjectPledgeAddendum" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledge" Role="E_ProjectPledge" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledgeAddendum" Role="E_ProjectPledgeAddendum" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="E_ProjectPledge">
               <PropertyRef Name="ProjectPledgeID" />
@@ -49295,7 +49502,7 @@
         </Association>
         <Association Name="FK_E_ProjectPledgeAddendum_X_Contact">
           <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledgeAddendum" Role="E_ProjectPledgeAddendum" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledgeAddendum" Role="E_ProjectPledgeAddendum" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
@@ -49307,7 +49514,7 @@
         </Association>
         <Association Name="FK_E_ProjectPledgeAddendum_X_ContactReviewer">
           <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_ProjectPledgeAddendum" Role="E_ProjectPledgeAddendum" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.ProjectPledgeAddendum" Role="E_ProjectPledgeAddendum" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
@@ -49331,6 +49538,144 @@
           <Property Type="String" Name="Author" Nullable="true" />
           <Property Type="DateTime" Name="Updated" Nullable="true" Precision="23" />
         </ComplexType>
+        <EntityType Name="GraphDataContext">
+          <Key>
+            <PropertyRef Name="GraphDataContextID" />
+          </Key>
+          <Property Type="Guid" Name="GraphDataContextID" Nullable="false" />
+          <Property Type="Guid" Name="GraphDataID" />
+          <Property Type="Guid" Name="ExperienceID" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="GraphData" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_E_GraphData" FromRole="E_GraphDataContext" ToRole="GraphData" />
+          <NavigationProperty Name="Experience" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_Experience" FromRole="E_GraphDataContext" ToRole="Experience" />
+        </EntityType>
+        <Association Name="FK_E_GraphDataContext_E_GraphData">
+          <End Type="NKD.Module.BusinessObjects.GraphData" Role="GraphData" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.GraphDataContext" Role="E_GraphDataContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GraphData">
+              <PropertyRef Name="GraphDataID" />
+            </Principal>
+            <Dependent Role="E_GraphDataContext">
+              <PropertyRef Name="GraphDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataContext_X_Experience">
+          <End Type="NKD.Module.BusinessObjects.Experience" Role="Experience" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.GraphDataContext" Role="E_GraphDataContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Experience">
+              <PropertyRef Name="ExperienceID" />
+            </Principal>
+            <Dependent Role="E_GraphDataContext">
+              <PropertyRef Name="ExperienceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Defect_X_DictionaryDefectCompleteness">
+          <End Type="NKD.Module.BusinessObjects.DictionaryDefectCompleteness" Role="DictionaryDefectCompleteness" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.Defect" Role="Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryDefectCompleteness">
+              <PropertyRef Name="DefectCompletenessID" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="DefectCompletenessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Defect_X_DictionaryDefectContinuity">
+          <End Type="NKD.Module.BusinessObjects.DictionaryDefectContinuity" Role="DictionaryDefectContinuity" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.Defect" Role="Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryDefectContinuity">
+              <PropertyRef Name="DefectContinuityID" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="DefectContinuityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Defect_X_DictionaryDefectSpacing">
+          <End Type="NKD.Module.BusinessObjects.DictionaryDefectSpacing" Role="DictionaryDefectSpacing" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.Defect" Role="Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryDefectSpacing">
+              <PropertyRef Name="DefectSpacingID" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="BedSpacingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Defect_X_DictionaryDefectType">
+          <End Type="NKD.Module.BusinessObjects.DictionaryDefectType" Role="DictionaryDefectType" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.Defect" Role="Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryDefectType">
+              <PropertyRef Name="DefectTypeID" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="DefectTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Defect_X_Header">
+          <End Type="NKD.Module.BusinessObjects.Header" Role="Header" Multiplicity="1" />
+          <End Type="NKD.Module.BusinessObjects.Defect" Role="Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Header">
+              <PropertyRef Name="HeaderID" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="HeaderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="E_DataData">
+          <Key>
+            <PropertyRef Name="DataDataID" />
+          </Key>
+          <Property Type="Guid" Name="DataDataID" Nullable="false" />
+          <Property Type="String" Name="ParentTableType" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="ParentReferenceID" />
+          <Property Type="String" Name="ChildTableType" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="ChildReferenceID" />
+          <Property Type="Boolean" Name="IsCircular" />
+          <Property Type="Guid" Name="CreatedBy" />
+          <Property Type="DateTime" Name="Created" Precision="3" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="X_Contact" Relationship="NKD.Module.BusinessObjects.FK_E_DataData_X_Contact" FromRole="E_DataData" ToRole="Contact" />
+        </EntityType>
+        <Association Name="FK_E_DataData_X_Contact">
+          <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.E_DataData" Role="E_DataData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="E_DataData">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -58553,8 +58898,8 @@
           <FunctionImportMapping FunctionImportName="E_SP_SearchGraphKruskalSpanningTree" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_SearchGraphKruskalSpanningTree" />
           <FunctionImportMapping FunctionImportName="E_SP_SearchGraphPrimSpanningTree" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_SearchGraphPrimSpanningTree" />
           <FunctionImportMapping FunctionImportName="E_SP_SearchGraphTopologicalSort" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_SearchGraphTopologicalSort" />
-          <EntitySetMapping Name="E_DictionaryLinestringType">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_DictionaryLinestringType">
+          <EntitySetMapping Name="DictionaryLinestringTypes">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.DictionaryLinestringType">
               <MappingFragment StoreEntitySet="E_DictionaryLinestringType">
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
@@ -58575,8 +58920,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="E_DictionaryProjectType">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_DictionaryProjectType">
+          <EntitySetMapping Name="DictionaryProjectTypes">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.DictionaryProjectType">
               <MappingFragment StoreEntitySet="E_DictionaryProjectType">
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
@@ -58596,8 +58941,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="E_Linestring">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_Linestring">
+          <EntitySetMapping Name="Linestrings">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.Linestring">
               <MappingFragment StoreEntitySet="E_Linestring">
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
@@ -58620,8 +58965,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="E_ProjectOffer">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_ProjectOffer">
+          <EntitySetMapping Name="ProjectOffers">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.ProjectOffer">
               <MappingFragment StoreEntitySet="E_ProjectOffer">
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
@@ -58649,8 +58994,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="E_ProjectPledge">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_ProjectPledge">
+          <EntitySetMapping Name="ProjectPledges">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.ProjectPledge">
               <MappingFragment StoreEntitySet="E_ProjectPledge">
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
@@ -58685,8 +59030,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="E_ProjectPledgeAddendum">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_ProjectPledgeAddendum">
+          <EntitySetMapping Name="ProjectPledgeAddendums">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.ProjectPledgeAddendum">
               <MappingFragment StoreEntitySet="E_ProjectPledgeAddendum">
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
@@ -58726,6 +59071,47 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="X_SP_GetAssaysByWorkflow" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_GetAssaysByWorkflow" />
+          <EntitySetMapping Name="GraphDataContexts">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.GraphDataContext">
+              <MappingFragment StoreEntitySet="E_GraphDataContext">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
+                <ScalarProperty Name="GraphDataID" ColumnName="GraphDataID" />
+                <ScalarProperty Name="GraphDataContextID" ColumnName="GraphDataContextID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="E_DataData">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_DataData">
+              <MappingFragment StoreEntitySet="E_DataData">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsCircular" ColumnName="IsCircular" />
+                <ScalarProperty Name="ChildReferenceID" ColumnName="ChildReferenceID" />
+                <ScalarProperty Name="ChildTableType" ColumnName="ChildTableType" />
+                <ScalarProperty Name="ParentReferenceID" ColumnName="ParentReferenceID" />
+                <ScalarProperty Name="ParentTableType" ColumnName="ParentTableType" />
+                <ScalarProperty Name="DataDataID" ColumnName="DataDataID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

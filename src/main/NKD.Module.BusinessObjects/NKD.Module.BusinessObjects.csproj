@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjectHelper.cs" />
+    <Compile Include="Linestring.cs" />
     <Compile Include="FileData.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="NKD.Views.cs" />
