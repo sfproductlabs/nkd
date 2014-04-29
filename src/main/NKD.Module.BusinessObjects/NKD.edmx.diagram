@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3cf498aeaaa142e3b452c3cdd48bf54f" Name="Diagram1" ZoomLevel="55">
+      <Diagram DiagramId="3cf498aeaaa142e3b452c3cdd48bf54f" Name="Diagram1" ZoomLevel="10">
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.Applications" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.Membership" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.Paths" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
@@ -1236,9 +1236,13 @@
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_Header" />
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DataData" Width="1.5" PointX="11.613754939108041" PointY="6.8446351917668409" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_DataData_X_Contact" />
-        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_FileData" />
-        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_Location" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Experience_E_Linestring" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.GraphDataFileData" Width="1.5" PointX="0.23276021528651947" PointY="6.9850913169724365" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.GraphDataLocation" Width="1.5" PointX="3.8108193091167228" PointY="27.709712741761333" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataFileData_E_GraphData" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataLocation_E_GraphData" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataFileData_X_FileData" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataLocation_X_Location" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
