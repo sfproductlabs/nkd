@@ -68,6 +68,8 @@
     <Content Include="Scripts\orchard-tinymce.js" />
     <Content Include="Scripts\plugins\autoresize\editor_plugin.js" />
     <Content Include="Scripts\plugins\autoresize\editor_plugin_src.js" />
+    <Content Include="Scripts\plugins\locationpicker\editor_plugin_src.js" />
+    <Content Include="Scripts\plugins\locationpicker\img\globe_add.png" />
     <Content Include="Scripts\plugins\filepicker\editor_plugin_src.js" />
     <Content Include="Scripts\plugins\filepicker\img\picture_add.png" />
     <Content Include="Scripts\plugins\medialibrary\editor_plugin.js" />

@@ -1234,8 +1234,11 @@
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectSpacing" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryDefectType" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_Header" />
-        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.E_DataData" Width="1.5" PointX="11.613754939108041" PointY="6.8446351917668409" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DataData" Width="1.5" PointX="11.613754939108041" PointY="6.8446351917668409" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_DataData_X_Contact" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_FileData" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_Location" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Experience_E_Linestring" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

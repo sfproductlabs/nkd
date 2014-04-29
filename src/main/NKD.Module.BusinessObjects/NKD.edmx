@@ -1274,6 +1274,14 @@
             <End Role="X_Experience" EntitySet="X_Experience" />
             <End Role="E_GraphDataContext" EntitySet="E_GraphDataContext" />
           </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataContext_X_FileData" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataContext_X_FileData">
+            <End Role="X_FileData" EntitySet="X_FileData" />
+            <End Role="E_GraphDataContext" EntitySet="E_GraphDataContext" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataContext_X_Location" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataContext_X_Location">
+            <End Role="X_Location" EntitySet="X_Location" />
+            <End Role="E_GraphDataContext" EntitySet="E_GraphDataContext" />
+          </AssociationSet>
           <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataOriginal" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataRelation_E_GraphDataOriginal">
             <End Role="E_GraphData" EntitySet="E_GraphData" />
             <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
@@ -3081,6 +3089,10 @@
           <AssociationSet Name="FK_X_DrillingData_X_Header" Association="NKD.Module.BusinessObjects.Store.FK_X_DrillingData_X_Header">
             <End Role="X_Header" EntitySet="X_Header" />
             <End Role="X_Drilling" EntitySet="X_Drilling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Experience_E_Linestring" Association="NKD.Module.BusinessObjects.Store.FK_X_Experience_E_Linestring">
+            <End Role="E_Linestring" EntitySet="E_Linestring" />
+            <End Role="X_Experience" EntitySet="X_Experience" />
           </AssociationSet>
           <AssociationSet Name="FK_X_Experience_X_Company" Association="NKD.Module.BusinessObjects.Store.FK_X_Experience_X_Company">
             <End Role="X_Company" EntitySet="X_Company" />
@@ -5173,6 +5185,8 @@
           </Key>
           <Property Name="GraphDataContextID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="GraphDataID" Type="uniqueidentifier" />
+          <Property Name="FileDataID" Type="uniqueidentifier" />
+          <Property Name="LocationID" Type="uniqueidentifier" />
           <Property Name="ExperienceID" Type="uniqueidentifier" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
@@ -10376,6 +10390,7 @@
           <Property Name="ContactID" Type="uniqueidentifier" />
           <Property Name="LocationID" Type="uniqueidentifier" />
           <Property Name="ProvinceID" Type="uniqueidentifier" />
+          <Property Name="LinestringID" Type="uniqueidentifier" />
           <Property Name="WorkTypeID" Type="uniqueidentifier" />
           <Property Name="ProfessionID" Type="uniqueidentifier" />
           <Property Name="PositionID" Type="uniqueidentifier" />
@@ -13865,6 +13880,30 @@
             </Principal>
             <Dependent Role="E_GraphDataContext">
               <PropertyRef Name="ExperienceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataContext_X_FileData">
+          <End Role="X_FileData" Type="NKD.Module.BusinessObjects.Store.X_FileData" Multiplicity="0..1" />
+          <End Role="E_GraphDataContext" Type="NKD.Module.BusinessObjects.Store.E_GraphDataContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_FileData">
+              <PropertyRef Name="FileDataID" />
+            </Principal>
+            <Dependent Role="E_GraphDataContext">
+              <PropertyRef Name="FileDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataContext_X_Location">
+          <End Role="X_Location" Type="NKD.Module.BusinessObjects.Store.X_Location" Multiplicity="0..1" />
+          <End Role="E_GraphDataContext" Type="NKD.Module.BusinessObjects.Store.E_GraphDataContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="E_GraphDataContext">
+              <PropertyRef Name="LocationID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -19292,6 +19331,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_X_Experience_E_Linestring">
+          <End Role="E_Linestring" Type="NKD.Module.BusinessObjects.Store.E_Linestring" Multiplicity="0..1" />
+          <End Role="X_Experience" Type="NKD.Module.BusinessObjects.Store.X_Experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_Linestring">
+              <PropertyRef Name="LinestringID" />
+            </Principal>
+            <Dependent Role="X_Experience">
+              <PropertyRef Name="LinestringID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_X_Experience_X_Company">
           <End Role="X_Company" Type="NKD.Module.BusinessObjects.Store.X_Company" Multiplicity="0..1" />
           <End Role="X_Experience" Type="NKD.Module.BusinessObjects.Store.X_Experience" Multiplicity="*" />
@@ -23680,6 +23731,9 @@
           <Parameter Name="openOnly" Type="bit" Mode="In" />
           <Parameter Name="startRowIndex" Type="int" Mode="In" />
           <Parameter Name="pageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="E_SP_LookupLocations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="text" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="E_SP_SearchGraphBreadthFirst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="StartNode" Type="uniqueidentifier" Mode="In" />
@@ -28881,10 +28935,25 @@
             <End Role="Header" EntitySet="Headers" />
             <End Role="Defect" EntitySet="Defects" />
           </AssociationSet>
-          <EntitySet Name="E_DataData" EntityType="NKD.Module.BusinessObjects.E_DataData" />
+          <EntitySet Name="DataDatas" EntityType="NKD.Module.BusinessObjects.DataData" />
           <AssociationSet Name="FK_E_DataData_X_Contact" Association="NKD.Module.BusinessObjects.FK_E_DataData_X_Contact">
             <End Role="Contact" EntitySet="Contacts" />
-            <End Role="E_DataData" EntitySet="E_DataData" />
+            <End Role="E_DataData" EntitySet="DataDatas" />
+          </AssociationSet>
+          <FunctionImport Name="E_SP_LookupLocations" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_LookupLocations_Result)">
+          <Parameter Name="text" Mode="In" Type="String" />
+          </FunctionImport>
+          <AssociationSet Name="FK_E_GraphDataContext_X_FileData" Association="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_FileData">
+            <End Role="FileData" EntitySet="FileDatas" />
+            <End Role="GraphDataContext" EntitySet="GraphDataContexts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataContext_X_Location" Association="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="GraphDataContext" EntitySet="GraphDataContexts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Experience_E_Linestring" Association="NKD.Module.BusinessObjects.FK_X_Experience_E_Linestring">
+            <End Role="Linestring" EntitySet="Linestrings" />
+            <End Role="Experience" EntitySet="Experiences" />
           </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Split_Result">
@@ -34274,6 +34343,8 @@
           <NavigationProperty Name="Task" Relationship="NKD.Module.BusinessObjects.FK_X_Task_X_Experience" FromRole="X_Experience" ToRole="X_Task" />
           <NavigationProperty Name="Communication" Relationship="NKD.Module.BusinessObjects.FK_X_Communication_X_Experience" FromRole="Experience" ToRole="X_Communication" />
           <NavigationProperty Name="GraphDataContext" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_Experience" FromRole="Experience" ToRole="E_GraphDataContext" />
+          <Property Type="Guid" Name="LinestringID" />
+          <NavigationProperty Name="E_Linestring" Relationship="NKD.Module.BusinessObjects.FK_X_Experience_E_Linestring" FromRole="Experience" ToRole="Linestring" />
         </EntityType>
         <EntityType Name="FileData">
           <Key>
@@ -34432,6 +34503,7 @@
           <NavigationProperty Name="DictionaryUsageAuditType" Relationship="NKD.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile1" FromRole="FileData" ToRole="T_DictionaryUsageAuditType" />
           <NavigationProperty Name="E_DictionaryLinestringType" Relationship="NKD.Module.BusinessObjects.FK_E_E_DictionaryLinestringType_X_FileData_OriginalFile" FromRole="FileData" ToRole="E_DictionaryLinestringType" />
           <NavigationProperty Name="E_DictionaryProjectType" Relationship="NKD.Module.BusinessObjects.FK_E_E_DictionaryProjectType_X_FileData_OriginalFile" FromRole="FileData" ToRole="E_DictionaryProjectType" />
+          <NavigationProperty Name="E_GraphDataContext" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_FileData" FromRole="FileData" ToRole="GraphDataContext" />
         </EntityType>
         <EntityType Name="Geology">
           <Key>
@@ -35049,6 +35121,7 @@
           <NavigationProperty Name="Problem" Relationship="NKD.Module.BusinessObjects.FK_E_Problem_X_Location" FromRole="Location" ToRole="E_Problem" />
           <NavigationProperty Name="ProblemRequirementAssetData" Relationship="NKD.Module.BusinessObjects.FK_E_ProblemRequirementAssetData_X_Location" FromRole="Location" ToRole="E_ProblemRequirementAssetData" />
           <Property Type="String" Name="Postcode" MaxLength="16" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="E_GraphDataContext" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_Location" FromRole="Location" ToRole="GraphDataContext" />
         </EntityType>
         <EntityType Name="LocationAlias">
           <Key>
@@ -49171,6 +49244,7 @@
           <NavigationProperty Name="E_DictionaryLinestringType" Relationship="NKD.Module.BusinessObjects.FK_E_Linestring_E_DictionaryLinestringType" FromRole="E_Linestring" ToRole="E_DictionaryLinestringType" />
           <NavigationProperty Name="X_Company" Relationship="NKD.Module.BusinessObjects.FK_E_Linestring_X_Company" FromRole="E_Linestring" ToRole="Company" />
           <NavigationProperty Name="X_Contact" Relationship="NKD.Module.BusinessObjects.FK_E_Linestring_X_ContactResponsible" FromRole="E_Linestring" ToRole="Contact" />
+          <NavigationProperty Name="X_Experience" Relationship="NKD.Module.BusinessObjects.FK_X_Experience_E_Linestring" FromRole="Linestring" ToRole="Experience" />
         </EntityType>
         <EntityType Name="ProjectOffer">
           <Key>
@@ -49556,6 +49630,10 @@
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
           <NavigationProperty Name="GraphData" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_E_GraphData" FromRole="E_GraphDataContext" ToRole="GraphData" />
           <NavigationProperty Name="Experience" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_Experience" FromRole="E_GraphDataContext" ToRole="Experience" />
+          <Property Type="Guid" Name="FileDataID" />
+          <Property Type="Guid" Name="LocationID" />
+          <NavigationProperty Name="X_FileData" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_FileData" FromRole="GraphDataContext" ToRole="FileData" />
+          <NavigationProperty Name="X_Location" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataContext_X_Location" FromRole="GraphDataContext" ToRole="Location" />
         </EntityType>
         <Association Name="FK_E_GraphDataContext_E_GraphData">
           <End Type="NKD.Module.BusinessObjects.GraphData" Role="GraphData" Multiplicity="0..1" />
@@ -49641,7 +49719,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="E_DataData">
+        <EntityType Name="DataData">
           <Key>
             <PropertyRef Name="DataDataID" />
           </Key>
@@ -49666,13 +49744,54 @@
         </EntityType>
         <Association Name="FK_E_DataData_X_Contact">
           <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
-          <End Type="NKD.Module.BusinessObjects.E_DataData" Role="E_DataData" Multiplicity="*" />
+          <End Type="NKD.Module.BusinessObjects.DataData" Role="E_DataData" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
             </Principal>
             <Dependent Role="E_DataData">
               <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="E_SP_LookupLocations_Result">
+          <Property Type="Guid" Name="LocationID" Nullable="false" />
+          <Property Type="String" Name="LocationName" Nullable="true" MaxLength="298" />
+          <Property Type="String" Name="LocationGeography" Nullable="true" />
+        </ComplexType>
+        <Association Name="FK_E_GraphDataContext_X_FileData">
+          <End Type="NKD.Module.BusinessObjects.FileData" Role="FileData" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.GraphDataContext" Role="GraphDataContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileData">
+              <PropertyRef Name="FileDataID" />
+            </Principal>
+            <Dependent Role="GraphDataContext">
+              <PropertyRef Name="FileDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataContext_X_Location">
+          <End Type="NKD.Module.BusinessObjects.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.GraphDataContext" Role="GraphDataContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="GraphDataContext">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Experience_E_Linestring">
+          <End Type="NKD.Module.BusinessObjects.Linestring" Role="Linestring" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.Experience" Role="Experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Linestring">
+              <PropertyRef Name="LinestringID" />
+            </Principal>
+            <Dependent Role="Experience">
+              <PropertyRef Name="LinestringID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -54243,6 +54362,7 @@
           <EntitySetMapping Name="Experiences">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.Experience">
               <MappingFragment StoreEntitySet="X_Experience">
+                <ScalarProperty Name="LinestringID" ColumnName="LinestringID" />
                 <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
                 <ScalarProperty Name="ExperienceName" ColumnName="ExperienceName" />
                 <ScalarProperty Name="ExperienceGroupID" ColumnName="ExperienceGroupID" />
@@ -59074,6 +59194,8 @@
           <EntitySetMapping Name="GraphDataContexts">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.GraphDataContext">
               <MappingFragment StoreEntitySet="E_GraphDataContext">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="FileDataID" ColumnName="FileDataID" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -59089,8 +59211,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="E_DataData">
-            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.E_DataData">
+          <EntitySetMapping Name="DataDatas">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.DataData">
               <MappingFragment StoreEntitySet="E_DataData">
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
@@ -59112,6 +59234,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_LookupLocations" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_LookupLocations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_LookupLocations_Result">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="LocationGeography" ColumnName="LocationGeography" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

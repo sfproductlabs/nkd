@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets6DA5D5250863E7E03FE39E9F9EAEAC3EE187DA180FB99084150166C7FBD84451))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets5BE9F19125BDFBD6DC06C35776821172B00FB6B53566FCD2B0E46EBAE996361F))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets6DA5D5250863E7E03FE39E9F9EAEAC3EE187DA180FB99084150166C7FBD84451 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets5BE9F19125BDFBD6DC06C35776821172B00FB6B53566FCD2B0E46EBAE996361F : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets6DA5D5250863E7E03FE39E9F9EAEAC3EE187DA180FB99084150166C7FBD84451()
+        public ViewsForBaseEntitySets5BE9F19125BDFBD6DC06C35776821172B00FB6B53566FCD2B0E46EBAE996361F()
         {
             this.EdmEntityContainerName = "NKDC";
             this.StoreEntityContainerName = "NKDModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "0893aba0ac6af709906f38a3df3af1bb1abbd60d322d9469d0b4d839bb2050d9";
-            this.HashOverAllExtentViews = "9e6f23d08b0ea79967ab48a469b37135afb7ef99d1b13920c38ae0a7f6563fbe";
+            this.HashOverMappingClosure = "76a583404fd1d9ca9d40f0ca10176a487ac20b28e0735c54d9d58648366a8eae";
+            this.HashOverAllExtentViews = "01d7c79a80ab01a54ec4615bb1e82f5fe942b0c8ac214ab7f2d1a1b195e4f0e2";
             this.ViewCount = 750;
         }
         
@@ -10379,57 +10379,58 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView186()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3963);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(4056);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_Experience\r\n        [NKD.Module.BusinessObj");
             viewString.Append("ects.Store.X_Experience](T1.[X_Experience.ExperienceID], T1.[X_Experience.Experi");
             viewString.Append("enceName], T1.[X_Experience.ExperienceGroupID], T1.[X_Experience.CompanyID], T1.");
             viewString.Append("[X_Experience.ProjectID], T1.[X_Experience.ContactID], T1.[X_Experience.Location");
-            viewString.Append("ID], T1.[X_Experience.ProvinceID], T1.[X_Experience.WorkTypeID], T1.[X_Experienc");
-            viewString.Append("e.ProfessionID], T1.[X_Experience.PositionID], T1.[X_Experience.ClientAlias], T1");
-            viewString.Append(".[X_Experience.Division], T1.[X_Experience.OfficeLocationAlias], T1.[X_Experienc");
-            viewString.Append("e.ExternalProjectCode], T1.[X_Experience.EstimatedDurationDays], T1.[X_Experienc");
-            viewString.Append("e.UserExperienceLevel], T1.[X_Experience.AssignedExperienceLevel], T1.[X_Experie");
-            viewString.Append("nce.NormalizedExperienceLevel], T1.[X_Experience.DateStart], T1.[X_Experience.Da");
-            viewString.Append("teFinished], T1.[X_Experience.Expiry], T1.[X_Experience.HourlyRate], T1.[X_Exper");
-            viewString.Append("ience.DailyRate], T1.[X_Experience.AnnualRate], T1.[X_Experience.BlendedHourlyRa");
-            viewString.Append("te], T1.[X_Experience.BlendedHourlyCost], T1.[X_Experience.Comment], T1.[X_Exper");
-            viewString.Append("ience.IsApproved], T1.[X_Experience.Version], T1.[X_Experience.VersionAntecedent");
-            viewString.Append("ID], T1.[X_Experience.VersionCertainty], T1.[X_Experience.VersionWorkflowInstanc");
-            viewString.Append("eID], T1.[X_Experience.VersionUpdatedBy], T1.[X_Experience.VersionDeletedBy], T1");
-            viewString.Append(".[X_Experience.VersionOwnerContactID], T1.[X_Experience.VersionOwnerCompanyID], ");
-            viewString.Append("T1.[X_Experience.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.Ex");
-            viewString.Append("perienceID AS [X_Experience.ExperienceID], \r\n            T.ExperienceName AS [X_");
-            viewString.Append("Experience.ExperienceName], \r\n            T.ExperienceGroupID AS [X_Experience.E");
-            viewString.Append("xperienceGroupID], \r\n            T.CompanyID AS [X_Experience.CompanyID], \r\n    ");
-            viewString.Append("        T.ProjectID AS [X_Experience.ProjectID], \r\n            T.ContactID AS [X");
-            viewString.Append("_Experience.ContactID], \r\n            T.LocationID AS [X_Experience.LocationID],");
-            viewString.Append(" \r\n            T.ProvinceID AS [X_Experience.ProvinceID], \r\n            T.WorkTy");
-            viewString.Append("peID AS [X_Experience.WorkTypeID], \r\n            T.ProfessionID AS [X_Experience");
-            viewString.Append(".ProfessionID], \r\n            T.PositionID AS [X_Experience.PositionID], \r\n     ");
-            viewString.Append("       T.ClientAlias AS [X_Experience.ClientAlias], \r\n            T.Division AS ");
-            viewString.Append("[X_Experience.Division], \r\n            T.OfficeLocationAlias AS [X_Experience.Of");
-            viewString.Append("ficeLocationAlias], \r\n            T.ExternalProjectCode AS [X_Experience.Externa");
-            viewString.Append("lProjectCode], \r\n            T.EstimatedDurationDays AS [X_Experience.EstimatedD");
-            viewString.Append("urationDays], \r\n            T.UserExperienceLevel AS [X_Experience.UserExperienc");
-            viewString.Append("eLevel], \r\n            T.AssignedExperienceLevel AS [X_Experience.AssignedExperi");
-            viewString.Append("enceLevel], \r\n            T.NormalizedExperienceLevel AS [X_Experience.Normalize");
-            viewString.Append("dExperienceLevel], \r\n            T.DateStart AS [X_Experience.DateStart], \r\n    ");
-            viewString.Append("        T.DateFinished AS [X_Experience.DateFinished], \r\n            T.Expiry AS");
-            viewString.Append(" [X_Experience.Expiry], \r\n            T.HourlyRate AS [X_Experience.HourlyRate],");
-            viewString.Append(" \r\n            T.DailyRate AS [X_Experience.DailyRate], \r\n            T.AnnualRa");
-            viewString.Append("te AS [X_Experience.AnnualRate], \r\n            T.BlendedHourlyRate AS [X_Experie");
-            viewString.Append("nce.BlendedHourlyRate], \r\n            T.BlendedHourlyCost AS [X_Experience.Blend");
-            viewString.Append("edHourlyCost], \r\n            T.Comment AS [X_Experience.Comment], \r\n            ");
-            viewString.Append("T.IsApproved AS [X_Experience.IsApproved], \r\n            T.Version AS [X_Experie");
-            viewString.Append("nce.Version], \r\n            T.VersionAntecedentID AS [X_Experience.VersionAntece");
-            viewString.Append("dentID], \r\n            T.VersionCertainty AS [X_Experience.VersionCertainty], \r\n");
-            viewString.Append("            T.VersionWorkflowInstanceID AS [X_Experience.VersionWorkflowInstance");
-            viewString.Append("ID], \r\n            T.VersionUpdatedBy AS [X_Experience.VersionUpdatedBy], \r\n    ");
-            viewString.Append("        T.VersionDeletedBy AS [X_Experience.VersionDeletedBy], \r\n            T.V");
-            viewString.Append("ersionOwnerContactID AS [X_Experience.VersionOwnerContactID], \r\n            T.Ve");
-            viewString.Append("rsionOwnerCompanyID AS [X_Experience.VersionOwnerCompanyID], \r\n            T.Ver");
-            viewString.Append("sionUpdated AS [X_Experience.VersionUpdated], \r\n            True AS _from0\r\n    ");
-            viewString.Append("    FROM NKDC.Experiences AS T\r\n    ) AS T1");
+            viewString.Append("ID], T1.[X_Experience.ProvinceID], T1.[X_Experience.LinestringID], T1.[X_Experie");
+            viewString.Append("nce.WorkTypeID], T1.[X_Experience.ProfessionID], T1.[X_Experience.PositionID], T");
+            viewString.Append("1.[X_Experience.ClientAlias], T1.[X_Experience.Division], T1.[X_Experience.Offic");
+            viewString.Append("eLocationAlias], T1.[X_Experience.ExternalProjectCode], T1.[X_Experience.Estimat");
+            viewString.Append("edDurationDays], T1.[X_Experience.UserExperienceLevel], T1.[X_Experience.Assigne");
+            viewString.Append("dExperienceLevel], T1.[X_Experience.NormalizedExperienceLevel], T1.[X_Experience");
+            viewString.Append(".DateStart], T1.[X_Experience.DateFinished], T1.[X_Experience.Expiry], T1.[X_Exp");
+            viewString.Append("erience.HourlyRate], T1.[X_Experience.DailyRate], T1.[X_Experience.AnnualRate], ");
+            viewString.Append("T1.[X_Experience.BlendedHourlyRate], T1.[X_Experience.BlendedHourlyCost], T1.[X_");
+            viewString.Append("Experience.Comment], T1.[X_Experience.IsApproved], T1.[X_Experience.Version], T1");
+            viewString.Append(".[X_Experience.VersionAntecedentID], T1.[X_Experience.VersionCertainty], T1.[X_E");
+            viewString.Append("xperience.VersionWorkflowInstanceID], T1.[X_Experience.VersionUpdatedBy], T1.[X_");
+            viewString.Append("Experience.VersionDeletedBy], T1.[X_Experience.VersionOwnerContactID], T1.[X_Exp");
+            viewString.Append("erience.VersionOwnerCompanyID], T1.[X_Experience.VersionUpdated])\r\n    FROM (\r\n ");
+            viewString.Append("       SELECT \r\n            T.ExperienceID AS [X_Experience.ExperienceID], \r\n   ");
+            viewString.Append("         T.ExperienceName AS [X_Experience.ExperienceName], \r\n            T.Expe");
+            viewString.Append("rienceGroupID AS [X_Experience.ExperienceGroupID], \r\n            T.CompanyID AS ");
+            viewString.Append("[X_Experience.CompanyID], \r\n            T.ProjectID AS [X_Experience.ProjectID],");
+            viewString.Append(" \r\n            T.ContactID AS [X_Experience.ContactID], \r\n            T.Location");
+            viewString.Append("ID AS [X_Experience.LocationID], \r\n            T.ProvinceID AS [X_Experience.Pro");
+            viewString.Append("vinceID], \r\n            T.LinestringID AS [X_Experience.LinestringID], \r\n       ");
+            viewString.Append("     T.WorkTypeID AS [X_Experience.WorkTypeID], \r\n            T.ProfessionID AS ");
+            viewString.Append("[X_Experience.ProfessionID], \r\n            T.PositionID AS [X_Experience.Positio");
+            viewString.Append("nID], \r\n            T.ClientAlias AS [X_Experience.ClientAlias], \r\n            T");
+            viewString.Append(".Division AS [X_Experience.Division], \r\n            T.OfficeLocationAlias AS [X_");
+            viewString.Append("Experience.OfficeLocationAlias], \r\n            T.ExternalProjectCode AS [X_Exper");
+            viewString.Append("ience.ExternalProjectCode], \r\n            T.EstimatedDurationDays AS [X_Experien");
+            viewString.Append("ce.EstimatedDurationDays], \r\n            T.UserExperienceLevel AS [X_Experience.");
+            viewString.Append("UserExperienceLevel], \r\n            T.AssignedExperienceLevel AS [X_Experience.A");
+            viewString.Append("ssignedExperienceLevel], \r\n            T.NormalizedExperienceLevel AS [X_Experie");
+            viewString.Append("nce.NormalizedExperienceLevel], \r\n            T.DateStart AS [X_Experience.DateS");
+            viewString.Append("tart], \r\n            T.DateFinished AS [X_Experience.DateFinished], \r\n          ");
+            viewString.Append("  T.Expiry AS [X_Experience.Expiry], \r\n            T.HourlyRate AS [X_Experience");
+            viewString.Append(".HourlyRate], \r\n            T.DailyRate AS [X_Experience.DailyRate], \r\n         ");
+            viewString.Append("   T.AnnualRate AS [X_Experience.AnnualRate], \r\n            T.BlendedHourlyRate ");
+            viewString.Append("AS [X_Experience.BlendedHourlyRate], \r\n            T.BlendedHourlyCost AS [X_Exp");
+            viewString.Append("erience.BlendedHourlyCost], \r\n            T.Comment AS [X_Experience.Comment], \r");
+            viewString.Append("\n            T.IsApproved AS [X_Experience.IsApproved], \r\n            T.Version ");
+            viewString.Append("AS [X_Experience.Version], \r\n            T.VersionAntecedentID AS [X_Experience.");
+            viewString.Append("VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Experience.VersionC");
+            viewString.Append("ertainty], \r\n            T.VersionWorkflowInstanceID AS [X_Experience.VersionWor");
+            viewString.Append("kflowInstanceID], \r\n            T.VersionUpdatedBy AS [X_Experience.VersionUpdat");
+            viewString.Append("edBy], \r\n            T.VersionDeletedBy AS [X_Experience.VersionDeletedBy], \r\n  ");
+            viewString.Append("          T.VersionOwnerContactID AS [X_Experience.VersionOwnerContactID], \r\n   ");
+            viewString.Append("         T.VersionOwnerCompanyID AS [X_Experience.VersionOwnerCompanyID], \r\n    ");
+            viewString.Append("        T.VersionUpdated AS [X_Experience.VersionUpdated], \r\n            True AS");
+            viewString.Append(" _from0\r\n        FROM NKDC.Experiences AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_Experience", viewString.ToString());
         }
         
@@ -15368,25 +15369,28 @@ namespace Edm_EntityMappingGeneratedViews
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_GraphDataContext", "\r\n    SELECT VALUE -- Constructing E_GraphDataContext\r\n        [NKD.Module.Busine" +
                     "ssObjects.Store.E_GraphDataContext](T1.[E_GraphDataContext.GraphDataContextID], " +
-                    "T1.[E_GraphDataContext.GraphDataID], T1.[E_GraphDataContext.ExperienceID], T1.[E" +
-                    "_GraphDataContext.Version], T1.[E_GraphDataContext.VersionAntecedentID], T1.[E_G" +
-                    "raphDataContext.VersionCertainty], T1.[E_GraphDataContext.VersionWorkflowInstanc" +
-                    "eID], T1.[E_GraphDataContext.VersionUpdatedBy], T1.[E_GraphDataContext.VersionDe" +
-                    "letedBy], T1.[E_GraphDataContext.VersionOwnerContactID], T1.[E_GraphDataContext." +
-                    "VersionOwnerCompanyID], T1.[E_GraphDataContext.VersionUpdated])\r\n    FROM (\r\n   " +
-                    "     SELECT \r\n            T.GraphDataContextID AS [E_GraphDataContext.GraphDataC" +
-                    "ontextID], \r\n            T.GraphDataID AS [E_GraphDataContext.GraphDataID], \r\n  " +
-                    "          T.ExperienceID AS [E_GraphDataContext.ExperienceID], \r\n            T.V" +
-                    "ersion AS [E_GraphDataContext.Version], \r\n            T.VersionAntecedentID AS [" +
-                    "E_GraphDataContext.VersionAntecedentID], \r\n            T.VersionCertainty AS [E_" +
-                    "GraphDataContext.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS" +
-                    " [E_GraphDataContext.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedB" +
-                    "y AS [E_GraphDataContext.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS " +
-                    "[E_GraphDataContext.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS " +
-                    "[E_GraphDataContext.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyI" +
-                    "D AS [E_GraphDataContext.VersionOwnerCompanyID], \r\n            T.VersionUpdated " +
-                    "AS [E_GraphDataContext.VersionUpdated], \r\n            True AS _from0\r\n        FR" +
-                    "OM NKDC.GraphDataContexts AS T\r\n    ) AS T1");
+                    "T1.[E_GraphDataContext.GraphDataID], T1.[E_GraphDataContext.FileDataID], T1.[E_G" +
+                    "raphDataContext.LocationID], T1.[E_GraphDataContext.ExperienceID], T1.[E_GraphDa" +
+                    "taContext.Version], T1.[E_GraphDataContext.VersionAntecedentID], T1.[E_GraphData" +
+                    "Context.VersionCertainty], T1.[E_GraphDataContext.VersionWorkflowInstanceID], T1" +
+                    ".[E_GraphDataContext.VersionUpdatedBy], T1.[E_GraphDataContext.VersionDeletedBy]" +
+                    ", T1.[E_GraphDataContext.VersionOwnerContactID], T1.[E_GraphDataContext.VersionO" +
+                    "wnerCompanyID], T1.[E_GraphDataContext.VersionUpdated])\r\n    FROM (\r\n        SEL" +
+                    "ECT \r\n            T.GraphDataContextID AS [E_GraphDataContext.GraphDataContextID" +
+                    "], \r\n            T.GraphDataID AS [E_GraphDataContext.GraphDataID], \r\n          " +
+                    "  T.FileDataID AS [E_GraphDataContext.FileDataID], \r\n            T.LocationID AS" +
+                    " [E_GraphDataContext.LocationID], \r\n            T.ExperienceID AS [E_GraphDataCo" +
+                    "ntext.ExperienceID], \r\n            T.Version AS [E_GraphDataContext.Version], \r\n" +
+                    "            T.VersionAntecedentID AS [E_GraphDataContext.VersionAntecedentID], \r" +
+                    "\n            T.VersionCertainty AS [E_GraphDataContext.VersionCertainty], \r\n    " +
+                    "        T.VersionWorkflowInstanceID AS [E_GraphDataContext.VersionWorkflowInstan" +
+                    "ceID], \r\n            T.VersionUpdatedBy AS [E_GraphDataContext.VersionUpdatedBy]" +
+                    ", \r\n            T.VersionDeletedBy AS [E_GraphDataContext.VersionDeletedBy], \r\n " +
+                    "           T.VersionOwnerContactID AS [E_GraphDataContext.VersionOwnerContactID]" +
+                    ", \r\n            T.VersionOwnerCompanyID AS [E_GraphDataContext.VersionOwnerCompa" +
+                    "nyID], \r\n            T.VersionUpdated AS [E_GraphDataContext.VersionUpdated], \r\n" +
+                    "            True AS _from0\r\n        FROM NKDC.GraphDataContexts AS T\r\n    ) AS T" +
+                    "1");
         }
         
         /// <Summary>
@@ -15416,8 +15420,8 @@ namespace Edm_EntityMappingGeneratedViews
                     "VersionDeletedBy AS [E_DataData.VersionDeletedBy], \r\n            T.VersionOwnerC" +
                     "ontactID AS [E_DataData.VersionOwnerContactID], \r\n            T.VersionOwnerComp" +
                     "anyID AS [E_DataData.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [" +
-                    "E_DataData.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.E_Da" +
-                    "taData AS T\r\n    ) AS T1");
+                    "E_DataData.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.Data" +
+                    "Datas AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -22499,7 +22503,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView503()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3685);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3770);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Experiences\r\n        [NKD.Module.BusinessObje");
             viewString.Append("cts.Experience](T1.Experience_ExperienceID, T1.Experience_ExperienceName, T1.Exp");
             viewString.Append("erience_ExperienceGroupID, T1.Experience_CompanyID, T1.Experience_ProjectID, T1.");
@@ -22515,38 +22519,39 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("Experience_VersionAntecedentID, T1.Experience_VersionCertainty, T1.Experience_Ve");
             viewString.Append("rsionWorkflowInstanceID, T1.Experience_VersionUpdatedBy, T1.Experience_VersionDe");
             viewString.Append("letedBy, T1.Experience_VersionOwnerContactID, T1.Experience_VersionOwnerCompanyI");
-            viewString.Append("D, T1.Experience_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.Exp");
-            viewString.Append("erienceID AS Experience_ExperienceID, \r\n            T.ExperienceName AS Experien");
-            viewString.Append("ce_ExperienceName, \r\n            T.ExperienceGroupID AS Experience_ExperienceGro");
-            viewString.Append("upID, \r\n            T.CompanyID AS Experience_CompanyID, \r\n            T.Project");
-            viewString.Append("ID AS Experience_ProjectID, \r\n            T.ContactID AS Experience_ContactID, \r");
-            viewString.Append("\n            T.LocationID AS Experience_LocationID, \r\n            T.ProvinceID A");
-            viewString.Append("S Experience_ProvinceID, \r\n            T.WorkTypeID AS Experience_WorkTypeID, \r\n");
-            viewString.Append("            T.ProfessionID AS Experience_ProfessionID, \r\n            T.PositionI");
-            viewString.Append("D AS Experience_PositionID, \r\n            T.ClientAlias AS Experience_ClientAlia");
-            viewString.Append("s, \r\n            T.Division AS Experience_Division, \r\n            T.OfficeLocati");
-            viewString.Append("onAlias AS Experience_OfficeLocationAlias, \r\n            T.ExternalProjectCode A");
-            viewString.Append("S Experience_ExternalProjectCode, \r\n            T.EstimatedDurationDays AS Exper");
-            viewString.Append("ience_EstimatedDurationDays, \r\n            T.UserExperienceLevel AS Experience_U");
-            viewString.Append("serExperienceLevel, \r\n            T.AssignedExperienceLevel AS Experience_Assign");
-            viewString.Append("edExperienceLevel, \r\n            T.NormalizedExperienceLevel AS Experience_Norma");
-            viewString.Append("lizedExperienceLevel, \r\n            T.DateStart AS Experience_DateStart, \r\n     ");
-            viewString.Append("       T.DateFinished AS Experience_DateFinished, \r\n            T.Expiry AS Expe");
-            viewString.Append("rience_Expiry, \r\n            T.HourlyRate AS Experience_HourlyRate, \r\n          ");
-            viewString.Append("  T.DailyRate AS Experience_DailyRate, \r\n            T.AnnualRate AS Experience_");
-            viewString.Append("AnnualRate, \r\n            T.BlendedHourlyRate AS Experience_BlendedHourlyRate, \r");
-            viewString.Append("\n            T.BlendedHourlyCost AS Experience_BlendedHourlyCost, \r\n            ");
-            viewString.Append("T.Comment AS Experience_Comment, \r\n            T.IsApproved AS Experience_IsAppr");
-            viewString.Append("oved, \r\n            T.Version AS Experience_Version, \r\n            T.VersionAnte");
-            viewString.Append("cedentID AS Experience_VersionAntecedentID, \r\n            T.VersionCertainty AS ");
-            viewString.Append("Experience_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS Experi");
-            viewString.Append("ence_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Experience_V");
-            viewString.Append("ersionUpdatedBy, \r\n            T.VersionDeletedBy AS Experience_VersionDeletedBy");
-            viewString.Append(", \r\n            T.VersionOwnerContactID AS Experience_VersionOwnerContactID, \r\n ");
-            viewString.Append("           T.VersionOwnerCompanyID AS Experience_VersionOwnerCompanyID, \r\n      ");
-            viewString.Append("      T.VersionUpdated AS Experience_VersionUpdated, \r\n            True AS _from");
-            viewString.Append("0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.X_Experience AS T\r\n    ) ");
-            viewString.Append("AS T1");
+            viewString.Append("D, T1.Experience_VersionUpdated, T1.Experience_LinestringID)\r\n    FROM (\r\n      ");
+            viewString.Append("  SELECT \r\n            T.ExperienceID AS Experience_ExperienceID, \r\n            ");
+            viewString.Append("T.ExperienceName AS Experience_ExperienceName, \r\n            T.ExperienceGroupID");
+            viewString.Append(" AS Experience_ExperienceGroupID, \r\n            T.CompanyID AS Experience_Compan");
+            viewString.Append("yID, \r\n            T.ProjectID AS Experience_ProjectID, \r\n            T.ContactI");
+            viewString.Append("D AS Experience_ContactID, \r\n            T.LocationID AS Experience_LocationID, ");
+            viewString.Append("\r\n            T.ProvinceID AS Experience_ProvinceID, \r\n            T.WorkTypeID ");
+            viewString.Append("AS Experience_WorkTypeID, \r\n            T.ProfessionID AS Experience_ProfessionI");
+            viewString.Append("D, \r\n            T.PositionID AS Experience_PositionID, \r\n            T.ClientAl");
+            viewString.Append("ias AS Experience_ClientAlias, \r\n            T.Division AS Experience_Division, ");
+            viewString.Append("\r\n            T.OfficeLocationAlias AS Experience_OfficeLocationAlias, \r\n       ");
+            viewString.Append("     T.ExternalProjectCode AS Experience_ExternalProjectCode, \r\n            T.Es");
+            viewString.Append("timatedDurationDays AS Experience_EstimatedDurationDays, \r\n            T.UserExp");
+            viewString.Append("erienceLevel AS Experience_UserExperienceLevel, \r\n            T.AssignedExperien");
+            viewString.Append("ceLevel AS Experience_AssignedExperienceLevel, \r\n            T.NormalizedExperie");
+            viewString.Append("nceLevel AS Experience_NormalizedExperienceLevel, \r\n            T.DateStart AS E");
+            viewString.Append("xperience_DateStart, \r\n            T.DateFinished AS Experience_DateFinished, \r\n");
+            viewString.Append("            T.Expiry AS Experience_Expiry, \r\n            T.HourlyRate AS Experie");
+            viewString.Append("nce_HourlyRate, \r\n            T.DailyRate AS Experience_DailyRate, \r\n           ");
+            viewString.Append(" T.AnnualRate AS Experience_AnnualRate, \r\n            T.BlendedHourlyRate AS Exp");
+            viewString.Append("erience_BlendedHourlyRate, \r\n            T.BlendedHourlyCost AS Experience_Blend");
+            viewString.Append("edHourlyCost, \r\n            T.Comment AS Experience_Comment, \r\n            T.IsA");
+            viewString.Append("pproved AS Experience_IsApproved, \r\n            T.Version AS Experience_Version,");
+            viewString.Append(" \r\n            T.VersionAntecedentID AS Experience_VersionAntecedentID, \r\n      ");
+            viewString.Append("      T.VersionCertainty AS Experience_VersionCertainty, \r\n            T.Version");
+            viewString.Append("WorkflowInstanceID AS Experience_VersionWorkflowInstanceID, \r\n            T.Vers");
+            viewString.Append("ionUpdatedBy AS Experience_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS");
+            viewString.Append(" Experience_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS Experienc");
+            viewString.Append("e_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS Experience_Ver");
+            viewString.Append("sionOwnerCompanyID, \r\n            T.VersionUpdated AS Experience_VersionUpdated,");
+            viewString.Append(" \r\n            T.LinestringID AS Experience_LinestringID, \r\n            True AS ");
+            viewString.Append("_from0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.X_Experience AS T\r\n ");
+            viewString.Append("   ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Experiences", viewString.ToString());
         }
         
@@ -27282,50 +27287,50 @@ namespace Edm_EntityMappingGeneratedViews
                     ", T1.GraphDataContext_VersionWorkflowInstanceID, T1.GraphDataContext_VersionUpda" +
                     "tedBy, T1.GraphDataContext_VersionDeletedBy, T1.GraphDataContext_VersionOwnerCon" +
                     "tactID, T1.GraphDataContext_VersionOwnerCompanyID, T1.GraphDataContext_VersionUp" +
-                    "dated)\r\n    FROM (\r\n        SELECT \r\n            T.GraphDataContextID AS GraphDa" +
-                    "taContext_GraphDataContextID, \r\n            T.GraphDataID AS GraphDataContext_Gr" +
-                    "aphDataID, \r\n            T.ExperienceID AS GraphDataContext_ExperienceID, \r\n    " +
-                    "        T.Version AS GraphDataContext_Version, \r\n            T.VersionAntecedent" +
-                    "ID AS GraphDataContext_VersionAntecedentID, \r\n            T.VersionCertainty AS " +
-                    "GraphDataContext_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS " +
-                    "GraphDataContext_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS " +
-                    "GraphDataContext_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS GraphData" +
-                    "Context_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS GraphDataCont" +
-                    "ext_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS GraphDataCon" +
-                    "text_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS GraphDataContext_V" +
-                    "ersionUpdated, \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObjec" +
-                    "tsStoreContainer.E_GraphDataContext AS T\r\n    ) AS T1");
+                    "dated, T1.GraphDataContext_FileDataID, T1.GraphDataContext_LocationID)\r\n    FROM" +
+                    " (\r\n        SELECT \r\n            T.GraphDataContextID AS GraphDataContext_GraphD" +
+                    "ataContextID, \r\n            T.GraphDataID AS GraphDataContext_GraphDataID, \r\n   " +
+                    "         T.ExperienceID AS GraphDataContext_ExperienceID, \r\n            T.Versio" +
+                    "n AS GraphDataContext_Version, \r\n            T.VersionAntecedentID AS GraphDataC" +
+                    "ontext_VersionAntecedentID, \r\n            T.VersionCertainty AS GraphDataContext" +
+                    "_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS GraphDataContext" +
+                    "_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS GraphDataContext" +
+                    "_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS GraphDataContext_VersionD" +
+                    "eletedBy, \r\n            T.VersionOwnerContactID AS GraphDataContext_VersionOwner" +
+                    "ContactID, \r\n            T.VersionOwnerCompanyID AS GraphDataContext_VersionOwne" +
+                    "rCompanyID, \r\n            T.VersionUpdated AS GraphDataContext_VersionUpdated, \r" +
+                    "\n            T.FileDataID AS GraphDataContext_FileDataID, \r\n            T.Locati" +
+                    "onID AS GraphDataContext_LocationID, \r\n            True AS _from0\r\n        FROM " +
+                    "NKDModuleBusinessObjectsStoreContainer.E_GraphDataContext AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
-        /// return view for NKDC.E_DataData
+        /// return view for NKDC.DataDatas
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView632()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.E_DataData", "\r\n    SELECT VALUE -- Constructing E_DataData\r\n        [NKD.Module.BusinessObject" +
-                    "s.E_DataData](T1.[E_DataData.DataDataID], T1.[E_DataData.ParentTableType], T1.[E" +
-                    "_DataData.ParentReferenceID], T1.[E_DataData.ChildTableType], T1.[E_DataData.Chi" +
-                    "ldReferenceID], T1.[E_DataData.IsCircular], T1.[E_DataData.CreatedBy], T1.[E_Dat" +
-                    "aData.Created], T1.[E_DataData.Version], T1.[E_DataData.VersionAntecedentID], T1" +
-                    ".[E_DataData.VersionCertainty], T1.[E_DataData.VersionWorkflowInstanceID], T1.[E" +
-                    "_DataData.VersionUpdatedBy], T1.[E_DataData.VersionDeletedBy], T1.[E_DataData.Ve" +
-                    "rsionOwnerContactID], T1.[E_DataData.VersionOwnerCompanyID], T1.[E_DataData.Vers" +
-                    "ionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.DataDataID AS [E_DataDa" +
-                    "ta.DataDataID], \r\n            T.ParentTableType AS [E_DataData.ParentTableType]," +
-                    " \r\n            T.ParentReferenceID AS [E_DataData.ParentReferenceID], \r\n        " +
-                    "    T.ChildTableType AS [E_DataData.ChildTableType], \r\n            T.ChildRefere" +
-                    "nceID AS [E_DataData.ChildReferenceID], \r\n            T.IsCircular AS [E_DataDat" +
-                    "a.IsCircular], \r\n            T.CreatedBy AS [E_DataData.CreatedBy], \r\n          " +
-                    "  T.Created AS [E_DataData.Created], \r\n            T.Version AS [E_DataData.Vers" +
-                    "ion], \r\n            T.VersionAntecedentID AS [E_DataData.VersionAntecedentID], \r" +
-                    "\n            T.VersionCertainty AS [E_DataData.VersionCertainty], \r\n            " +
-                    "T.VersionWorkflowInstanceID AS [E_DataData.VersionWorkflowInstanceID], \r\n       " +
-                    "     T.VersionUpdatedBy AS [E_DataData.VersionUpdatedBy], \r\n            T.Versio" +
-                    "nDeletedBy AS [E_DataData.VersionDeletedBy], \r\n            T.VersionOwnerContact" +
-                    "ID AS [E_DataData.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID " +
-                    "AS [E_DataData.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E_Data" +
-                    "Data.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDModuleBusine" +
-                    "ssObjectsStoreContainer.E_DataData AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.DataDatas", "\r\n    SELECT VALUE -- Constructing DataDatas\r\n        [NKD.Module.BusinessObjects" +
+                    ".DataData](T1.DataData_DataDataID, T1.DataData_ParentTableType, T1.DataData_Pare" +
+                    "ntReferenceID, T1.DataData_ChildTableType, T1.DataData_ChildReferenceID, T1.Data" +
+                    "Data_IsCircular, T1.DataData_CreatedBy, T1.DataData_Created, T1.DataData_Version" +
+                    ", T1.DataData_VersionAntecedentID, T1.DataData_VersionCertainty, T1.DataData_Ver" +
+                    "sionWorkflowInstanceID, T1.DataData_VersionUpdatedBy, T1.DataData_VersionDeleted" +
+                    "By, T1.DataData_VersionOwnerContactID, T1.DataData_VersionOwnerCompanyID, T1.Dat" +
+                    "aData_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.DataDataID AS " +
+                    "DataData_DataDataID, \r\n            T.ParentTableType AS DataData_ParentTableType" +
+                    ", \r\n            T.ParentReferenceID AS DataData_ParentReferenceID, \r\n           " +
+                    " T.ChildTableType AS DataData_ChildTableType, \r\n            T.ChildReferenceID A" +
+                    "S DataData_ChildReferenceID, \r\n            T.IsCircular AS DataData_IsCircular, " +
+                    "\r\n            T.CreatedBy AS DataData_CreatedBy, \r\n            T.Created AS Data" +
+                    "Data_Created, \r\n            T.Version AS DataData_Version, \r\n            T.Versi" +
+                    "onAntecedentID AS DataData_VersionAntecedentID, \r\n            T.VersionCertainty" +
+                    " AS DataData_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS Data" +
+                    "Data_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS DataData_Ver" +
+                    "sionUpdatedBy, \r\n            T.VersionDeletedBy AS DataData_VersionDeletedBy, \r\n" +
+                    "            T.VersionOwnerContactID AS DataData_VersionOwnerContactID, \r\n       " +
+                    "     T.VersionOwnerCompanyID AS DataData_VersionOwnerCompanyID, \r\n            T." +
+                    "VersionUpdated AS DataData_VersionUpdated, \r\n            True AS _from0\r\n       " +
+                    " FROM NKDModuleBusinessObjectsStoreContainer.E_DataData AS T\r\n    ) AS T1");
         }
         
         /// <Summary>

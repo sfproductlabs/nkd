@@ -21,7 +21,6 @@ function SetupMap(elm) {
     map.mapOverlays = new Array(); //ALL THE MAP DATA IS STORED HERE
     map.selectedShape = {};
     map.geocoder = {};
-    map.drawingManager = {};
     map.sydney = {};
     map.path = new google.maps.MVCArray;
     map.pageIsLoaded = false;
@@ -46,9 +45,16 @@ function SetupMap(elm) {
     return map;
 }
 
-function SetupDrawingMap(elm) {
-    var map = SetupMap(elm);
+function SetupDrawingMap(elm, drawingModes, map) {
+    if (!map)
+        map = SetupMap(elm);
     map.setZoom(8);
+    map.drawingManager = {};
+    if (!drawingModes)
+        drawingModes = [google.maps.drawing.OverlayType.MARKER];
+    //google.maps.drawing.OverlayType.POLYGON,
+    //google.maps.drawing.OverlayType.POLYLINE
+
     //map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
 
     //poly = new google.maps.Polygon({
@@ -82,10 +88,7 @@ function SetupDrawingMap(elm) {
         drawingControl: true,
         drawingControlOptions: {
             position: google.maps.ControlPosition.TOP_CENTER,
-            drawingModes: [
-    google.maps.drawing.OverlayType.MARKER,
-    google.maps.drawing.OverlayType.POLYGON
-            ]
+            drawingModes: drawingModes
         },
         polygonOptions: {
             fillColor: '#02538a',
@@ -153,6 +156,24 @@ function SetupDrawingMap(elm) {
     return map;
 
 }
+
+function HideDrawingMap(map) {
+    if (map.drawingManager) {
+        map.drawingManager.setOptions({
+            drawingControl: false
+        });
+    }
+}
+
+function ShowDrawingMap(map) {
+    if (map.drawingManager) {
+        map.drawingManager.setOptions({
+            drawingControl: true
+        });
+    }
+}
+
+
 
 // Redraw a map.  This method removes all previous markers and looks a the google latlng opbjects in the 
 // points array
@@ -542,6 +563,13 @@ function GetSpatialObjects() {
     return spatial;
 }
 
+function ParseLatLong(lat, long) {
+    var geoData = [];
+    geoData.push({ geography: new google.maps.LatLng(lat, long), geographyType: 'point' });
+    return geoData;
+}
+
+
 //LONGITUDE, LATITUDE as per SQL
 // Using the text data, construct a valid google maps latlng recursive array 'GeoData'
 function ParseGeographyData(locationInput) {
@@ -766,6 +794,8 @@ function HideShape(map, shape) {
 
 
 function DeleteShapes(map) {
+    if (!map || !map.mapOverlays)
+        return;
     for (var i = 0 ; i < map.mapOverlays.length; i++) {        
         map.mapOverlays[i].setMap(null);
         delete map.mapOverlays[i];
