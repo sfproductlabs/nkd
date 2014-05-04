@@ -37,6 +37,9 @@ namespace NKD.Services
          Guid? GetEmailContactID(string email, bool validated = true);
 
          [OperationContract]
+         void GetCreator(Guid? contact, Guid? company, out Guid? creatorContact, out Guid? creatorCompany);
+
+         [OperationContract]
          string[] GetUserEmails(Guid[] users);
 
          [OperationContract]
@@ -115,6 +118,13 @@ namespace NKD.Services
              [OperationContract]
              get;
          }
+
+         Guid?[] ContactCompanies
+         {
+             [OperationContract]
+             get;
+         }
+
 
          Guid ServerID
          {

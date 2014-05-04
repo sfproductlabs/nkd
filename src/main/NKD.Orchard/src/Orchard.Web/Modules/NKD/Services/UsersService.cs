@@ -237,31 +237,47 @@ namespace NKD.Services {
         }
 
 
-        private Guid[] contactCompanies;
+        private Guid?[] contactCompanies = null;
         /// <summary>
         /// Does not return recursive list.
         /// </summary>
-        public Guid[] ContactCompanies
+        public Guid?[] ContactCompanies
         {
             get
             {
-                using (new TransactionScope(TransactionScopeOption.Suppress))
+                if (contactCompanies == null)
                 {
-                    var d = new NKDC(ApplicationConnectionString, null);
-                    if (contactCompanies == null)
+                    using (new TransactionScope(TransactionScopeOption.Suppress))
                     {
+                        Guid?[] defaultCompanies;
+                        if (DefaultPublicDomain)
+                        {
+                            defaultCompanies = new Guid?[] { default(Guid?), COMPANY_DEFAULT };
+                        }
+                        else
+                        {
+                            defaultCompanies = new Guid?[] { COMPANY_DEFAULT };
+                        }
+                        var d = new NKDC(ApplicationConnectionString, null);
+
                         contactCompanies = (from o in d.Experiences
                                             orderby o.DateStart descending, o.VersionUpdated descending
-                                            where o.DateFinished == null && o.CompanyID != null && (o.DateStart <= DateTime.UtcNow || o.DateStart == null)
+                                            where
+                                            (o.DateFinished == null || o.DateFinished > DateTime.UtcNow)
+                                            && (o.Expiry == null || o.Expiry > DateTime.UtcNow)
+                                            && o.CompanyID != null
+                                            && o.ContactID == ContactID
+                                            && (o.DateStart <= DateTime.UtcNow || o.DateStart == null)
                                             && o.Version == 0 && o.VersionDeletedBy == null
-                                            select o.CompanyID.Value).Distinct().ToArray();
+                                            select o.CompanyID).AsEnumerable().Concat(defaultCompanies).Distinct().ToArray();
                         if (!contactCompanies.Any())
-                            contactCompanies = new Guid[] { COMPANY_DEFAULT }; //Default company GUID
+                            contactCompanies = defaultCompanies; //Default company GUID
                     }
-                    return contactCompanies;
                 }
-
+                return contactCompanies;
             }
+
+            
         }
 
 
@@ -500,6 +516,33 @@ namespace NKD.Services {
 
                 return applicationConnectionString;
             }
+        }
+
+        //Default True
+        private bool? defaultPublicDomain = null;
+        public bool DefaultPublicDomain //TODO: This needs to be multi-tenant?
+        {
+            get
+            {
+                if (!defaultPublicDomain.HasValue)
+                    defaultPublicDomain = string.Format("{0}", System.Configuration.ConfigurationManager.AppSettings["AllowPublic"]).ToLowerInvariant() != "false";
+                return defaultPublicDomain.Value;
+            }
+        }
+        public void GetCreator(Guid? contact, Guid? company, out Guid? creatorContact, out Guid? creatorCompany)
+        {
+
+            if (DefaultPublicDomain && company == COMPANY_DEFAULT)
+            {
+                creatorContact = null;
+                creatorCompany = null;
+            }
+            else
+            {
+                creatorContact = contact;
+                creatorCompany = company;
+            }
+
         }
 
         //private Object syncUsersLock = new Object();

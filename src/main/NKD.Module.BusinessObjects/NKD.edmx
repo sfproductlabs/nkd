@@ -28941,31 +28941,6 @@
             <End Role="Contact" EntitySet="Contacts" />
             <End Role="E_ProjectPledgeAddendum" EntitySet="ProjectPledgeAddendums" />
           </AssociationSet>
-          <FunctionImport Name="E_SP_GetSecuredSearch" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetSecuredSearch_Result)">
-            <Parameter Name="text" Mode="In" Type="String" />
-            <Parameter Name="contactid" Mode="In" Type="Guid" />
-            <Parameter Name="applicationid" Mode="In" Type="Guid" />
-            <Parameter Name="table" Mode="In" Type="String" />
-            <Parameter Name="viewport" Mode="In" Type="Geography" />
-            <Parameter Name="centre" Mode="In" Type="Geography" />
-            <Parameter Name="fileTypeID" Mode="In" Type="Guid" />
-            <Parameter Name="workflowTypeID" Mode="In" Type="Guid" />
-            <Parameter Name="locationTypeID" Mode="In" Type="Guid" />
-            <Parameter Name="provinceTypeID" Mode="In" Type="Guid" />
-            <Parameter Name="linestringTypeID" Mode="In" Type="Guid" />
-            <Parameter Name="countryID" Mode="In" Type="String" />
-            <Parameter Name="countryStateID" Mode="In" Type="Guid" />
-            <Parameter Name="dateFrom" Mode="In" Type="DateTime" />
-            <Parameter Name="dateTo" Mode="In" Type="DateTime" />
-            <Parameter Name="searchResultHighlightClass" Mode="In" Type="String" />
-            <Parameter Name="maxDescriptionLegnth" Mode="In" Type="Int32" />
-            <Parameter Name="rankMax" Mode="In" Type="Int32" />
-            <Parameter Name="rankMin" Mode="In" Type="Int32" />
-            <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
-            <Parameter Name="pageSize" Mode="In" Type="Int32" />
-            <Parameter Name="verified" Mode="InOut" Type="Boolean" />
-            <Parameter Name="found" Mode="InOut" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="X_SP_GetAssaysByWorkflow">
             <Parameter Name="assay_group_projectid" Mode="In" Type="Guid" />
             <Parameter Name="assay_groupid" Mode="In" Type="Guid" />
@@ -29031,6 +29006,31 @@
             <End Role="Location" EntitySet="Locations" />
             <End Role="E_GraphDataLocation" EntitySet="GraphDataLocations" />
           </AssociationSet>
+          <FunctionImport Name="E_SP_GetSecuredSearch" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetSecuredSearch_Result)">
+            <Parameter Name="text" Mode="In" Type="String" />
+            <Parameter Name="contactid" Mode="In" Type="Guid" />
+            <Parameter Name="applicationid" Mode="In" Type="Guid" />
+            <Parameter Name="table" Mode="In" Type="String" />
+            <Parameter Name="viewport" Mode="In" Type="Geography" />
+            <Parameter Name="centre" Mode="In" Type="Geography" />
+            <Parameter Name="fileTypeID" Mode="In" Type="Guid" />
+            <Parameter Name="workflowTypeID" Mode="In" Type="Guid" />
+            <Parameter Name="locationTypeID" Mode="In" Type="Guid" />
+            <Parameter Name="provinceTypeID" Mode="In" Type="Guid" />
+            <Parameter Name="linestringTypeID" Mode="In" Type="Guid" />
+            <Parameter Name="countryID" Mode="In" Type="String" />
+            <Parameter Name="countryStateID" Mode="In" Type="Guid" />
+            <Parameter Name="dateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="dateTo" Mode="In" Type="DateTime" />
+            <Parameter Name="searchResultHighlightClass" Mode="In" Type="String" />
+            <Parameter Name="maxDescriptionLegnth" Mode="In" Type="Int32" />
+            <Parameter Name="rankMax" Mode="In" Type="Int32" />
+            <Parameter Name="rankMin" Mode="In" Type="Int32" />
+            <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
+            <Parameter Name="pageSize" Mode="In" Type="Int32" />
+            <Parameter Name="verified" Mode="InOut" Type="Boolean" />
+            <Parameter Name="found" Mode="InOut" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -49676,20 +49676,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="E_SP_GetSecuredSearch_Result">
-          <Property Type="Int64" Name="Row" Nullable="true" />
-          <Property Type="Int32" Name="TotalRows" Nullable="true" />
-          <Property Type="Int32" Name="Score" Nullable="true" />
-          <Property Type="Guid" Name="ReferenceID" Nullable="false" />
-          <Property Type="String" Name="TableType" Nullable="false" MaxLength="15" />
-          <Property Type="String" Name="Title" Nullable="false" MaxLength="60" />
-          <Property Type="String" Name="Description" Nullable="true" />
-          <Property Type="String" Name="SpatialJSON" Nullable="true" />
-          <Property Type="String" Name="InternalURL" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="ExternalURL" Nullable="true" />
-          <Property Type="String" Name="Author" Nullable="true" />
-          <Property Type="DateTime" Name="Updated" Nullable="true" Precision="23" />
-        </ComplexType>
         <EntityType Name="GraphDataContext">
           <Key>
             <PropertyRef Name="GraphDataContextID" />
@@ -49931,6 +49917,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="E_SP_GetSecuredSearch_Result">
+          <Property Type="Int64" Name="Row" Nullable="true" />
+          <Property Type="Int32" Name="TotalRows" Nullable="true" />
+          <Property Type="Int32" Name="Score" Nullable="true" />
+          <Property Type="Guid" Name="id" Nullable="false" />
+          <Property Type="Guid" Name="ReferenceID" Nullable="false" />
+          <Property Type="String" Name="TableType" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="60" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="String" Name="SpatialJSON" Nullable="true" />
+          <Property Type="String" Name="InternalURL" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="ExternalURL" Nullable="true" />
+          <Property Type="String" Name="Author" Nullable="true" />
+          <Property Type="DateTime" Name="Updated" Nullable="true" Precision="23" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -59308,24 +59309,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="E_SP_GetSecuredSearch" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetSecuredSearch">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetSecuredSearch_Result">
-                <ScalarProperty Name="Row" ColumnName="Row" />
-                <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
-                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
-                <ScalarProperty Name="TableType" ColumnName="TableType" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="SpatialJSON" ColumnName="SpatialJSON" />
-                <ScalarProperty Name="InternalURL" ColumnName="InternalURL" />
-                <ScalarProperty Name="ExternalURL" ColumnName="ExternalURL" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
-                <ScalarProperty Name="Updated" ColumnName="Updated" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="X_SP_GetAssaysByWorkflow" FunctionName="NKD.Module.BusinessObjects.Store.X_SP_GetAssaysByWorkflow" />
           <EntitySetMapping Name="GraphDataContexts">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.GraphDataContext">
@@ -59413,6 +59396,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_GetSecuredSearch" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetSecuredSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetSecuredSearch_Result">
+                <ScalarProperty Name="Row" ColumnName="Row" />
+                <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+                <ScalarProperty Name="TableType" ColumnName="TableType" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SpatialJSON" ColumnName="SpatialJSON" />
+                <ScalarProperty Name="InternalURL" ColumnName="InternalURL" />
+                <ScalarProperty Name="ExternalURL" ColumnName="ExternalURL" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

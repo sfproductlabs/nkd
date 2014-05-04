@@ -18,3 +18,10 @@ function NewGUID() {
         return v.toString(16);
     });
 }
+
+function ToTitleCase(str) {
+    if (typeof str === 'string' && str !== null)
+        return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+    else
+        return null;
+}
