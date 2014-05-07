@@ -1397,7 +1397,8 @@ namespace NKD.Services {
                         ExperienceID = Guid.NewGuid(),
                         ContactID = contact,
                         CompanyID = COMPANY_DEFAULT,
-                        ExperienceName = string.Format("User - {0}", context.User.UserName)
+                        ExperienceName = string.Format("User - {0}", context.User.UserName),
+                        VersionUpdated = DateTime.UtcNow
                     };
                     d.Experiences.AddObject(e);
                     d.SaveChanges();

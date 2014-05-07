@@ -119,6 +119,12 @@ namespace NKD.Services
              get;
          }
 
+         bool DefaultPublicDomain
+         {
+             [OperationContract]
+             get;
+         }
+
          Guid?[] ContactCompanies
          {
              [OperationContract]
