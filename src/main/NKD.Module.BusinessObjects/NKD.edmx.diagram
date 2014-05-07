@@ -1243,6 +1243,9 @@
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataLocation_E_GraphData" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataFileData_X_FileData" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataLocation_X_Location" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.GraphDataGroup" Width="1.5" PointX="8.1364263892809046" PointY="27.538758409926089" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataGroup_X_ContactCreator" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataGroup" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -48,6 +48,7 @@
           <EntitySet Name="E_GraphData" EntityType="NKD.Module.BusinessObjects.Store.E_GraphData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_GraphDataContext" EntityType="NKD.Module.BusinessObjects.Store.E_GraphDataContext" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_GraphDataFileData" EntityType="NKD.Module.BusinessObjects.Store.E_GraphDataFileData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="E_GraphDataGroup" EntityType="NKD.Module.BusinessObjects.Store.E_GraphDataGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_GraphDataLocation" EntityType="NKD.Module.BusinessObjects.Store.E_GraphDataLocation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_GraphDataRelation" EntityType="NKD.Module.BusinessObjects.Store.E_GraphDataRelation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="E_Invoice" EntityType="NKD.Module.BusinessObjects.Store.E_Invoice" store:Type="Tables" Schema="dbo" />
@@ -1284,6 +1285,10 @@
             <End Role="X_FileData" EntitySet="X_FileData" />
             <End Role="E_GraphDataFileData" EntitySet="E_GraphDataFileData" />
           </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataGroup_X_ContactCreator" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataGroup_X_ContactCreator">
+            <End Role="X_Contact" EntitySet="X_Contact" />
+            <End Role="E_GraphDataGroup" EntitySet="E_GraphDataGroup" />
+          </AssociationSet>
           <AssociationSet Name="FK_E_GraphDataLocation_E_GraphData" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataLocation_E_GraphData">
             <End Role="E_GraphData" EntitySet="E_GraphData" />
             <End Role="E_GraphDataLocation" EntitySet="E_GraphDataLocation" />
@@ -1291,6 +1296,10 @@
           <AssociationSet Name="FK_E_GraphDataLocation_X_Location" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataLocation_X_Location">
             <End Role="X_Location" EntitySet="X_Location" />
             <End Role="E_GraphDataLocation" EntitySet="E_GraphDataLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataGroup" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataRelation_E_GraphDataGroup">
+            <End Role="E_GraphDataGroup" EntitySet="E_GraphDataGroup" />
+            <End Role="E_GraphDataRelation" EntitySet="E_GraphDataRelation" />
           </AssociationSet>
           <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataOriginal" Association="NKD.Module.BusinessObjects.Store.FK_E_GraphDataRelation_E_GraphDataOriginal">
             <End Role="E_GraphData" EntitySet="E_GraphData" />
@@ -5223,6 +5232,25 @@
           <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
           <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
+        <EntityType Name="E_GraphDataGroup">
+          <Key>
+            <PropertyRef Name="GraphDataGroupID" />
+          </Key>
+          <Property Name="GraphDataGroupID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GraphDataGroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
         <EntityType Name="E_GraphDataLocation">
           <Key>
             <PropertyRef Name="GraphDataLocationID" />
@@ -5389,7 +5417,7 @@
           <Property Name="InternalReferenceID" Type="uniqueidentifier" />
           <Property Name="InternalReferenceName" Type="nvarchar" MaxLength="60" />
           <Property Name="ExternalProviderType" Type="nvarchar" MaxLength="16" />
-          <Property Name="ExternalReferenceName" Type="nvarchar" MaxLength="60" />
+          <Property Name="ExternalReferenceName" Type="nvarchar" MaxLength="255" />
           <Property Name="Paid" Type="datetime" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
@@ -7619,7 +7647,7 @@
             <PropertyRef Name="CompanyID" />
           </Key>
           <Property Name="CompanyID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CompanyName" Type="nvarchar" MaxLength="255" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="120" />
           <Property Name="CountryID" Type="nvarchar" MaxLength="2" />
           <Property Name="PrimaryContactID" Type="uniqueidentifier" />
           <Property Name="Comment" Type="nvarchar(max)" />
@@ -13949,6 +13977,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_E_GraphDataGroup_X_ContactCreator">
+          <End Role="X_Contact" Type="NKD.Module.BusinessObjects.Store.X_Contact" Multiplicity="0..1" />
+          <End Role="E_GraphDataGroup" Type="NKD.Module.BusinessObjects.Store.E_GraphDataGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Contact">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="E_GraphDataGroup">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_E_GraphDataLocation_E_GraphData">
           <End Role="E_GraphData" Type="NKD.Module.BusinessObjects.Store.E_GraphData" Multiplicity="0..1" />
           <End Role="E_GraphDataLocation" Type="NKD.Module.BusinessObjects.Store.E_GraphDataLocation" Multiplicity="*" />
@@ -13970,6 +14010,18 @@
             </Principal>
             <Dependent Role="E_GraphDataLocation">
               <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataRelation_E_GraphDataGroup">
+          <End Role="E_GraphDataGroup" Type="NKD.Module.BusinessObjects.Store.E_GraphDataGroup" Multiplicity="0..1" />
+          <End Role="E_GraphDataRelation" Type="NKD.Module.BusinessObjects.Store.E_GraphDataRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_GraphDataGroup">
+              <PropertyRef Name="GraphDataGroupID" />
+            </Principal>
+            <Dependent Role="E_GraphDataRelation">
+              <PropertyRef Name="GraphDataGroupID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -23718,6 +23770,10 @@
           <Parameter Name="ownerCompanyID" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="licenseeCompanyID" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="licenseeContactID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="licenseeUsername" Type="nvarchar" Mode="In" />
+          <Parameter Name="licenseID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="modelID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="partID" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="startRowIndex" Type="int" Mode="In" />
           <Parameter Name="pageSize" Type="int" Mode="In" />
         </Function>
@@ -28795,15 +28851,6 @@
             <Parameter Name="purchaseOrder" Mode="In" Type="Guid" />
             <Parameter Name="contactID" Mode="In" Type="Guid" />
           </FunctionImport>
-          <FunctionImport Name="E_SP_GetLicenses" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetLicenses_Result)">
-            <Parameter Name="applicationID" Mode="In" Type="Guid" />
-            <Parameter Name="ownerContactID" Mode="In" Type="Guid" />
-            <Parameter Name="ownerCompanyID" Mode="In" Type="Guid" />
-            <Parameter Name="licenseeCompanyID" Mode="In" Type="Guid" />
-            <Parameter Name="licenseeContactID" Mode="In" Type="Guid" />
-            <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
-            <Parameter Name="pageSize" Mode="In" Type="Int32" />
-          </FunctionImport>
           <EntitySet Name="SupplyItemDetailViews" EntityType="NKD.Module.BusinessObjects.SupplyItemDetailView" />
           <FunctionImport Name="E_SP_GetSoftwareSubmissions" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetSoftwareSubmissions_Result)">
             <Parameter Name="applicationID" Mode="In" Type="Guid" />
@@ -29030,6 +29077,28 @@
             <Parameter Name="pageSize" Mode="In" Type="Int32" />
             <Parameter Name="verified" Mode="InOut" Type="Boolean" />
             <Parameter Name="found" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="GraphDataGroups" EntityType="NKD.Module.BusinessObjects.GraphDataGroup" />
+          <AssociationSet Name="FK_E_GraphDataGroup_X_ContactCreator" Association="NKD.Module.BusinessObjects.FK_E_GraphDataGroup_X_ContactCreator">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="E_GraphDataGroup" EntitySet="GraphDataGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_GraphDataRelation_E_GraphDataGroup" Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataGroup">
+            <End Role="E_GraphDataGroup" EntitySet="GraphDataGroups" />
+            <End Role="GraphDataRelation" EntitySet="GraphDataRelation" />
+          </AssociationSet>
+          <FunctionImport Name="E_SP_GetLicenses" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetLicenses_Result)">
+            <Parameter Name="applicationID" Mode="In" Type="Guid" />
+            <Parameter Name="ownerContactID" Mode="In" Type="Guid" />
+            <Parameter Name="ownerCompanyID" Mode="In" Type="Guid" />
+            <Parameter Name="licenseeCompanyID" Mode="In" Type="Guid" />
+            <Parameter Name="licenseeContactID" Mode="In" Type="Guid" />
+            <Parameter Name="licenseeUsername" Mode="In" Type="String" />
+            <Parameter Name="licenseID" Mode="In" Type="Guid" />
+            <Parameter Name="modelID" Mode="In" Type="Guid" />
+            <Parameter Name="partID" Mode="In" Type="Guid" />
+            <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
+            <Parameter Name="pageSize" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Split_Result">
@@ -29412,7 +29481,7 @@
           <Property Type="Guid" Name="InternalReferenceID" />
           <Property Type="String" Name="InternalReferenceName" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ExternalProviderType" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ExternalReferenceName" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ExternalReferenceName" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ContactCustomer" Relationship="NKD.Module.BusinessObjects.FK_E_Payment_X_Contact" FromRole="Payment" ToRole="Contact" />
           <NavigationProperty Name="ContactSupplier" Relationship="NKD.Module.BusinessObjects.FK_E_Payment_X_SupplierContact" FromRole="Payment" ToRole="Contact" />
           <NavigationProperty Name="PaymentInvoice" Relationship="NKD.Module.BusinessObjects.FK_E_PaymentInvoice_E_Payment" FromRole="Payment" ToRole="E_PaymentInvoice" />
@@ -31163,7 +31232,7 @@
             <PropertyRef Name="CompanyID" />
           </Key>
           <Property Name="CompanyID" Type="Guid" Nullable="false" />
-          <Property Name="CompanyName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
           <Property Name="CountryID" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
           <Property Name="PrimaryContactID" Type="Guid" />
           <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -31481,7 +31550,8 @@
           <NavigationProperty Name="ProjectPledgeOverseen" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledge_X_ContactOverseer" FromRole="Contact" ToRole="E_ProjectPledge" />
           <NavigationProperty Name="ProjectPledgeAddendum" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_Contact" FromRole="Contact" ToRole="E_ProjectPledgeAddendum" />
           <NavigationProperty Name="ProjectPledgeAddendumApproved" Relationship="NKD.Module.BusinessObjects.FK_E_ProjectPledgeAddendum_X_ContactReviewer" FromRole="Contact" ToRole="E_ProjectPledgeAddendum" />
-          <NavigationProperty Name="E_DataData" Relationship="NKD.Module.BusinessObjects.FK_E_DataData_X_Contact" FromRole="Contact" ToRole="E_DataData" />
+          <NavigationProperty Name="DataData" Relationship="NKD.Module.BusinessObjects.FK_E_DataData_X_Contact" FromRole="Contact" ToRole="E_DataData" />
+          <NavigationProperty Name="GraphDataGroup" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataGroup_X_ContactCreator" FromRole="Contact" ToRole="E_GraphDataGroup" />
         </EntityType>
         <EntityType Name="ContactAddress">
           <Key>
@@ -48223,7 +48293,7 @@
           <Property Type="String" Name="InternalURL" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="ExternalURL" Nullable="true" MaxLength="255" />
           <Property Type="Guid" Name="ApplicationPaymentProviderID" Nullable="true" />
-          <Property Type="Guid" Name="ApplicationPaymentProviderProductID" Nullable="false" />
+          <Property Type="Guid" Name="ApplicationPaymentProviderProductID" />
           <Property Type="String" Name="PaymentProviderProductName" Nullable="true" MaxLength="120" />
           <Property Type="Boolean" Name="IsRecurring" Nullable="true" />
           <Property Type="Guid" Name="ProductUnitID" Nullable="true" />
@@ -49028,48 +49098,6 @@
           <Property Type="Guid" Name="DownloadID" Nullable="true" />
           <Property Type="String" Name="Description" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="E_SP_GetLicenses_Result">
-          <Property Type="Int64" Name="LicenseRow" Nullable="true" />
-          <Property Type="Guid" Name="LicenseID" Nullable="false" />
-          <Property Type="Guid" Name="CompanyID" Nullable="true" />
-          <Property Type="Guid" Name="ContactID" Nullable="true" />
-          <Property Type="Guid" Name="LicenseeGUID" Nullable="true" />
-          <Property Type="String" Name="LicenseeName" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="LicenseeUsername" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="LicenseeUniqueMachineCode1" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="LicenseeUniqueMachineCode2" Nullable="true" MaxLength="255" />
-          <Property Type="Guid" Name="LicenseeGroupID" Nullable="true" />
-          <Property Type="String" Name="LicensorIP" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="LicensorName" Nullable="true" MaxLength="255" />
-          <Property Type="Guid" Name="LicenseTypeID" Nullable="true" />
-          <Property Type="String" Name="LicenseType" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="LicenseURL" Nullable="true" MaxLength="4000" />
-          <Property Type="String" Name="RootServerName" Nullable="true" MaxLength="255" />
-          <Property Type="Guid" Name="RootServerID" Nullable="true" />
-          <Property Type="String" Name="ServerName" Nullable="true" MaxLength="255" />
-          <Property Type="Guid" Name="ServerID" Nullable="true" />
-          <Property Type="Guid" Name="ApplicationID" Nullable="true" />
-          <Property Type="String" Name="ServiceAuthenticationMethod" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="ServiceAuthorisationMethod" Nullable="true" MaxLength="255" />
-          <Property Type="DateTime" Name="ValidFrom" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="Expiry" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="SupportExpiry" Nullable="true" Precision="23" />
-          <Property Type="Decimal" Name="ValidForDuration" Nullable="true" Precision="38" Scale="20" />
-          <Property Type="Guid" Name="ValidForUnitID" Nullable="true" />
-          <Property Type="String" Name="ValidForUnitName" Nullable="true" MaxLength="16" />
-          <Property Type="Guid" Name="AssetID" Nullable="true" />
-          <Property Type="Decimal" Name="ProRataCost" Nullable="true" Precision="19" />
-          <Property Type="Guid" Name="LicenseAssetID" Nullable="true" />
-          <Property Type="Guid" Name="ModelID" Nullable="true" />
-          <Property Type="String" Name="StandardModelName" Nullable="true" MaxLength="60" />
-          <Property Type="String" Name="ModelRestrictions" Nullable="true" MaxLength="255" />
-          <Property Type="Guid" Name="LicenseAssetModelPartID" Nullable="true" />
-          <Property Type="Guid" Name="ModelPartID" Nullable="true" />
-          <Property Type="String" Name="StandardPartName" Nullable="true" MaxLength="60" />
-          <Property Type="String" Name="PartRestrictions" Nullable="true" MaxLength="255" />
-          <Property Type="Guid" Name="DownloadID" Nullable="true" />
-          <Property Type="String" Name="Description" Nullable="true" />
-        </ComplexType>
         <EntityType Name="SupplyItemDetailView">
           <Key>
             <PropertyRef Name="SupplyItemID" />
@@ -49203,6 +49231,7 @@
           <NavigationProperty Name="GraphDataRelated" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataRelated" FromRole="E_GraphDataRelation" ToRole="E_GraphData" />
           <NavigationProperty Name="RelationType" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_X_DictionaryRelationType" FromRole="E_GraphDataRelation" ToRole="DictionaryRelationType" />
           <Property Type="Guid" Name="GraphDataGroupID" />
+          <NavigationProperty Name="E_GraphDataGroup" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataGroup" FromRole="GraphDataRelation" ToRole="E_GraphDataGroup" />
         </EntityType>
         <Association Name="FK_E_GraphDataRelation_E_GraphDataOriginal">
           <End Type="NKD.Module.BusinessObjects.GraphData" Role="E_GraphData" Multiplicity="0..1" />
@@ -49931,6 +49960,94 @@
           <Property Type="String" Name="ExternalURL" Nullable="true" />
           <Property Type="String" Name="Author" Nullable="true" />
           <Property Type="DateTime" Name="Updated" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="GraphDataGroup">
+          <Key>
+            <PropertyRef Name="GraphDataGroupID" />
+          </Key>
+          <Property Type="Guid" Name="GraphDataGroupID" Nullable="false" />
+          <Property Type="String" Name="GraphDataGroupName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="CreatedBy" />
+          <Property Type="DateTime" Name="Created" Precision="3" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="Contact" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataGroup_X_ContactCreator" FromRole="E_GraphDataGroup" ToRole="Contact" />
+          <NavigationProperty Name="GraphDataRelation" Relationship="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataGroup" FromRole="E_GraphDataGroup" ToRole="GraphDataRelation" />
+        </EntityType>
+        <Association Name="FK_E_GraphDataGroup_X_ContactCreator">
+          <End Type="NKD.Module.BusinessObjects.Contact" Role="Contact" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.GraphDataGroup" Role="E_GraphDataGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="E_GraphDataGroup">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_GraphDataRelation_E_GraphDataGroup">
+          <End Type="NKD.Module.BusinessObjects.GraphDataGroup" Role="E_GraphDataGroup" Multiplicity="0..1" />
+          <End Type="NKD.Module.BusinessObjects.GraphDataRelation" Role="GraphDataRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_GraphDataGroup">
+              <PropertyRef Name="GraphDataGroupID" />
+            </Principal>
+            <Dependent Role="GraphDataRelation">
+              <PropertyRef Name="GraphDataGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="E_SP_GetLicenses_Result">
+          <Property Type="Int64" Name="LicenseRow" Nullable="true" />
+          <Property Type="Guid" Name="LicenseID" Nullable="false" />
+          <Property Type="Guid" Name="CompanyID" Nullable="true" />
+          <Property Type="Guid" Name="ContactID" Nullable="true" />
+          <Property Type="Guid" Name="LicenseeGUID" Nullable="true" />
+          <Property Type="String" Name="LicenseeName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="LicenseeUsername" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="LicenseeUniqueMachineCode1" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="LicenseeUniqueMachineCode2" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="LicenseeGroupID" Nullable="true" />
+          <Property Type="String" Name="LicensorIP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LicensorName" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="LicenseTypeID" Nullable="true" />
+          <Property Type="String" Name="LicenseType" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="LicenseURL" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="RootServerName" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="RootServerID" Nullable="true" />
+          <Property Type="String" Name="ServerName" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="ServerID" Nullable="true" />
+          <Property Type="Guid" Name="ApplicationID" Nullable="true" />
+          <Property Type="String" Name="ServiceAuthenticationMethod" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="ServiceAuthorisationMethod" Nullable="true" MaxLength="255" />
+          <Property Type="DateTime" Name="ValidFrom" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Expiry" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="SupportExpiry" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="ValidForDuration" Nullable="true" Precision="38" Scale="20" />
+          <Property Type="Guid" Name="ValidForUnitID" Nullable="true" />
+          <Property Type="String" Name="ValidForUnitName" Nullable="true" MaxLength="16" />
+          <Property Type="DateTime" Name="VersionUpdated" Nullable="true" Precision="23" />
+          <Property Type="Guid" Name="AssetID" Nullable="true" />
+          <Property Type="Decimal" Name="ProRataCost" Nullable="true" Precision="19" />
+          <Property Type="Guid" Name="LicenseAssetID" Nullable="true" />
+          <Property Type="Guid" Name="ModelID" Nullable="true" />
+          <Property Type="String" Name="StandardModelName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="ModelRestrictions" Nullable="true" MaxLength="255" />
+          <Property Type="Guid" Name="LicenseAssetModelPartID" Nullable="true" />
+          <Property Type="Guid" Name="ModelPartID" Nullable="true" />
+          <Property Type="String" Name="StandardPartName" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="PartRestrictions" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Downloads" Nullable="true" />
+          <Property Type="String" Name="PaymentReferences" Nullable="true" MaxLength="255" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -58969,52 +59086,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="E_SP_GetLicenses" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetLicenses">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetLicenses_Result">
-                <ScalarProperty Name="LicenseRow" ColumnName="LicenseRow" />
-                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
-                <ScalarProperty Name="LicenseeGUID" ColumnName="LicenseeGUID" />
-                <ScalarProperty Name="LicenseeName" ColumnName="LicenseeName" />
-                <ScalarProperty Name="LicenseeUsername" ColumnName="LicenseeUsername" />
-                <ScalarProperty Name="LicenseeUniqueMachineCode1" ColumnName="LicenseeUniqueMachineCode1" />
-                <ScalarProperty Name="LicenseeUniqueMachineCode2" ColumnName="LicenseeUniqueMachineCode2" />
-                <ScalarProperty Name="LicenseeGroupID" ColumnName="LicenseeGroupID" />
-                <ScalarProperty Name="LicensorIP" ColumnName="LicensorIP" />
-                <ScalarProperty Name="LicensorName" ColumnName="LicensorName" />
-                <ScalarProperty Name="LicenseTypeID" ColumnName="LicenseTypeID" />
-                <ScalarProperty Name="LicenseType" ColumnName="LicenseType" />
-                <ScalarProperty Name="LicenseURL" ColumnName="LicenseURL" />
-                <ScalarProperty Name="RootServerName" ColumnName="RootServerName" />
-                <ScalarProperty Name="RootServerID" ColumnName="RootServerID" />
-                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
-                <ScalarProperty Name="ServerID" ColumnName="ServerID" />
-                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
-                <ScalarProperty Name="ServiceAuthenticationMethod" ColumnName="ServiceAuthenticationMethod" />
-                <ScalarProperty Name="ServiceAuthorisationMethod" ColumnName="ServiceAuthorisationMethod" />
-                <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
-                <ScalarProperty Name="Expiry" ColumnName="Expiry" />
-                <ScalarProperty Name="SupportExpiry" ColumnName="SupportExpiry" />
-                <ScalarProperty Name="ValidForDuration" ColumnName="ValidForDuration" />
-                <ScalarProperty Name="ValidForUnitID" ColumnName="ValidForUnitID" />
-                <ScalarProperty Name="ValidForUnitName" ColumnName="ValidForUnitName" />
-                <ScalarProperty Name="AssetID" ColumnName="AssetID" />
-                <ScalarProperty Name="ProRataCost" ColumnName="ProRataCost" />
-                <ScalarProperty Name="LicenseAssetID" ColumnName="LicenseAssetID" />
-                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
-                <ScalarProperty Name="StandardModelName" ColumnName="StandardModelName" />
-                <ScalarProperty Name="ModelRestrictions" ColumnName="ModelRestrictions" />
-                <ScalarProperty Name="LicenseAssetModelPartID" ColumnName="LicenseAssetModelPartID" />
-                <ScalarProperty Name="ModelPartID" ColumnName="ModelPartID" />
-                <ScalarProperty Name="StandardPartName" ColumnName="StandardPartName" />
-                <ScalarProperty Name="PartRestrictions" ColumnName="PartRestrictions" />
-                <ScalarProperty Name="DownloadID" ColumnName="DownloadID" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <EntitySetMapping Name="SupplyItemDetailViews">
             <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.SupplyItemDetailView">
               <MappingFragment StoreEntitySet="E_VW_SupplyItemDetail">
@@ -59412,6 +59483,73 @@
                 <ScalarProperty Name="ExternalURL" ColumnName="ExternalURL" />
                 <ScalarProperty Name="Author" ColumnName="Author" />
                 <ScalarProperty Name="Updated" ColumnName="Updated" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="GraphDataGroups">
+            <EntityTypeMapping TypeName="NKD.Module.BusinessObjects.GraphDataGroup">
+              <MappingFragment StoreEntitySet="E_GraphDataGroup">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="GraphDataGroupName" ColumnName="GraphDataGroupName" />
+                <ScalarProperty Name="GraphDataGroupID" ColumnName="GraphDataGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_GetLicenses" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetLicenses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetLicenses_Result">
+                <ScalarProperty Name="LicenseRow" ColumnName="LicenseRow" />
+                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="LicenseeGUID" ColumnName="LicenseeGUID" />
+                <ScalarProperty Name="LicenseeName" ColumnName="LicenseeName" />
+                <ScalarProperty Name="LicenseeUsername" ColumnName="LicenseeUsername" />
+                <ScalarProperty Name="LicenseeUniqueMachineCode1" ColumnName="LicenseeUniqueMachineCode1" />
+                <ScalarProperty Name="LicenseeUniqueMachineCode2" ColumnName="LicenseeUniqueMachineCode2" />
+                <ScalarProperty Name="LicenseeGroupID" ColumnName="LicenseeGroupID" />
+                <ScalarProperty Name="LicensorIP" ColumnName="LicensorIP" />
+                <ScalarProperty Name="LicensorName" ColumnName="LicensorName" />
+                <ScalarProperty Name="LicenseTypeID" ColumnName="LicenseTypeID" />
+                <ScalarProperty Name="LicenseType" ColumnName="LicenseType" />
+                <ScalarProperty Name="LicenseURL" ColumnName="LicenseURL" />
+                <ScalarProperty Name="RootServerName" ColumnName="RootServerName" />
+                <ScalarProperty Name="RootServerID" ColumnName="RootServerID" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="ServerID" ColumnName="ServerID" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ServiceAuthenticationMethod" ColumnName="ServiceAuthenticationMethod" />
+                <ScalarProperty Name="ServiceAuthorisationMethod" ColumnName="ServiceAuthorisationMethod" />
+                <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+                <ScalarProperty Name="Expiry" ColumnName="Expiry" />
+                <ScalarProperty Name="SupportExpiry" ColumnName="SupportExpiry" />
+                <ScalarProperty Name="ValidForDuration" ColumnName="ValidForDuration" />
+                <ScalarProperty Name="ValidForUnitID" ColumnName="ValidForUnitID" />
+                <ScalarProperty Name="ValidForUnitName" ColumnName="ValidForUnitName" />
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="AssetID" ColumnName="AssetID" />
+                <ScalarProperty Name="ProRataCost" ColumnName="ProRataCost" />
+                <ScalarProperty Name="LicenseAssetID" ColumnName="LicenseAssetID" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="StandardModelName" ColumnName="StandardModelName" />
+                <ScalarProperty Name="ModelRestrictions" ColumnName="ModelRestrictions" />
+                <ScalarProperty Name="LicenseAssetModelPartID" ColumnName="LicenseAssetModelPartID" />
+                <ScalarProperty Name="ModelPartID" ColumnName="ModelPartID" />
+                <ScalarProperty Name="StandardPartName" ColumnName="StandardPartName" />
+                <ScalarProperty Name="PartRestrictions" ColumnName="PartRestrictions" />
+                <ScalarProperty Name="Downloads" ColumnName="Downloads" />
+                <ScalarProperty Name="PaymentReferences" ColumnName="PaymentReferences" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

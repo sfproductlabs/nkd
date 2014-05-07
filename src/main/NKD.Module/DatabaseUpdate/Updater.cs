@@ -14,7 +14,7 @@ namespace NKD.Module.DatabaseUpdate
 {
     public class Updater : ModuleUpdater
     {
-        public static int CurrentVersion { get { return 9; } }      
+        public static int CurrentVersion { get { return 11; } }      
         public static string DefaultConnectionString { get; set; }
         public static bool UpdateData { get; set; }
         public Updater(IObjectSpace objectSpace, Version currentDBVersion) : base(objectSpace, currentDBVersion) 

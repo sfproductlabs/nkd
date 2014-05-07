@@ -1028,6 +1028,8 @@ function MapObjectsToString(map) {
 
 }
 
+if (typeof deferredMap != 'undefined')
+    deferredMap.resolve("Map Loaded");
 
 // When the window is loaded, casue the map to intiialise, and populate it with table data
 //window.onload = function () {
