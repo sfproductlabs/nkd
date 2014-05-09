@@ -6,6 +6,7 @@ using Orchard;
 using NKD.Module.BusinessObjects;
 using NKD.Models;
 using System.ServiceModel;
+using NKD.ViewModels;
 
 namespace NKD.Services
 {
@@ -32,6 +33,9 @@ namespace NKD.Services
 
          [OperationContract]
          Contact GetContact(string username);
+
+         [OperationContract]
+         ContactViewModel GetMyInfo();
 
          [OperationContract]
          Guid? GetEmailContactID(string email, bool validated = true);
@@ -133,6 +137,12 @@ namespace NKD.Services
 
 
          Guid ServerID
+         {
+             [OperationContract]
+             get;
+         }
+
+         bool HasPrivateCompanyID
          {
              [OperationContract]
              get;

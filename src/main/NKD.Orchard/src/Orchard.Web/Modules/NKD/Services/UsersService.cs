@@ -43,6 +43,9 @@ using System.Data.SqlTypes;
 using NKD.Models;
 using System.Threading;
 using Orchard.Users.Events;
+using NKD.ViewModels;
+using Newtonsoft.Json;
+using System.Web.Mvc;
 
 
 namespace NKD.Services {
@@ -235,6 +238,35 @@ namespace NKD.Services {
 
             }
         }
+
+
+        private bool? hasPrivateCompanyID;
+        public bool HasPrivateCompanyID
+        {
+            get
+            {
+                if (hasPrivateCompanyID == null)
+                {
+                    using (new TransactionScope(TransactionScopeOption.Suppress))
+                    {
+                        var d = new NKDC(ApplicationConnectionString, null);
+                        hasPrivateCompanyID = (from o in d.Experiences
+                                 where
+                                 (o.DateFinished == null || o.DateFinished > DateTime.UtcNow)
+                                 && (o.Expiry == null || o.Expiry > DateTime.UtcNow)
+                                 && o.CompanyID != null
+                                 && o.ContactID == ContactID
+                                 && (o.DateStart <= DateTime.UtcNow || o.DateStart == null)
+                                 && o.Version == 0 && o.VersionDeletedBy == null
+                                 && o.CompanyID!=COMPANY_DEFAULT
+                                 select o.CompanyID).Any();
+
+                    }
+                }
+                return hasPrivateCompanyID.Value;
+            }
+        }
+
 
 
         private Guid?[] contactCompanies = null;
@@ -646,7 +678,7 @@ namespace NKD.Services {
                             contact.Username = user.UserName;
                             contact.AspNetUserID = user.UserId;
                             contact.DefaultEmail = n.Email;
-                            contact.ContactName = string.Format("Orchard User: {0}", user.UserName);
+                            contact.ContactName = string.Format("Site User: {0}", user.UserName);
                             contact.VersionUpdated = updated;
                             contact.Surname = "";
                             contact.Firstname = "";
@@ -895,6 +927,46 @@ namespace NKD.Services {
                 var d = new NKDC(ApplicationConnectionString,null);
                 return (from c in d.Contacts join u in d.Users on c.AspNetUserID equals u.UserId where u.ApplicationId == ApplicationID where username==c.Username && c.Version == 0 && c.VersionDeletedBy == null select c.ContactID).Single();
                 //return d.Contacts.Where(x=>x.Username == username).Select(x=>x.ContactID).FirstOrDefault();
+            }
+        }
+
+        public ContactViewModel GetMyInfo()
+        {
+            var application = ApplicationID;
+            using (new TransactionScope(TransactionScopeOption.Suppress))
+            {
+                var d = new NKDC(ApplicationConnectionString, null);
+                var m = (from o in d.E_SP_GetUserInfo(application, Username, null) select o).FirstOrDefault();
+                if (m == null)
+                    return null;
+                else
+                {
+                    var emptyco = new[] { new { id = "", name = "" } };
+                    var companies = JsonConvert.DeserializeAnonymousType(m.companies,emptyco);
+                    var emptyli = new[] { new { id = default(Guid?), expiry = default(DateTime?), modelid = default(Guid?), modelname = "", modelrestrictions = "", partid = default(Guid?), partname = "", partrestrictions = "" } };                    
+                    var licenses = JsonConvert.DeserializeAnonymousType(m.Licenses, emptyli);
+                    return new ContactViewModel
+                    {
+                        CurrentCompanyID = m.CompanyID,
+                        CurrentCompany = m.CompanyName,
+                        ContactID = m.ContactID,
+                        ContactName = m.ContactName,
+                        IsPartner = (m.IsPartner > 0) ? true : false,
+                        IsSubscriber = (m.IsSubscriber > 0) ? true : false,
+                        Companies = (from o in companies select new SelectListItem { Text = o.name, Value = o.id }).ToArray(),
+                        Licenses = (from o in licenses select new LicenseViewModel { 
+                            LicenseID = o.id,
+                            Expiry = o.expiry,
+                            ModelID = o.modelid,
+                            ModelName = o.modelname,
+                            ModelRestrictions = o.modelrestrictions,
+                            PartID = o.partid,
+                            PartName = o.partname,
+                            PartRestrictions = o.partrestrictions
+                        }).AsEnumerable()
+                    };
+                }
+                    
             }
         }
 

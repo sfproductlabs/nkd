@@ -23854,6 +23854,11 @@
           <Parameter Name="startRowIndex" Type="int" Mode="In" />
           <Parameter Name="pageSize" Type="int" Mode="In" />
         </Function>
+        <Function Name="E_SP_GetUserInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="applicationID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="licenseeUsername" Type="nvarchar" Mode="In" />
+          <Parameter Name="parentpartnercontractID" Type="uniqueidentifier" Mode="In" />
+        </Function>
         <Function Name="E_SP_LookupLocations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="text" Type="nvarchar" Mode="In" />
         </Function>
@@ -29099,6 +29104,11 @@
             <Parameter Name="partID" Mode="In" Type="Guid" />
             <Parameter Name="startRowIndex" Mode="In" Type="Int32" />
             <Parameter Name="pageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="E_SP_GetUserInfo" ReturnType="Collection(NKD.Module.BusinessObjects.E_SP_GetUserInfo_Result)">
+            <Parameter Name="applicationID" Mode="In" Type="Guid" />
+            <Parameter Name="licenseeUsername" Mode="In" Type="String" />
+            <Parameter Name="parentpartnercontractID" Mode="In" Type="Guid" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Split_Result">
@@ -50049,6 +50059,17 @@
           <Property Type="String" Name="Downloads" Nullable="true" />
           <Property Type="String" Name="PaymentReferences" Nullable="true" MaxLength="255" />
         </ComplexType>
+        <ComplexType Name="E_SP_GetUserInfo_Result">
+          <Property Type="Guid" Name="ContactID" Nullable="false" />
+          <Property Type="String" Name="ContactName" Nullable="false" MaxLength="120" />
+          <Property Type="String" Name="Username" Nullable="true" MaxLength="120" />
+          <Property Type="Guid" Name="CompanyID" Nullable="true" />
+          <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="120" />
+          <Property Type="Int32" Name="IsPartner" Nullable="false" />
+          <Property Type="Int32" Name="IsSubscriber" Nullable="false" />
+          <Property Type="String" Name="Licenses" Nullable="true" />
+          <Property Type="String" Name="companies" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -59550,6 +59571,21 @@
                 <ScalarProperty Name="PartRestrictions" ColumnName="PartRestrictions" />
                 <ScalarProperty Name="Downloads" ColumnName="Downloads" />
                 <ScalarProperty Name="PaymentReferences" ColumnName="PaymentReferences" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="E_SP_GetUserInfo" FunctionName="NKD.Module.BusinessObjects.Store.E_SP_GetUserInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NKD.Module.BusinessObjects.E_SP_GetUserInfo_Result">
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="IsPartner" ColumnName="IsPartner" />
+                <ScalarProperty Name="IsSubscriber" ColumnName="IsSubscriber" />
+                <ScalarProperty Name="Licenses" ColumnName="Licenses" />
+                <ScalarProperty Name="companies" ColumnName="companies" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
