@@ -953,7 +953,7 @@ namespace NKD.Services {
                         ContactName = m.ContactName,
                         IsPartner = (m.IsPartner > 0) ? true : false,
                         IsSubscriber = (m.IsSubscriber > 0) ? true : false,
-                        Companies = (from o in companies select new SelectListItem { Text = o.name, Value = o.id }).ToArray(),
+                        Companies = (from o in companies select new SelectListItem { Text = o.name, Value = o.id, Selected = (string.Format("{0}", m.CompanyID).ToLower() == string.Format("{0}", o.id).ToLower()) }).ToArray(),
                         Licenses = (from o in licenses select new LicenseViewModel { 
                             LicenseID = o.id,
                             Expiry = o.expiry,
