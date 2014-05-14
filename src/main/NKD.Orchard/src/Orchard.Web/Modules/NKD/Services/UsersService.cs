@@ -566,8 +566,8 @@ namespace NKD.Services {
 
             if (DefaultPublicDomain && company == COMPANY_DEFAULT)
             {
-                creatorContact = null;
-                creatorCompany = null;
+                creatorContact = default(Guid?);
+                creatorCompany = default(Guid?);
             }
             else
             {
