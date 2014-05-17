@@ -1246,6 +1246,23 @@
         <EntityTypeShape EntityType="NKD.Module.BusinessObjects.GraphDataGroup" Width="1.5" PointX="8.1364263892809046" PointY="27.538758409926089" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataGroup_X_ContactCreator" />
         <AssociationConnector Association="NKD.Module.BusinessObjects.FK_E_GraphDataRelation_E_GraphDataGroup" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryAlterationJointType" Width="1.5" PointX="3.1137033957586171" PointY="13.183840519368575" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryBedDevelopment" Width="1.5" PointX="1.1730898400643328" PointY="6.3426072030992282" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryFriabilityType" Width="1.5" PointX="10.585488896158287" PointY="25.342282053708232" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryAlterationJointType" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryBedDevelopment" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryColour" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryFriabilityType" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryFriabilityType1" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryLithologyQualifier" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryLithologyType" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryWeatheringSurface" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryAlterationJointType_X_FileData_OriginalFile" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryBedDevelopmentType_X_FileData_OriginalFile" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryFriabilityType_X_FileData_OriginalFile" />
+        <EntityTypeShape EntityType="NKD.Module.BusinessObjects.DictionaryStructureSet" Width="1.5" PointX="11.432914288450458" PointY="28.577854929760964" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_Defect_X_DictionaryStructureSet" />
+        <AssociationConnector Association="NKD.Module.BusinessObjects.FK_X_X_DictionaryStructureSet_X_FileData_OriginalFile" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
