@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsFC4672F5F96588EB073E41D3D3B7448F33E1AA2A4102713A8BF6BF98E991A807))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets1B8F97A4E03E9E5BC8927E11F211933E735EA63F8A6E2D24410B20D378D35E1C))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySetsFC4672F5F96588EB073E41D3D3B7448F33E1AA2A4102713A8BF6BF98E991A807 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets1B8F97A4E03E9E5BC8927E11F211933E735EA63F8A6E2D24410B20D378D35E1C : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySetsFC4672F5F96588EB073E41D3D3B7448F33E1AA2A4102713A8BF6BF98E991A807()
+        public ViewsForBaseEntitySets1B8F97A4E03E9E5BC8927E11F211933E735EA63F8A6E2D24410B20D378D35E1C()
         {
             this.EdmEntityContainerName = "NKDC";
             this.StoreEntityContainerName = "NKDModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "802c4be43f955c116e79a04de1abfa4c3aaa7d4c29cd6db32920ea0a1864e568";
-            this.HashOverAllExtentViews = "f9a6362be5dc3a7ed48534a7cd7a316e4327600613319e338f8b15899eeec937";
+            this.HashOverMappingClosure = "420de52e71d7069e70f798b6de9e6b797f69cf3b7ae25521852233452d4f7cb8";
+            this.HashOverAllExtentViews = "653f689384777a9972f255f7ebda03dce40918e66465c5af8b86f2004dc30ae0";
             this.ViewCount = 764;
         }
         
@@ -6226,7 +6226,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView85()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(5206);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(5306);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_Defect\r\n        [NKD.Module.BusinessObjects");
             viewString.Append(".Store.X_Defect](T1.[X_Defect.DefectID], T1.[X_Defect.HeaderID], T1.[X_Defect.Fr");
             viewString.Append("omDepth], T1.[X_Defect.ToDepth], T1.[X_Defect.WeatheringID], T1.[X_Defect.RockMa");
@@ -6235,64 +6235,65 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("1.[X_Defect.AlterationID], T1.[X_Defect.EstimatedStrengthID], T1.[X_Defect.BedSp");
             viewString.Append("acingID], T1.[X_Defect.BedDevelopmentID], T1.[X_Defect.BedDip], T1.[X_Defect.Moi");
             viewString.Append("stureSensitivityID], T1.[X_Defect.PlasticityID], T1.[X_Defect.DefectDepth], T1.[");
-            viewString.Append("X_Defect.DefectLength], T1.[X_Defect.NumberOfDefects], T1.[X_Defect.NumberOfStru");
-            viewString.Append("ctureSets], T1.[X_Defect.StructureSetID], T1.[X_Defect.DefectsSpacing], T1.[X_De");
-            viewString.Append("fect.DefectTypeID], T1.[X_Defect.DefectCompletenessID], T1.[X_Defect.DefectConti");
-            viewString.Append("nuityID], T1.[X_Defect.DefectDip], T1.[X_Defect.MinimumDipBrokenZone], T1.[X_Def");
-            viewString.Append("ect.MaximumDipBrokenZone], T1.[X_Defect.DipOrientation], T1.[X_Defect.DipOrienta");
-            viewString.Append("tionMethodID], T1.[X_Defect.ShapeID], T1.[X_Defect.RoughnessID], T1.[X_Defect.Su");
-            viewString.Append("rfaceWeatheringID], T1.[X_Defect.AlterationJointTypeID], T1.[X_Defect.JointRough");
-            viewString.Append("nessCoefficient], T1.[X_Defect.PerpendicularWidth], T1.[X_Defect.PrimaryInfillTy");
-            viewString.Append("peID], T1.[X_Defect.SecondaryInfillTypeID], T1.[X_Defect.InfillModeID], T1.[X_De");
-            viewString.Append("fect.InfillEstimatedStrengthID], T1.[X_Defect.InfillPlasticityID], T1.[X_Defect.");
-            viewString.Append("Comment], T1.[X_Defect.Version], T1.[X_Defect.VersionAntecedentID], T1.[X_Defect");
-            viewString.Append(".VersionCertainty], T1.[X_Defect.VersionWorkflowInstanceID], T1.[X_Defect.Versio");
-            viewString.Append("nUpdatedBy], T1.[X_Defect.VersionDeletedBy], T1.[X_Defect.VersionOwnerContactID]");
-            viewString.Append(", T1.[X_Defect.VersionOwnerCompanyID], T1.[X_Defect.VersionUpdated])\r\n    FROM (");
-            viewString.Append("\r\n        SELECT \r\n            T.DefectID AS [X_Defect.DefectID], \r\n            ");
-            viewString.Append("T.HeaderID AS [X_Defect.HeaderID], \r\n            T.FromDepth AS [X_Defect.FromDe");
-            viewString.Append("pth], \r\n            T.ToDepth AS [X_Defect.ToDepth], \r\n            T.WeatheringI");
-            viewString.Append("D AS [X_Defect.WeatheringID], \r\n            T.RockMassUnitTypeID AS [X_Defect.Ro");
-            viewString.Append("ckMassUnitTypeID], \r\n            T.GeotechLithologyTypeID AS [X_Defect.GeotechLi");
-            viewString.Append("thologyTypeID], \r\n            T.GeotechLithologyQualifierID AS [X_Defect.Geotech");
-            viewString.Append("LithologyQualifierID], \r\n            T.GeotechColourID AS [X_Defect.GeotechColou");
-            viewString.Append("rID], \r\n            T.FriabilityTypeID AS [X_Defect.FriabilityTypeID], \r\n       ");
-            viewString.Append("     T.AlterationID AS [X_Defect.AlterationID], \r\n            T.EstimatedStrengt");
-            viewString.Append("hID AS [X_Defect.EstimatedStrengthID], \r\n            T.BedSpacingID AS [X_Defect");
-            viewString.Append(".BedSpacingID], \r\n            T.BedDevelopmentID AS [X_Defect.BedDevelopmentID],");
-            viewString.Append(" \r\n            T.BedDip AS [X_Defect.BedDip], \r\n            T.MoistureSensitivit");
-            viewString.Append("yID AS [X_Defect.MoistureSensitivityID], \r\n            T.PlasticityID AS [X_Defe");
-            viewString.Append("ct.PlasticityID], \r\n            T.DefectDepth AS [X_Defect.DefectDepth], \r\n     ");
-            viewString.Append("       T.DefectLength AS [X_Defect.DefectLength], \r\n            T.NumberOfDefect");
-            viewString.Append("s AS [X_Defect.NumberOfDefects], \r\n            T.NumberOfStructureSets AS [X_Def");
-            viewString.Append("ect.NumberOfStructureSets], \r\n            T.StructureSetID AS [X_Defect.Structur");
-            viewString.Append("eSetID], \r\n            T.DefectsSpacing AS [X_Defect.DefectsSpacing], \r\n        ");
-            viewString.Append("    T.DefectTypeID AS [X_Defect.DefectTypeID], \r\n            T.DefectCompletenes");
-            viewString.Append("sID AS [X_Defect.DefectCompletenessID], \r\n            T.DefectContinuityID AS [X");
-            viewString.Append("_Defect.DefectContinuityID], \r\n            T.DefectDip AS [X_Defect.DefectDip], ");
-            viewString.Append("\r\n            T.MinimumDipBrokenZone AS [X_Defect.MinimumDipBrokenZone], \r\n     ");
-            viewString.Append("       T.MaximumDipBrokenZone AS [X_Defect.MaximumDipBrokenZone], \r\n            ");
-            viewString.Append("T.DipOrientation AS [X_Defect.DipOrientation], \r\n            T.DipOrientationMet");
-            viewString.Append("hodID AS [X_Defect.DipOrientationMethodID], \r\n            T.ShapeID AS [X_Defect");
-            viewString.Append(".ShapeID], \r\n            T.RoughnessID AS [X_Defect.RoughnessID], \r\n            ");
-            viewString.Append("T.SurfaceWeatheringID AS [X_Defect.SurfaceWeatheringID], \r\n            T.Alterat");
-            viewString.Append("ionJointTypeID AS [X_Defect.AlterationJointTypeID], \r\n            T.JointRoughne");
-            viewString.Append("ssCoefficient AS [X_Defect.JointRoughnessCoefficient], \r\n            T.Perpendic");
-            viewString.Append("ularWidth AS [X_Defect.PerpendicularWidth], \r\n            T.PrimaryInfillTypeID ");
-            viewString.Append("AS [X_Defect.PrimaryInfillTypeID], \r\n            T.SecondaryInfillTypeID AS [X_D");
-            viewString.Append("efect.SecondaryInfillTypeID], \r\n            T.InfillModeID AS [X_Defect.InfillMo");
-            viewString.Append("deID], \r\n            T.InfillEstimatedStrengthID AS [X_Defect.InfillEstimatedStr");
-            viewString.Append("engthID], \r\n            T.InfillPlasticityID AS [X_Defect.InfillPlasticityID], \r");
-            viewString.Append("\n            T.Comment AS [X_Defect.Comment], \r\n            T.Version AS [X_Defe");
-            viewString.Append("ct.Version], \r\n            T.VersionAntecedentID AS [X_Defect.VersionAntecedentI");
-            viewString.Append("D], \r\n            T.VersionCertainty AS [X_Defect.VersionCertainty], \r\n         ");
-            viewString.Append("   T.VersionWorkflowInstanceID AS [X_Defect.VersionWorkflowInstanceID], \r\n      ");
-            viewString.Append("      T.VersionUpdatedBy AS [X_Defect.VersionUpdatedBy], \r\n            T.Version");
-            viewString.Append("DeletedBy AS [X_Defect.VersionDeletedBy], \r\n            T.VersionOwnerContactID ");
-            viewString.Append("AS [X_Defect.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X");
-            viewString.Append("_Defect.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_Defect.Vers");
-            viewString.Append("ionUpdated], \r\n            True AS _from0\r\n        FROM NKDC.Defects AS T\r\n    )");
-            viewString.Append(" AS T1");
+            viewString.Append("X_Defect.DefectLength], T1.[X_Defect.NumberOfDefects], T1.[X_Defect.NumberOfFrac");
+            viewString.Append("tures], T1.[X_Defect.NumberOfStructureSets], T1.[X_Defect.StructureSetID], T1.[X");
+            viewString.Append("_Defect.DefectsSpacing], T1.[X_Defect.DefectTypeID], T1.[X_Defect.DefectComplete");
+            viewString.Append("nessID], T1.[X_Defect.DefectContinuityID], T1.[X_Defect.DefectDip], T1.[X_Defect");
+            viewString.Append(".MinimumDipBrokenZone], T1.[X_Defect.MaximumDipBrokenZone], T1.[X_Defect.DipOrie");
+            viewString.Append("ntation], T1.[X_Defect.DipOrientationMethodID], T1.[X_Defect.ShapeID], T1.[X_Def");
+            viewString.Append("ect.RoughnessID], T1.[X_Defect.SurfaceWeatheringID], T1.[X_Defect.AlterationJoin");
+            viewString.Append("tTypeID], T1.[X_Defect.JointRoughnessCoefficient], T1.[X_Defect.PerpendicularWid");
+            viewString.Append("th], T1.[X_Defect.PrimaryInfillTypeID], T1.[X_Defect.SecondaryInfillTypeID], T1.");
+            viewString.Append("[X_Defect.InfillModeID], T1.[X_Defect.InfillEstimatedStrengthID], T1.[X_Defect.I");
+            viewString.Append("nfillPlasticityID], T1.[X_Defect.Comment], T1.[X_Defect.Version], T1.[X_Defect.V");
+            viewString.Append("ersionAntecedentID], T1.[X_Defect.VersionCertainty], T1.[X_Defect.VersionWorkflo");
+            viewString.Append("wInstanceID], T1.[X_Defect.VersionUpdatedBy], T1.[X_Defect.VersionDeletedBy], T1");
+            viewString.Append(".[X_Defect.VersionOwnerContactID], T1.[X_Defect.VersionOwnerCompanyID], T1.[X_De");
+            viewString.Append("fect.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.DefectID AS [X");
+            viewString.Append("_Defect.DefectID], \r\n            T.HeaderID AS [X_Defect.HeaderID], \r\n          ");
+            viewString.Append("  T.FromDepth AS [X_Defect.FromDepth], \r\n            T.ToDepth AS [X_Defect.ToDe");
+            viewString.Append("pth], \r\n            T.WeatheringID AS [X_Defect.WeatheringID], \r\n            T.R");
+            viewString.Append("ockMassUnitTypeID AS [X_Defect.RockMassUnitTypeID], \r\n            T.GeotechLitho");
+            viewString.Append("logyTypeID AS [X_Defect.GeotechLithologyTypeID], \r\n            T.GeotechLitholog");
+            viewString.Append("yQualifierID AS [X_Defect.GeotechLithologyQualifierID], \r\n            T.GeotechC");
+            viewString.Append("olourID AS [X_Defect.GeotechColourID], \r\n            T.FriabilityTypeID AS [X_De");
+            viewString.Append("fect.FriabilityTypeID], \r\n            T.AlterationID AS [X_Defect.AlterationID],");
+            viewString.Append(" \r\n            T.EstimatedStrengthID AS [X_Defect.EstimatedStrengthID], \r\n      ");
+            viewString.Append("      T.BedSpacingID AS [X_Defect.BedSpacingID], \r\n            T.BedDevelopmentI");
+            viewString.Append("D AS [X_Defect.BedDevelopmentID], \r\n            T.BedDip AS [X_Defect.BedDip], \r");
+            viewString.Append("\n            T.MoistureSensitivityID AS [X_Defect.MoistureSensitivityID], \r\n    ");
+            viewString.Append("        T.PlasticityID AS [X_Defect.PlasticityID], \r\n            T.DefectDepth A");
+            viewString.Append("S [X_Defect.DefectDepth], \r\n            T.DefectLength AS [X_Defect.DefectLength");
+            viewString.Append("], \r\n            T.NumberOfDefects AS [X_Defect.NumberOfDefects], \r\n            ");
+            viewString.Append("T.NumberOfFractures AS [X_Defect.NumberOfFractures], \r\n            T.NumberOfStr");
+            viewString.Append("uctureSets AS [X_Defect.NumberOfStructureSets], \r\n            T.StructureSetID A");
+            viewString.Append("S [X_Defect.StructureSetID], \r\n            T.DefectsSpacing AS [X_Defect.Defects");
+            viewString.Append("Spacing], \r\n            T.DefectTypeID AS [X_Defect.DefectTypeID], \r\n           ");
+            viewString.Append(" T.DefectCompletenessID AS [X_Defect.DefectCompletenessID], \r\n            T.Defe");
+            viewString.Append("ctContinuityID AS [X_Defect.DefectContinuityID], \r\n            T.DefectDip AS [X");
+            viewString.Append("_Defect.DefectDip], \r\n            T.MinimumDipBrokenZone AS [X_Defect.MinimumDip");
+            viewString.Append("BrokenZone], \r\n            T.MaximumDipBrokenZone AS [X_Defect.MaximumDipBrokenZ");
+            viewString.Append("one], \r\n            T.DipOrientation AS [X_Defect.DipOrientation], \r\n           ");
+            viewString.Append(" T.DipOrientationMethodID AS [X_Defect.DipOrientationMethodID], \r\n            T.");
+            viewString.Append("ShapeID AS [X_Defect.ShapeID], \r\n            T.RoughnessID AS [X_Defect.Roughnes");
+            viewString.Append("sID], \r\n            T.SurfaceWeatheringID AS [X_Defect.SurfaceWeatheringID], \r\n ");
+            viewString.Append("           T.AlterationJointTypeID AS [X_Defect.AlterationJointTypeID], \r\n      ");
+            viewString.Append("      T.JointRoughnessCoefficient AS [X_Defect.JointRoughnessCoefficient], \r\n   ");
+            viewString.Append("         T.PerpendicularWidth AS [X_Defect.PerpendicularWidth], \r\n            T.");
+            viewString.Append("PrimaryInfillTypeID AS [X_Defect.PrimaryInfillTypeID], \r\n            T.Secondary");
+            viewString.Append("InfillTypeID AS [X_Defect.SecondaryInfillTypeID], \r\n            T.InfillModeID A");
+            viewString.Append("S [X_Defect.InfillModeID], \r\n            T.InfillEstimatedStrengthID AS [X_Defec");
+            viewString.Append("t.InfillEstimatedStrengthID], \r\n            T.InfillPlasticityID AS [X_Defect.In");
+            viewString.Append("fillPlasticityID], \r\n            T.Comment AS [X_Defect.Comment], \r\n            ");
+            viewString.Append("T.Version AS [X_Defect.Version], \r\n            T.VersionAntecedentID AS [X_Defec");
+            viewString.Append("t.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Defect.VersionCer");
+            viewString.Append("tainty], \r\n            T.VersionWorkflowInstanceID AS [X_Defect.VersionWorkflowI");
+            viewString.Append("nstanceID], \r\n            T.VersionUpdatedBy AS [X_Defect.VersionUpdatedBy], \r\n ");
+            viewString.Append("           T.VersionDeletedBy AS [X_Defect.VersionDeletedBy], \r\n            T.Ve");
+            viewString.Append("rsionOwnerContactID AS [X_Defect.VersionOwnerContactID], \r\n            T.Version");
+            viewString.Append("OwnerCompanyID AS [X_Defect.VersionOwnerCompanyID], \r\n            T.VersionUpdat");
+            viewString.Append("ed AS [X_Defect.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC");
+            viewString.Append(".Defects AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.X_Defect", viewString.ToString());
         }
         
@@ -18764,7 +18765,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView409()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(4816);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(4908);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Defects\r\n        [NKD.Module.BusinessObjects.");
             viewString.Append("Defect](T1.Defect_DefectID, T1.Defect_HeaderID, T1.Defect_FromDepth, T1.Defect_T");
             viewString.Append("oDepth, T1.Defect_WeatheringID, T1.Defect_RockMassUnitTypeID, T1.Defect_Alterati");
@@ -18784,48 +18785,49 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("ypeID, T1.Defect_GeotechLithologyQualifierID, T1.Defect_GeotechColourID, T1.Defe");
             viewString.Append("ct_FriabilityTypeID, T1.Defect_BedDevelopmentID, T1.Defect_NumberOfStructureSets");
             viewString.Append(", T1.Defect_SurfaceWeatheringID, T1.Defect_AlterationJointTypeID, T1.Defect_Stru");
-            viewString.Append("ctureSetID)\r\n    FROM (\r\n        SELECT \r\n            T.DefectID AS Defect_Defec");
-            viewString.Append("tID, \r\n            T.HeaderID AS Defect_HeaderID, \r\n            T.FromDepth AS D");
-            viewString.Append("efect_FromDepth, \r\n            T.ToDepth AS Defect_ToDepth, \r\n            T.Weat");
-            viewString.Append("heringID AS Defect_WeatheringID, \r\n            T.RockMassUnitTypeID AS Defect_Ro");
-            viewString.Append("ckMassUnitTypeID, \r\n            T.AlterationID AS Defect_AlterationID, \r\n       ");
-            viewString.Append("     T.EstimatedStrengthID AS Defect_EstimatedStrengthID, \r\n            T.BedSpa");
-            viewString.Append("cingID AS Defect_BedSpacingID, \r\n            T.BedDip AS Defect_BedDip, \r\n      ");
-            viewString.Append("      T.MoistureSensitivityID AS Defect_MoistureSensitivityID, \r\n            T.P");
-            viewString.Append("lasticityID AS Defect_PlasticityID, \r\n            T.DefectDepth AS Defect_Defect");
-            viewString.Append("Depth, \r\n            T.DefectLength AS Defect_DefectLength, \r\n            T.Numb");
-            viewString.Append("erOfDefects AS Defect_NumberOfDefects, \r\n            T.DefectsSpacing AS Defect_");
-            viewString.Append("DefectsSpacing, \r\n            T.DefectTypeID AS Defect_DefectTypeID, \r\n         ");
-            viewString.Append("   T.DefectCompletenessID AS Defect_DefectCompletenessID, \r\n            T.Defect");
-            viewString.Append("ContinuityID AS Defect_DefectContinuityID, \r\n            T.DefectDip AS Defect_D");
-            viewString.Append("efectDip, \r\n            T.MinimumDipBrokenZone AS Defect_MinimumDipBrokenZone, \r");
-            viewString.Append("\n            T.MaximumDipBrokenZone AS Defect_MaximumDipBrokenZone, \r\n          ");
-            viewString.Append("  T.DipOrientation AS Defect_DipOrientation, \r\n            T.DipOrientationMetho");
-            viewString.Append("dID AS Defect_DipOrientationMethodID, \r\n            T.ShapeID AS Defect_ShapeID,");
-            viewString.Append(" \r\n            T.RoughnessID AS Defect_RoughnessID, \r\n            T.JointRoughne");
-            viewString.Append("ssCoefficient AS Defect_JointRoughnessCoefficient, \r\n            T.Perpendicular");
-            viewString.Append("Width AS Defect_PerpendicularWidth, \r\n            T.PrimaryInfillTypeID AS Defec");
-            viewString.Append("t_PrimaryInfillTypeID, \r\n            T.SecondaryInfillTypeID AS Defect_Secondary");
-            viewString.Append("InfillTypeID, \r\n            T.InfillModeID AS Defect_InfillModeID, \r\n           ");
-            viewString.Append(" T.InfillEstimatedStrengthID AS Defect_InfillEstimatedStrengthID, \r\n            ");
-            viewString.Append("T.InfillPlasticityID AS Defect_InfillPlasticityID, \r\n            T.Comment AS De");
-            viewString.Append("fect_Comment, \r\n            T.Version AS Defect_Version, \r\n            T.Version");
-            viewString.Append("AntecedentID AS Defect_VersionAntecedentID, \r\n            T.VersionCertainty AS ");
-            viewString.Append("Defect_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS Defect_Ver");
-            viewString.Append("sionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Defect_VersionUpdate");
-            viewString.Append("dBy, \r\n            T.VersionDeletedBy AS Defect_VersionDeletedBy, \r\n            ");
-            viewString.Append("T.VersionOwnerContactID AS Defect_VersionOwnerContactID, \r\n            T.Version");
-            viewString.Append("OwnerCompanyID AS Defect_VersionOwnerCompanyID, \r\n            T.VersionUpdated A");
-            viewString.Append("S Defect_VersionUpdated, \r\n            T.GeotechLithologyTypeID AS Defect_Geotec");
-            viewString.Append("hLithologyTypeID, \r\n            T.GeotechLithologyQualifierID AS Defect_GeotechL");
-            viewString.Append("ithologyQualifierID, \r\n            T.GeotechColourID AS Defect_GeotechColourID, ");
-            viewString.Append("\r\n            T.FriabilityTypeID AS Defect_FriabilityTypeID, \r\n            T.Bed");
-            viewString.Append("DevelopmentID AS Defect_BedDevelopmentID, \r\n            T.NumberOfStructureSets ");
-            viewString.Append("AS Defect_NumberOfStructureSets, \r\n            T.SurfaceWeatheringID AS Defect_S");
-            viewString.Append("urfaceWeatheringID, \r\n            T.AlterationJointTypeID AS Defect_AlterationJo");
-            viewString.Append("intTypeID, \r\n            T.StructureSetID AS Defect_StructureSetID, \r\n          ");
-            viewString.Append("  True AS _from0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.X_Defect A");
-            viewString.Append("S T\r\n    ) AS T1");
+            viewString.Append("ctureSetID, T1.Defect_NumberOfFractures)\r\n    FROM (\r\n        SELECT \r\n         ");
+            viewString.Append("   T.DefectID AS Defect_DefectID, \r\n            T.HeaderID AS Defect_HeaderID, \r");
+            viewString.Append("\n            T.FromDepth AS Defect_FromDepth, \r\n            T.ToDepth AS Defect_");
+            viewString.Append("ToDepth, \r\n            T.WeatheringID AS Defect_WeatheringID, \r\n            T.Ro");
+            viewString.Append("ckMassUnitTypeID AS Defect_RockMassUnitTypeID, \r\n            T.AlterationID AS D");
+            viewString.Append("efect_AlterationID, \r\n            T.EstimatedStrengthID AS Defect_EstimatedStren");
+            viewString.Append("gthID, \r\n            T.BedSpacingID AS Defect_BedSpacingID, \r\n            T.BedD");
+            viewString.Append("ip AS Defect_BedDip, \r\n            T.MoistureSensitivityID AS Defect_MoistureSen");
+            viewString.Append("sitivityID, \r\n            T.PlasticityID AS Defect_PlasticityID, \r\n            T");
+            viewString.Append(".DefectDepth AS Defect_DefectDepth, \r\n            T.DefectLength AS Defect_Defec");
+            viewString.Append("tLength, \r\n            T.NumberOfDefects AS Defect_NumberOfDefects, \r\n          ");
+            viewString.Append("  T.DefectsSpacing AS Defect_DefectsSpacing, \r\n            T.DefectTypeID AS Def");
+            viewString.Append("ect_DefectTypeID, \r\n            T.DefectCompletenessID AS Defect_DefectCompleten");
+            viewString.Append("essID, \r\n            T.DefectContinuityID AS Defect_DefectContinuityID, \r\n      ");
+            viewString.Append("      T.DefectDip AS Defect_DefectDip, \r\n            T.MinimumDipBrokenZone AS D");
+            viewString.Append("efect_MinimumDipBrokenZone, \r\n            T.MaximumDipBrokenZone AS Defect_Maxim");
+            viewString.Append("umDipBrokenZone, \r\n            T.DipOrientation AS Defect_DipOrientation, \r\n    ");
+            viewString.Append("        T.DipOrientationMethodID AS Defect_DipOrientationMethodID, \r\n           ");
+            viewString.Append(" T.ShapeID AS Defect_ShapeID, \r\n            T.RoughnessID AS Defect_RoughnessID,");
+            viewString.Append(" \r\n            T.JointRoughnessCoefficient AS Defect_JointRoughnessCoefficient, ");
+            viewString.Append("\r\n            T.PerpendicularWidth AS Defect_PerpendicularWidth, \r\n            T");
+            viewString.Append(".PrimaryInfillTypeID AS Defect_PrimaryInfillTypeID, \r\n            T.SecondaryInf");
+            viewString.Append("illTypeID AS Defect_SecondaryInfillTypeID, \r\n            T.InfillModeID AS Defec");
+            viewString.Append("t_InfillModeID, \r\n            T.InfillEstimatedStrengthID AS Defect_InfillEstima");
+            viewString.Append("tedStrengthID, \r\n            T.InfillPlasticityID AS Defect_InfillPlasticityID, ");
+            viewString.Append("\r\n            T.Comment AS Defect_Comment, \r\n            T.Version AS Defect_Ver");
+            viewString.Append("sion, \r\n            T.VersionAntecedentID AS Defect_VersionAntecedentID, \r\n     ");
+            viewString.Append("       T.VersionCertainty AS Defect_VersionCertainty, \r\n            T.VersionWor");
+            viewString.Append("kflowInstanceID AS Defect_VersionWorkflowInstanceID, \r\n            T.VersionUpda");
+            viewString.Append("tedBy AS Defect_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS Defect_Ver");
+            viewString.Append("sionDeletedBy, \r\n            T.VersionOwnerContactID AS Defect_VersionOwnerConta");
+            viewString.Append("ctID, \r\n            T.VersionOwnerCompanyID AS Defect_VersionOwnerCompanyID, \r\n ");
+            viewString.Append("           T.VersionUpdated AS Defect_VersionUpdated, \r\n            T.GeotechLit");
+            viewString.Append("hologyTypeID AS Defect_GeotechLithologyTypeID, \r\n            T.GeotechLithologyQ");
+            viewString.Append("ualifierID AS Defect_GeotechLithologyQualifierID, \r\n            T.GeotechColourI");
+            viewString.Append("D AS Defect_GeotechColourID, \r\n            T.FriabilityTypeID AS Defect_Friabili");
+            viewString.Append("tyTypeID, \r\n            T.BedDevelopmentID AS Defect_BedDevelopmentID, \r\n       ");
+            viewString.Append("     T.NumberOfStructureSets AS Defect_NumberOfStructureSets, \r\n            T.Su");
+            viewString.Append("rfaceWeatheringID AS Defect_SurfaceWeatheringID, \r\n            T.AlterationJoint");
+            viewString.Append("TypeID AS Defect_AlterationJointTypeID, \r\n            T.StructureSetID AS Defect");
+            viewString.Append("_StructureSetID, \r\n            T.NumberOfFractures AS Defect_NumberOfFractures, ");
+            viewString.Append("\r\n            True AS _from0\r\n        FROM NKDModuleBusinessObjectsStoreContaine");
+            viewString.Append("r.X_Defect AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.Defects", viewString.ToString());
         }
         

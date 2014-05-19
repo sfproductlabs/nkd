@@ -15,7 +15,8 @@ namespace NKD.Helpers
         /// </summary>
         /// <param name="dateTime">UTC!</param>
         /// <returns></returns>
-        public static double DateTimeTotimeUnixTimestamp(DateTime dateTime) { return (dateTime - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds; }
+        public static double DateTimeToUnixTimestamp(DateTime dateTime) { return (dateTime - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds; }
+        public static DateTime UnixTimestampToDate(this int seconds) { return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(seconds); }
         public static double NowToUnixTimestamp() { return (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds; }
         public static int Timestamp
         {

@@ -44,6 +44,32 @@ namespace NKD.Helpers
                 : b.ConstructedGeography;
         }
 
+        //TOP LEFT LONGITUDE=item1, LATITUDE=item2, //BOTTOM RIGHT LONGITUDE=item3, LATITUDE=item4
+        public static SqlGeography CreateMultiRectangle(this List<Tuple<double, double, double, double>> coordinates, int srid = 4326)
+        {
+            var list = coordinates.Distinct().ToList();
+            var b = new SqlGeographyBuilder();
+            b.SetSrid(srid);
+            b.BeginGeography(OpenGisGeographyType.MultiPolygon);
+
+            for (var i = 0; i < list.Count; i++)
+            {
+                b.BeginGeography(OpenGisGeographyType.Polygon);
+                b.BeginFigure(list[i].Item1, list[i].Item2);
+                b.AddLine(list[i].Item1, list[i].Item4);
+                b.AddLine(list[i].Item3, list[i].Item4);
+                b.AddLine(list[i].Item3, list[i].Item2);
+                b.AddLine(list[i].Item1, list[i].Item2);
+                b.EndFigure();
+                b.EndGeography();
+            }
+            b.EndGeography();
+
+            return b.ConstructedGeography.EnvelopeAngle() > 90
+                ? b.ConstructedGeography.ReorientObject()
+                : b.ConstructedGeography;
+        }
+
         //LONGITUDE=item1, LATITUDE=item2
         public static SqlGeography CreatePoint(this Tuple<double, double> coordinates, int srid = 4326)
         {
