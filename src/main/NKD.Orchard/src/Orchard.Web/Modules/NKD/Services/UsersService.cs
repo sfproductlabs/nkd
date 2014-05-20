@@ -932,6 +932,11 @@ namespace NKD.Services {
 
         public ContactViewModel GetMyInfo()
         {
+            string [] roles = new string[] {};
+            if (_orchardServices.WorkContext.CurrentUser != null)
+            {
+                roles = ((ContentItem)_orchardServices.WorkContext.CurrentUser.ContentItem).As<IUserRoles>().Roles.ToArray();
+            }
             var application = ApplicationID;
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
@@ -947,6 +952,8 @@ namespace NKD.Services {
                     var licenses = JsonConvert.DeserializeAnonymousType(m.Licenses, emptyli);
                     return new ContactViewModel
                     {
+                        UserName = m.Username,
+                        UserID = m.AspNetUserID,
                         CurrentCompanyID = m.CompanyID,
                         CurrentCompany = m.CompanyName,
                         ContactID = m.ContactID,
@@ -963,7 +970,8 @@ namespace NKD.Services {
                             PartID = o.partid,
                             PartName = o.partname,
                             PartRestrictions = o.partrestrictions
-                        }).AsEnumerable()
+                        }).AsEnumerable(),
+                        Roles = roles
                     };
                 }
                     

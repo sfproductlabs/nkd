@@ -16,6 +16,8 @@ namespace NKD.ViewModels
         [JsonIgnore]
         public Guid? ContactID { get; set; }
         public Guid? id { get { return ContactID; } set { ContactID = value; } }
+        public Guid? UserID { get; set; }
+        public string UserName { get; set; }
         public string ContactName { get; set; }
         public IEnumerable<LicenseViewModel> Licenses { get; set; } 
         public SelectListItem[] Companies { get; set; }
@@ -23,6 +25,7 @@ namespace NKD.ViewModels
         public string CurrentCompany { get; set; }
         public bool IsSubscriber { get; set; }
         public bool IsPartner { get; set; }
+        public string[] Roles { get; set; }
     }
 
     public class LicenseViewModel
