@@ -48,17 +48,27 @@ namespace Orchard.Environment {
         }
 
 
-        public Assembly GetCompiledAssembly(string virtualPath) {
-            try {
-                return BuildManager.GetCompiledAssembly(virtualPath);
-            }
-            catch (Exception ex) {
-                if (ex.IsFatal()) throw;
+        public Assembly GetCompiledAssembly(string virtualPath)
+        {
+            try
+            {
+                //ignore files with .dll extension from dynamic compilation 
+                var extension = System.IO.Path.GetExtension(virtualPath);
+                if (extension != null && !extension.Equals(".dll"))
+                {
+                    return BuildManager.GetCompiledAssembly(virtualPath);
 
-                Logger.Warning(ex, "Error when compiling assembly under {0}.", virtualPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                //log compilation error
+                Logger.Log(LogLevel.Error, ex, "Error during dynamic compilation. Error Message: {0} ", ex.ToString());
+
                 return null;
             }
 
+            return null;
         }
     }
 }

@@ -59,7 +59,7 @@ namespace NKD.Services {
         private readonly IContentManager _contentManager;
         private readonly IContentManagerSession _contentManagerSession;
         private readonly IRoleService _roleService;
-        private readonly IMessageManager _messageManager;
+        private readonly IMessageService _messageService;
         private readonly IScheduledTaskManager _taskManager;
         private PrincipalContext _securityContext;
         private readonly ShellSettings _shellSettings;
@@ -85,7 +85,7 @@ namespace NKD.Services {
             IContentManagerSession contentManagerSession,
             IOrchardServices orchardServices, 
             IRoleService roleService, 
-            IMessageManager messageManager, 
+            IMessageService messageService, 
             IScheduledTaskManager taskManager, 
             IRepository<EmailPartRecord> emailRepository, 
             ShellSettings shellSettings, 
@@ -104,7 +104,7 @@ namespace NKD.Services {
             _contentManager = contentManager;
             _contentManagerSession = contentManagerSession;
             _roleService = roleService;
-            _messageManager = messageManager;
+            _messageService = messageService;
             _taskManager = taskManager;
             _shellSettings = shellSettings;
             _userRolesRepository = userRolesRepository;
@@ -1187,11 +1187,11 @@ namespace NKD.Services {
 
         public void EmailUsers(string[] emails, string subject, string body, bool retry = false, bool forwardToSupport = false, string from = null, string fromName = null, bool hideRecipients = false)
         {
-            var data = new Dictionary<string,string>();
+            var data = new Dictionary<string,object>();
             data.Add("Subject", subject); 
             data.Add("Body", body);
             if (hideRecipients)
-                data.Add("HideRecipients", null);
+                data.Add("HideRecipients", true);
             if (from != null)
                 data.Add("From", from);
             if (fromName != null)
@@ -1213,7 +1213,8 @@ namespace NKD.Services {
                 }
                 else
                     recipients = emails;
-                _messageManager.Send(recipients, NKD.Events.EmailMessageHandler.DEFAULT_NKD_EMAIL_TYPE, "email", data);
+                data.Add("Recipients", string.Join(";", recipients)); 
+                _messageService.Send("Email", data);
             }
             catch
             {
@@ -1460,7 +1461,18 @@ namespace NKD.Services {
 
         //Events
 
-        public void Creating(UserContext context) { }
+        public void Creating(UserContext context) {
+            
+            using (new TransactionScope(TransactionScopeOption.Suppress))
+            {
+                var d = new NKDC(ApplicationConnectionString, null, false);
+                var exists = (from o in d.Contacts where o.Username==context.UserParameters.Username || o.DefaultEmail == context.UserParameters.Email select o).Any();
+                if (exists)
+                {
+                    context.Cancel = true;
+                }
+            }
+        }
 
         public void Created(UserContext context) {
             _contentManagerSession.Store(context.User.ContentItem);

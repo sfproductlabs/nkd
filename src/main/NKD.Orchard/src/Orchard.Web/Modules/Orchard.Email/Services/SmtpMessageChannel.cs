@@ -47,7 +47,10 @@ namespace Orchard.Email.Services {
             var emailMessage = new EmailMessage {
                 Body = parameters["Body"] as string,
                 Subject = parameters["Subject"] as string,
-                Recipients = parameters["Recipients"] as string
+                Recipients = parameters["Recipients"] as string,
+                From = parameters["From"] as string,
+                FromName = parameters["FromName"] as string,
+                HideRecipients = parameters["HideRecipients"] as bool?
             };
 
             if (emailMessage.Recipients.Length == 0) {
@@ -66,14 +69,23 @@ namespace Orchard.Email.Services {
                 IsBodyHtml = true
             };
 
+
             var section = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
-            mailMessage.From = !String.IsNullOrWhiteSpace(_smtpSettings.Address) 
+            mailMessage.From = 
+                (!String.IsNullOrWhiteSpace(emailMessage.From) ? new MailAddress(emailMessage.From, 
+                       string.IsNullOrWhiteSpace(emailMessage.FromName) ? emailMessage.From : emailMessage.FromName) : null)
+                ?? (!String.IsNullOrWhiteSpace(_smtpSettings.Address) 
                 ? new MailAddress(_smtpSettings.Address) 
-                : new MailAddress(section.From);
+                : new MailAddress(section.From));
 
             try {
+                var isBCC = (emailMessage.HideRecipients.HasValue && emailMessage.HideRecipients.Value);
                 foreach (var recipient in emailMessage.Recipients.Split(new [] {',', ';'}, StringSplitOptions.RemoveEmptyEntries)) {
-                    mailMessage.To.Add(new MailAddress(recipient));
+                    if (isBCC)
+                        mailMessage.Bcc.Add(new MailAddress(recipient));
+                    else
+                        mailMessage.To.Add(new MailAddress(recipient));
+
                 }
 
                 _smtpClientField.Value.Send(mailMessage);

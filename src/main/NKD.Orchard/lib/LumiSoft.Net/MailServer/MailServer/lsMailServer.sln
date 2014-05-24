@@ -26,7 +26,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xml_API", "..\ServerAPI\API
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EXPEDIT.MailServer.ContactFilter", "..\Filters\ContactFilter\EXPEDIT.MailServer.ContactFilter.csproj", "{A99CE96E-2001-42E0-B087-7CC7FF3EE8D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NKD.Module.BusinessObjects", "..\..\..\..\..\NKD.Module.BusinessObjects\NKD.Module.BusinessObjects.csproj", "{B09F7D77-FAF0-4EFC-81A3-A241007D52F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NKD.Module.BusinessObjects", "..\..\..\..\..\NKD.Module.BusinessObjects\NKD.Module.BusinessObjects.csproj", "{380151D5-C92F-404A-8B89-B788F574D228}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,10 +78,10 @@ Global
 		{A99CE96E-2001-42E0-B087-7CC7FF3EE8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A99CE96E-2001-42E0-B087-7CC7FF3EE8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A99CE96E-2001-42E0-B087-7CC7FF3EE8D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B09F7D77-FAF0-4EFC-81A3-A241007D52F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B09F7D77-FAF0-4EFC-81A3-A241007D52F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B09F7D77-FAF0-4EFC-81A3-A241007D52F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B09F7D77-FAF0-4EFC-81A3-A241007D52F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380151D5-C92F-404A-8B89-B788F574D228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{380151D5-C92F-404A-8B89-B788F574D228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{380151D5-C92F-404A-8B89-B788F574D228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{380151D5-C92F-404A-8B89-B788F574D228}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -34,7 +34,7 @@ namespace EXPEDIT.MailServer.Filters
         {
             get
             {
-                return System.Configuration.ConfigurationManager.ConnectionStrings["XODB"].ConnectionString;
+                return System.Configuration.ConfigurationManager.ConnectionStrings["NKD"].ConnectionString;
             }
         }
 
