@@ -39,6 +39,8 @@
   <Target Name="Naked">
     <CallTarget Targets="Compile"/>
     <CallTarget Targets="Package"/>
+	<CallTarget Targets="Spec"/>
+    <CallTarget Targets="Gallery"/>
   </Target>
   
   <Target Name ="Build">

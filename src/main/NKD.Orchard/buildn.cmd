@@ -1,3 +1,3 @@
-if "%~1"=="" build Build
+if "%~1"=="" build Naked
 msbuild /t:%~1 NKD.proj
 
