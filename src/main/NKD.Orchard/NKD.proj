@@ -375,6 +375,14 @@
     <Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create Orchard.Media &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
     <Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create Orchard.MediaPicker &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
     <Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create Orchard.Rules &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
+	<Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create Laughlin.ErrorLog &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
+	<Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create NKD &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
+	<Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create EXPEDIT.Share &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
+	<Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create EXPEDIT.License &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
+	<Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create EXPEDIT.Tickets &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
+	<Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create EXPEDIT.Geology &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
+	<Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create EXPEDIT.Flow &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
+	<Exec Command="&quot;$(GalleryFolder)\bin\Orchard.exe&quot; package create EXPEDIT.Transactions &quot;$(GalleryArtifactFolder)&quot;" WorkingDirectory="$(GalleryFolder)"/>
   </Target>
 
   <!-- ValidateProjectFiles-->
