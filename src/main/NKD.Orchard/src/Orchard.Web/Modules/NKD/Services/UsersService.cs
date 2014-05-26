@@ -713,12 +713,13 @@ namespace NKD.Services {
                         }
                     }
                     c.SaveChanges();
-                    var ru = (from o in u.ToArray() where !(from ou in orchardUsers select ou.UserName).Contains(o.UserName) select o); //can just delete from users table
-                    foreach (var rem in ru)
-                    {
-                        c.Users.DeleteObject(rem);
-                    }
-                    c.SaveChanges();
+                    //TODO Update per application
+                    //var ru = (from o in u.ToArray() where !(from ou in orchardUsers select ou.UserName).Contains(o.UserName) select o); //can just delete from users table
+                    //foreach (var rem in ru)
+                    //{
+                    //    //c.Users.DeleteObject(rem); //Doesn't work for multitenancy
+                    //}
+                    //c.SaveChanges();
                 }
 
             }
@@ -1466,7 +1467,7 @@ namespace NKD.Services {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
                 var d = new NKDC(ApplicationConnectionString, null, false);
-                var exists = (from o in d.Contacts where o.Username==context.UserParameters.Username || o.DefaultEmail == context.UserParameters.Email select o).Any();
+                var exists = (from o in d.Contacts where (o.Username==context.UserParameters.Username && o.DefaultEmail != context.UserParameters.Email) select o).Any();
                 if (exists)
                 {
                     context.Cancel = true;

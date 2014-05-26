@@ -171,7 +171,6 @@
     <Compile Include="VirtualServer.cs" />
     <Compile Include="WinLogon.cs" />
     <Compile Include="XmlTable.cs" />
-    <Content Include="licenses.licx" />
     <EmbeddedResource Include="Resources\trayicon.ico" />
     <EmbeddedResource Include="Resources\exit.ico" />
   </ItemGroup>

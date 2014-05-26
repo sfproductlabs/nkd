@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -66,6 +66,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="flow\Web.config" />
+    <Content Include="flow\Scripts\Web.config" />
+    <Content Include="flow\Styles\Web.config" />
+    <Content Include="flow\Content\Web.config" />
+    <Content Include="flow\Theme.txt" />
+    <Content Include="flow\Theme.png" />
+    <Content Include="flow\Placement.info" />
+    <Folder Include="flow\Content" />
+    <Folder Include="flow\Styles" />
+    <Folder Include="flow\Scripts" />
+    <Folder Include="flow\Views" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MAS1\Filters\LayoutFilter.cs" />

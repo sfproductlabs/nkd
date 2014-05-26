@@ -9,5 +9,5 @@ Features:
     NKD:
         Description: Required functionality to run NakedEnterprise software within OrchardCMS.
 		Category: Business
-		Dependencies: Orchard.Email, Orchard.Media, Laughlin.ErrorLog, Orchard.Users
+		Dependencies: Orchard.Email, Laughlin.ErrorLog, Orchard.Users
 		Priority: -10
