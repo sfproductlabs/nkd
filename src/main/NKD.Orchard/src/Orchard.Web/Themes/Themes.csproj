@@ -68,6 +68,19 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="flowhome1\Web.config" />
+    <Content Include="flowhome1\Scripts\Web.config" />
+    <Content Include="flowhome1\Styles\Web.config" />
+    <Content Include="flowhome1\Content\Web.config" />
+    <Content Include="flowhome1\Theme.txt" />
+    <Content Include="flowhome1\Theme.png" />
+    <Content Include="flowhome1\Placement.info" />
+    <Folder Include="flowhome1\Content" />
+    <Folder Include="flowhome1\Styles" />
+    <Folder Include="flowhome1\Scripts" />
+    <Folder Include="flowhome1\Views" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="flow\Web.config" />
     <Content Include="flow\Scripts\Web.config" />
     <Content Include="flow\Styles\Web.config" />

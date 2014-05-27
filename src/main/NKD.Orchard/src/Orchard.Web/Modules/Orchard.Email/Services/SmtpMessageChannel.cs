@@ -44,14 +44,20 @@ namespace Orchard.Email.Services {
                 return;
             }
 
-            var emailMessage = new EmailMessage {
-                Body = parameters["Body"] as string,
-                Subject = parameters["Subject"] as string,
-                Recipients = parameters["Recipients"] as string,
-                From = parameters["From"] as string,
-                FromName = parameters["FromName"] as string,
-                HideRecipients = parameters["HideRecipients"] as bool?
-            };
+            var emailMessage = new EmailMessage {};
+            object temp;
+            if (parameters.TryGetValue("Body", out temp))
+                emailMessage.Body = temp as string;
+            if (parameters.TryGetValue("Subject", out temp))
+                emailMessage.Subject = temp as string;
+            if (parameters.TryGetValue("Recipients", out temp))
+                emailMessage.Recipients = temp as string;
+            if (parameters.TryGetValue("From", out temp))
+                emailMessage.From = temp as string;
+            if (parameters.TryGetValue("FromName", out temp))
+                emailMessage.FromName = temp as string;
+            if (parameters.TryGetValue("HideRecipients", out temp))
+                emailMessage.HideRecipients = temp as bool?;
 
             if (emailMessage.Recipients.Length == 0) {
                 Logger.Error("Email message doesn't have any recipient");
