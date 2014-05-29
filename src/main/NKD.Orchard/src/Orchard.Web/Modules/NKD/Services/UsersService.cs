@@ -1491,6 +1491,8 @@ namespace NKD.Services {
             _contentManagerSession.Store(context.User.ContentItem);
             SyncUsers();
             var contact = GetContactID(context.User.UserName);
+            if (contact == null)
+                return;
             //Add user to default company
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
