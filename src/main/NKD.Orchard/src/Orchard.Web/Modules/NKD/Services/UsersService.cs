@@ -46,7 +46,7 @@ using Orchard.Users.Events;
 using NKD.ViewModels;
 using Newtonsoft.Json;
 using System.Web.Mvc;
-
+using EntityFramework.Extensions;
 
 namespace NKD.Services {
     
@@ -652,6 +652,8 @@ namespace NKD.Services {
                 using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
                     var c = new NKDC(ApplicationConnectionString,null);
+                    c.Users.Where(f => !(from o in c.Contacts select o.AspNetUserID).Contains(f.UserId)).Delete();
+
                     var r = from o in c.Roles.Include("Users") where o.ApplicationId == ApplicationID select o;
                     var u = from o in c.Users.Include("Roles") where o.ApplicationId == ApplicationID select o;
                     var updated = DateTime.UtcNow;
@@ -697,22 +699,32 @@ namespace NKD.Services {
                         c.Roles.AddObject(role);
                     }
                     c.SaveChanges();
-                    foreach (var role in r)
+                    var users = c.Users.Include("Roles").Where(f => f.ApplicationId == ApplicationID).ToArray();
+                    var roles = c.Roles.Where(f => f.ApplicationId == ApplicationID).ToArray();
+                    foreach (var user in users)
                     {
-                        foreach (var user in role.Users)
+                        foreach (var role in user.Roles.AsEnumerable())
                         {
                             //Remove
                             if (!orchardUserRoles.Any(f => f.RoleName == role.RoleName && f.UserName == user.UserName))
-                                user.Roles.Remove(role);
+                            {
+                                c.E_SP_DropUserRole(user.UserId, role.RoleId);
+                            }                           
                         }
-                        foreach (var user in u)
+
+                        
+                        var newRoleIds = (from o in orchardUserRoles where !user.Roles.Select(f=>f.RoleName).Contains(o.RoleName) && o.UserName==user.UserName
+                                          join m in roles on o.RoleName equals m.RoleName select m);
+                        foreach (var newRoleId in newRoleIds)                        
                         {
-                            //Add
-                            if (orchardUserRoles.Any(f => f.RoleName == role.RoleName && f.UserName == user.UserName) && !role.Users.Any(f=>f.UserName == user.UserName))
-                                user.Roles.Add(role);
+                            c.E_SP_AddUserRole(user.UserId, newRoleId.RoleId);
+                            //user.Roles.Add(newRoleId);
                         }
                     }
+
+
                     c.SaveChanges();
+                    
                     //TODO Update per application
                     //var ru = (from o in u.ToArray() where !(from ou in orchardUsers select ou.UserName).Contains(o.UserName) select o); //can just delete from users table
                     //foreach (var rem in ru)
@@ -921,12 +933,12 @@ namespace NKD.Services {
 
         public Guid? GetContactID(string username)
         {
-            if (username == null)
+            if (string.IsNullOrWhiteSpace(username))
                 return null;
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
                 var d = new NKDC(ApplicationConnectionString,null);
-                return (from c in d.Contacts join u in d.Users on c.AspNetUserID equals u.UserId where u.ApplicationId == ApplicationID where username==c.Username && c.Version == 0 && c.VersionDeletedBy == null select c.ContactID).Single();
+                return (from c in d.Contacts join u in d.Users on c.AspNetUserID equals u.UserId where u.ApplicationId == ApplicationID where username==c.Username && c.Version == 0 && c.VersionDeletedBy == null select c.ContactID).SingleOrDefault();
                 //return d.Contacts.Where(x=>x.Username == username).Select(x=>x.ContactID).FirstOrDefault();
             }
         }

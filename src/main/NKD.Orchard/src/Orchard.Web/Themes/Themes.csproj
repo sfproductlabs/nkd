@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -69,16 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="flowhome1\Web.config" />
-    <Content Include="flowhome1\Scripts\Web.config" />
-    <Content Include="flowhome1\Styles\Web.config" />
     <Content Include="flowhome1\Content\Web.config" />
     <Content Include="flowhome1\Theme.txt" />
     <Content Include="flowhome1\Theme.png" />
     <Content Include="flowhome1\Placement.info" />
-    <Folder Include="flowhome1\Content" />
-    <Folder Include="flowhome1\Styles" />
-    <Folder Include="flowhome1\Scripts" />
-    <Folder Include="flowhome1\Views" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="flow\Web.config" />
@@ -88,10 +82,6 @@
     <Content Include="flow\Theme.txt" />
     <Content Include="flow\Theme.png" />
     <Content Include="flow\Placement.info" />
-    <Folder Include="flow\Content" />
-    <Folder Include="flow\Styles" />
-    <Folder Include="flow\Scripts" />
-    <Folder Include="flow\Views" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MAS1\Filters\LayoutFilter.cs" />
@@ -252,6 +242,26 @@
     <Content Include="MAS1\Views\LogOn2.cshtml" />
     <Content Include="MAS1\Views\Parts\Product.cshtml" />
     <Content Include="MAS1\Views\Widget.Wrapper.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="flowhome1\Views\Layout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="flowhome1\Views\Orchard.Widgets\Widget.Wrapper.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="flowhome1\Views\Orchard.Core.Navigation\Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="flow\Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="flowhome1\Views\Widget.Wrapper.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="flowhome1\Views\Document.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
