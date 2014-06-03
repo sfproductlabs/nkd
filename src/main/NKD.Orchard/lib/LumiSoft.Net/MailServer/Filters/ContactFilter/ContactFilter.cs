@@ -29,12 +29,27 @@ namespace EXPEDIT.MailServer.Filters
 		{
         }
 
-        private string applicationConnectionString;
+        private string applicationConnectionString = null;
         public string ApplicationConnectionString //TODO: This needs to be multi-tenant?
         {
             get
             {
-                return System.Configuration.ConfigurationManager.ConnectionStrings["NKD"].ConnectionString;
+                if (applicationConnectionString == null)
+                {
+                    var temp = System.Configuration.ConfigurationManager.ConnectionStrings["NKD"];
+                    if (temp != null)
+                        applicationConnectionString = temp.ConnectionString;
+                    else
+                    {
+                        var config = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
+                        if (config != null && config.ConnectionStrings != null && config.ConnectionStrings.ConnectionStrings["NKD"] != null)
+                            applicationConnectionString = config.ConnectionStrings.ConnectionStrings["NKD"].ConnectionString;
+                        else
+                            throw new NoNullAllowedException("Connection String Required");
+                    }
+                }
+                return applicationConnectionString;
+                        
             }
         }
 
@@ -67,6 +82,7 @@ namespace EXPEDIT.MailServer.Filters
                     if (!(from o in d.ContactEmailsViews where o.Email == @from select o).Any())
                     {
                         errorText = "You must be a registered user to use the email support service.";
+                        WriteFilterLog("Sender:" + from + " IP:" + session.RemoteEndPoint.Address.ToString() + " unregistered.\r\n");
                         return false;
                     }
                     else
@@ -77,9 +93,9 @@ namespace EXPEDIT.MailServer.Filters
 
 
             }
-            catch
+            catch (Exception ex)
             {
-                WriteFilterLog("Sender:" + from + " IP:" + session.RemoteEndPoint.Address.ToString() + " caused exception.\r\n");
+                WriteFilterLog(string.Format("Sender:{0} IP:{1} caused exception.\r\nEX:{2}{3}\r\n__\r\n", from, session.RemoteEndPoint.Address, ex, ex.Message));
             }
 
             return ok;

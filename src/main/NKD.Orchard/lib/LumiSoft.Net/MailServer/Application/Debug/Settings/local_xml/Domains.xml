@@ -5,4 +5,9 @@
     <DomainName>support.miningappstore.com</DomainName>
     <Description>test domain</Description>
   </Domains>
+  <Domains>
+    <DomainID>ab07b1f4-b305-43be-9b14-461485f7581a</DomainID>
+    <DomainName>test.miningappstore.com</DomainName>
+    <Description />
+  </Domains>
 </NewDataSet>

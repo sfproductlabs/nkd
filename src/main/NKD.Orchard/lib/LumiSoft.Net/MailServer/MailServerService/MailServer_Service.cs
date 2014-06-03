@@ -36,7 +36,9 @@ namespace LumiSoft.MailServer
 		/// <param name="args">Command line arguments.</param>
 		protected override void OnStart(string[] args)
 		{						
-			m_pServer.Start();				
+              Process pc = Process.GetCurrentProcess();
+              Directory.SetCurrentDirectory(pc.MainModule.FileName.Substring(0, pc.MainModule.FileName.LastIndexOf(@"\")));
+              m_pServer.Start();
 		}
 
 		#endregion
