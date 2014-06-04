@@ -960,9 +960,13 @@ namespace NKD.Services {
                 else
                 {
                     var emptyco = new[] { new { id = "", name = "" } };
-                    var companies = JsonConvert.DeserializeAnonymousType(m.companies,emptyco);
-                    var emptyli = new[] { new { id = default(Guid?), expiry = default(DateTime?), modelid = default(Guid?), modelname = "", modelrestrictions = "", partid = default(Guid?), partname = "", partrestrictions = "" } };                    
-                    var licenses = JsonConvert.DeserializeAnonymousType(m.Licenses, emptyli);
+                    var companies = emptyco.Where(f => 1 == 0);
+                    if (m.companies != null)
+                        companies = JsonConvert.DeserializeAnonymousType(m.companies,emptyco);
+                    var emptyli = new[] { new { id = default(Guid?), expiry = default(DateTime?), modelid = default(Guid?), modelname = "", modelrestrictions = "", partid = default(Guid?), partname = "", partrestrictions = "" } };
+                    var licenses = emptyli.Where(f => 1 == 0);
+                    if (m.Licenses != null)
+                        licenses = JsonConvert.DeserializeAnonymousType(m.Licenses, emptyli);
                     return new ContactViewModel
                     {
                         UserName = m.Username,
