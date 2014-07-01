@@ -1553,7 +1553,7 @@ namespace NKD.Services {
                         , _orchardServices.WorkContext.CurrentSite.SiteName
                         , _orchardServices.WorkContext.CurrentUser.UserName
                         , _orchardServices.WorkContext.CurrentUser.Email)
-                    , string.Format("Warnings [UTC{0}]: \r\n\r\n {1}", DateTime.UtcNow, warnings)
+                    , string.Format("Warnings [UTC:{0}]: \r\n\r\n {1}", DateTime.UtcNow, string.Join("\r\n\r\n", warnings))
                     );
             }
                     
