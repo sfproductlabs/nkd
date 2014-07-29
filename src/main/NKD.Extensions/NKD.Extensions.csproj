@@ -49,6 +49,7 @@
     <Reference Include="System.Data.Linq">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization">
       <Private>True</Private>
     </Reference>
@@ -74,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\ByteHelper.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\DataReaderEnumerable.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
