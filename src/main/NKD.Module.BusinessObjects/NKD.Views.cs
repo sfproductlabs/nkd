@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets7DB39E8B0486BDC511D39AA81BC2D440F7CE1D5EBEC0C2BE2D8A0D425E704068))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets9C669FF5AEF3FA5AAC4453D296D416382189DC908D8A96BA18FF8AA6404D685B))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets7DB39E8B0486BDC511D39AA81BC2D440F7CE1D5EBEC0C2BE2D8A0D425E704068 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets9C669FF5AEF3FA5AAC4453D296D416382189DC908D8A96BA18FF8AA6404D685B : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets7DB39E8B0486BDC511D39AA81BC2D440F7CE1D5EBEC0C2BE2D8A0D425E704068()
+        public ViewsForBaseEntitySets9C669FF5AEF3FA5AAC4453D296D416382189DC908D8A96BA18FF8AA6404D685B()
         {
             this.EdmEntityContainerName = "NKDC";
             this.StoreEntityContainerName = "NKDModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "d8eed1d231333cf9c4d3a6ac19e03d63d4c44094d41cb3104a193d57bd40a3a6";
-            this.HashOverAllExtentViews = "fe3d900ca3369c7ecfe84d1899d1e38e862fcfef3ec3747713f86740c66a3bfb";
+            this.HashOverMappingClosure = "89a9119585d8aaa3543900a2aa395842c299d640a85ce075d85bf0502c0c2070";
+            this.HashOverAllExtentViews = "673c17e3216bd1468c5668cfe58bd4684ac2647296ff3a83e6715a0aa5fcb764";
             this.ViewCount = 770;
         }
         
@@ -31431,26 +31431,27 @@ namespace Edm_EntityMappingGeneratedViews
         private System.Collections.Generic.KeyValuePair<string, string> GetView766()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_Form", "\r\n    SELECT VALUE -- Constructing E_Form\r\n        [NKD.Module.BusinessObjects.St" +
-                    "ore.E_Form](T1.[E_Form.FormID], T1.[E_Form.FormStructure], T1.[E_Form.FormStruct" +
-                    "ureChecksum], T1.[E_Form.FormActions], T1.[E_Form.FormType], T1.[E_Form.Template" +
-                    "Multi], T1.[E_Form.TemplateSingle], T1.[E_Form.Version], T1.[E_Form.VersionAntec" +
-                    "edentID], T1.[E_Form.VersionCertainty], T1.[E_Form.VersionWorkflowInstanceID], T" +
-                    "1.[E_Form.VersionUpdatedBy], T1.[E_Form.VersionDeletedBy], T1.[E_Form.VersionOwn" +
-                    "erContactID], T1.[E_Form.VersionOwnerCompanyID], T1.[E_Form.VersionUpdated])\r\n  " +
-                    "  FROM (\r\n        SELECT \r\n            T.FormID AS [E_Form.FormID], \r\n          " +
-                    "  T.FormStructure AS [E_Form.FormStructure], \r\n            T.FormStructureChecks" +
-                    "um AS [E_Form.FormStructureChecksum], \r\n            T.FormActions AS [E_Form.For" +
-                    "mActions], \r\n            T.FormType AS [E_Form.FormType], \r\n            T.Templa" +
-                    "teMulti AS [E_Form.TemplateMulti], \r\n            T.TemplateSingle AS [E_Form.Tem" +
-                    "plateSingle], \r\n            T.Version AS [E_Form.Version], \r\n            T.Versi" +
-                    "onAntecedentID AS [E_Form.VersionAntecedentID], \r\n            T.VersionCertainty" +
-                    " AS [E_Form.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [E_F" +
-                    "orm.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [E_Form.Vers" +
-                    "ionUpdatedBy], \r\n            T.VersionDeletedBy AS [E_Form.VersionDeletedBy], \r\n" +
-                    "            T.VersionOwnerContactID AS [E_Form.VersionOwnerContactID], \r\n       " +
-                    "     T.VersionOwnerCompanyID AS [E_Form.VersionOwnerCompanyID], \r\n            T." +
-                    "VersionUpdated AS [E_Form.VersionUpdated], \r\n            True AS _from0\r\n       " +
-                    " FROM NKDC.Forms AS T\r\n    ) AS T1");
+                    "ore.E_Form](T1.[E_Form.FormID], T1.[E_Form.FormName], T1.[E_Form.FormStructure]," +
+                    " T1.[E_Form.FormStructureChecksum], T1.[E_Form.FormActions], T1.[E_Form.FormType" +
+                    "], T1.[E_Form.TemplateMulti], T1.[E_Form.TemplateSingle], T1.[E_Form.Version], T" +
+                    "1.[E_Form.VersionAntecedentID], T1.[E_Form.VersionCertainty], T1.[E_Form.Version" +
+                    "WorkflowInstanceID], T1.[E_Form.VersionUpdatedBy], T1.[E_Form.VersionDeletedBy]," +
+                    " T1.[E_Form.VersionOwnerContactID], T1.[E_Form.VersionOwnerCompanyID], T1.[E_For" +
+                    "m.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.FormID AS [E_Form" +
+                    ".FormID], \r\n            T.FormName AS [E_Form.FormName], \r\n            T.FormStr" +
+                    "ucture AS [E_Form.FormStructure], \r\n            T.FormStructureChecksum AS [E_Fo" +
+                    "rm.FormStructureChecksum], \r\n            T.FormActions AS [E_Form.FormActions], " +
+                    "\r\n            T.FormType AS [E_Form.FormType], \r\n            T.TemplateMulti AS " +
+                    "[E_Form.TemplateMulti], \r\n            T.TemplateSingle AS [E_Form.TemplateSingle" +
+                    "], \r\n            T.Version AS [E_Form.Version], \r\n            T.VersionAnteceden" +
+                    "tID AS [E_Form.VersionAntecedentID], \r\n            T.VersionCertainty AS [E_Form" +
+                    ".VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [E_Form.Version" +
+                    "WorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [E_Form.VersionUpdatedB" +
+                    "y], \r\n            T.VersionDeletedBy AS [E_Form.VersionDeletedBy], \r\n           " +
+                    " T.VersionOwnerContactID AS [E_Form.VersionOwnerContactID], \r\n            T.Vers" +
+                    "ionOwnerCompanyID AS [E_Form.VersionOwnerCompanyID], \r\n            T.VersionUpda" +
+                    "ted AS [E_Form.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC." +
+                    "Forms AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -31493,20 +31494,20 @@ namespace Edm_EntityMappingGeneratedViews
                     "AntecedentID, T1.Form_VersionCertainty, T1.Form_VersionWorkflowInstanceID, T1.Fo" +
                     "rm_VersionUpdatedBy, T1.Form_VersionDeletedBy, T1.Form_VersionOwnerContactID, T1" +
                     ".Form_VersionOwnerCompanyID, T1.Form_VersionUpdated, T1.Form_FormStructureChecks" +
-                    "um)\r\n    FROM (\r\n        SELECT \r\n            T.FormID AS Form_FormID, \r\n       " +
-                    "     T.FormStructure AS Form_FormStructure, \r\n            T.FormActions AS Form_" +
-                    "FormActions, \r\n            T.FormType AS Form_FormType, \r\n            T.Template" +
-                    "Multi AS Form_TemplateMulti, \r\n            T.TemplateSingle AS Form_TemplateSing" +
-                    "le, \r\n            T.Version AS Form_Version, \r\n            T.VersionAntecedentID" +
-                    " AS Form_VersionAntecedentID, \r\n            T.VersionCertainty AS Form_VersionCe" +
-                    "rtainty, \r\n            T.VersionWorkflowInstanceID AS Form_VersionWorkflowInstan" +
-                    "ceID, \r\n            T.VersionUpdatedBy AS Form_VersionUpdatedBy, \r\n            T" +
-                    ".VersionDeletedBy AS Form_VersionDeletedBy, \r\n            T.VersionOwnerContactI" +
-                    "D AS Form_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS Form_V" +
-                    "ersionOwnerCompanyID, \r\n            T.VersionUpdated AS Form_VersionUpdated, \r\n " +
-                    "           T.FormStructureChecksum AS Form_FormStructureChecksum, \r\n            " +
-                    "True AS _from0\r\n        FROM NKDModuleBusinessObjectsStoreContainer.E_Form AS T\r" +
-                    "\n    ) AS T1");
+                    "um, T1.Form_FormName)\r\n    FROM (\r\n        SELECT \r\n            T.FormID AS Form" +
+                    "_FormID, \r\n            T.FormStructure AS Form_FormStructure, \r\n            T.Fo" +
+                    "rmActions AS Form_FormActions, \r\n            T.FormType AS Form_FormType, \r\n    " +
+                    "        T.TemplateMulti AS Form_TemplateMulti, \r\n            T.TemplateSingle AS" +
+                    " Form_TemplateSingle, \r\n            T.Version AS Form_Version, \r\n            T.V" +
+                    "ersionAntecedentID AS Form_VersionAntecedentID, \r\n            T.VersionCertainty" +
+                    " AS Form_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS Form_Ver" +
+                    "sionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Form_VersionUpdatedB" +
+                    "y, \r\n            T.VersionDeletedBy AS Form_VersionDeletedBy, \r\n            T.Ve" +
+                    "rsionOwnerContactID AS Form_VersionOwnerContactID, \r\n            T.VersionOwnerC" +
+                    "ompanyID AS Form_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS Form_V" +
+                    "ersionUpdated, \r\n            T.FormStructureChecksum AS Form_FormStructureChecks" +
+                    "um, \r\n            T.FormName AS Form_FormName, \r\n            True AS _from0\r\n   " +
+                    "     FROM NKDModuleBusinessObjectsStoreContainer.E_Form AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
