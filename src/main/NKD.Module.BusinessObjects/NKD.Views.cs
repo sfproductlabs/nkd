@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets9C669FF5AEF3FA5AAC4453D296D416382189DC908D8A96BA18FF8AA6404D685B))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsA4D57FFA066C75C43D9B1C29CB85E80CEB7994588BD87183AAF76D9D6FE2C619))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets9C669FF5AEF3FA5AAC4453D296D416382189DC908D8A96BA18FF8AA6404D685B : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySetsA4D57FFA066C75C43D9B1C29CB85E80CEB7994588BD87183AAF76D9D6FE2C619 : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets9C669FF5AEF3FA5AAC4453D296D416382189DC908D8A96BA18FF8AA6404D685B()
+        public ViewsForBaseEntitySetsA4D57FFA066C75C43D9B1C29CB85E80CEB7994588BD87183AAF76D9D6FE2C619()
         {
             this.EdmEntityContainerName = "NKDC";
             this.StoreEntityContainerName = "NKDModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "89a9119585d8aaa3543900a2aa395842c299d640a85ce075d85bf0502c0c2070";
-            this.HashOverAllExtentViews = "673c17e3216bd1468c5668cfe58bd4684ac2647296ff3a83e6715a0aa5fcb764";
+            this.HashOverMappingClosure = "e983c811cc6e48e0a79ea19ef340c07067c16cbff905f26bf6c9d74943de1eef";
+            this.HashOverAllExtentViews = "01e7b286707acbc57e5c26d2bd3a78fd1890f9590ded2432fa9397e202f5226a";
             this.ViewCount = 770;
         }
         
@@ -15575,29 +15575,40 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView318()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_GraphDataGroup", "\r\n    SELECT VALUE -- Constructing E_GraphDataGroup\r\n        [NKD.Module.Business" +
-                    "Objects.Store.E_GraphDataGroup](T1.[E_GraphDataGroup.GraphDataGroupID], T1.[E_Gr" +
-                    "aphDataGroup.GraphDataGroupName], T1.[E_GraphDataGroup.Comment], T1.[E_GraphData" +
-                    "Group.CreatedBy], T1.[E_GraphDataGroup.Created], T1.[E_GraphDataGroup.Version], " +
-                    "T1.[E_GraphDataGroup.VersionAntecedentID], T1.[E_GraphDataGroup.VersionCertainty" +
-                    "], T1.[E_GraphDataGroup.VersionWorkflowInstanceID], T1.[E_GraphDataGroup.Version" +
-                    "UpdatedBy], T1.[E_GraphDataGroup.VersionDeletedBy], T1.[E_GraphDataGroup.Version" +
-                    "OwnerContactID], T1.[E_GraphDataGroup.VersionOwnerCompanyID], T1.[E_GraphDataGro" +
-                    "up.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.GraphDataGroupID" +
-                    " AS [E_GraphDataGroup.GraphDataGroupID], \r\n            T.GraphDataGroupName AS [" +
-                    "E_GraphDataGroup.GraphDataGroupName], \r\n            T.Comment AS [E_GraphDataGro" +
-                    "up.Comment], \r\n            T.CreatedBy AS [E_GraphDataGroup.CreatedBy], \r\n      " +
-                    "      T.Created AS [E_GraphDataGroup.Created], \r\n            T.Version AS [E_Gra" +
-                    "phDataGroup.Version], \r\n            T.VersionAntecedentID AS [E_GraphDataGroup.V" +
-                    "ersionAntecedentID], \r\n            T.VersionCertainty AS [E_GraphDataGroup.Versi" +
-                    "onCertainty], \r\n            T.VersionWorkflowInstanceID AS [E_GraphDataGroup.Ver" +
-                    "sionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [E_GraphDataGroup.V" +
-                    "ersionUpdatedBy], \r\n            T.VersionDeletedBy AS [E_GraphDataGroup.VersionD" +
-                    "eletedBy], \r\n            T.VersionOwnerContactID AS [E_GraphDataGroup.VersionOwn" +
-                    "erContactID], \r\n            T.VersionOwnerCompanyID AS [E_GraphDataGroup.Version" +
-                    "OwnerCompanyID], \r\n            T.VersionUpdated AS [E_GraphDataGroup.VersionUpda" +
-                    "ted], \r\n            True AS _from0\r\n        FROM NKDC.GraphDataGroups AS T\r\n    " +
-                    ") AS T1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2514);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing E_GraphDataGroup\r\n        [NKD.Module.Busines");
+            viewString.Append("sObjects.Store.E_GraphDataGroup](T1.[E_GraphDataGroup.GraphDataGroupID], T1.[E_G");
+            viewString.Append("raphDataGroup.GraphDataGroupName], T1.[E_GraphDataGroup.StandardGraphDataGroupNa");
+            viewString.Append("me], T1.[E_GraphDataGroup.CurrencyID], T1.[E_GraphDataGroup.PricePerUnit], T1.[E");
+            viewString.Append("_GraphDataGroup.PriceUnitID], T1.[E_GraphDataGroup.Comment], T1.[E_GraphDataGrou");
+            viewString.Append("p.CreatedBy], T1.[E_GraphDataGroup.Created], T1.[E_GraphDataGroup.Description], ");
+            viewString.Append("T1.[E_GraphDataGroup.Thumbnail], T1.[E_GraphDataGroup.OriginalFileDataID], T1.[E");
+            viewString.Append("_GraphDataGroup.Version], T1.[E_GraphDataGroup.VersionAntecedentID], T1.[E_Graph");
+            viewString.Append("DataGroup.VersionCertainty], T1.[E_GraphDataGroup.VersionWorkflowInstanceID], T1");
+            viewString.Append(".[E_GraphDataGroup.VersionUpdatedBy], T1.[E_GraphDataGroup.VersionDeletedBy], T1");
+            viewString.Append(".[E_GraphDataGroup.VersionOwnerContactID], T1.[E_GraphDataGroup.VersionOwnerComp");
+            viewString.Append("anyID], T1.[E_GraphDataGroup.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n    ");
+            viewString.Append("        T.GraphDataGroupID AS [E_GraphDataGroup.GraphDataGroupID], \r\n           ");
+            viewString.Append(" T.GraphDataGroupName AS [E_GraphDataGroup.GraphDataGroupName], \r\n            T.");
+            viewString.Append("StandardGraphDataGroupName AS [E_GraphDataGroup.StandardGraphDataGroupName], \r\n ");
+            viewString.Append("           T.CurrencyID AS [E_GraphDataGroup.CurrencyID], \r\n            T.PriceP");
+            viewString.Append("erUnit AS [E_GraphDataGroup.PricePerUnit], \r\n            T.PriceUnitID AS [E_Gra");
+            viewString.Append("phDataGroup.PriceUnitID], \r\n            T.Comment AS [E_GraphDataGroup.Comment],");
+            viewString.Append(" \r\n            T.CreatedBy AS [E_GraphDataGroup.CreatedBy], \r\n            T.Crea");
+            viewString.Append("ted AS [E_GraphDataGroup.Created], \r\n            T.Description AS [E_GraphDataGr");
+            viewString.Append("oup.Description], \r\n            T.Thumbnail AS [E_GraphDataGroup.Thumbnail], \r\n ");
+            viewString.Append("           T.OriginalFileDataID AS [E_GraphDataGroup.OriginalFileDataID], \r\n    ");
+            viewString.Append("        T.Version AS [E_GraphDataGroup.Version], \r\n            T.VersionAntecede");
+            viewString.Append("ntID AS [E_GraphDataGroup.VersionAntecedentID], \r\n            T.VersionCertainty");
+            viewString.Append(" AS [E_GraphDataGroup.VersionCertainty], \r\n            T.VersionWorkflowInstance");
+            viewString.Append("ID AS [E_GraphDataGroup.VersionWorkflowInstanceID], \r\n            T.VersionUpdat");
+            viewString.Append("edBy AS [E_GraphDataGroup.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS");
+            viewString.Append(" [E_GraphDataGroup.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [");
+            viewString.Append("E_GraphDataGroup.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID A");
+            viewString.Append("S [E_GraphDataGroup.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [E");
+            viewString.Append("_GraphDataGroup.VersionUpdated], \r\n            True AS _from0\r\n        FROM NKDC");
+            viewString.Append(".GraphDataGroups AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDModuleBusinessObjectsStoreContainer.E_GraphDataGroup", viewString.ToString());
         }
         
         /// <Summary>
@@ -27785,28 +27796,38 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView643()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.GraphDataGroups", "\r\n    SELECT VALUE -- Constructing GraphDataGroups\r\n        [NKD.Module.BusinessO" +
-                    "bjects.GraphDataGroup](T1.GraphDataGroup_GraphDataGroupID, T1.GraphDataGroup_Gra" +
-                    "phDataGroupName, T1.GraphDataGroup_Comment, T1.GraphDataGroup_CreatedBy, T1.Grap" +
-                    "hDataGroup_Created, T1.GraphDataGroup_Version, T1.GraphDataGroup_VersionAntecede" +
-                    "ntID, T1.GraphDataGroup_VersionCertainty, T1.GraphDataGroup_VersionWorkflowInsta" +
-                    "nceID, T1.GraphDataGroup_VersionUpdatedBy, T1.GraphDataGroup_VersionDeletedBy, T" +
-                    "1.GraphDataGroup_VersionOwnerContactID, T1.GraphDataGroup_VersionOwnerCompanyID," +
-                    " T1.GraphDataGroup_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.G" +
-                    "raphDataGroupID AS GraphDataGroup_GraphDataGroupID, \r\n            T.GraphDataGro" +
-                    "upName AS GraphDataGroup_GraphDataGroupName, \r\n            T.Comment AS GraphDat" +
-                    "aGroup_Comment, \r\n            T.CreatedBy AS GraphDataGroup_CreatedBy, \r\n       " +
-                    "     T.Created AS GraphDataGroup_Created, \r\n            T.Version AS GraphDataGr" +
-                    "oup_Version, \r\n            T.VersionAntecedentID AS GraphDataGroup_VersionAntece" +
-                    "dentID, \r\n            T.VersionCertainty AS GraphDataGroup_VersionCertainty, \r\n " +
-                    "           T.VersionWorkflowInstanceID AS GraphDataGroup_VersionWorkflowInstance" +
-                    "ID, \r\n            T.VersionUpdatedBy AS GraphDataGroup_VersionUpdatedBy, \r\n     " +
-                    "       T.VersionDeletedBy AS GraphDataGroup_VersionDeletedBy, \r\n            T.Ve" +
-                    "rsionOwnerContactID AS GraphDataGroup_VersionOwnerContactID, \r\n            T.Ver" +
-                    "sionOwnerCompanyID AS GraphDataGroup_VersionOwnerCompanyID, \r\n            T.Vers" +
-                    "ionUpdated AS GraphDataGroup_VersionUpdated, \r\n            True AS _from0\r\n     " +
-                    "   FROM NKDModuleBusinessObjectsStoreContainer.E_GraphDataGroup AS T\r\n    ) AS T" +
-                    "1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2372);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing GraphDataGroups\r\n        [NKD.Module.Business");
+            viewString.Append("Objects.GraphDataGroup](T1.GraphDataGroup_GraphDataGroupID, T1.GraphDataGroup_Gr");
+            viewString.Append("aphDataGroupName, T1.GraphDataGroup_Comment, T1.GraphDataGroup_CreatedBy, T1.Gra");
+            viewString.Append("phDataGroup_Created, T1.GraphDataGroup_Version, T1.GraphDataGroup_VersionAnteced");
+            viewString.Append("entID, T1.GraphDataGroup_VersionCertainty, T1.GraphDataGroup_VersionWorkflowInst");
+            viewString.Append("anceID, T1.GraphDataGroup_VersionUpdatedBy, T1.GraphDataGroup_VersionDeletedBy, ");
+            viewString.Append("T1.GraphDataGroup_VersionOwnerContactID, T1.GraphDataGroup_VersionOwnerCompanyID");
+            viewString.Append(", T1.GraphDataGroup_VersionUpdated, T1.GraphDataGroup_StandardGraphDataGroupName");
+            viewString.Append(", T1.GraphDataGroup_CurrencyID, T1.GraphDataGroup_PricePerUnit, T1.GraphDataGrou");
+            viewString.Append("p_PriceUnitID, T1.GraphDataGroup_Description, T1.GraphDataGroup_Thumbnail, T1.Gr");
+            viewString.Append("aphDataGroup_OriginalFileDataID)\r\n    FROM (\r\n        SELECT \r\n            T.Gra");
+            viewString.Append("phDataGroupID AS GraphDataGroup_GraphDataGroupID, \r\n            T.GraphDataGroup");
+            viewString.Append("Name AS GraphDataGroup_GraphDataGroupName, \r\n            T.Comment AS GraphDataG");
+            viewString.Append("roup_Comment, \r\n            T.CreatedBy AS GraphDataGroup_CreatedBy, \r\n         ");
+            viewString.Append("   T.Created AS GraphDataGroup_Created, \r\n            T.Version AS GraphDataGrou");
+            viewString.Append("p_Version, \r\n            T.VersionAntecedentID AS GraphDataGroup_VersionAntecede");
+            viewString.Append("ntID, \r\n            T.VersionCertainty AS GraphDataGroup_VersionCertainty, \r\n   ");
+            viewString.Append("         T.VersionWorkflowInstanceID AS GraphDataGroup_VersionWorkflowInstanceID");
+            viewString.Append(", \r\n            T.VersionUpdatedBy AS GraphDataGroup_VersionUpdatedBy, \r\n       ");
+            viewString.Append("     T.VersionDeletedBy AS GraphDataGroup_VersionDeletedBy, \r\n            T.Vers");
+            viewString.Append("ionOwnerContactID AS GraphDataGroup_VersionOwnerContactID, \r\n            T.Versi");
+            viewString.Append("onOwnerCompanyID AS GraphDataGroup_VersionOwnerCompanyID, \r\n            T.Versio");
+            viewString.Append("nUpdated AS GraphDataGroup_VersionUpdated, \r\n            T.StandardGraphDataGrou");
+            viewString.Append("pName AS GraphDataGroup_StandardGraphDataGroupName, \r\n            T.CurrencyID A");
+            viewString.Append("S GraphDataGroup_CurrencyID, \r\n            T.PricePerUnit AS GraphDataGroup_Pric");
+            viewString.Append("ePerUnit, \r\n            T.PriceUnitID AS GraphDataGroup_PriceUnitID, \r\n         ");
+            viewString.Append("   T.Description AS GraphDataGroup_Description, \r\n            T.Thumbnail AS Gra");
+            viewString.Append("phDataGroup_Thumbnail, \r\n            T.OriginalFileDataID AS GraphDataGroup_Orig");
+            viewString.Append("inalFileDataID, \r\n            True AS _from0\r\n        FROM NKDModuleBusinessObje");
+            viewString.Append("ctsStoreContainer.E_GraphDataGroup AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("NKDC.GraphDataGroups", viewString.ToString());
         }
         
         /// <Summary>

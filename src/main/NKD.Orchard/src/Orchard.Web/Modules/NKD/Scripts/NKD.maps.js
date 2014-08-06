@@ -1,6 +1,10 @@
 ﻿
 // Construct the map object, and register events
 function SetupMap(elm) {
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined' || typeof google.maps.LatLng === 'undefined') {
+        console.log('failed to setup map');
+        return false;
+    }
     sydney = new google.maps.LatLng(-34.397, 150.644);
     geocoder = new google.maps.Geocoder();
     var map = new google.maps.Map(document.getElementById(elm), {
@@ -48,6 +52,8 @@ function SetupMap(elm) {
 function SetupDrawingMap(elm, drawingModes, map) {
     if (!map)
         map = SetupMap(elm);
+    if (!map)
+        return false;
     map.setZoom(8);
     map.drawingManager = {};
     if (!drawingModes)
@@ -158,7 +164,7 @@ function SetupDrawingMap(elm, drawingModes, map) {
 }
 
 function HideDrawingMap(map) {
-    if (map.drawingManager) {
+    if (typeof map !== 'undefined' && map.drawingManager) {
         map.drawingManager.setOptions({
             drawingControl: false
         });
@@ -178,6 +184,10 @@ function ShowDrawingMap(map) {
 // Redraw a map.  This method removes all previous markers and looks a the google latlng opbjects in the 
 // points array
 function RedrawMap(map) {
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined' || typeof google.maps.LatLngBounds === 'undefined') {
+        console.log('failed to redraw map');
+        return false;
+    }
     map.pageIsLoaded = false;
     map.bounds = new google.maps.LatLngBounds();
     // try and get existing bounds
@@ -712,6 +722,10 @@ function GetPolygonsWithArray(geoData, polygonArray) {
 }
 
 function GetAddressLocation(address, callee) {
+    if (typeof geocoder === 'undefined') {
+        console.log('failed to geocode');
+        return false;
+    }
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             callee(new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()));
