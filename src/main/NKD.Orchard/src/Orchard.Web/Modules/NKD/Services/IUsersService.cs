@@ -7,6 +7,7 @@ using NKD.Module.BusinessObjects;
 using NKD.Models;
 using System.ServiceModel;
 using NKD.ViewModels;
+using Orchard.Security;
 
 namespace NKD.Services
 {
@@ -147,5 +148,10 @@ namespace NKD.Services
              [OperationContract]
              get;
          }
+
+         IUser Create(string email, string username, string password);
+
+         bool VerifyUserUnicity(string userName, string email);
+
     }
 }

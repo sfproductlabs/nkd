@@ -56,6 +56,7 @@ namespace NKD.Services {
         public static readonly Guid COMPANY_DEFAULT = new Guid("6887ABC9-E2D8-4A2D-B143-6C3E5245C565");
 
         private readonly IOrchardServices _orchardServices;
+        private readonly IMembershipService _membership;
         private readonly IContentManager _contentManager;
         private readonly IContentManagerSession _contentManagerSession;
         private readonly IRoleService _roleService;
@@ -93,7 +94,8 @@ namespace NKD.Services {
             ICacheManager cache, 
             IClock clock, 
             ISignals signals,
-            IRepository<UserPartRecord> userPartRepository
+            IRepository<UserPartRecord> userPartRepository,
+            IMembershipService membershipService
             ) 
         {
             _signals = signals;
@@ -109,6 +111,7 @@ namespace NKD.Services {
             _shellSettings = shellSettings;
             _userRolesRepository = userRolesRepository;
             _userPartRepository = userPartRepository;
+            _membership = membershipService;
             T = NullLocalizer.Instance;
             Logger = NullLogger.Instance;            
         }
@@ -1474,6 +1477,30 @@ namespace NKD.Services {
                 return false;
             user.As<UserPart>().Email = email;
             return true;
+        }
+
+        public bool VerifyUserUnicity(string userName, string email)
+        {
+            string normalizedUserName = userName.ToLowerInvariant();
+
+            if (_contentManager.Query<UserPart, UserPartRecord>()
+                                   .Where(user =>
+                                          user.NormalizedUserName == normalizedUserName ||
+                                          user.Email == email)
+                                   .List().Any())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public IUser Create(string email, string username, string password)
+        {
+            if (VerifyUserUnicity(username, email))
+                return _membership.CreateUser(new CreateUserParams(username, password, email, null, null, true));
+            else
+                return null;
         }
 
         //Events
