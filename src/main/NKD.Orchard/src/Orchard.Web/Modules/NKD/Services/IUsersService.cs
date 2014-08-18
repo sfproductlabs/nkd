@@ -78,8 +78,10 @@ namespace NKD.Services
              get;
          }
 
+         [OperationContract]
          bool CheckPermission(ISecured secured, ActionPermission permission);
 
+         [OperationContract]
          bool CheckOwnership(ISecured secured, ActionPermission permission);
 
          string Username
@@ -149,9 +151,13 @@ namespace NKD.Services
              get;
          }
 
+         [OperationContract]
          IUser Create(string email, string username, string password);
 
+         [OperationContract]
          bool VerifyUserUnicity(string userName, string email);
 
+         [OperationContract]
+         bool RequestLostPassword(string username);
     }
 }

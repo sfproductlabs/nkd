@@ -47,6 +47,8 @@ using NKD.ViewModels;
 using Newtonsoft.Json;
 using System.Web.Mvc;
 using EntityFramework.Extensions;
+using Orchard.Mvc.Extensions;
+
 
 namespace NKD.Services {
     
@@ -56,6 +58,7 @@ namespace NKD.Services {
         public static readonly Guid COMPANY_DEFAULT = new Guid("6887ABC9-E2D8-4A2D-B143-6C3E5245C565");
 
         private readonly IOrchardServices _orchardServices;
+        private readonly IUserService _user;
         private readonly IMembershipService _membership;
         private readonly IContentManager _contentManager;
         private readonly IContentManagerSession _contentManagerSession;
@@ -95,7 +98,8 @@ namespace NKD.Services {
             IClock clock, 
             ISignals signals,
             IRepository<UserPartRecord> userPartRepository,
-            IMembershipService membershipService
+            IMembershipService membershipService,
+            IUserService userService
             ) 
         {
             _signals = signals;
@@ -113,7 +117,8 @@ namespace NKD.Services {
             _userPartRepository = userPartRepository;
             _membership = membershipService;
             T = NullLocalizer.Instance;
-            Logger = NullLogger.Instance;            
+            Logger = NullLogger.Instance;      
+            _user = userService;
         }
 
         public Localizer T { get; set; }
@@ -1479,8 +1484,33 @@ namespace NKD.Services {
             return true;
         }
 
+        public bool RequestLostPassword(string username) {
+            var registrationSettings = _orchardServices.WorkContext.CurrentSite.As<RegistrationSettingsPart>();
+            if ( !registrationSettings.EnableLostPassword ) {
+                return false;
+            }
+
+            if(String.IsNullOrWhiteSpace(username)){
+                return false;
+            }
+
+            var siteUrl = _orchardServices.WorkContext.CurrentSite.BaseUrl;
+            if (String.IsNullOrWhiteSpace(siteUrl)) {
+                siteUrl = HttpContext.Current.Request.ToRootUrlString();
+            }
+            UrlHelper url = new UrlHelper(HttpContext.Current.Request.RequestContext);
+            return _user.SendLostPasswordEmail(username, nonce => url.MakeAbsolute(url.Action("LostPassword", "Account", new { Area = "Orchard.Users", nonce = nonce }), siteUrl));
+        }
+
+
         public bool VerifyUserUnicity(string userName, string email)
         {
+            if (userName == null || email == null)
+                return false;
+
+            if (userName.Length < 2 || email.Length < 4)
+                return false;
+
             string normalizedUserName = userName.ToLowerInvariant();
 
             if (_contentManager.Query<UserPart, UserPartRecord>()
