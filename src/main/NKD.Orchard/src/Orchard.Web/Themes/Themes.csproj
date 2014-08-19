@@ -75,6 +75,7 @@
     <Content Include="flowhome1\Placement.info" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="flow\Styles\site.uncompressed.css" />
     <Content Include="flow\Web.config" />
     <Content Include="flow\Scripts\Web.config" />
     <Content Include="flow\Styles\Web.config" />
