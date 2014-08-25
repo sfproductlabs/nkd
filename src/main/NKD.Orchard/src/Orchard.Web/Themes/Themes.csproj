@@ -93,6 +93,7 @@
     <Content Include="MAS1\Content\Images\accordion-plus-white.png" />
     <Content Include="MAS1\Content\Images\accordion-plus.png" />
     <Content Include="MAS1\Content\Images\arrow-submenu.png" />
+    <Content Include="MAS1\Content\Images\bg.transp.tile-wavecut.png" />
     <Content Include="MAS1\Content\Images\cart.png" />
     <Content Include="MAS1\Content\Images\flags\en-US.gif" />
     <Content Include="MAS1\Content\Images\flags\pt-PT.gif" />
